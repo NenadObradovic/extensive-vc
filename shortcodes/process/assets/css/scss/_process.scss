@@ -57,7 +57,11 @@
 	}
 	
 	.evc-p-mark-horizontal {
-		@include evcRelativeLayout();
+		position: relative;
+		left: -10px;
+		width: calc(100% + 20px);
+		display: inline-block;
+		vertical-align: top;
 		clear: both;
 		
 		.evc-p-mark {

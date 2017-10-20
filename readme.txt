@@ -16,9 +16,7 @@ Extensive addons or extensions for WPBakery page builder ex. Visual Composer, wh
 
 Extensive VC is a powerful WordPress tool which allows you to add unique, flexible and fully responsive shortcode elements on your site. It is an addons for premium plugin <a href="https://vc.wpbakery.com/"><strong>WPBakery Page Builder</strong></a> (formerly Visual Composer), so first you need to install/activate this required plugin to be able to use Extensive VC plugin. Plugin contains four packs of shortcode elements (classic, interactive, infographic and typography). All of these shortcode packs you can find in our website in Elements section inside header menu.
 
-See the all of addon elements in action here -
-
-<a href="http://wprealize.com/" title="Extensive VC Addons for Visual Composer"><strong>LIVE DEMO</strong></a>
+See the all of addon elements in action here - <a href="http://wprealize.com/" title="Extensive VC Addons for Visual Composer"><strong>LIVE DEMO</strong></a>
 
 <h3>Features</h3>
 <ul>

@@ -24,12 +24,13 @@
 		
 		.evc-process-2-item {
 			opacity: 1;
+			@include evcTransform(scale(1));
 		}
 	}
 	
 	.evc-p2-cover-bg {
 		position: absolute;
-		top: -20px;
+		top: 10px;
 		left: 0;
 		width: calc(100% + 120px);
 		height: 100%;
@@ -41,7 +42,7 @@
 	}
 	
 	.evc-p2-inner {
-		margin: 0 -15px;
+		margin: 0 -25px;
 	}
 	
 	.evc-process-2-item {
@@ -49,11 +50,12 @@
 		display: inline-block;
 		vertical-align: top;
 		float: left;
-		padding: 0 15px;
+		padding: 0 25px;
 		opacity: 0;
 		text-align: center;
 		box-sizing: border-box;
-		@include evcTransition(opacity .2s ease);
+		@include evcTransform(scale(0.8));
+		@include evcTransitionTransform(.2s ease, opacity .2s ease);
 		
 		@for $i from 1 to 5 {
 			
@@ -72,6 +74,19 @@
 		a {
 			position: relative;
 			display: block;
+			
+			&:hover {
+				
+				img {
+					top: -10px;
+				}
+			}
+			
+			img {
+				position: relative;
+				top: 0;
+				@include evcTransition(top .3s ease-in-out);
+			}
 		}
 		
 		img {
