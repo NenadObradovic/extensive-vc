@@ -1,0 +1,184 @@
+/* ==========================================================================
+   Process shortcode style - begin
+   ========================================================================== */
+
+.evc-process {
+	@include evcRelativeLayout();
+	
+	$columns: ('two', 'three', 'four');
+	@for $i from 0 to length($columns) {
+		&.evc-#{nth($columns, $i+1)}-columns {
+			$column_width: 100%/($i+2);
+			
+			.evc-p-mark-horizontal {
+				
+				.evc-p-mark {
+					width: $column_width;
+				}
+			}
+			
+			.evc-p-mark-vertical {
+				
+				.evc-p-mark {
+					height: $column_width;
+				}
+			}
+			
+			.evc-process-item {
+				width: $column_width;
+			}
+		}
+	}
+	
+	&.evc-process-appeared {
+		
+		.evc-p-circle {
+			opacity: 1;
+			@include evcTransform(scale(1));
+		}
+		
+		.evc-p-mark-horizontal {
+			
+			.evc-p-line {
+				width: 100%;
+			}
+		}
+		
+		.evc-p-mark-vertical {
+			
+			.evc-p-line {
+				height: 100%;
+			}
+		}
+		
+		.evc-process-item {
+			opacity: 1;
+		}
+	}
+	
+	.evc-p-mark-horizontal {
+		@include evcRelativeLayout();
+		clear: both;
+		
+		.evc-p-mark {
+			float: left;
+		}
+		
+		.evc-p-line {
+			top: 50%;
+			left: 50%;
+			width: 0;
+			height: 1px;
+			@include evcTransition(width .4s ease .1s);
+		}
+	}
+	
+	.evc-p-mark-vertical {
+		position: absolute;
+		top: -10px;
+		left: 0;
+		display: none;
+		width: 46px;
+		height: 100%;
+		
+		.evc-p-line {
+			top: 23px;
+			left: 50%;
+			width: 1px;
+			height: 0;
+			@include evcTransition(height .4s ease .1s);
+		}
+	}
+	
+	.evc-p-mark {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		text-align: center;
+		
+		&:last-child {
+			
+			.evc-p-line {
+				display: none;
+			}
+		}
+		
+		@for $i from 2 to 5 {
+			
+			&:nth-child(#{$i}) {
+				
+				.evc-p-circle {
+					$delay: #{.5 * ($i - 1)}s;
+					@include evcTransitionDelay($delay);
+				}
+				
+				.evc-p-line {
+					$delay: #{.6 * ($i - 1)}s;
+					@include evcTransitionDelay($delay);
+				}
+			}
+		}
+	}
+	
+	.evc-p-circle {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		width: 46px;
+		height: 46px;
+		font-size: 18px;
+		line-height: 46px;
+		font-weight: 700;
+		color: #fff;
+		background-color: $main-color;
+		border-radius: 100%;
+		opacity: 0;
+		@include evcTransform(scale(.6));
+		@include evcTransitionTransform(.3s ease, opacity .2s ease);
+	}
+	
+	.evc-p-line {
+		position: absolute;
+		background-color: $main-color;
+	}
+	
+	.evc-p-inner {
+		margin: 0 -15px;
+	}
+	
+	.evc-process-item {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		float: left;
+		padding: 0 15px;
+		margin-top: 26px;
+		opacity: 0;
+		text-align: center;
+		box-sizing: border-box;
+		@include evcTransition(opacity .2s ease);
+		
+		@for $i from 2 to 5 {
+			
+			&:nth-child(#{$i}) {
+				$delay: #{.5 * ($i - 1)}s;
+				@include evcTransitionDelay($delay);
+			}
+		}
+	}
+	
+	.evc-pi-content {
+		@include evcRelativeLayout();
+	}
+	
+	.evc-pi-title {
+		margin: 0;
+	}
+	
+	.evc-pi-text {
+		margin: 11px 0 10px;
+	}
+}
+/* ==========================================================================
+   Process shortcode style - end
+   ========================================================================== */

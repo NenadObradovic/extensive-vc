@@ -1,0 +1,45 @@
+/* ==========================================================================
+   Icon List shortcode style - begin
+   ========================================================================== */
+
+.evc-icon-list {
+	@include evcRelativeLayout();
+
+	.evc-il-item {
+		@include evcRelativeLayout();
+		margin-bottom: 8px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		> * {
+			display: table-cell;
+			vertical-align: top;
+		}
+	}
+
+	.evc-ili-icon-wrapper {
+		padding-right: 15px;
+		color: $main-color;
+		
+		* {
+			display: block;
+			line-height: inherit;
+			color: inherit;
+			
+			&:before {
+				display: block;
+				line-height: inherit;
+			}
+		}
+	}
+
+	.evc-ili-text {
+		margin: 0;
+	}
+}
+
+/* ==========================================================================
+   Icon List shortcode style - end
+   ========================================================================== */

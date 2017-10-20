@@ -1,0 +1,78 @@
+/* ==========================================================================
+   Icon With Text shortcode style - begin
+   ========================================================================== */
+
+.evc-icon-with-text {
+	@include evcRelativeLayout();
+	
+	.evc-iwt-icon-holder {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		line-height: 1;
+		
+		img {
+			height: auto;
+			max-width: 100%;
+			vertical-align: middle;
+		}
+	}
+	
+	.evc-iwt-icon {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		font-size: 26px;
+		color: $main-color;
+	}
+	
+	.evc-iwt-title {
+		margin: 0;
+	}
+	
+	.evc-iwt-text {
+		margin: 14px 0 0;
+	}
+	
+	/***** Types styles - begin *****/
+	
+	&.evc-iwt-icon-top {
+		text-align: center;
+		
+		.evc-iwt-icon-holder {
+			display: block;
+			
+			img {
+				display: block;
+				margin: 0 auto;
+			}
+		}
+		
+		.evc-iwt-content {
+			margin-top: 20px;
+		}
+	}
+	
+	&.evc-iwt-icon-left {
+		
+		.evc-iwt-icon-holder,
+		.evc-iwt-content {
+			display: table-cell;
+			vertical-align: top;
+		}
+		
+		.evc-iwt-icon-holder {
+			padding-right: 15px;
+			
+			img {
+				max-width: none;
+			}
+		}
+	}
+	
+	/***** Types styles - end *****/
+}
+
+/* ==========================================================================
+   Icon With Text shortcode style - end
+   ========================================================================== */

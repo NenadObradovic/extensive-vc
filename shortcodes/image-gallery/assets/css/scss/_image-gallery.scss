@@ -1,0 +1,29 @@
+/* ==========================================================================
+   Image Gallery shortcode style - begin
+   ========================================================================== */
+
+.evc-image-gallery {
+	@include evcRelativeLayout();
+	
+	.evc-ig-image {
+		@include evcRelativeLayout();
+		box-sizing: border-box;
+		
+		a, img {
+			position: relative;
+			display: block;
+		}
+	}
+	
+	/***** Types styles - begin *****/
+	
+	.evc-ig-slider {
+		@include evcRelativeLayout();
+	}
+	
+	/***** Types styles - end *****/
+}
+
+/* ==========================================================================
+   Image Gallery shortcode style - end
+   ========================================================================== */

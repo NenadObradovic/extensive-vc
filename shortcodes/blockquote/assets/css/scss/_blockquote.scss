@@ -1,0 +1,42 @@
+/* ==========================================================================
+   Blockquote shortcode style - begin
+   ========================================================================== */
+
+.evc-blockquote {
+    @include evcRelativeLayout();
+	margin: 0;
+	quotes: none;
+	font-style: normal;
+	border: 0;
+    box-sizing: border-box;
+	
+	.evc-b-text {
+		display: block;
+	}
+	
+	/***** Type styles - begin *****/
+	
+	&.evc-b-simple {
+		color: #ccc;
+		font-size: 14px;
+		line-height: 28px;
+		font-weight: 500;
+		padding: 1px 0 0 47px;
+	}
+	
+	&.evc-b-left-line {
+		color: $text-color;
+		font-size: 16px;
+		line-height: 28px;
+		font-weight: 500;
+		padding: 0 0 0 25px;
+		border-left: 4px solid $main-color;
+	}
+	
+	/***** Type styles - end *****/
+ 
+}
+
+/* ==========================================================================
+   Blockquote shortcode style - end
+   ========================================================================== */

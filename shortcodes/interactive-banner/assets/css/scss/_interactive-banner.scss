@@ -1,0 +1,70 @@
+/* ==========================================================================
+   Interactive Banner shortcode style - begin
+   ========================================================================== */
+
+.evc-interactive-banner {
+    @include evcRelativeLayout();
+
+	.touch & {
+		cursor: pointer;
+	}
+
+	&:hover {
+
+		.evc-ib-content-wrapper {
+			opacity: 1;
+		}
+	}
+	
+	.evc-ib-image {
+		@include evcRelativeLayout();
+		
+		img {
+			display: block;
+			width: 100%;
+		}
+	}
+	
+	.evc-ib-content-wrapper {
+		@include evcAbsoluteLayout();
+		padding: 20px;
+		background-color: rgba($dark-color, .3);
+		opacity: 0;
+		box-sizing: border-box;
+		@include evcTransition(opacity .3s ease-in-out);
+	}
+	
+	.evc-ib-content-inner {
+		@include evcTableLayout();
+		 text-align: center;
+	}
+	
+	.evc-ib-content {
+		@include evcTableCellLayout();
+	}
+	
+	.evc-ib-custom-icon {
+		display: block;
+		margin: 0 auto 10px;
+	}
+	
+	.evc-ib-icon {
+		display: block;
+		margin-bottom: 20px;
+		font-size: 40px;
+		color: $light-color;
+	}
+	
+	.evc-ib-title {
+		margin: 0;
+		color: $light-color;
+	}
+	
+	.evc-ib-link {
+		@include evcAbsoluteLayout();
+	}
+}
+
+/* ==========================================================================
+   Interactive Banner shortcode style - end
+   ========================================================================== */

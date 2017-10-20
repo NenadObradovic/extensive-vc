@@ -1,0 +1,34 @@
+/* ==========================================================================
+   Separator shortcode style - begin
+   ========================================================================== */
+
+.evc-separator {
+    @include evcRelativeLayout();
+    height: auto;
+    font-size: 0;
+    line-height: 1em;
+
+    &.evc-separator-center {
+        text-align: center;
+    }
+	
+    &.evc-separator-left {
+        text-align: left;
+    }
+	
+    &.evc-separator-right {
+        text-align: right;
+    }
+    
+    .evc-s-inner {
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        border-bottom: 1px solid $border-color;
+        margin: 20px 0;
+    }
+}
+
+/* ==========================================================================
+   Separator shortcode style - end
+   ========================================================================== */

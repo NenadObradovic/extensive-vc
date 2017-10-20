@@ -1,0 +1,22 @@
+/* ==========================================================================
+   Single Image shortcode style - begin
+   ========================================================================== */
+
+.evc-single-image {
+	@include evcRelativeLayout();
+	
+	.evc-si-inner {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+	}
+	
+	a, img {
+		position: relative;
+		display: block;
+	}
+}
+
+/* ==========================================================================
+   Single Image shortcode style - end
+   ========================================================================== */

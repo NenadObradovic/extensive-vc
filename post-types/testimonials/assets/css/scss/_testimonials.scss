@@ -1,0 +1,58 @@
+/* ==========================================================================
+   Testimonials shortcode style - begin
+   ========================================================================== */
+
+.evc-testimonials {
+    @include evcRelativeLayout();
+	
+    .evc-t-item {
+        @include evcRelativeLayout();
+        text-align: center;
+    
+        .evc-t-image {
+        
+            img {
+                display: block;
+                width: auto;
+                margin: 0 auto;
+                border-radius: 100%;
+            }
+        }
+    }
+    
+    .evc-t-image {
+        @include evcRelativeLayout();
+    }
+    
+    .evc-t-content {
+        @include evcRelativeLayout();
+        margin-top: 30px;
+    }
+    
+    .evc-t-text {
+        margin: 0;
+    }
+    
+    .evc-t-author {
+        display: block;
+        margin-top: 16px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+    
+    .evc-t-author-label {
+        display: inline-block;
+        vertical-align: top;
+        font-weight: 700;
+        color: $dark-color;
+    }
+    
+    .evc-t-author-position {
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+
+/* ==========================================================================
+   Testimonials shortcode style - end
+   ========================================================================== */

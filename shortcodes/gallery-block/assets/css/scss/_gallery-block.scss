@@ -1,0 +1,33 @@
+/* ==========================================================================
+   Gallery Block shortcode style - begin
+   ========================================================================== */
+
+.evc-gallery-block {
+	@include evcRelativeLayout();
+	
+	.evc-gb-image-wrapper {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		width: 50%;
+		float: left;
+		box-sizing: border-box;
+		
+		&.evc-gb-featured-image {
+			width: 100%;
+		}
+	}
+	
+	.evc-gb-image {
+		@include evcRelativeLayout();
+		
+		a, img {
+			position: relative;
+			display: block;
+		}
+	}
+}
+
+/* ==========================================================================
+   Gallery Block shortcode style - end
+   ========================================================================== */

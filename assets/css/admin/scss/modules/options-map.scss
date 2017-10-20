@@ -1,0 +1,73 @@
+/* ==========================================================================
+   Include global partials - begin
+   ========================================================================== */
+
+@import '../../../scss/variables';
+@import '../../../scss/mixins';
+
+/* ==========================================================================
+   Include global partials - end
+   ========================================================================== */
+
+/* ==========================================================================
+   Options styles - begin
+   ========================================================================== */
+
+.evc-admin-about {
+	
+	.evc-admin-about-content {
+		@include evcRelativeLayout();
+		padding-right: 160px;
+		box-sizing: border-box;
+	}
+	
+	.evc-admin-logo {
+		position: absolute;
+		top: 0;
+		right: 0;
+		display: block;
+	}
+	
+	.evc-admin-image {
+		position: relative;
+		display: block;
+		margin: 50px 0 0;
+	}
+}
+
+.evc-admin-settings {
+	
+	.evc-admin-checkboxes {
+		margin-bottom: 10px;
+		
+		&:after {
+			content: ' ';
+			display: table;
+			clear: both;
+		}
+		
+		.evc-admin-checkbox {
+			float: left;
+			width: 25%;
+			
+			@media screen and (min-width: 783px) {
+				
+				&:nth-child(4n+1) {
+					clear: both;
+				}
+			}
+			
+			@media screen and (max-width: 782px) {
+				width: 50%;
+				
+				&:nth-child(2n+1) {
+					clear: both;
+				}
+			}
+		}
+	}
+}
+
+/* ==========================================================================
+   Options styles - end
+   ========================================================================== */

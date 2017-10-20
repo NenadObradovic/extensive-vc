@@ -1,0 +1,97 @@
+/* ==========================================================================
+   Process 2 shortcode style - begin
+   ========================================================================== */
+
+.evc-process-2 {
+	@include evcRelativeLayout();
+	
+	$columns: ('two', 'three', 'four');
+	@for $i from 0 to length($columns) {
+		&.evc-#{nth($columns, $i+1)}-columns {
+			$column_width: 100%/($i+2);
+			
+			.evc-process-2-item {
+				width: $column_width;
+			}
+		}
+	}
+	
+	&.evc-process-appeared {
+		
+		.evc-p2-cover-bg {
+			opacity: 1;
+		}
+		
+		.evc-process-2-item {
+			opacity: 1;
+		}
+	}
+	
+	.evc-p2-cover-bg {
+		position: absolute;
+		top: -20px;
+		left: 0;
+		width: calc(100% + 120px);
+		height: 100%;
+		margin: 0 -60px;
+		background: url('../shortcodes/process-2/assets/img/bg-cover-image.png') 50% 0 no-repeat;
+		z-index: -1;
+		opacity: 0;
+		@include evcTransition(opacity .15s ease-in);
+	}
+	
+	.evc-p2-inner {
+		margin: 0 -15px;
+	}
+	
+	.evc-process-2-item {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		float: left;
+		padding: 0 15px;
+		opacity: 0;
+		text-align: center;
+		box-sizing: border-box;
+		@include evcTransition(opacity .2s ease);
+		
+		@for $i from 1 to 5 {
+			
+			&:nth-child(#{$i}) {
+				$delay: #{.5 * ($i - 0.5)}s;
+				@include evcTransitionDelay($delay);
+			}
+		}
+	}
+	
+	.evc-p2i-image {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		
+		a {
+			position: relative;
+			display: block;
+		}
+		
+		img {
+			display: block;
+			border-radius: 100%;
+		}
+	}
+	
+	.evc-p2i-content {
+		@include evcRelativeLayout();
+	}
+	
+	.evc-p2i-title {
+		margin: 30px 0 0;
+	}
+	
+	.evc-p2i-text {
+		margin: 11px 0 0;
+	}
+}
+/* ==========================================================================
+   Process 2 shortcode style - end
+   ========================================================================== */

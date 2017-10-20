@@ -1,0 +1,58 @@
+<?php
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+if ( ! function_exists( 'extensive_vc_init_admin_options_style' ) ) {
+	/**
+	 * Generate admin options style
+	 *
+	 * @param $style - current custom inline style
+	 *
+	 * @return string
+	 */
+	function extensive_vc_init_admin_options_style( $style ) {
+		global $evc_options;
+		
+		$current_styles = '';
+		
+		$main_color = $evc_options->options->getOptionValueById( 'evc_main_color' );
+		
+		$main_color_c_selector = array(
+			'.evc-owl-carousel .owl-nav .owl-next:hover',
+			'.evc-owl-carousel .owl-nav .owl-prev:hover',
+		    '.evc-blockquote .evc-b-quote',
+		    '.evc-button.evc-btn-simple:hover',
+		    '.evc-button.evc-btn-fill-text .evc-btn-hover-text',
+		    '.evc-dropcaps .evc-d-letter',
+		    '.evc-icon-list .evc-ili-icon-wrapper'
+		);
+		
+		$main_color_bg_selector = array(
+			'.evc-button.evc-btn-solid:hover',
+		    '.evc-button.evc-btn-strike-line .evc-btn-strike-line',
+		    '.evc-process .evc-p-circle',
+		    '.evc-process .evc-p-line',
+		    '.evc-progress-bar .evc-pb-active-bar'
+		);
+		
+		$main_color_b_selector = array(
+			'.evc-button.evc-btn-fill-line .evc-btn-fill-line',
+		    '.evc-button.evc-btn-switch-line .evc-btn-switch-line-2'
+		);
+		
+		if ( ! empty( $main_color ) ) {
+			$current_styles .= extensive_vc_generate_dynamic_css( $main_color_c_selector, array( 'color' => $main_color ) );
+			$current_styles .= extensive_vc_generate_dynamic_css( $main_color_bg_selector, array( 'background-color' => $main_color ) );
+			$current_styles .= extensive_vc_generate_dynamic_css( $main_color_b_selector, array( 'border-color' => $main_color ) );
+		}
+		
+		$current_styles = $current_styles . $style;
+		
+		return $current_styles;
+	}
+	
+	add_filter( 'extensive_vc_filter_main_custom_style', 'extensive_vc_init_admin_options_style' );
+}
+

@@ -1,0 +1,113 @@
+/* ==========================================================================
+   Process 2 shortcode responsive style - begin
+   ========================================================================== */
+
+.evc-process-2 {
+	
+	@include mac-screen {
+		
+		.evc-p2-cover-bg {
+			background-size: contain;
+		}
+		
+		&.evc-responsive-1280 {
+			
+			.evc-p2-cover-bg {
+				display: none;
+			}
+			
+			.evc-process-2-item {
+				width: 100% !important;
+				float: none;
+				margin-top: 50px;
+				
+				&:first-child {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+	
+	@include ipad-landscape-screen {
+		
+		&.evc-responsive-1024 {
+			
+			.evc-p2-cover-bg {
+				display: none;
+			}
+			
+			.evc-process-2-item {
+				width: 100% !important;
+				float: none;
+				margin-top: 50px;
+				
+				&:first-child {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+	
+	@include ipad-portrait-screen {
+		
+		&.evc-responsive-768 {
+			
+			.evc-p2-cover-bg {
+				display: none;
+			}
+			
+			.evc-process-2-item {
+				width: 100% !important;
+				float: none;
+				margin-top: 50px;
+				
+				&:first-child {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+	
+	@include phone-landscape-screen {
+		
+		&.evc-responsive-680 {
+			
+			.evc-p2-cover-bg {
+				display: none;
+			}
+			
+			.evc-process-2-item {
+				width: 100% !important;
+				float: none;
+				margin-top: 50px;
+				
+				&:first-child {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+	
+	@include phone-portrait-screen {
+		
+		&.evc-responsive-480 {
+			
+			.evc-p2-cover-bg {
+				display: none;
+			}
+			
+			.evc-process-2-item {
+				width: 100% !important;
+				float: none;
+				margin-top: 50px;
+				
+				&:first-child {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+}
+/* ==========================================================================
+   Process shortcode responsive style - end
+   ========================================================================== */

@@ -1,0 +1,25 @@
+/* ==========================================================================
+   Section Title shortcode style - begin
+   ========================================================================== */
+
+.evc-section-title {
+    @include evcRelativeLayout();
+	text-align: center;
+	
+	.evc-st-inner {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+	}
+	
+	.evc-iwt-title {
+		margin: 0;
+	}
+	
+	.evc-iwt-text {
+		margin: 14px 0 0;
+	}
+}
+/* ==========================================================================
+   Section Title shortcode style - end
+   ========================================================================== */

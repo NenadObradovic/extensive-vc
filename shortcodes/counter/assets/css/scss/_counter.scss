@@ -1,0 +1,37 @@
+/* ==========================================================================
+   Counter shortcode style - begin
+   ========================================================================== */
+
+.evc-counter {
+    @include evcRelativeLayout();
+    opacity: 0;
+    @include evcTransition(opacity 0.3s ease-in-out);
+	
+	.evc-c-inner {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+	}
+
+    .evc-c-digit {
+	    display: inline-block !important;
+	    vertical-align: top;
+	    height: 1em;
+	    color: $main-color;
+	    font-size: 45px;
+	    line-height: 1;
+	    font-weight: 700;
+	    overflow: hidden;
+    }
+
+    .evc-c-title {
+	    margin: 9px 0 0;
+    }
+
+    .evc-c-text {
+	    margin: 8px 0 0;
+    }
+}
+/* ==========================================================================
+   Counter shortcode style - end
+   ========================================================================== */

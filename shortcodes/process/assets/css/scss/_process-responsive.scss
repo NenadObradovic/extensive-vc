@@ -1,0 +1,163 @@
+/* ==========================================================================
+   Process shortcode responsive style - begin
+   ========================================================================== */
+
+.evc-process {
+	
+	@include mac-screen {
+		
+		&.evc-responsive-1280 {
+			
+			.evc-p-mark-horizontal {
+				display: none;
+			}
+			
+			.evc-p-mark-vertical {
+				display: block;
+			}
+			
+			.evc-p-inner {
+				@include evcRelativeLayout();
+				padding: 0 0 0 76px;
+				margin: 0;
+				box-sizing: border-box;
+			}
+			
+			.evc-process-item {
+				width: 100% !important;
+				min-height: 76px;
+				float: none;
+				padding: 0;
+				margin-top: 0;
+				text-align: inherit;
+			}
+			
+			.evc-pi-content {
+				margin-bottom: 20px;
+			}
+		}
+	}
+	
+	@include ipad-landscape-screen {
+		
+		&.evc-responsive-1024 {
+			
+			.evc-p-mark-horizontal {
+				display: none;
+			}
+			
+			.evc-p-mark-vertical {
+				display: block;
+			}
+			
+			.evc-p-inner {
+				@include evcRelativeLayout();
+				padding: 0 0 0 76px;
+				margin: 0;
+				box-sizing: border-box;
+			}
+			
+			.evc-process-item {
+				width: 100% !important;
+				min-height: 76px;
+				float: none;
+				padding: 0;
+				margin-top: 0;
+				text-align: inherit;
+			}
+		}
+	}
+	
+	@include ipad-portrait-screen {
+		
+		&.evc-responsive-768 {
+			
+			.evc-p-mark-horizontal {
+				display: none;
+			}
+			
+			.evc-p-mark-vertical {
+				display: block;
+			}
+			
+			.evc-p-inner {
+				@include evcRelativeLayout();
+				padding: 0 0 0 76px;
+				margin: 0;
+				box-sizing: border-box;
+			}
+			
+			.evc-process-item {
+				width: 100% !important;
+				min-height: 76px;
+				float: none;
+				padding: 0;
+				margin-top: 0;
+				text-align: inherit;
+			}
+		}
+	}
+	
+	@include phone-landscape-screen {
+		
+		&.evc-responsive-680 {
+			
+			.evc-p-mark-horizontal {
+				display: none;
+			}
+			
+			.evc-p-mark-vertical {
+				display: block;
+			}
+			
+			.evc-p-inner {
+				@include evcRelativeLayout();
+				padding: 0 0 0 76px;
+				margin: 0;
+				box-sizing: border-box;
+			}
+			
+			.evc-process-item {
+				width: 100% !important;
+				min-height: 76px;
+				float: none;
+				padding: 0;
+				margin-top: 0;
+				text-align: inherit;
+			}
+		}
+	}
+	
+	@include phone-portrait-screen {
+		
+		&.evc-responsive-480 {
+			
+			.evc-p-mark-horizontal {
+				display: none;
+			}
+			
+			.evc-p-mark-vertical {
+				display: block;
+			}
+			
+			.evc-p-inner {
+				@include evcRelativeLayout();
+				padding: 0 0 0 76px;
+				margin: 0;
+				box-sizing: border-box;
+			}
+			
+			.evc-process-item {
+				width: 100% !important;
+				min-height: 76px;
+				float: none;
+				padding: 0;
+				margin-top: 0;
+				text-align: inherit;
+			}
+		}
+	}
+}
+/* ==========================================================================
+   Process shortcode responsive style - end
+   ========================================================================== */

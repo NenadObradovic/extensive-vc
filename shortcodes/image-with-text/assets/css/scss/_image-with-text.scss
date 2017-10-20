@@ -1,0 +1,31 @@
+/* ==========================================================================
+   Image With Text shortcode style - begin
+   ========================================================================== */
+
+.evc-image-with-text {
+    @include evcRelativeLayout();
+	
+	.evc-iwt-image {
+		@include evcRelativeLayout();
+		
+		a, img {
+			position: relative;
+			display: block;
+		}
+	}
+	
+	.evc-iwt-content {
+		@include evcRelativeLayout();
+	}
+	
+	.evc-iwt-title {
+		margin: 25px 0 0;
+	}
+	
+	.evc-iwt-text {
+		margin: 14px 0 0;
+	}
+}
+/* ==========================================================================
+   Image With Text shortcode style - end
+   ========================================================================== */
