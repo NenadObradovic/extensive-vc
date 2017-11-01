@@ -28,7 +28,7 @@
 						} else {
 							barContent.stop().animate({'width': percentValue + '%'}, 1500);
 						}
-					});
+					}, {accX: 0, accY: -80});
 				}
 			});
 		}

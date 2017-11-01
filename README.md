@@ -12,13 +12,15 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
 	<li><a href="http://wprealize.com/classic/image-with-text/">Classic - Image With Text</a></li>
 	<li><a href="http://wprealize.com/classic/separator/">Classic - Separator</a></li>
 	<li><a href="http://wprealize.com/classic/single-image/">Classic - Single Image</a></li>
-	<li><a href="http://wprealize.com/interactive/gallery-block/">Interactive - Gallery Block</a></li>
+	<li><a href="http://wprealize.com/interactive/flip-image/">Interactive - Flip Image (New)</a></li>
+    <li><a href="http://wprealize.com/interactive/gallery-block/">Interactive - Gallery Block</a></li>
 	<li><a href="http://wprealize.com/interactive/image-gallery/">Interactive - Image Gallery</a></li>
 	<li><a href="http://wprealize.com/interactive/interactive-banner/">Interactive - Interactive Banner</a></li>
 	<li><a href="http://wprealize.com/interactive/process/">Interactive - Process</a></li>
 	<li><a href="http://wprealize.com/interactive/process-2/">Interactive - Process 2</a></li>
 	<li><a href="http://wprealize.com/interactive/testimonials/">Interactive - Testimonials</a></li>
 	<li><a href="http://wprealize.com/infographic/counter/">Infographic - Counter</a></li>
+	<li><a href="http://wprealize.com/infographic/icon-progress-bar/">Infographic - Icon Progress Bar (New)</a></li>
 	<li><a href="http://wprealize.com/infographic/progress-bar/">Infographic - Progress Bar</a></li>
 	<li><a href="http://wprealize.com/typography/blockquote/">Typography - Blockquote</a></li>
 	<li><a href="http://wprealize.com/typography/custom-font/">Typography - Custom Font</a></li>
@@ -49,3 +51,15 @@ From wordpress.org
 
 <h3>Documentation</h3>
 You can find all instructions about plugin and all shortcodes in website <a href="http://wprealize.com/"><strong>WP Realize - Extensive VC</strong></a>
+
+<h3>Changelog</h3>
+
+<h5>1.1</h5>
+- Added Flip Image shortcode
+- Added Icon Progress Bar shortcode
+- Improved shortcodes funtionalities
+- Updated language pot file
+- Fixed minor bugs
+
+<h5>1.0</h5>
+- Initial release.

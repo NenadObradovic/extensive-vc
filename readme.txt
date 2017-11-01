@@ -1,10 +1,10 @@
 === Extensive VC ===
 Contributors: nenad-obradovic
-Tags: wpbakery page builder addons, wpbakery page builder, visual composer addons, visual composer extensions, visual composer shortcodes
+Tags: visual composer, visual composer addons, visual composer extensions, visual composer shortcodes, wpbakery page builder addons, wpbakery page builder
 Donate link: http://wprealize.com/donate/
 Requires at least: 4.6
 Tested up to: 4.8.2
-Stable tag: 1.0
+Stable tag: 1.1
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -26,6 +26,7 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
 	<li><a href="http://wprealize.com/classic/image-with-text/">Classic - Image With Text</a></li>
 	<li><a href="http://wprealize.com/classic/separator/">Classic - Separator</a></li>
 	<li><a href="http://wprealize.com/classic/single-image/">Classic - Single Image</a></li>
+	<li><a href="http://wprealize.com/interactive/flip-image/">Interactive - Flip Image (New)</a></li>
 	<li><a href="http://wprealize.com/interactive/gallery-block/">Interactive - Gallery Block</a></li>
 	<li><a href="http://wprealize.com/interactive/image-gallery/">Interactive - Image Gallery</a></li>
 	<li><a href="http://wprealize.com/interactive/interactive-banner/">Interactive - Interactive Banner</a></li>
@@ -33,6 +34,7 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
 	<li><a href="http://wprealize.com/interactive/process-2/">Interactive - Process 2</a></li>
 	<li><a href="http://wprealize.com/interactive/testimonials/">Interactive - Testimonials</a></li>
 	<li><a href="http://wprealize.com/infographic/counter/">Infographic - Counter</a></li>
+	<li><a href="http://wprealize.com/infographic/icon-progress-bar/">Infographic - Icon Progress Bar (New)</a></li>
 	<li><a href="http://wprealize.com/infographic/progress-bar/">Infographic - Progress Bar</a></li>
 	<li><a href="http://wprealize.com/typography/blockquote/">Typography - Blockquote</a></li>
 	<li><a href="http://wprealize.com/typography/custom-font/">Typography - Custom Font</a></li>
@@ -78,5 +80,12 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 
 == Changelog ==
 
+= 1.1 =
+- Added Flip Image shortcode
+- Added Icon Progress Bar shortcode
+- Improved shortcodes funtionalities
+- Updated language pot file
+- Fixed minor bugs
+
 = 1.0 =
-* Initial release.
+- Initial release.

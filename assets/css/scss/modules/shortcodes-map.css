@@ -445,6 +445,120 @@
    Dropcaps shortcode style - end
    ========================================================================== */
 /* ==========================================================================
+   Flip Image shortcode style - begin
+   ========================================================================== */
+.evc-flip-image {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.touch .evc-flip-image {
+  cursor: pointer;
+}
+
+.evc-flip-image:hover .evc-fi-image {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.evc-flip-image:hover .evc-fi-content-wrapper {
+  -webkit-transform: rotateY(0);
+  -moz-transform: rotateY(0);
+  transform: rotateY(0);
+}
+
+.evc-flip-image .evc-fi-image {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+  z-index: 1;
+  backface-visibility: hidden;
+  -webkit-transform: rotateY(0);
+  -moz-transform: rotateY(0);
+  transform: rotateY(0);
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform 0.7s ease;
+  -moz-transition: -moz-transform 0.7s ease;
+  transition: transform 0.7s ease;
+}
+
+.evc-flip-image .evc-fi-image img {
+  display: block;
+  width: 100.2%;
+}
+
+.evc-flip-image .evc-fi-content-wrapper {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  background-color: #303030;
+  box-sizing: border-box;
+  backface-visibility: hidden;
+  -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform 0.7s ease;
+  -moz-transition: -moz-transform 0.7s ease;
+  transition: transform 0.7s ease;
+}
+
+.evc-flip-image .evc-fi-content-inner {
+  position: relative;
+  display: table;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.evc-flip-image .evc-fi-content {
+  position: relative;
+  display: table-cell;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.evc-flip-image .evc-fi-content .evc-fi-title {
+  margin: 0;
+  color: #fff;
+}
+
+.evc-flip-image .evc-fi-content .evc-fi-text {
+  margin: 14px 0 0;
+  color: #fff;
+}
+
+.evc-flip-image .evc-fi-link {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+
+/* ==========================================================================
+   Flip Image shortcode style - end
+   ========================================================================== */
+/* ==========================================================================
    Gallery Block shortcode style - begin
    ========================================================================== */
 .evc-gallery-block {
@@ -531,6 +645,40 @@
 
 /* ==========================================================================
    Icon List shortcode style - end
+   ========================================================================== */
+/* ==========================================================================
+   Icon Progress Bar shortcode style - begin
+   ========================================================================== */
+.evc-icon-progress-bar {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+}
+
+.evc-icon-progress-bar .evc-ipb-icon {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 20px 20px 0;
+  color: #f3f3f3;
+  font-size: 36px;
+  line-height: 1.1em;
+  font-weight: normal;
+  letter-spacing: 0;
+  overflow: hidden;
+}
+
+.evc-icon-progress-bar .evc-ipb-icon.evc-active {
+  color: #43cb83;
+}
+
+.evc-icon-progress-bar .evc-ipb-icon:last-child {
+  margin-right: 0;
+}
+
+/* ==========================================================================
+   Icon Progress Bar shortcode style - end
    ========================================================================== */
 /* ==========================================================================
    Icon With Text shortcode style - begin

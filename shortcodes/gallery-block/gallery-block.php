@@ -62,7 +62,7 @@ if ( ! class_exists( 'EVCGalleryBlock' ) ) {
 					'type'        => 'attach_images',
 					'param_name'  => 'images',
 					'heading'     => esc_html__( 'Images', 'extensive-vc' ),
-					'description' => esc_html__( 'Select images from media library. The first image you upload will be set as the featured image if you set Featured Image Size.', 'extensive-vc' )
+					'description' => esc_html__( 'Select images from media library. The first image you upload will be set as the featured image if you set Featured Image Size', 'extensive-vc' )
 				),
 				array(
 					'type'        => 'textfield',

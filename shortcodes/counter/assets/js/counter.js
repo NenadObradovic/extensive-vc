@@ -25,7 +25,7 @@
 						speed: 1500,
 						refreshInterval: 100
 					});
-				}, 100);
+				}, {accX: 0, accY: -80});
 			});
 		}
 	}

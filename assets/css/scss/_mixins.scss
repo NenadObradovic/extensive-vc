@@ -65,6 +65,12 @@
 	transform: $transform-param;
 }
 
+@mixin evcTransformStyle($transform-param...) {
+	-webkit-transform-style: $transform-param;
+	-moz-transform-style: $transform-param;
+	transform-style: $transform-param;
+}
+
 @mixin evcAnimation($animation-param...) {
 	-webkit-animation: $animation-param;
 	-moz-animation: $animation-param;

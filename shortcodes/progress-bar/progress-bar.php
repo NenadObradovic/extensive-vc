@@ -179,6 +179,13 @@ if ( ! class_exists( 'EVCProgressBar' ) ) {
 			return implode( ' ', $holderClasses );
 		}
 		
+		/**
+		 * Get shortcode progress bar data
+		 *
+		 * @param $params array - shortcode parameters value
+		 *
+		 * @return array
+		 */
 		private function getProgressBarData( $params ) {
 			$data = array();
 			

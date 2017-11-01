@@ -17,7 +17,7 @@
 				
 				thisHolder.appear(function () {
 					thisHolder.addClass('evc-process-appeared');
-				}, 100);
+				}, {accX: 0, accY: -80});
 			});
 		}
 	}
