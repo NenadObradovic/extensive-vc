@@ -55,11 +55,11 @@ You can find all instructions about plugin and all shortcodes in website <a href
 <h3>Changelog</h3>
 
 <h5>1.1</h5>
-- Added Flip Image shortcode
-- Added Icon Progress Bar shortcode
-- Improved shortcodes funtionalities
-- Updated language pot file
-- Fixed minor bugs
+- Added Flip Image shortcode <br />
+- Added Icon Progress Bar shortcode <br />
+- Improved shortcodes funtionalities <br />
+- Updated language pot file <br />
+- Fixed minor bugs <br />
 
 <h5>1.0</h5>
 - Initial release.
