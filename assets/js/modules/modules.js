@@ -72,39 +72,6 @@
 })(jQuery);
 (function ($) {
 	'use strict';
-
-	$(document).ready(function () {
-		evcInitCounter();
-	});
-
-	/*
-	 **	Init counter shortcode functionality
-	 */
-	function evcInitCounter() {
-		var counter = $('.evc-counter');
-
-		if (counter.length) {
-			counter.each(function () {
-				var thisCounter = $(this),
-					digit = thisCounter.find('.evc-c-digit');
-
-				thisCounter.appear(function () {
-					thisCounter.css('opacity', '1');
-
-					digit.countTo({
-						from: 0,
-						to: parseFloat(digit.text()),
-						speed: 1500,
-						refreshInterval: 100
-					});
-				}, {accX: 0, accY: -80});
-			});
-		}
-	}
-
-})(jQuery);
-(function ($) {
-	'use strict';
 	
 	$(document).ready(function () {
 		evcCustomFontResizeStyle();
@@ -210,6 +177,103 @@
 	'use strict';
 
 	$(document).ready(function () {
+		evcInitDoughnutChart();
+	});
+
+	/**
+	 * Inti doughnut shortcode functionality on appear
+	 */
+	function evcInitDoughnutChart() {
+		var holder = $('.evc-doughnut-chart');
+
+		if (holder.length) {
+			holder.each(function () {
+				var thisHolder = $(this),
+					holderBorderWidth = thisHolder.data('border-width'),
+					borderWidth = holderBorderWidth !== undefined && holderBorderWidth !== '' ? parseInt( holderBorderWidth, 10 ) : 2,
+					doughnutChartItem = thisHolder.children('.evc-doughnut-chart-item'),
+					canvas = thisHolder.children('canvas'),
+					labels = [],
+					values = [],
+					colors = [];
+
+				doughnutChartItem.each(function(){
+					var thisItem = $(this),
+						label = thisItem.data('label'),
+						value = thisItem.data('value'),
+						color = thisItem.data('color');
+
+					if ( label !== undefined && label !== '' ) {
+						labels.push(label);
+					}
+
+					if ( value !== undefined && value !== '' && color !== undefined && color !== '' ) {
+						values.push(value);
+						colors.push(color);
+					}
+				});
+
+				thisHolder.appear(function () {
+					thisHolder.addClass('evc-dc-appeared');
+
+					new Chart(canvas, {
+						type: 'doughnut',
+						data: {
+							labels: labels,
+							datasets: [{
+								data: values,
+								backgroundColor: colors,
+								borderColor: '#fff',
+								borderWidth: borderWidth
+							}]
+						},
+						options: {
+							responsive: true
+						}
+					});
+				}, {accX: 0, accY: -80});
+			});
+		}
+	}
+	
+})(jQuery);
+(function ($) {
+	'use strict';
+
+	$(document).ready(function () {
+		evcInitCounter();
+	});
+
+	/*
+	 **	Init counter shortcode functionality
+	 */
+	function evcInitCounter() {
+		var counter = $('.evc-counter');
+
+		if (counter.length) {
+			counter.each(function () {
+				var thisCounter = $(this),
+					digit = thisCounter.find('.evc-c-digit');
+
+				thisCounter.appear(function () {
+					thisCounter.css('opacity', '1');
+
+					digit.countTo({
+						from: 0,
+						to: parseFloat(digit.text()),
+						speed: 1500,
+						refreshInterval: 100
+					});
+				}, {accX: 0, accY: -80});
+			});
+		}
+	}
+
+})(jQuery);
+(function ($) {
+	'use strict';
+
+	$(document).ready(function () {
 		evcInitIconProgressBar();
 	});
 
@@ -248,6 +312,70 @@
 		}
 	}
 
+})(jQuery);
+(function ($) {
+	'use strict';
+
+	$(document).ready(function () {
+		evcInitPieChart();
+	});
+
+	/**
+	 * Inti pie shortcode functionality on appear
+	 */
+	function evcInitPieChart() {
+		var holder = $('.evc-pie-chart');
+
+		if (holder.length) {
+			holder.each(function () {
+				var thisHolder = $(this),
+					holderBorderWidth = thisHolder.data('border-width'),
+					borderWidth = holderBorderWidth !== undefined && holderBorderWidth !== '' ? parseInt( holderBorderWidth, 10 ) : 2,
+					pieChartItem = thisHolder.children('.evc-pie-chart-item'),
+					canvas = thisHolder.children('canvas'),
+					labels = [],
+					values = [],
+					colors = [];
+
+				pieChartItem.each(function(){
+					var thisItem = $(this),
+						label = thisItem.data('label'),
+						value = thisItem.data('value'),
+						color = thisItem.data('color');
+
+					if ( label !== undefined && label !== '' ) {
+						labels.push(label);
+					}
+
+					if ( value !== undefined && value !== '' && color !== undefined && color !== '' ) {
+						values.push(value);
+						colors.push(color);
+					}
+				});
+
+				thisHolder.appear(function () {
+					thisHolder.addClass('evc-pc-appeared');
+
+					new Chart(canvas, {
+						type: 'pie',
+						data: {
+							labels: labels,
+							datasets: [{
+								data: values,
+								backgroundColor: colors,
+								borderColor: '#fff',
+								borderWidth: borderWidth
+							}]
+						},
+						options: {
+							responsive: true
+						}
+					});
+				}, {accX: 0, accY: -80});
+			});
+		}
+	}
+	
 })(jQuery);
 (function ($) {
 	'use strict';

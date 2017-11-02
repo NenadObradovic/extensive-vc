@@ -1,0 +1,23 @@
+/* ==========================================================================
+   Pie Chart shortcode style - begin
+   ========================================================================== */
+
+.evc-pie-chart {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	opacity: 0;
+	@include evcTransition(opacity .3s ease-in-out);
+	
+	&.evc-pc-appeared {
+		opacity: 1;
+	}
+	
+	canvas {
+		position: relative;
+		display: block;
+	}
+}
+/* ==========================================================================
+   Pie Chart shortcode style - end
+   ========================================================================== */

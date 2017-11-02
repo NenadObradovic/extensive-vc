@@ -4,7 +4,7 @@ Tags: visual composer, visual composer addons, visual composer extensions, visua
 Donate link: http://wprealize.com/donate/
 Requires at least: 4.6
 Tested up to: 4.8.2
-Stable tag: 1.1
+Stable tag: 1.2
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -34,7 +34,9 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
 	<li><a href="http://wprealize.com/interactive/process-2/">Interactive - Process 2</a></li>
 	<li><a href="http://wprealize.com/interactive/testimonials/">Interactive - Testimonials</a></li>
 	<li><a href="http://wprealize.com/infographic/counter/">Infographic - Counter</a></li>
+	<li><a href="http://wprealize.com/infographic/doughnut-chart/">Infographic - Doughnut Chart (New)</a></li>
 	<li><a href="http://wprealize.com/infographic/icon-progress-bar/">Infographic - Icon Progress Bar (New)</a></li>
+	<li><a href="http://wprealize.com/infographic/pie-chart/">Infographic - Pie Chart (New)</a></li>
 	<li><a href="http://wprealize.com/infographic/progress-bar/">Infographic - Progress Bar</a></li>
 	<li><a href="http://wprealize.com/typography/blockquote/">Typography - Blockquote</a></li>
 	<li><a href="http://wprealize.com/typography/custom-font/">Typography - Custom Font</a></li>
@@ -79,6 +81,11 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 5. Blockquote shortcode example.
 
 == Changelog ==
+
+= 1.2 =
+- Added Doughnut Chart shortcode
+- Added Pie Chart shortcode
+- Updated language pot file
 
 = 1.1 =
 - Added Flip Image shortcode

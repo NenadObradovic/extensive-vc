@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Extensive VC package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Extensive VC 1.0\n"
+"Project-Id-Version: Extensive VC 1.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/extensive-vc\n"
-"POT-Creation-Date: 2017-10-24 20:06:29+00:00\n"
+"POT-Creation-Date: 2017-11-01 22:19:39+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -341,6 +341,7 @@ msgstr ""
 #: post-types/testimonials/shortcodes/testimonials.php:71
 #: shortcodes/blockquote/blockquote.php:52 shortcodes/button/button.php:53
 #: shortcodes/counter/counter.php:64 shortcodes/custom-font/custom-font.php:52
+#: shortcodes/doughnut-chart/doughnut-chart.php:79
 #: shortcodes/dropcaps/dropcaps.php:52 shortcodes/flip-image/flip-image.php:52
 #: shortcodes/gallery-block/gallery-block.php:52
 #: shortcodes/icon-list/icon-list-item.php:54
@@ -350,8 +351,8 @@ msgstr ""
 #: shortcodes/image-gallery/image-gallery.php:68
 #: shortcodes/image-with-text/image-with-text.php:52
 #: shortcodes/interactive-banner/interactive-banner.php:53
-#: shortcodes/process/process-item.php:53 shortcodes/process/process.php:71
-#: shortcodes/process-2/process-2-item.php:53
+#: shortcodes/pie-chart/pie-chart.php:79 shortcodes/process/process-item.php:53
+#: shortcodes/process/process.php:71 shortcodes/process-2/process-2-item.php:53
 #: shortcodes/process-2/process-2.php:71
 #: shortcodes/progress-bar/progress-bar.php:64
 #: shortcodes/section-title/section-title.php:52
@@ -363,6 +364,7 @@ msgstr ""
 #: post-types/testimonials/shortcodes/testimonials.php:72
 #: shortcodes/blockquote/blockquote.php:53 shortcodes/button/button.php:54
 #: shortcodes/counter/counter.php:65 shortcodes/custom-font/custom-font.php:53
+#: shortcodes/doughnut-chart/doughnut-chart.php:80
 #: shortcodes/dropcaps/dropcaps.php:53 shortcodes/flip-image/flip-image.php:53
 #: shortcodes/gallery-block/gallery-block.php:53
 #: shortcodes/icon-list/icon-list-item.php:55
@@ -372,8 +374,8 @@ msgstr ""
 #: shortcodes/image-gallery/image-gallery.php:69
 #: shortcodes/image-with-text/image-with-text.php:53
 #: shortcodes/interactive-banner/interactive-banner.php:54
-#: shortcodes/process/process-item.php:54 shortcodes/process/process.php:72
-#: shortcodes/process-2/process-2-item.php:54
+#: shortcodes/pie-chart/pie-chart.php:80 shortcodes/process/process-item.php:54
+#: shortcodes/process/process.php:72 shortcodes/process-2/process-2-item.php:54
 #: shortcodes/process-2/process-2.php:72
 #: shortcodes/progress-bar/progress-bar.php:65
 #: shortcodes/section-title/section-title.php:53
@@ -633,6 +635,8 @@ msgid "Text Transform"
 msgstr ""
 
 #: shortcodes/button/button.php:148 shortcodes/custom-font/custom-font.php:69
+#: shortcodes/doughnut-chart/doughnut-chart-item.php:63
+#: shortcodes/pie-chart/pie-chart-item.php:63
 #: shortcodes/separator/separator.php:101
 msgid "Color"
 msgstr ""
@@ -884,6 +888,54 @@ msgstr ""
 msgid "Set line height for mobiles screen size"
 msgstr ""
 
+#: shortcodes/doughnut-chart/doughnut-chart-item.php:25
+msgid "Doughnut Chart Item"
+msgstr ""
+
+#: shortcodes/doughnut-chart/doughnut-chart-item.php:53
+#: shortcodes/pie-chart/pie-chart-item.php:53
+msgid "Label"
+msgstr ""
+
+#: shortcodes/doughnut-chart/doughnut-chart-item.php:58
+#: shortcodes/pie-chart/pie-chart-item.php:58
+msgid "Value"
+msgstr ""
+
+#: shortcodes/doughnut-chart/doughnut-chart.php:25
+msgid "Doughnut Chart"
+msgstr ""
+
+#: shortcodes/doughnut-chart/doughnut-chart.php:85
+#: shortcodes/pie-chart/pie-chart.php:85
+msgid "Canvas Width (px)"
+msgstr ""
+
+#: shortcodes/doughnut-chart/doughnut-chart.php:86
+#: shortcodes/pie-chart/pie-chart.php:86
+msgid "Fill canvas width size, default value is 260"
+msgstr ""
+
+#: shortcodes/doughnut-chart/doughnut-chart.php:91
+#: shortcodes/pie-chart/pie-chart.php:91
+msgid "Canvas Height (px)"
+msgstr ""
+
+#: shortcodes/doughnut-chart/doughnut-chart.php:92
+#: shortcodes/pie-chart/pie-chart.php:92
+msgid "Fill canvas height size, default value is 260"
+msgstr ""
+
+#: shortcodes/doughnut-chart/doughnut-chart.php:97
+#: shortcodes/pie-chart/pie-chart.php:97
+msgid "Canvas Space"
+msgstr ""
+
+#: shortcodes/doughnut-chart/doughnut-chart.php:98
+#: shortcodes/pie-chart/pie-chart.php:98
+msgid "Fill space between items, default value is 2"
+msgstr ""
+
 #: shortcodes/dropcaps/dropcaps.php:24
 msgid "Dropcaps"
 msgstr ""
@@ -1114,6 +1166,14 @@ msgstr ""
 
 #: shortcodes/interactive-banner/interactive-banner.php:65
 msgid "Overlay Color"
+msgstr ""
+
+#: shortcodes/pie-chart/pie-chart-item.php:25
+msgid "Pie Chart Item"
+msgstr ""
+
+#: shortcodes/pie-chart/pie-chart.php:25
+msgid "Pie Chart"
 msgstr ""
 
 #: shortcodes/process/process-item.php:25

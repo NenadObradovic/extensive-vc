@@ -1,0 +1,120 @@
+<?php
+
+namespace ExtensiveVC\Shortcodes\EVCDoughnutChart;
+
+use ExtensiveVC\Shortcodes;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+if ( ! class_exists( 'EVCDoughnutChartItem' ) ) {
+	class EVCDoughnutChartItem extends Shortcodes\EVCShortcode {
+		
+		/**
+		 * Singleton variables
+		 */
+		private static $instance;
+		
+		/**
+		 * Constructor
+		 */
+		function __construct() {
+			$this->setBase( 'evc_doughnut_chart_item' );
+			$this->setParentBase( 'evc_doughnut_chart' );
+			$this->setShortcodeName( esc_html__( 'Doughnut Chart Item', 'extensive-vc' ) );
+			$this->setShortcodeParameters( $this->shortcodeParameters() );
+			
+			// Parent constructor need to be loaded after setter's method initialization
+			parent::__construct( false, true );
+		}
+		
+		/**
+		 * Get the instance of ExtensiveVCFramework
+		 *
+		 * @return self
+		 */
+		public static function getInstance() {
+			if ( self::$instance == null ) {
+				return new self;
+			}
+			
+			return self::$instance;
+		}
+		
+		/**
+		 * Set shortcode parameters for Visual Composer shortcodes options panel
+		 */
+		function shortcodeParameters() {
+			$params = array(
+				array(
+					'type'       => 'textfield',
+					'param_name' => 'label',
+					'heading'    => esc_html__( 'Label', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'textfield',
+					'param_name' => 'value',
+					'heading'    => esc_html__( 'Value', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'colorpicker',
+					'param_name' => 'color',
+					'heading'    => esc_html__( 'Color', 'extensive-vc' )
+				)
+			);
+			
+			return $params;
+		}
+		
+		/**
+		 * Renders shortcodes HTML
+		 *
+		 * @param $atts array - shortcode params
+		 * @param $content string - shortcode content
+		 *
+		 * @return html
+		 */
+		function render( $atts, $content = null ) {
+			$args   = array(
+				'label' => '',
+				'value' => '',
+				'color' => ''
+			);
+			$params = shortcode_atts( $args, $atts );
+			
+			$params['holder_data']    = $this->getHolderData( $params );
+			
+			$html = extensive_vc_get_module_template_part( 'shortcodes', 'doughnut-chart', 'templates/doughnut-chart-item', '', $params );
+			
+			return $html;
+		}
+		
+		/**
+		 * Get shortcode holder data
+		 *
+		 * @param $params array - shortcode parameters value
+		 *
+		 * @return array
+		 */
+		private function getHolderData( $params ) {
+			$data = array();
+			
+			if ( ! empty( $params['label'] ) ) {
+				$data['data-label'] = esc_attr( $params['label'] );
+			}
+			
+			if ( ! empty( $params['value'] ) ) {
+				$data['data-value'] = esc_attr( $params['value'] );
+			}
+			
+			if ( ! empty( $params['color'] ) ) {
+				$data['data-color'] = esc_attr( $params['color'] );
+			}
+			
+			return $data;
+		}
+	}
+}
+
+EVCDoughnutChartItem::getInstance();

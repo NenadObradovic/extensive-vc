@@ -20,7 +20,9 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
 	<li><a href="http://wprealize.com/interactive/process-2/">Interactive - Process 2</a></li>
 	<li><a href="http://wprealize.com/interactive/testimonials/">Interactive - Testimonials</a></li>
 	<li><a href="http://wprealize.com/infographic/counter/">Infographic - Counter</a></li>
+	<li><a href="http://wprealize.com/infographic/doughnut-chart/">Infographic - Doughnut Chart (New)</a></li>
 	<li><a href="http://wprealize.com/infographic/icon-progress-bar/">Infographic - Icon Progress Bar (New)</a></li>
+	<li><a href="http://wprealize.com/infographic/pie-chart/">Infographic - Pie Chart (New)</a></li>
 	<li><a href="http://wprealize.com/infographic/progress-bar/">Infographic - Progress Bar</a></li>
 	<li><a href="http://wprealize.com/typography/blockquote/">Typography - Blockquote</a></li>
 	<li><a href="http://wprealize.com/typography/custom-font/">Typography - Custom Font</a></li>
@@ -53,6 +55,11 @@ From wordpress.org
 You can find all instructions about plugin and all shortcodes in website <a href="http://wprealize.com/"><strong>WP Realize - Extensive VC</strong></a>
 
 <h3>Changelog</h3>
+
+<h5>1.2</h5>
+- Added Doughnut Chart shortcode <br />
+- Added Pie Chart shortcode <br />
+- Updated language pot file <br />
 
 <h5>1.1</h5>
 - Added Flip Image shortcode <br />

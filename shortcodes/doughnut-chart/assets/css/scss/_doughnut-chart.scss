@@ -1,0 +1,23 @@
+/* ==========================================================================
+   Doughnut Chart shortcode style - begin
+   ========================================================================== */
+
+.evc-doughnut-chart {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	opacity: 0;
+	@include evcTransition(opacity .3s ease-in-out);
+	
+	&.evc-dc-appeared {
+		opacity: 1;
+	}
+	
+	canvas {
+		position: relative;
+		display: block;
+	}
+}
+/* ==========================================================================
+   Doughnut Chart shortcode style - end
+   ========================================================================== */

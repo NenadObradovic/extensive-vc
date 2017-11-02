@@ -400,6 +400,31 @@
    Custom Font shortcode style - end
    ========================================================================== */
 /* ==========================================================================
+   Doughnut Chart shortcode style - begin
+   ========================================================================== */
+.evc-doughnut-chart {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.evc-doughnut-chart.evc-dc-appeared {
+  opacity: 1;
+}
+
+.evc-doughnut-chart canvas {
+  position: relative;
+  display: block;
+}
+
+/* ==========================================================================
+   Doughnut Chart shortcode style - end
+   ========================================================================== */
+/* ==========================================================================
    Dropcaps shortcode style - begin
    ========================================================================== */
 .evc-dropcaps {
@@ -920,6 +945,31 @@
 
 /* ==========================================================================
    Interactive Banner shortcode style - end
+   ========================================================================== */
+/* ==========================================================================
+   Pie Chart shortcode style - begin
+   ========================================================================== */
+.evc-pie-chart {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.evc-pie-chart.evc-pc-appeared {
+  opacity: 1;
+}
+
+.evc-pie-chart canvas {
+  position: relative;
+  display: block;
+}
+
+/* ==========================================================================
+   Pie Chart shortcode style - end
    ========================================================================== */
 /* ==========================================================================
    Process 2 shortcode responsive style - begin
