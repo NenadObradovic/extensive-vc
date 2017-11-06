@@ -53,6 +53,17 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
 				),
 				array(
+					'type'       => 'dropdown',
+					'param_name' => 'text_alignment',
+					'heading'    => esc_html__( 'Text Alignment', 'extensive-vc' ),
+					'value'      => array(
+						esc_html__( 'Default', 'extensive-vc' ) => 'top',
+						esc_html__( 'Left', 'extensive-vc' )    => 'left',
+						esc_html__( 'Center', 'extensive-vc' )  => 'center',
+						esc_html__( 'Right', 'extensive-vc' )   => 'right'
+					)
+				),
+				array(
 					'type'       => 'textfield',
 					'param_name' => 'title',
 					'heading'    => esc_html__( 'Title', 'extensive-vc' )
@@ -107,6 +118,7 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 		function render( $atts, $content = null ) {
 			$args   = array(
 				'custom_class'    => '',
+				'text_alignment'  => '',
 				'title'           => '',
 				'title_tag'       => 'h2',
 				'title_color'     => '',
@@ -117,6 +129,7 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 			$params = shortcode_atts( $args, $atts );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params );
+			$params['holder_styles']  = $this->getHolderStyles( $params );
 			
 			$params['title_tag']    = ! empty( $params['title_tag'] ) ? $params['title_tag'] : $args['title_tag'];
 			$params['title_styles'] = $this->getTitleStyles( $params );
@@ -140,6 +153,23 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 			$holderClasses[] = ! empty( $params['custom_class'] ) ? esc_attr( $params['custom_class'] ) : '';
 			
 			return implode( ' ', $holderClasses );
+		}
+		
+		/**
+		 * Get shortcode holder styles
+		 *
+		 * @param $params array - shortcode parameters value
+		 *
+		 * @return string
+		 */
+		private function getHolderStyles( $params ) {
+			$styles = array();
+			
+			if ( ! empty( $params['text_alignment'] ) ) {
+				$styles[] = 'text-align: ' . $params['text_alignment'];
+			}
+			
+			return implode( ';', $styles );
 		}
 		
 		/**

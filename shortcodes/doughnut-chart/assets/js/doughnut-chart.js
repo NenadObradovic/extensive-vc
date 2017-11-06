@@ -16,6 +16,8 @@
 				var thisHolder = $(this),
 					holderBorderWidth = thisHolder.data('border-width'),
 					borderWidth = holderBorderWidth !== undefined && holderBorderWidth !== '' ? parseInt( holderBorderWidth, 10 ) : 2,
+					enableLegend = thisHolder.data('enable-legend'),
+					legendPosition = thisHolder.data('legend-position'),
 					doughnutChartItem = thisHolder.children('.evc-doughnut-chart-item'),
 					canvas = thisHolder.children('canvas'),
 					labels = [],
@@ -53,7 +55,11 @@
 							}]
 						},
 						options: {
-							responsive: true
+							responsive: true,
+							legend: {
+								display: enableLegend,
+								position: legendPosition
+							}
 						}
 					});
 				}, {accX: 0, accY: -80});

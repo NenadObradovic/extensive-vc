@@ -56,6 +56,17 @@ You can find all instructions about plugin and all shortcodes in website <a href
 
 <h3>Changelog</h3>
 
+<h5>1.2.1</h5>
+- Added Enable Legend option for Doughnut Chart shortcode <br />
+- Added Legend Position option for Doughnut Chart shortcode <br />
+- Added Enable Legend option for Pie Chart shortcode <br />
+- Added Legend Position option for Pie Chart shortcode <br />
+- Added Text Alignment option for Section Title shortcode <br />
+- Added Text Color option for Blockquote shortcode <br />
+- Added Icon Right Padding option for Icon List shortcode <br />
+- Added Space Between Items option for Icon List shortcode <br />
+- Updated language pot file <br />
+
 <h5>1.2</h5>
 - Added Doughnut Chart shortcode <br />
 - Added Pie Chart shortcode <br />

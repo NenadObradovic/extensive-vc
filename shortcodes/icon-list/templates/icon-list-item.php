@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<div class="evc-il-item <?php echo esc_attr( $holder_classes ); ?>">
+<div class="evc-il-item <?php echo esc_attr( $holder_classes ); ?>" <?php extensive_vc_print_inline_style( $holder_styles ); ?>>
 	<?php echo extensive_vc_get_module_template_part( 'shortcodes', 'icon-list', 'templates/parts/icon', '', $params ); ?>
 	<?php echo extensive_vc_get_module_template_part( 'shortcodes', 'icon-list', 'templates/parts/text', '', $params ); ?>
 </div>

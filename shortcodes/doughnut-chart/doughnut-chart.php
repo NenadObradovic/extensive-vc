@@ -96,6 +96,26 @@ if ( ! class_exists( 'EVCDoughnutChart' ) ) {
 					'param_name'  => 'canvas_space',
 					'heading'     => esc_html__( 'Canvas Space', 'extensive-vc' ),
 					'description' => esc_html__( 'Fill space between items, default value is 2', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'dropdown',
+					'param_name' => 'enable_legend',
+					'heading'    => esc_html__( 'Enable Legend', 'extensive-vc' ),
+					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
+					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'dropdown',
+					'param_name' => 'legend_position',
+					'heading'    => esc_html__( 'Legend Position', 'extensive-vc' ),
+					'value'      => array(
+						esc_html__( 'Top', 'extensive-vc' )    => 'top',
+						esc_html__( 'Right', 'extensive-vc' )  => 'right',
+						esc_html__( 'Bottom', 'extensive-vc' ) => 'bottom',
+						esc_html__( 'Left', 'extensive-vc' )   => 'left'
+					),
+					'dependency' => array( 'element' => 'enable_legend', 'value' => array( 'yes' ) ),
+					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
 				)
 			);
 			
@@ -111,16 +131,18 @@ if ( ! class_exists( 'EVCDoughnutChart' ) ) {
 		 * @return html
 		 */
 		function render( $atts, $content = null ) {
-			$args   = array(
-				'custom_class'  => '',
-				'canvas_width'  => '',
-				'canvas_height' => '',
-				'canvas_space'  => ''
+			$args = array(
+				'custom_class'    => '',
+				'canvas_width'    => '',
+				'canvas_height'   => '',
+				'canvas_space'    => '',
+				'enable_legend'   => 'yes',
+				'legend_position' => 'top'
 			);
 			$params = shortcode_atts( $args, $atts );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params );
-			$params['holder_data']    = $this->getHolderData( $params );
+			$params['holder_data']    = $this->getHolderData( $params, $args );
 			
 			$params['canvas_styles']  = $this->getCanvasStyles( $params );
 			
@@ -154,12 +176,15 @@ if ( ! class_exists( 'EVCDoughnutChart' ) ) {
 		 *
 		 * @return array
 		 */
-		private function getHolderData( $params ) {
+		private function getHolderData( $params, $args ) {
 			$data = array();
 			
 			if ( $params['canvas_space'] !== '' ) {
 				$data['data-border-width'] = esc_attr( $params['canvas_space'] );
 			}
+			
+			$data['data-enable-legend']   = $params['enable_legend'] === 'no' ? 'false' : 'true';
+			$data['data-legend-position'] = ! empty( $params['legend_position'] ) ? esc_attr( $params['legend_position'] ) : $args['legend_position'];
 			
 			return $data;
 		}

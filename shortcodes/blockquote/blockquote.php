@@ -66,6 +66,13 @@ if ( ! class_exists( 'EVCBlockquote' ) ) {
 					'type'       => 'textarea',
 					'param_name' => 'text',
 					'heading'    => esc_html__( 'Text', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'colorpicker',
+					'param_name' => 'text_color',
+					'heading'    => esc_html__( 'Text Color', 'extensive-vc' ),
+					'dependency' => array( 'element' => 'text', 'not_empty' => true ),
+					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
 				)
 			);
 			
@@ -84,11 +91,13 @@ if ( ! class_exists( 'EVCBlockquote' ) ) {
 			$args   = array(
 				'custom_class' => '',
 				'type'         => 'simple',
-				'text'         => ''
+				'text'         => '',
+				'text_color'   => ''
 			);
 			$params = shortcode_atts( $args, $atts );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params );
+			$params['holder_styles']  = $this->getHolderStyles( $params );
 			
 			$html = extensive_vc_get_module_template_part( 'shortcodes', 'blockquote', 'templates/blockquote', '', $params );
 			
@@ -109,6 +118,23 @@ if ( ! class_exists( 'EVCBlockquote' ) ) {
 			$holderClasses[] = ! empty( $params['type'] ) ? 'evc-b-' . esc_attr( $params['type'] ) : '';
 			
 			return implode( ' ', $holderClasses );
+		}
+		
+		/**
+		 * Get shortcode holder styles
+		 *
+		 * @param $params array - shortcode parameters value
+		 *
+		 * @return string
+		 */
+		private function getHolderStyles( $params ) {
+			$styles = array();
+			
+			if ( ! empty( $params['text_color'] ) ) {
+				$styles[] = 'color: ' . $params['text_color'];
+			}
+			
+			return implode( ';', $styles );
 		}
 	}
 }

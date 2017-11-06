@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Extensive VC package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Extensive VC 1.1\n"
+"Project-Id-Version: Extensive VC 1.2.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/extensive-vc\n"
-"POT-Creation-Date: 2017-11-01 22:19:39+00:00\n"
+"POT-Creation-Date: 2017-11-06 20:57:40+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -121,6 +121,7 @@ msgstr ""
 #: lib/helpers-functions.php:500 lib/helpers-functions.php:529
 #: lib/helpers-functions.php:554 lib/helpers-functions.php:580
 #: lib/helpers-functions.php:606 shortcodes/custom-font/custom-font.php:134
+#: shortcodes/section-title/section-title.php:60
 #: shortcodes/separator/separator.php:80
 msgid "Default"
 msgstr ""
@@ -317,12 +318,12 @@ msgstr ""
 #: shortcodes/blockquote/blockquote.php:68 shortcodes/button/button.php:90
 #: shortcodes/counter/counter.php:110 shortcodes/dropcaps/dropcaps.php:87
 #: shortcodes/flip-image/flip-image.php:101
-#: shortcodes/icon-list/icon-list-item.php:77
+#: shortcodes/icon-list/icon-list-item.php:84
 #: shortcodes/icon-with-text/icon-with-text.php:112
 #: shortcodes/image-with-text/image-with-text.php:108
 #: shortcodes/process/process-item.php:79
 #: shortcodes/process-2/process-2-item.php:90
-#: shortcodes/section-title/section-title.php:78
+#: shortcodes/section-title/section-title.php:89
 msgid "Text"
 msgstr ""
 
@@ -541,6 +542,70 @@ msgstr ""
 msgid "Left Line"
 msgstr ""
 
+#: shortcodes/blockquote/blockquote.php:73 shortcodes/counter/counter.php:115
+#: shortcodes/flip-image/flip-image.php:106
+#: shortcodes/icon-list/icon-list-item.php:89
+#: shortcodes/icon-with-text/icon-with-text.php:117
+#: shortcodes/image-with-text/image-with-text.php:113
+#: shortcodes/process/process-item.php:84
+#: shortcodes/process-2/process-2-item.php:95
+#: shortcodes/section-title/section-title.php:94
+msgid "Text Color"
+msgstr ""
+
+#: shortcodes/blockquote/blockquote.php:75 shortcodes/button/button.php:149
+#: shortcodes/button/button.php:155 shortcodes/button/button.php:162
+#: shortcodes/button/button.php:169 shortcodes/button/button.php:176
+#: shortcodes/button/button.php:183 shortcodes/button/button.php:190
+#: shortcodes/button/button.php:197 shortcodes/button/button.php:204
+#: shortcodes/button/button.php:211 shortcodes/counter/counter.php:77
+#: shortcodes/counter/counter.php:91 shortcodes/counter/counter.php:98
+#: shortcodes/counter/counter.php:105 shortcodes/counter/counter.php:117
+#: shortcodes/counter/counter.php:124
+#: shortcodes/doughnut-chart/doughnut-chart.php:105
+#: shortcodes/doughnut-chart/doughnut-chart.php:118
+#: shortcodes/dropcaps/dropcaps.php:75 shortcodes/dropcaps/dropcaps.php:82
+#: shortcodes/flip-image/flip-image.php:76
+#: shortcodes/flip-image/flip-image.php:89
+#: shortcodes/flip-image/flip-image.php:96
+#: shortcodes/flip-image/flip-image.php:108
+#: shortcodes/flip-image/flip-image.php:115
+#: shortcodes/icon-progress-bar/icon-progress-bar.php:73
+#: shortcodes/icon-progress-bar/icon-progress-bar.php:79
+#: shortcodes/icon-progress-bar/icon-progress-bar.php:85
+#: shortcodes/icon-progress-bar/icon-progress-bar.php:91
+#: shortcodes/image-with-text/image-with-text.php:89
+#: shortcodes/image-with-text/image-with-text.php:96
+#: shortcodes/image-with-text/image-with-text.php:103
+#: shortcodes/image-with-text/image-with-text.php:115
+#: shortcodes/image-with-text/image-with-text.php:122
+#: shortcodes/interactive-banner/interactive-banner.php:67
+#: shortcodes/interactive-banner/interactive-banner.php:102
+#: shortcodes/interactive-banner/interactive-banner.php:109
+#: shortcodes/pie-chart/pie-chart.php:105
+#: shortcodes/pie-chart/pie-chart.php:118
+#: shortcodes/process/process-item.php:67
+#: shortcodes/process/process-item.php:74
+#: shortcodes/process/process-item.php:86
+#: shortcodes/process/process-item.php:93
+#: shortcodes/process-2/process-2-item.php:78
+#: shortcodes/process-2/process-2-item.php:85
+#: shortcodes/process-2/process-2-item.php:97
+#: shortcodes/process-2/process-2-item.php:104
+#: shortcodes/progress-bar/progress-bar.php:88
+#: shortcodes/progress-bar/progress-bar.php:102
+#: shortcodes/progress-bar/progress-bar.php:109
+#: shortcodes/progress-bar/progress-bar.php:115
+#: shortcodes/progress-bar/progress-bar.php:121
+#: shortcodes/section-title/section-title.php:77
+#: shortcodes/section-title/section-title.php:84
+#: shortcodes/section-title/section-title.php:96
+#: shortcodes/section-title/section-title.php:103
+#: shortcodes/separator/separator.php:90 shortcodes/separator/separator.php:96
+#: shortcodes/separator/separator.php:102
+msgid "Design Options"
+msgstr ""
+
 #: shortcodes/button/button.php:24
 msgid "Button"
 msgstr ""
@@ -641,54 +706,6 @@ msgstr ""
 msgid "Color"
 msgstr ""
 
-#: shortcodes/button/button.php:149 shortcodes/button/button.php:155
-#: shortcodes/button/button.php:162 shortcodes/button/button.php:169
-#: shortcodes/button/button.php:176 shortcodes/button/button.php:183
-#: shortcodes/button/button.php:190 shortcodes/button/button.php:197
-#: shortcodes/button/button.php:204 shortcodes/button/button.php:211
-#: shortcodes/counter/counter.php:77 shortcodes/counter/counter.php:91
-#: shortcodes/counter/counter.php:98 shortcodes/counter/counter.php:105
-#: shortcodes/counter/counter.php:117 shortcodes/counter/counter.php:124
-#: shortcodes/dropcaps/dropcaps.php:75 shortcodes/dropcaps/dropcaps.php:82
-#: shortcodes/flip-image/flip-image.php:76
-#: shortcodes/flip-image/flip-image.php:89
-#: shortcodes/flip-image/flip-image.php:96
-#: shortcodes/flip-image/flip-image.php:108
-#: shortcodes/flip-image/flip-image.php:115
-#: shortcodes/icon-progress-bar/icon-progress-bar.php:73
-#: shortcodes/icon-progress-bar/icon-progress-bar.php:79
-#: shortcodes/icon-progress-bar/icon-progress-bar.php:85
-#: shortcodes/icon-progress-bar/icon-progress-bar.php:91
-#: shortcodes/image-with-text/image-with-text.php:89
-#: shortcodes/image-with-text/image-with-text.php:96
-#: shortcodes/image-with-text/image-with-text.php:103
-#: shortcodes/image-with-text/image-with-text.php:115
-#: shortcodes/image-with-text/image-with-text.php:122
-#: shortcodes/interactive-banner/interactive-banner.php:67
-#: shortcodes/interactive-banner/interactive-banner.php:102
-#: shortcodes/interactive-banner/interactive-banner.php:109
-#: shortcodes/process/process-item.php:67
-#: shortcodes/process/process-item.php:74
-#: shortcodes/process/process-item.php:86
-#: shortcodes/process/process-item.php:93
-#: shortcodes/process-2/process-2-item.php:78
-#: shortcodes/process-2/process-2-item.php:85
-#: shortcodes/process-2/process-2-item.php:97
-#: shortcodes/process-2/process-2-item.php:104
-#: shortcodes/progress-bar/progress-bar.php:88
-#: shortcodes/progress-bar/progress-bar.php:102
-#: shortcodes/progress-bar/progress-bar.php:109
-#: shortcodes/progress-bar/progress-bar.php:115
-#: shortcodes/progress-bar/progress-bar.php:121
-#: shortcodes/section-title/section-title.php:66
-#: shortcodes/section-title/section-title.php:73
-#: shortcodes/section-title/section-title.php:85
-#: shortcodes/section-title/section-title.php:92
-#: shortcodes/separator/separator.php:90 shortcodes/separator/separator.php:96
-#: shortcodes/separator/separator.php:102
-msgid "Design Options"
-msgstr ""
-
 #: shortcodes/button/button.php:154
 msgid "Hover Color"
 msgstr ""
@@ -749,7 +766,7 @@ msgstr ""
 #: shortcodes/process/process-item.php:59
 #: shortcodes/process-2/process-2-item.php:70
 #: shortcodes/progress-bar/progress-bar.php:93
-#: shortcodes/section-title/section-title.php:58
+#: shortcodes/section-title/section-title.php:69
 msgid "Title"
 msgstr ""
 
@@ -761,7 +778,7 @@ msgstr ""
 #: shortcodes/process/process-item.php:64
 #: shortcodes/process-2/process-2-item.php:75
 #: shortcodes/progress-bar/progress-bar.php:99
-#: shortcodes/section-title/section-title.php:63
+#: shortcodes/section-title/section-title.php:74
 msgid "Title Tag"
 msgstr ""
 
@@ -772,7 +789,7 @@ msgstr ""
 #: shortcodes/process/process-item.php:72
 #: shortcodes/process-2/process-2-item.php:83
 #: shortcodes/progress-bar/progress-bar.php:107
-#: shortcodes/section-title/section-title.php:71
+#: shortcodes/section-title/section-title.php:82
 msgid "Title Color"
 msgstr ""
 
@@ -781,22 +798,12 @@ msgstr ""
 msgid "Title Top Margin (px)"
 msgstr ""
 
-#: shortcodes/counter/counter.php:115 shortcodes/flip-image/flip-image.php:106
-#: shortcodes/icon-list/icon-list-item.php:82
-#: shortcodes/icon-with-text/icon-with-text.php:117
-#: shortcodes/image-with-text/image-with-text.php:113
-#: shortcodes/process/process-item.php:84
-#: shortcodes/process-2/process-2-item.php:95
-#: shortcodes/section-title/section-title.php:83
-msgid "Text Color"
-msgstr ""
-
 #: shortcodes/counter/counter.php:122 shortcodes/flip-image/flip-image.php:113
 #: shortcodes/icon-with-text/icon-with-text.php:124
 #: shortcodes/image-with-text/image-with-text.php:120
 #: shortcodes/process/process-item.php:91
 #: shortcodes/process-2/process-2-item.php:102
-#: shortcodes/section-title/section-title.php:90
+#: shortcodes/section-title/section-title.php:101
 msgid "Text Top Margin (px)"
 msgstr ""
 
@@ -817,16 +824,23 @@ msgid "Text Align"
 msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:135
+#: shortcodes/doughnut-chart/doughnut-chart.php:115
+#: shortcodes/pie-chart/pie-chart.php:115
+#: shortcodes/section-title/section-title.php:61
 #: shortcodes/separator/separator.php:61
 msgid "Left"
 msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:136
+#: shortcodes/section-title/section-title.php:62
 #: shortcodes/separator/separator.php:60
 msgid "Center"
 msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:137
+#: shortcodes/doughnut-chart/doughnut-chart.php:113
+#: shortcodes/pie-chart/pie-chart.php:113
+#: shortcodes/section-title/section-title.php:63
 #: shortcodes/separator/separator.php:62
 msgid "Right"
 msgstr ""
@@ -934,6 +948,26 @@ msgstr ""
 #: shortcodes/doughnut-chart/doughnut-chart.php:98
 #: shortcodes/pie-chart/pie-chart.php:98
 msgid "Fill space between items, default value is 2"
+msgstr ""
+
+#: shortcodes/doughnut-chart/doughnut-chart.php:103
+#: shortcodes/pie-chart/pie-chart.php:103
+msgid "Enable Legend"
+msgstr ""
+
+#: shortcodes/doughnut-chart/doughnut-chart.php:110
+#: shortcodes/pie-chart/pie-chart.php:110
+msgid "Legend Position"
+msgstr ""
+
+#: shortcodes/doughnut-chart/doughnut-chart.php:112
+#: shortcodes/pie-chart/pie-chart.php:112
+msgid "Top"
+msgstr ""
+
+#: shortcodes/doughnut-chart/doughnut-chart.php:114
+#: shortcodes/pie-chart/pie-chart.php:114
+msgid "Bottom"
 msgstr ""
 
 #: shortcodes/dropcaps/dropcaps.php:24
@@ -1059,6 +1093,7 @@ msgstr ""
 
 #: shortcodes/icon-list/icon-list-item.php:65
 #: shortcodes/icon-list/icon-list-item.php:72
+#: shortcodes/icon-list/icon-list-item.php:79
 #: shortcodes/icon-with-text/icon-with-text.php:79
 #: shortcodes/icon-with-text/icon-with-text.php:86
 #: shortcodes/interactive-banner/interactive-banner.php:82
@@ -1073,7 +1108,11 @@ msgstr ""
 msgid "Icon Color"
 msgstr ""
 
-#: shortcodes/icon-list/icon-list-item.php:84
+#: shortcodes/icon-list/icon-list-item.php:77
+msgid "Icon Right Padding (px)"
+msgstr ""
+
+#: shortcodes/icon-list/icon-list-item.php:91
 #: shortcodes/icon-with-text/icon-with-text.php:100
 #: shortcodes/icon-with-text/icon-with-text.php:107
 #: shortcodes/icon-with-text/icon-with-text.php:119
@@ -1258,6 +1297,10 @@ msgstr ""
 
 #: shortcodes/section-title/section-title.php:24
 msgid "Section Title"
+msgstr ""
+
+#: shortcodes/section-title/section-title.php:58
+msgid "Text Alignment"
 msgstr ""
 
 #: shortcodes/separator/separator.php:24

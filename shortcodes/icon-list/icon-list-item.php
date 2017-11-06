@@ -73,6 +73,13 @@ if ( ! class_exists( 'EVCIconListItem' ) ) {
 					),
 					array(
 						'type'       => 'textfield',
+						'param_name' => 'icon_right_padding',
+						'heading'    => esc_html__( 'Icon Right Padding (px)', 'extensive-vc' ),
+						'dependency' => array( 'element' => 'icon_library', 'not_empty' => true ),
+						'group'      => esc_html__( 'Icon Settings', 'extensive-vc' )
+					),
+					array(
+						'type'       => 'textfield',
 						'param_name' => 'text',
 						'heading'    => esc_html__( 'Text', 'extensive-vc' )
 					),
@@ -82,6 +89,12 @@ if ( ! class_exists( 'EVCIconListItem' ) ) {
 						'heading'    => esc_html__( 'Text Color', 'extensive-vc' ),
 						'dependency' => array( 'element' => 'text', 'not_empty' => true ),
 						'group'      => esc_html__( 'Text Settings', 'extensive-vc' )
+					),
+					array(
+						'type'        => 'textfield',
+						'param_name'  => 'space_between_items',
+						'heading'     => esc_html__( 'Space Between Items (px)', 'extensive-vc' ),
+						'description' => esc_html__( 'Fill space between items in your list. Default value is 8', 'extensive-vc' )
 					)
 				)
 			);
@@ -98,24 +111,27 @@ if ( ! class_exists( 'EVCIconListItem' ) ) {
 		 * @return html
 		 */
 		function render( $atts, $content = null ) {
-			$args   = array(
-				'custom_class'     => '',
-				'icon_library'     => '',
-				'icon_fontawesome' => '',
-				'icon_openiconic'  => '',
-				'icon_typicons'    => '',
-				'icon_entypo'      => '',
-				'icon_linecons'    => '',
-				'icon_monosocial'  => '',
-				'icon_material'    => '',
-				'icon_size'        => '',
-				'icon_color'       => '',
-				'text'             => '',
-				'text_color'       => ''
+			$args = array(
+				'custom_class'        => '',
+				'icon_library'        => '',
+				'icon_fontawesome'    => '',
+				'icon_openiconic'     => '',
+				'icon_typicons'       => '',
+				'icon_entypo'         => '',
+				'icon_linecons'       => '',
+				'icon_monosocial'     => '',
+				'icon_material'       => '',
+				'icon_size'           => '',
+				'icon_right_padding'  => '',
+				'icon_color'          => '',
+				'text'                => '',
+				'text_color'          => '',
+				'space_between_items' => ''
 			);
 			$params = shortcode_atts( $args, $atts );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params, $args );
+			$params['holder_styles']  = $this->getHolderStyles( $params );
 			
 			$params['icon_styles'] = $this->getIconStyles( $params );
 			$params['text_styles'] = $this->getTextStyles( $params );
@@ -141,6 +157,23 @@ if ( ! class_exists( 'EVCIconListItem' ) ) {
 		}
 		
 		/**
+		 * Get shortcode holder styles
+		 *
+		 * @param $params array - shortcode parameters value
+		 *
+		 * @return string
+		 */
+		private function getHolderStyles( $params ) {
+			$styles = array();
+			
+			if ( $params['space_between_items'] !== '' ) {
+				$styles[] = 'margin-bottom: ' . extensive_vc_filter_px( $params['space_between_items'] ) . 'px';
+			}
+			
+			return implode( ';', $styles );
+		}
+		
+		/**
 		 * Get icon styles
 		 *
 		 * @param $params array - shortcode parameters value
@@ -156,6 +189,10 @@ if ( ! class_exists( 'EVCIconListItem' ) ) {
 			
 			if ( ! empty( $params['icon_color'] ) ) {
 				$styles[] = 'color: ' . $params['icon_color'];
+			}
+			
+			if ( $params['icon_right_padding'] !== '' ) {
+				$styles[] = 'padding-right: ' . extensive_vc_filter_px( $params['icon_right_padding'] ) . 'px';
 			}
 			
 			return implode( ';', $styles );
