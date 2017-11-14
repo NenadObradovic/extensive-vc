@@ -275,6 +275,32 @@ body {
 			}
 		}
 	}
+	
+	.evc-ib-top-moving {
+		
+		.touch & {
+			cursor: pointer;
+		}
+		
+		&:hover {
+			
+			img {
+				@include evcTransform(translate3d(0,-6px,0));
+			}
+		}
+		
+		a {
+			
+			&:after {
+				display: none;
+			}
+		}
+		
+		img {
+			@include evcTransform(translate3d(0,0,0));
+			@include evcTransitionTransform(.3s cubic-bezier(.21,.6,.44,2.18));
+		}
+	}
 }
 
 /* ==========================================================================

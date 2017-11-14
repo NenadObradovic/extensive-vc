@@ -3,8 +3,8 @@ Contributors: nenad-obradovic
 Tags: visual composer, visual composer addons, visual composer extensions, visual composer shortcodes, wpbakery page builder addons, wpbakery page builder
 Donate link: http://wprealize.com/donate/
 Requires at least: 4.6
-Tested up to: 4.8.3
-Stable tag: 1.2.1
+Tested up to: 4.9
+Stable tag: 1.2.2
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -81,6 +81,17 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 5. Blockquote shortcode example.
 
 == Changelog ==
+
+= 1.2.2 =
+- Added With Icon type option for Blockquote shortcode
+- Added Font Size option for Blockquote shortcode
+- Added Line Height option for Blockquote shortcode
+- Added Digit Font Size option for Counter shortcode
+- Added Digit Line Height option for Counter shortcode
+- Added Digit Font Weight option for Counter shortcode
+- Added Text Color option for Dropcaps shortcode
+- Added Image Behavior - Top Moving option for several shortcodes
+- Updated language pot file
 
 = 1.2.1 =
 - Added Enable Legend option for Doughnut Chart shortcode

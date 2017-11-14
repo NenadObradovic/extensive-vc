@@ -6,7 +6,6 @@
     @include evcRelativeLayout();
 	margin: 0;
 	quotes: none;
-	font-style: normal;
 	border: 0;
     box-sizing: border-box;
 	
@@ -21,6 +20,7 @@
 		font-size: 14px;
 		line-height: 28px;
 		font-weight: 500;
+		font-style: normal;
 		padding: 1px 0 0 47px;
 	}
 	
@@ -29,8 +29,41 @@
 		font-size: 16px;
 		line-height: 28px;
 		font-weight: 500;
+		font-style: normal;
 		padding: 0 0 0 25px;
 		border-left: 4px solid $main-color;
+	}
+	
+	&.evc-b-with-icon {
+		color: $dark-color;
+		font-size: 16px;
+		line-height: 28px;
+		font-weight: 600;
+		font-style: normal;
+		
+		&:before {
+			position: absolute;
+			top: 3px;
+			left: 0;
+			content: '\f347';
+			font-family: 'Ionicons';
+			font-size: 30px;
+			line-height: 1;
+			font-style: normal;
+			font-weight: normal;
+			font-variant: normal;
+			text-transform: none;
+			text-rendering: auto;
+			speak: none;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+		
+		.evc-b-text {
+			@include evcRelativeLayout();
+			padding-left: 40px;
+			box-sizing: border-box;
+		}
 	}
 	
 	/***** Type styles - end *****/

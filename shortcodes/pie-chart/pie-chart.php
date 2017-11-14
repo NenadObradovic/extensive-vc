@@ -144,7 +144,7 @@ if ( ! class_exists( 'EVCPieChart' ) ) {
 			$params['holder_classes'] = $this->getHolderClasses( $params );
 			$params['holder_data']    = $this->getHolderData( $params, $args );
 			
-			$params['canvas_styles']  = $this->getCanvasStyles( $params );
+			$params['canvas_styles'] = $this->getCanvasStyles( $params );
 			
 			$params['content'] = $content;
 			

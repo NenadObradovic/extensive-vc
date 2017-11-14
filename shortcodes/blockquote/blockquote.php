@@ -58,7 +58,8 @@ if ( ! class_exists( 'EVCBlockquote' ) ) {
 					'heading'     => esc_html__( 'Type', 'extensive-vc' ),
 					'value'       => array(
 						esc_html__( 'Simple', 'extensive-vc' )    => 'simple',
-						esc_html__( 'Left Line', 'extensive-vc' ) => 'left-line'
+						esc_html__( 'Left Line', 'extensive-vc' ) => 'left-line',
+						esc_html__( 'With Icon', 'extensive-vc' ) => 'with-icon'
 					),
 					'admin_label' => true
 				),
@@ -72,7 +73,21 @@ if ( ! class_exists( 'EVCBlockquote' ) ) {
 					'param_name' => 'text_color',
 					'heading'    => esc_html__( 'Text Color', 'extensive-vc' ),
 					'dependency' => array( 'element' => 'text', 'not_empty' => true ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'textfield',
+					'param_name' => 'font_size',
+					'heading'    => esc_html__( 'Font Size (px or em)', 'extensive-vc' ),
+					'dependency' => array( 'element' => 'text', 'not_empty' => true ),
+					'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'textfield',
+					'param_name' => 'line_height',
+					'heading'    => esc_html__( 'Line Height (px or em)', 'extensive-vc' ),
+					'dependency' => array( 'element' => 'text', 'not_empty' => true ),
+					'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
 				)
 			);
 			
@@ -92,7 +107,9 @@ if ( ! class_exists( 'EVCBlockquote' ) ) {
 				'custom_class' => '',
 				'type'         => 'simple',
 				'text'         => '',
-				'text_color'   => ''
+				'text_color'   => '',
+				'font_size'    => '',
+				'line_height'  => '',
 			);
 			$params = shortcode_atts( $args, $atts );
 			
@@ -132,6 +149,22 @@ if ( ! class_exists( 'EVCBlockquote' ) ) {
 			
 			if ( ! empty( $params['text_color'] ) ) {
 				$styles[] = 'color: ' . $params['text_color'];
+			}
+			
+			if ( ! empty( $params['font_size'] ) ) {
+				if ( extensive_vc_string_ends_with( $params['font_size'], 'px' ) || extensive_vc_string_ends_with( $params['font_size'], 'em' ) ) {
+					$styles[] = 'font-size: ' . $params['font_size'];
+				} else {
+					$styles[] = 'font-size: ' . $params['font_size'] . 'px';
+				}
+			}
+			
+			if ( ! empty( $params['line_height'] ) ) {
+				if ( extensive_vc_string_ends_with( $params['line_height'], 'px' ) || extensive_vc_string_ends_with( $params['line_height'], 'em' ) ) {
+					$styles[] = 'line-height: ' . $params['line_height'];
+				} else {
+					$styles[] = 'line-height: ' . $params['line_height'] . 'px';
+				}
 			}
 			
 			return implode( ';', $styles );

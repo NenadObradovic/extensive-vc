@@ -733,10 +733,11 @@ if ( ! function_exists( 'extensive_vc_get_image_behavior_array' ) ) {
 	function extensive_vc_get_image_behavior_array() {
 		$options = array();
 		
-		$options['']         = esc_html__( 'None', 'extensive-vc' );
-		$options['overlay']  = esc_html__( 'Overlay', 'extensive-vc' );
-		$options['zoom']     = esc_html__( 'Zoom', 'extensive-vc' );
-		$options['lightbox'] = esc_html__( 'Lightbox', 'extensive-vc' );
+		$options['']           = esc_html__( 'None', 'extensive-vc' );
+		$options['overlay']    = esc_html__( 'Overlay', 'extensive-vc' );
+		$options['zoom']       = esc_html__( 'Zoom', 'extensive-vc' );
+		$options['lightbox']   = esc_html__( 'Lightbox', 'extensive-vc' );
+		$options['top-moving'] = esc_html__( 'Top Moving', 'extensive-vc' );
 		
 		return $options;
 	}

@@ -641,6 +641,29 @@ body.rtl {
   transition: opacity 0.2s ease-in-out, margin 0.1s ease-in-out;
 }
 
+.touch .evc-shortcode .evc-ib-top-moving {
+  cursor: pointer;
+}
+
+.evc-shortcode .evc-ib-top-moving:hover img {
+  -webkit-transform: translate3d(0, -6px, 0);
+  -moz-transform: translate3d(0, -6px, 0);
+  transform: translate3d(0, -6px, 0);
+}
+
+.evc-shortcode .evc-ib-top-moving a:after {
+  display: none;
+}
+
+.evc-shortcode .evc-ib-top-moving img {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.21, 0.6, 0.44, 2.18);
+  -moz-transition: -moz-transform 0.3s cubic-bezier(0.21, 0.6, 0.44, 2.18);
+  transition: transform 0.3s cubic-bezier(0.21, 0.6, 0.44, 2.18);
+}
+
 /* ==========================================================================
    Image Behavior styles - end
    ========================================================================== */
@@ -940,7 +963,6 @@ body.rtl {
   vertical-align: top;
   margin: 0;
   quotes: none;
-  font-style: normal;
   border: 0;
   box-sizing: border-box;
   /***** Type styles - begin *****/
@@ -956,6 +978,7 @@ body.rtl {
   font-size: 14px;
   line-height: 28px;
   font-weight: 500;
+  font-style: normal;
   padding: 1px 0 0 47px;
 }
 
@@ -964,8 +987,44 @@ body.rtl {
   font-size: 16px;
   line-height: 28px;
   font-weight: 500;
+  font-style: normal;
   padding: 0 0 0 25px;
   border-left: 4px solid #43cb83;
+}
+
+.evc-blockquote.evc-b-with-icon {
+  color: #303030;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.evc-blockquote.evc-b-with-icon:before {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  content: '\f347';
+  font-family: 'Ionicons';
+  font-size: 30px;
+  line-height: 1;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-rendering: auto;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.evc-blockquote.evc-b-with-icon .evc-b-text {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+  padding-left: 40px;
+  box-sizing: border-box;
 }
 
 /* ==========================================================================

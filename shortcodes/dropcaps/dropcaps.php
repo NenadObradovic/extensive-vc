@@ -72,19 +72,25 @@ if ( ! class_exists( 'EVCDropcaps' ) ) {
 					'type'       => 'colorpicker',
 					'param_name' => 'letter_color',
 					'heading'    => esc_html__( 'Letter Color', 'extensive-vc' ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Letter Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'letter_bg_color',
 					'heading'    => esc_html__( 'Letter Background Color', 'extensive-vc' ),
 					'dependency' => array( 'element' => 'type', 'value' => array( 'circle', 'square' ) ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Letter Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'textarea',
 					'param_name' => 'text',
 					'heading'    => esc_html__( 'Text', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'colorpicker',
+					'param_name' => 'text_color',
+					'heading'    => esc_html__( 'Text Color', 'extensive-vc' ),
+					'group'      => esc_html__( 'Text Options', 'extensive-vc' )
 				)
 			);
 			
@@ -106,13 +112,15 @@ if ( ! class_exists( 'EVCDropcaps' ) ) {
 				'letter'          => '',
 				'letter_color'    => '',
 				'letter_bg_color' => '',
-				'text'            => ''
+				'text'            => '',
+				'text_color'      => ''
 			);
 			$params = shortcode_atts( $args, $atts );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params );
+			$params['holder_styles']  = $this->getHolderStyles( $params );
 			
-			$params['letter_styles']  = $this->getLetterStyles( $params );
+			$params['letter_styles'] = $this->getLetterStyles( $params );
 			
 			$html = extensive_vc_get_module_template_part( 'shortcodes', 'dropcaps', 'templates/dropcaps', '', $params );
 			
@@ -133,6 +141,23 @@ if ( ! class_exists( 'EVCDropcaps' ) ) {
 			$holderClasses[] = ! empty( $params['type'] ) ? 'evc-d-' . esc_attr( $params['type'] ) : '';
 			
 			return implode( ' ', $holderClasses );
+		}
+		
+		/**
+		 * Get holder styles
+		 *
+		 * @param $params array - shortcode parameters value
+		 *
+		 * @return string
+		 */
+		private function getHolderStyles( $params ) {
+			$styles = array();
+			
+			if ( ! empty( $params['text_color'] ) ) {
+				$styles[] = 'color: ' . $params['text_color'];
+			}
+			
+			return implode( ';', $styles );
 		}
 		
 		/**

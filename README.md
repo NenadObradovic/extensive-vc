@@ -56,6 +56,17 @@ You can find all instructions about plugin and all shortcodes in website <a href
 
 <h3>Changelog</h3>
 
+<h5>1.2.2</h5>
+- Added With Icon type option for Blockquote shortcode <br />
+- Added Font Size option for Blockquote shortcode <br />
+- Added Line Height option for Blockquote shortcode <br />
+- Added Digit Font Size option for Counter shortcode <br />
+- Added Digit Line Height option for Counter shortcode <br />
+- Added Digit Font Weight option for Counter shortcode <br />
+- Added Text Color option for Dropcaps shortcode <br />
+- Added Image Behavior - Top Moving option for several shortcodes <br />
+- Updated language pot file <br />
+
 <h5>1.2.1</h5>
 - Added Enable Legend option for Doughnut Chart shortcode <br />
 - Added Legend Position option for Doughnut Chart shortcode <br />

@@ -74,7 +74,29 @@ if ( ! class_exists( 'EVCCounter' ) ) {
 					'param_name' => 'digit_color',
 					'heading'    => esc_html__( 'Digit Color', 'extensive-vc' ),
 					'dependency' => array( 'element' => 'digit', 'not_empty' => true ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Digit Options', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'textfield',
+					'param_name' => 'digit_font_size',
+					'heading'    => esc_html__( 'Digit Font Size (px or em)', 'extensive-vc' ),
+					'dependency' => array( 'element' => 'digit', 'not_empty' => true ),
+					'group'      => esc_html__( 'Digit Options', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'textfield',
+					'param_name' => 'digit_line_height',
+					'heading'    => esc_html__( 'Digit Line Height (px or em)', 'extensive-vc' ),
+					'dependency' => array( 'element' => 'digit', 'not_empty' => true ),
+					'group'      => esc_html__( 'Digit Options', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'dropdown',
+					'param_name' => 'digit_font_weight',
+					'heading'    => esc_html__( 'Digit Font Weight', 'extensive-vc' ),
+					'value'      => array_flip( extensive_vc_get_font_weight_array( true ) ),
+					'dependency' => array( 'element' => 'digit', 'not_empty' => true ),
+					'group'      => esc_html__( 'Digit Options', 'extensive-vc' )
 				),
 				array(
 					'type'        => 'textfield',
@@ -88,21 +110,21 @@ if ( ! class_exists( 'EVCCounter' ) ) {
 					'heading'    => esc_html__( 'Title Tag', 'extensive-vc' ),
 					'value'      => array_flip( extensive_vc_get_title_tag_array( true ) ),
 					'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Title Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'title_color',
 					'heading'    => esc_html__( 'Title Color', 'extensive-vc' ),
 					'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Title Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'title_top_margin',
 					'heading'    => esc_html__( 'Title Top Margin (px)', 'extensive-vc' ),
 					'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Title Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'textarea',
@@ -114,14 +136,14 @@ if ( ! class_exists( 'EVCCounter' ) ) {
 					'param_name' => 'text_color',
 					'heading'    => esc_html__( 'Text Color', 'extensive-vc' ),
 					'dependency' => array( 'element' => 'text', 'not_empty' => true ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Text Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'text_top_margin',
 					'heading'    => esc_html__( 'Text Top Margin (px)', 'extensive-vc' ),
 					'dependency' => array( 'element' => 'text', 'not_empty' => true ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Text Options', 'extensive-vc' )
 				)
 			);
 			
@@ -137,17 +159,20 @@ if ( ! class_exists( 'EVCCounter' ) ) {
 		 * @return html
 		 */
 		function render( $atts, $content = null ) {
-			$args = array(
-				'custom_class'     => '',
-				'digit'            => '',
-				'digit_color'      => '',
-				'title'            => '',
-				'title_tag'        => 'h5',
-				'title_color'      => '',
-				'title_top_margin' => '',
-				'text'             => '',
-				'text_color'       => '',
-				'text_top_margin'  => ''
+			$args   = array(
+				'custom_class'      => '',
+				'digit'             => '',
+				'digit_color'       => '',
+				'digit_font_size'   => '',
+				'digit_line_height' => '',
+				'digit_font_weight' => '',
+				'title'             => '',
+				'title_tag'         => 'h5',
+				'title_color'       => '',
+				'title_top_margin'  => '',
+				'text'              => '',
+				'text_color'        => '',
+				'text_top_margin'   => ''
 			);
 			$params = shortcode_atts( $args, $atts );
 			
@@ -190,6 +215,26 @@ if ( ! class_exists( 'EVCCounter' ) ) {
 			
 			if ( ! empty( $params['digit_color'] ) ) {
 				$styles[] = 'color: ' . $params['digit_color'];
+			}
+			
+			if ( ! empty( $params['digit_font_size'] ) ) {
+				if ( extensive_vc_string_ends_with( $params['digit_font_size'], 'px' ) || extensive_vc_string_ends_with( $params['digit_font_size'], 'em' ) ) {
+					$styles[] = 'font-size: ' . $params['digit_font_size'];
+				} else {
+					$styles[] = 'font-size: ' . $params['digit_font_size'] . 'px';
+				}
+			}
+			
+			if ( ! empty( $params['digit_line_height'] ) ) {
+				if ( extensive_vc_string_ends_with( $params['digit_line_height'], 'px' ) || extensive_vc_string_ends_with( $params['digit_line_height'], 'em' ) ) {
+					$styles[] = 'line-height: ' . $params['digit_line_height'];
+				} else {
+					$styles[] = 'line-height: ' . $params['digit_line_height'] . 'px';
+				}
+			}
+			
+			if ( ! empty( $params['digit_font_weight'] ) ) {
+				$styles[] = 'font-weight: ' . $params['digit_font_weight'];
 			}
 			
 			return implode( ';', $styles );
