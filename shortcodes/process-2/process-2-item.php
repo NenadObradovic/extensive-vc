@@ -26,7 +26,7 @@ if ( ! class_exists( 'EVCProcess2Item' ) ) {
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
-			parent::__construct( false, true );
+			parent::__construct( array( 'hasParent' => true ) );
 		}
 		
 		/**
@@ -132,7 +132,7 @@ if ( ! class_exists( 'EVCProcess2Item' ) ) {
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params );
 			
-			$params['link_attributes'] = $this->getLinkAttributes( $params['custom_link'] );
+			$params['link_attributes'] = extensive_vc_get_custom_link_attributes( $params['custom_link'] );
 			$params['title_tag']       = ! empty( $params['title_tag'] ) ? $params['title_tag'] : $args['title_tag'];
 			$params['title_styles']    = $this->getTitleStyles( $params );
 			$params['text_styles']     = $this->getTextStyles( $params );
@@ -155,39 +155,6 @@ if ( ! class_exists( 'EVCProcess2Item' ) ) {
 			$holderClasses[] = ! empty( $params['custom_class'] ) ? esc_attr( $params['custom_class'] ) : '';
 			
 			return implode( ' ', $holderClasses );
-		}
-		
-		/**
-		 * Get link attributes
-		 *
-		 * @param $custom_link array - link parameters value
-		 *
-		 * @return array
-		 */
-		private function getLinkAttributes( $custom_link ) {
-			$attributes = array();
-			
-			if ( ! empty( $custom_link ) ) {
-				$link = function_exists( 'vc_build_link' ) ? vc_build_link( $custom_link ) : array();
-				
-				if ( ! empty( $link ) ) {
-					$attributes[] = 'href="' . esc_url( trim( $link['url'] ) ) . '"';
-					
-					if ( ! empty( $link['target'] ) ) {
-						$attributes[] = 'target="' . esc_attr( trim( $link['target'] ) ) . '"';
-					}
-					
-					if ( ! empty( $link['title'] ) ) {
-						$attributes[] = 'title="' . esc_attr( trim( $link['title'] ) ) . '"';
-					}
-					
-					if ( ! empty( $link['rel'] ) ) {
-						$attributes[] = 'rel="' . esc_attr( trim( $link['rel'] ) ) . '"';
-					}
-				}
-			}
-			
-			return $attributes;
 		}
 		
 		/**

@@ -26,7 +26,7 @@ if ( ! class_exists( 'EVCPieChartItem' ) ) {
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
-			parent::__construct( false, true );
+			parent::__construct( array( 'hasParent' => true ) );
 		}
 		
 		/**

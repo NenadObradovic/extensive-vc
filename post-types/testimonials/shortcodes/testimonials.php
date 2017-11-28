@@ -25,7 +25,7 @@ if ( ! class_exists( 'EVCTestimonials' ) ) {
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
-			parent::__construct( false, false, true );
+			parent::__construct( array( 'isInCPT' => true ) );
 			
 			// Additional methods need to be loaded after parent constructor loaded if we used methods from the parent class
 			if ( $this->getIsShortcodeEnabled() ) {

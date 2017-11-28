@@ -13,7 +13,8 @@
    Include shortcodes styles - begin
    ========================================================================== */
 
-@import '../../../../shortcodes/**/assets/css/scss/*.scss';
+@import '../../../../shortcodes/**/assets/css/scss/*-default.scss';
+@import '../../../../shortcodes/**/assets/css/scss/*-responsive.scss';
 
 /* ==========================================================================
    Include shortcodes styles - end

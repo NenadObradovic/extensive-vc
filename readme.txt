@@ -1,10 +1,10 @@
 === Extensive VC ===
 Contributors: nenad-obradovic
-Tags: visual composer, visual composer addons, visual composer extensions, visual composer shortcodes, wpbakery page builder addons, wpbakery page builder
+Tags: visual composer, visual composer addons, visual composer extensions, visual composer shortcodes, wpbakery page builder
 Donate link: http://wprealize.com/donate/
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 1.2.2
+Stable tag: 1.4
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -26,7 +26,9 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
 	<li><a href="http://wprealize.com/classic/image-with-text/">Classic - Image With Text</a></li>
 	<li><a href="http://wprealize.com/classic/separator/">Classic - Separator</a></li>
 	<li><a href="http://wprealize.com/classic/single-image/">Classic - Single Image</a></li>
-	<li><a href="http://wprealize.com/interactive/flip-image/">Interactive - Flip Image (New)</a></li>
+	<li><a href="http://wprealize.com/classic/tabs/">Classic - Tabs (New)</a></li>
+	<li><a href="http://wprealize.com/interactive/flip-image/">Interactive - Flip Image</a></li>
+	<li><a href="http://wprealize.com/interactive/full-screen-sections/">Interactive - Full Screen Sections (New)</a></li>
 	<li><a href="http://wprealize.com/interactive/gallery-block/">Interactive - Gallery Block</a></li>
 	<li><a href="http://wprealize.com/interactive/image-gallery/">Interactive - Image Gallery</a></li>
 	<li><a href="http://wprealize.com/interactive/interactive-banner/">Interactive - Interactive Banner</a></li>
@@ -34,10 +36,11 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
 	<li><a href="http://wprealize.com/interactive/process-2/">Interactive - Process 2</a></li>
 	<li><a href="http://wprealize.com/interactive/testimonials/">Interactive - Testimonials</a></li>
 	<li><a href="http://wprealize.com/infographic/counter/">Infographic - Counter</a></li>
-	<li><a href="http://wprealize.com/infographic/doughnut-chart/">Infographic - Doughnut Chart (New)</a></li>
-	<li><a href="http://wprealize.com/infographic/icon-progress-bar/">Infographic - Icon Progress Bar (New)</a></li>
-	<li><a href="http://wprealize.com/infographic/pie-chart/">Infographic - Pie Chart (New)</a></li>
+	<li><a href="http://wprealize.com/infographic/doughnut-chart/">Infographic - Doughnut Chart</a></li>
+	<li><a href="http://wprealize.com/infographic/icon-progress-bar/">Infographic - Icon Progress Bar</a></li>
+	<li><a href="http://wprealize.com/infographic/pie-chart/">Infographic - Pie Chart</a></li>
 	<li><a href="http://wprealize.com/infographic/progress-bar/">Infographic - Progress Bar</a></li>
+	<li><a href="http://wprealize.com/infographic/text-marquee/">Infographic - Text Marquee (New)</a></li>
 	<li><a href="http://wprealize.com/typography/blockquote/">Typography - Blockquote</a></li>
 	<li><a href="http://wprealize.com/typography/custom-font/">Typography - Custom Font</a></li>
 	<li><a href="http://wprealize.com/typography/dropcaps/">Typography - Dropcaps</a></li>
@@ -81,6 +84,22 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 5. Blockquote shortcode example.
 
 == Changelog ==
+
+= 1.4 =
+- Added Text Marquee shortcode
+- Added Simple type for Tabs shortcode
+- Added Skin option for Tabs shortcode
+- Added Custom Link option for Full Screen Sections shortcode
+- Improved shortcode parent constructor
+- Improved shortcode helper functions
+- Updated language pot file
+- Redesigned logo and graphics
+
+= 1.3 =
+- Added Full Screen Sections shortcode
+- Added Tabs shortcode
+- Updated language pot file
+- Fixed minor bugs
 
 = 1.2.2 =
 - Added With Icon type option for Blockquote shortcode

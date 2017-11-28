@@ -26,7 +26,7 @@ if ( ! class_exists( 'EVCProcess' ) ) {
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
-			parent::__construct( true );
+			parent::__construct( array( 'hasChild' => true ) );
 			
 			// Additional methods need to be loaded after parent constructor loaded if we used methods from the parent class
 			if ( $this->getIsShortcodeEnabled() ) {

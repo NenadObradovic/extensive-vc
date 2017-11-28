@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Extensive VC package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Extensive VC 1.2.1\n"
+"Project-Id-Version: Extensive VC 1.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/extensive-vc\n"
-"POT-Creation-Date: 2017-11-14 19:11:35+00:00\n"
+"POT-Creation-Date: 2017-11-28 20:15:40+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -30,7 +30,7 @@ msgstr ""
 
 #: lib/framework/framework-functions.php:15
 #: lib/framework/framework-functions.php:170
-#: shortcodes/shortcodes-extends-class.php:283
+#: shortcodes/shortcodes-extends-class.php:303
 msgid "Extensive VC"
 msgstr ""
 
@@ -92,221 +92,228 @@ msgstr ""
 msgid "Disable shortcodes you don't want to use on your site to increase site performance."
 msgstr ""
 
-#: lib/helpers-functions.php:362 shortcodes/image-gallery/image-gallery.php:135
+#: lib/helpers-functions.php:402 shortcodes/image-gallery/image-gallery.php:135
 msgid "One"
 msgstr ""
 
-#: lib/helpers-functions.php:363 shortcodes/image-gallery/image-gallery.php:136
+#: lib/helpers-functions.php:403 shortcodes/image-gallery/image-gallery.php:136
 msgid "Two"
 msgstr ""
 
-#: lib/helpers-functions.php:364 shortcodes/image-gallery/image-gallery.php:137
+#: lib/helpers-functions.php:404 shortcodes/image-gallery/image-gallery.php:137
 msgid "Three"
 msgstr ""
 
-#: lib/helpers-functions.php:365 shortcodes/image-gallery/image-gallery.php:138
+#: lib/helpers-functions.php:405 shortcodes/image-gallery/image-gallery.php:138
 msgid "Four"
 msgstr ""
 
-#: lib/helpers-functions.php:366 shortcodes/image-gallery/image-gallery.php:139
+#: lib/helpers-functions.php:406 shortcodes/image-gallery/image-gallery.php:139
 msgid "Five"
 msgstr ""
 
-#: lib/helpers-functions.php:367 shortcodes/image-gallery/image-gallery.php:140
+#: lib/helpers-functions.php:407 shortcodes/image-gallery/image-gallery.php:140
 msgid "Six"
 msgstr ""
 
-#: lib/helpers-functions.php:393 lib/helpers-functions.php:420
-#: lib/helpers-functions.php:447 lib/helpers-functions.php:470
-#: lib/helpers-functions.php:500 lib/helpers-functions.php:529
-#: lib/helpers-functions.php:554 lib/helpers-functions.php:580
-#: lib/helpers-functions.php:606 shortcodes/custom-font/custom-font.php:134
+#: lib/helpers-functions.php:433 lib/helpers-functions.php:460
+#: lib/helpers-functions.php:487 lib/helpers-functions.php:510
+#: lib/helpers-functions.php:540 lib/helpers-functions.php:569
+#: lib/helpers-functions.php:594 lib/helpers-functions.php:620
+#: lib/helpers-functions.php:665 shortcodes/custom-font/custom-font.php:134
+#: shortcodes/full-screen-sections/full-screen-sections-item.php:89
+#: shortcodes/full-screen-sections/full-screen-sections-item.php:100
 #: shortcodes/section-title/section-title.php:60
-#: shortcodes/separator/separator.php:80
+#: shortcodes/separator/separator.php:80 shortcodes/tabs/tabs.php:98
 msgid "Default"
 msgstr ""
 
-#: lib/helpers-functions.php:396 shortcodes/button/button.php:77
+#: lib/helpers-functions.php:436 shortcodes/button/button.php:77
 msgid "Large"
 msgstr ""
 
-#: lib/helpers-functions.php:397 shortcodes/button/button.php:78
+#: lib/helpers-functions.php:437 shortcodes/button/button.php:78
 msgid "Medium"
 msgstr ""
 
-#: lib/helpers-functions.php:398 lib/helpers-functions.php:532
+#: lib/helpers-functions.php:438 lib/helpers-functions.php:572
 #: shortcodes/button/button.php:79
 msgid "Normal"
 msgstr ""
 
-#: lib/helpers-functions.php:399 shortcodes/button/button.php:80
+#: lib/helpers-functions.php:439 shortcodes/button/button.php:80
 msgid "Small"
 msgstr ""
 
-#: lib/helpers-functions.php:400 shortcodes/button/button.php:81
+#: lib/helpers-functions.php:440 shortcodes/button/button.php:81
 msgid "Tiny"
 msgstr ""
 
-#: lib/helpers-functions.php:401 lib/helpers-functions.php:425
-#: lib/helpers-functions.php:427
+#: lib/helpers-functions.php:441 lib/helpers-functions.php:465
+#: lib/helpers-functions.php:467
 msgid "No"
 msgstr ""
 
-#: lib/helpers-functions.php:424 lib/helpers-functions.php:428
+#: lib/helpers-functions.php:464 lib/helpers-functions.php:468
 msgid "Yes"
 msgstr ""
 
-#: lib/helpers-functions.php:450
+#: lib/helpers-functions.php:490
 msgid "Same Window"
 msgstr ""
 
-#: lib/helpers-functions.php:451
+#: lib/helpers-functions.php:491
 msgid "New Window"
 msgstr ""
 
-#: lib/helpers-functions.php:503
+#: lib/helpers-functions.php:543
 msgid "100 Thin"
 msgstr ""
 
-#: lib/helpers-functions.php:504
+#: lib/helpers-functions.php:544
 msgid "200 Thin-Light"
 msgstr ""
 
-#: lib/helpers-functions.php:505
+#: lib/helpers-functions.php:545
 msgid "300 Light"
 msgstr ""
 
-#: lib/helpers-functions.php:506
+#: lib/helpers-functions.php:546
 msgid "400 Normal"
 msgstr ""
 
-#: lib/helpers-functions.php:507
+#: lib/helpers-functions.php:547
 msgid "500 Medium"
 msgstr ""
 
-#: lib/helpers-functions.php:508
+#: lib/helpers-functions.php:548
 msgid "600 Semi-Bold"
 msgstr ""
 
-#: lib/helpers-functions.php:509
+#: lib/helpers-functions.php:549
 msgid "700 Bold"
 msgstr ""
 
-#: lib/helpers-functions.php:510
+#: lib/helpers-functions.php:550
 msgid "800 Extra-Bold"
 msgstr ""
 
-#: lib/helpers-functions.php:511
+#: lib/helpers-functions.php:551
 msgid "900 Ultra-Bold"
 msgstr ""
 
-#: lib/helpers-functions.php:533
+#: lib/helpers-functions.php:573
 msgid "Italic"
 msgstr ""
 
-#: lib/helpers-functions.php:534
+#: lib/helpers-functions.php:574
 msgid "Oblique"
 msgstr ""
 
-#: lib/helpers-functions.php:535 lib/helpers-functions.php:561
-#: lib/helpers-functions.php:587
+#: lib/helpers-functions.php:575 lib/helpers-functions.php:601
+#: lib/helpers-functions.php:627
 msgid "Initial"
 msgstr ""
 
-#: lib/helpers-functions.php:536 lib/helpers-functions.php:562
-#: lib/helpers-functions.php:588
+#: lib/helpers-functions.php:576 lib/helpers-functions.php:602
+#: lib/helpers-functions.php:628
+#: shortcodes/full-screen-sections/full-screen-sections-item.php:80
 msgid "Inherit"
 msgstr ""
 
-#: lib/helpers-functions.php:557 lib/helpers-functions.php:583
-#: lib/helpers-functions.php:736
+#: lib/helpers-functions.php:597 lib/helpers-functions.php:623
+#: lib/helpers-functions.php:643
 msgid "None"
 msgstr ""
 
-#: lib/helpers-functions.php:558
+#: lib/helpers-functions.php:598
 msgid "Capitalize"
 msgstr ""
 
-#: lib/helpers-functions.php:559
+#: lib/helpers-functions.php:599
 msgid "Uppercase"
 msgstr ""
 
-#: lib/helpers-functions.php:560
+#: lib/helpers-functions.php:600
 msgid "Lowercase"
 msgstr ""
 
-#: lib/helpers-functions.php:584
+#: lib/helpers-functions.php:624
 msgid "Underline"
 msgstr ""
 
-#: lib/helpers-functions.php:585
+#: lib/helpers-functions.php:625
 msgid "Overline"
 msgstr ""
 
-#: lib/helpers-functions.php:586
+#: lib/helpers-functions.php:626
 msgid "Line-Through"
 msgstr ""
 
-#: lib/helpers-functions.php:609
-msgid "Font Awesome"
-msgstr ""
-
-#: lib/helpers-functions.php:610
-msgid "Open Iconic"
-msgstr ""
-
-#: lib/helpers-functions.php:611
-msgid "Typicons"
-msgstr ""
-
-#: lib/helpers-functions.php:612
-msgid "Entypo"
-msgstr ""
-
-#: lib/helpers-functions.php:613
-msgid "Linecons"
-msgstr ""
-
-#: lib/helpers-functions.php:614
-msgid "Mono Social"
-msgstr ""
-
-#: lib/helpers-functions.php:615
-msgid "Material"
-msgstr ""
-
-#: lib/helpers-functions.php:633
-msgid "Icon Library"
-msgstr ""
-
-#: lib/helpers-functions.php:635
-msgid "Choose icon library"
-msgstr ""
-
-#: lib/helpers-functions.php:640 lib/helpers-functions.php:652
-#: lib/helpers-functions.php:664 lib/helpers-functions.php:676
-#: lib/helpers-functions.php:688 lib/helpers-functions.php:700
-#: lib/helpers-functions.php:712
-msgid "Icon"
-msgstr ""
-
-#: lib/helpers-functions.php:641 lib/helpers-functions.php:653
-#: lib/helpers-functions.php:665 lib/helpers-functions.php:677
-#: lib/helpers-functions.php:689 lib/helpers-functions.php:701
-#: lib/helpers-functions.php:713
-msgid "Select icon from library"
-msgstr ""
-
-#: lib/helpers-functions.php:737
+#: lib/helpers-functions.php:644
 msgid "Overlay"
 msgstr ""
 
-#: lib/helpers-functions.php:738
+#: lib/helpers-functions.php:645
 msgid "Zoom"
 msgstr ""
 
-#: lib/helpers-functions.php:739
+#: lib/helpers-functions.php:646
 msgid "Lightbox"
+msgstr ""
+
+#: lib/helpers-functions.php:647
+msgid "Top Moving"
+msgstr ""
+
+#: lib/helpers-functions.php:668
+msgid "Font Awesome"
+msgstr ""
+
+#: lib/helpers-functions.php:669
+msgid "Open Iconic"
+msgstr ""
+
+#: lib/helpers-functions.php:670
+msgid "Typicons"
+msgstr ""
+
+#: lib/helpers-functions.php:671
+msgid "Entypo"
+msgstr ""
+
+#: lib/helpers-functions.php:672
+msgid "Linecons"
+msgstr ""
+
+#: lib/helpers-functions.php:673
+msgid "Mono Social"
+msgstr ""
+
+#: lib/helpers-functions.php:674
+msgid "Material"
+msgstr ""
+
+#: lib/helpers-functions.php:692
+msgid "Icon Library"
+msgstr ""
+
+#: lib/helpers-functions.php:694
+msgid "Choose icon library"
+msgstr ""
+
+#: lib/helpers-functions.php:699 lib/helpers-functions.php:711
+#: lib/helpers-functions.php:723 lib/helpers-functions.php:735
+#: lib/helpers-functions.php:747 lib/helpers-functions.php:759
+#: lib/helpers-functions.php:771
+msgid "Icon"
+msgstr ""
+
+#: lib/helpers-functions.php:700 lib/helpers-functions.php:712
+#: lib/helpers-functions.php:724 lib/helpers-functions.php:736
+#: lib/helpers-functions.php:748 lib/helpers-functions.php:760
+#: lib/helpers-functions.php:772
+msgid "Select icon from library"
 msgstr ""
 
 #: post-types/testimonials/admin/meta-boxes/testimonials-meta-boxes.php:26
@@ -324,6 +331,7 @@ msgstr ""
 #: shortcodes/process/process-item.php:79
 #: shortcodes/process-2/process-2-item.php:90
 #: shortcodes/section-title/section-title.php:89
+#: shortcodes/text-marquee/text-marquee.php:58
 msgid "Text"
 msgstr ""
 
@@ -344,6 +352,8 @@ msgstr ""
 #: shortcodes/counter/counter.php:64 shortcodes/custom-font/custom-font.php:52
 #: shortcodes/doughnut-chart/doughnut-chart.php:79
 #: shortcodes/dropcaps/dropcaps.php:52 shortcodes/flip-image/flip-image.php:52
+#: shortcodes/full-screen-sections/full-screen-sections-item.php:53
+#: shortcodes/full-screen-sections/full-screen-sections.php:79
 #: shortcodes/gallery-block/gallery-block.php:52
 #: shortcodes/icon-list/icon-list-item.php:54
 #: shortcodes/icon-list/icon-list.php:71
@@ -358,7 +368,8 @@ msgstr ""
 #: shortcodes/progress-bar/progress-bar.php:64
 #: shortcodes/section-title/section-title.php:52
 #: shortcodes/separator/separator.php:52
-#: shortcodes/single-image/single-image.php:52
+#: shortcodes/single-image/single-image.php:52 shortcodes/tabs/tabs-item.php:53
+#: shortcodes/tabs/tabs.php:79 shortcodes/text-marquee/text-marquee.php:52
 msgid "Custom CSS Class"
 msgstr ""
 
@@ -367,6 +378,8 @@ msgstr ""
 #: shortcodes/counter/counter.php:65 shortcodes/custom-font/custom-font.php:53
 #: shortcodes/doughnut-chart/doughnut-chart.php:80
 #: shortcodes/dropcaps/dropcaps.php:53 shortcodes/flip-image/flip-image.php:53
+#: shortcodes/full-screen-sections/full-screen-sections-item.php:54
+#: shortcodes/full-screen-sections/full-screen-sections.php:80
 #: shortcodes/gallery-block/gallery-block.php:53
 #: shortcodes/icon-list/icon-list-item.php:55
 #: shortcodes/icon-list/icon-list.php:72
@@ -381,7 +394,8 @@ msgstr ""
 #: shortcodes/progress-bar/progress-bar.php:65
 #: shortcodes/section-title/section-title.php:53
 #: shortcodes/separator/separator.php:53
-#: shortcodes/single-image/single-image.php:53
+#: shortcodes/single-image/single-image.php:53 shortcodes/tabs/tabs-item.php:54
+#: shortcodes/tabs/tabs.php:80 shortcodes/text-marquee/text-marquee.php:53
 msgid "Style particular content element differently - add a class name and refer to it in custom CSS"
 msgstr ""
 
@@ -529,12 +543,12 @@ msgstr ""
 #: shortcodes/dropcaps/dropcaps.php:58
 #: shortcodes/icon-with-text/icon-with-text.php:59
 #: shortcodes/image-gallery/image-gallery.php:74
-#: shortcodes/progress-bar/progress-bar.php:70
+#: shortcodes/progress-bar/progress-bar.php:70 shortcodes/tabs/tabs.php:85
 msgid "Type"
 msgstr ""
 
 #: shortcodes/blockquote/blockquote.php:60 shortcodes/button/button.php:63
-#: shortcodes/dropcaps/dropcaps.php:60
+#: shortcodes/dropcaps/dropcaps.php:60 shortcodes/tabs/tabs.php:88
 msgid "Simple"
 msgstr ""
 
@@ -572,6 +586,12 @@ msgstr ""
 #: shortcodes/custom-font/custom-font.php:120
 #: shortcodes/custom-font/custom-font.php:127
 #: shortcodes/custom-font/custom-font.php:140
+#: shortcodes/text-marquee/text-marquee.php:70
+#: shortcodes/text-marquee/text-marquee.php:76
+#: shortcodes/text-marquee/text-marquee.php:83
+#: shortcodes/text-marquee/text-marquee.php:90
+#: shortcodes/text-marquee/text-marquee.php:96
+#: shortcodes/text-marquee/text-marquee.php:103
 msgid "Typography Options"
 msgstr ""
 
@@ -582,6 +602,7 @@ msgstr ""
 #: shortcodes/custom-font/custom-font.php:173
 #: shortcodes/custom-font/custom-font.php:187
 #: shortcodes/custom-font/custom-font.php:201
+#: shortcodes/text-marquee/text-marquee.php:69
 msgid "Font Size (px or em)"
 msgstr ""
 
@@ -592,6 +613,7 @@ msgstr ""
 #: shortcodes/custom-font/custom-font.php:180
 #: shortcodes/custom-font/custom-font.php:194
 #: shortcodes/custom-font/custom-font.php:208
+#: shortcodes/text-marquee/text-marquee.php:75
 msgid "Line Height (px or em)"
 msgstr ""
 
@@ -628,6 +650,7 @@ msgid "Size"
 msgstr ""
 
 #: shortcodes/button/button.php:95 shortcodes/flip-image/flip-image.php:70
+#: shortcodes/full-screen-sections/full-screen-sections-item.php:109
 #: shortcodes/image-with-text/image-with-text.php:76
 #: shortcodes/interactive-banner/interactive-banner.php:114
 #: shortcodes/process-2/process-2-item.php:65
@@ -640,18 +663,22 @@ msgid "Font Family"
 msgstr ""
 
 #: shortcodes/button/button.php:121 shortcodes/custom-font/custom-font.php:98
+#: shortcodes/text-marquee/text-marquee.php:81
 msgid "Font Weight"
 msgstr ""
 
 #: shortcodes/button/button.php:128 shortcodes/custom-font/custom-font.php:105
+#: shortcodes/text-marquee/text-marquee.php:88
 msgid "Font Style"
 msgstr ""
 
 #: shortcodes/button/button.php:135 shortcodes/custom-font/custom-font.php:112
+#: shortcodes/text-marquee/text-marquee.php:95
 msgid "Letter Spacing (px or em)"
 msgstr ""
 
 #: shortcodes/button/button.php:141 shortcodes/custom-font/custom-font.php:118
+#: shortcodes/text-marquee/text-marquee.php:101
 msgid "Text Transform"
 msgstr ""
 
@@ -659,6 +686,7 @@ msgstr ""
 #: shortcodes/doughnut-chart/doughnut-chart-item.php:63
 #: shortcodes/pie-chart/pie-chart-item.php:63
 #: shortcodes/separator/separator.php:101
+#: shortcodes/text-marquee/text-marquee.php:64
 msgid "Color"
 msgstr ""
 
@@ -715,6 +743,7 @@ msgid "Hover Color"
 msgstr ""
 
 #: shortcodes/button/button.php:160
+#: shortcodes/full-screen-sections/full-screen-sections-item.php:59
 msgid "Background Color"
 msgstr ""
 
@@ -788,6 +817,7 @@ msgstr ""
 #: shortcodes/process-2/process-2-item.php:70
 #: shortcodes/progress-bar/progress-bar.php:93
 #: shortcodes/section-title/section-title.php:69
+#: shortcodes/tabs/tabs-item.php:59
 msgid "Title"
 msgstr ""
 
@@ -856,6 +886,7 @@ msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:135
 #: shortcodes/doughnut-chart/doughnut-chart.php:115
+#: shortcodes/full-screen-sections/full-screen-sections-item.php:101
 #: shortcodes/pie-chart/pie-chart.php:115
 #: shortcodes/section-title/section-title.php:61
 #: shortcodes/separator/separator.php:61
@@ -863,6 +894,7 @@ msgid "Left"
 msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:136
+#: shortcodes/full-screen-sections/full-screen-sections-item.php:102
 #: shortcodes/section-title/section-title.php:62
 #: shortcodes/separator/separator.php:60
 msgid "Center"
@@ -870,6 +902,7 @@ msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:137
 #: shortcodes/doughnut-chart/doughnut-chart.php:113
+#: shortcodes/full-screen-sections/full-screen-sections-item.php:103
 #: shortcodes/pie-chart/pie-chart.php:113
 #: shortcodes/section-title/section-title.php:63
 #: shortcodes/separator/separator.php:62
@@ -992,11 +1025,13 @@ msgid "Legend Position"
 msgstr ""
 
 #: shortcodes/doughnut-chart/doughnut-chart.php:112
+#: shortcodes/full-screen-sections/full-screen-sections-item.php:90
 #: shortcodes/pie-chart/pie-chart.php:112
 msgid "Top"
 msgstr ""
 
 #: shortcodes/doughnut-chart/doughnut-chart.php:114
+#: shortcodes/full-screen-sections/full-screen-sections-item.php:92
 #: shortcodes/pie-chart/pie-chart.php:114
 msgid "Bottom"
 msgstr ""
@@ -1069,6 +1104,62 @@ msgstr ""
 
 #: shortcodes/flip-image/flip-image.php:75
 msgid "Content Background Color"
+msgstr ""
+
+#: shortcodes/full-screen-sections/full-screen-sections-item.php:25
+msgid "Full Screen Sections Item"
+msgstr ""
+
+#: shortcodes/full-screen-sections/full-screen-sections-item.php:64
+msgid "Background Image"
+msgstr ""
+
+#: shortcodes/full-screen-sections/full-screen-sections-item.php:69
+msgid "Background Image Position"
+msgstr ""
+
+#: shortcodes/full-screen-sections/full-screen-sections-item.php:70
+msgid "Please insert position in format horizontal vertical position, example - center center"
+msgstr ""
+
+#: shortcodes/full-screen-sections/full-screen-sections-item.php:76
+msgid "Background Image Size"
+msgstr ""
+
+#: shortcodes/full-screen-sections/full-screen-sections-item.php:78
+msgid "Cover"
+msgstr ""
+
+#: shortcodes/full-screen-sections/full-screen-sections-item.php:79
+msgid "Contain"
+msgstr ""
+
+#: shortcodes/full-screen-sections/full-screen-sections-item.php:87
+msgid "Content Vertical Alignment"
+msgstr ""
+
+#: shortcodes/full-screen-sections/full-screen-sections-item.php:91
+msgid "Middle"
+msgstr ""
+
+#: shortcodes/full-screen-sections/full-screen-sections-item.php:98
+msgid "Content Horizontal Alignment"
+msgstr ""
+
+#: shortcodes/full-screen-sections/full-screen-sections.php:25
+msgid "Full Screen Sections"
+msgstr ""
+
+#: shortcodes/full-screen-sections/full-screen-sections.php:85
+msgid "Enable Navigation Arrows"
+msgstr ""
+
+#: shortcodes/full-screen-sections/full-screen-sections.php:91
+msgid "Top Margin Offset (px)"
+msgstr ""
+
+#: shortcodes/full-screen-sections/full-screen-sections.php:92
+msgid "Defines top margin offset to put shortcode behind header if header element is not transparent"
 msgstr ""
 
 #: shortcodes/gallery-block/gallery-block.php:24
@@ -1318,7 +1409,7 @@ msgstr ""
 msgid "Horizontal"
 msgstr ""
 
-#: shortcodes/progress-bar/progress-bar.php:73
+#: shortcodes/progress-bar/progress-bar.php:73 shortcodes/tabs/tabs.php:89
 msgid "Vertical"
 msgstr ""
 
@@ -1382,12 +1473,40 @@ msgstr ""
 msgid "Bottom Margin (px or %)"
 msgstr ""
 
-#: shortcodes/shortcodes-extends-class.php:281
+#: shortcodes/shortcodes-extends-class.php:301
 msgid "EVC "
 msgstr ""
 
 #: shortcodes/single-image/single-image.php:24
 msgid "Single Image"
+msgstr ""
+
+#: shortcodes/tabs/tabs-item.php:25
+msgid "Tabs Item"
+msgstr ""
+
+#: shortcodes/tabs/tabs-item.php:77
+msgid "Tab Title"
+msgstr ""
+
+#: shortcodes/tabs/tabs.php:25
+msgid "Tabs"
+msgstr ""
+
+#: shortcodes/tabs/tabs.php:87
+msgid "Standard"
+msgstr ""
+
+#: shortcodes/tabs/tabs.php:96
+msgid "Skin"
+msgstr ""
+
+#: shortcodes/tabs/tabs.php:99
+msgid "Light"
+msgstr ""
+
+#: shortcodes/text-marquee/text-marquee.php:24
+msgid "Text Marquee"
 msgstr ""
 #. Plugin Name of the plugin/theme
 msgid "Extensive VC"

@@ -348,6 +348,46 @@ if ( ! function_exists( 'extensive_vc_generate_thumbnail' ) ) {
 	}
 }
 
+if ( ! function_exists( 'extensive_vc_get_custom_link_attributes' ) ) {
+	/**
+	 * Get custom link attributes
+	 *
+	 * @param $custom_link array - link parameters value
+	 * @param $custom_classes string - custom class value
+	 *
+	 * @return array
+	 */
+	function extensive_vc_get_custom_link_attributes( $custom_link = array(), $custom_classes = '' ) {
+		$attributes = array();
+		
+		if ( ! empty( $custom_link ) ) {
+			$link = function_exists( 'vc_build_link' ) ? vc_build_link( $custom_link ) : array();
+			
+			if ( ! empty( $link ) ) {
+				if ( ! empty( $custom_classes ) ) {
+					$attributes[] = 'class="' . esc_attr( $custom_classes ) . '"';
+				}
+				
+				$attributes[] = 'href="' . esc_url( trim( $link['url'] ) ) . '"';
+				
+				if ( ! empty( $link['target'] ) ) {
+					$attributes[] = 'target="' . esc_attr( trim( $link['target'] ) ) . '"';
+				}
+				
+				if ( ! empty( $link['title'] ) ) {
+					$attributes[] = 'title="' . esc_attr( trim( $link['title'] ) ) . '"';
+				}
+				
+				if ( ! empty( $link['rel'] ) ) {
+					$attributes[] = 'rel="' . esc_attr( trim( $link['rel'] ) ) . '"';
+				}
+			}
+		}
+		
+		return $attributes;
+	}
+}
+
 if ( ! function_exists( 'extensive_vc_get_number_of_columns_array' ) ) {
 	/**
 	 * Returns array of number of columns options
@@ -359,12 +399,12 @@ if ( ! function_exists( 'extensive_vc_get_number_of_columns_array' ) ) {
 	function extensive_vc_get_number_of_columns_array( $disable_by_keys = array() ) {
 		$options = array();
 		
-		$options['one']   = esc_html__( 'One', 'themenametd' );
-		$options['two']   = esc_html__( 'Two', 'themenametd' );
-		$options['three'] = esc_html__( 'Three', 'themenametd' );
-		$options['four']  = esc_html__( 'Four', 'themenametd' );
-		$options['five']  = esc_html__( 'Five', 'themenametd' );
-		$options['six']   = esc_html__( 'Six', 'themenametd' );
+		$options['one']   = esc_html__( 'One', 'extensive-vc' );
+		$options['two']   = esc_html__( 'Two', 'extensive-vc' );
+		$options['three'] = esc_html__( 'Three', 'extensive-vc' );
+		$options['four']  = esc_html__( 'Four', 'extensive-vc' );
+		$options['five']  = esc_html__( 'Five', 'extensive-vc' );
+		$options['six']   = esc_html__( 'Six', 'extensive-vc' );
 		
 		if ( ! empty( $disable_by_keys ) ) {
 			foreach ( $disable_by_keys as $key ) {
@@ -390,15 +430,15 @@ if ( ! function_exists( 'extensive_vc_get_space_between_items_array' ) ) {
 		$options = array();
 		
 		if ( $first_empty ) {
-			$options[''] = esc_html__( 'Default', 'themenametd' );
+			$options[''] = esc_html__( 'Default', 'extensive-vc' );
 		}
 		
-		$options['large']  = esc_html__( 'Large', 'themenametd' );
-		$options['medium'] = esc_html__( 'Medium', 'themenametd' );
-		$options['normal'] = esc_html__( 'Normal', 'themenametd' );
-		$options['small']  = esc_html__( 'Small', 'themenametd' );
-		$options['tiny']   = esc_html__( 'Tiny', 'themenametd' );
-		$options['no']     = esc_html__( 'No', 'themenametd' );
+		$options['large']  = esc_html__( 'Large', 'extensive-vc' );
+		$options['medium'] = esc_html__( 'Medium', 'extensive-vc' );
+		$options['normal'] = esc_html__( 'Normal', 'extensive-vc' );
+		$options['small']  = esc_html__( 'Small', 'extensive-vc' );
+		$options['tiny']   = esc_html__( 'Tiny', 'extensive-vc' );
+		$options['no']     = esc_html__( 'No', 'extensive-vc' );
 		
 		return $options;
 	}
@@ -591,6 +631,25 @@ if ( ! function_exists( 'extensive_vc_get_text_decorations_array' ) ) {
 	}
 }
 
+if ( ! function_exists( 'extensive_vc_get_image_behavior_array' ) ) {
+	/**
+	 * Returns array of image behavior options
+	 *
+	 * @return array
+	 */
+	function extensive_vc_get_image_behavior_array() {
+		$options = array();
+		
+		$options['']           = esc_html__( 'None', 'extensive-vc' );
+		$options['overlay']    = esc_html__( 'Overlay', 'extensive-vc' );
+		$options['zoom']       = esc_html__( 'Zoom', 'extensive-vc' );
+		$options['lightbox']   = esc_html__( 'Lightbox', 'extensive-vc' );
+		$options['top-moving'] = esc_html__( 'Top Moving', 'extensive-vc' );
+		
+		return $options;
+	}
+}
+
 if ( ! function_exists( 'extensive_vc_get_shortcode_icon_library_array' ) ) {
 	/**
 	 * Returns array of Visual Composer icon libraries
@@ -719,25 +778,6 @@ if ( ! function_exists( 'extensive_vc_get_vc_icon_options_array' ) ) {
 				'dependency'  => array( 'element' => 'icon_library', 'value' => 'material' )
 			)
 		);
-		
-		return $options;
-	}
-}
-
-if ( ! function_exists( 'extensive_vc_get_image_behavior_array' ) ) {
-	/**
-	 * Returns array of image behavior options
-	 *
-	 * @return array
-	 */
-	function extensive_vc_get_image_behavior_array() {
-		$options = array();
-		
-		$options['']           = esc_html__( 'None', 'extensive-vc' );
-		$options['overlay']    = esc_html__( 'Overlay', 'extensive-vc' );
-		$options['zoom']       = esc_html__( 'Zoom', 'extensive-vc' );
-		$options['lightbox']   = esc_html__( 'Lightbox', 'extensive-vc' );
-		$options['top-moving'] = esc_html__( 'Top Moving', 'extensive-vc' );
 		
 		return $options;
 	}

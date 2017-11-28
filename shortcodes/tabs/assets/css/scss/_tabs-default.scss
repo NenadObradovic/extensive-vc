@@ -1,0 +1,247 @@
+/* ==========================================================================
+   Tabs shortcode style - begin
+   ========================================================================== */
+
+.evc-tabs {
+	@include evcRelativeLayout();
+	visibility: hidden;
+	
+	.evc-tabs-nav {
+		@include evcRelativeLayout();
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		
+		li {
+			float: left;
+			margin: 0;
+			padding: 0;
+			
+			a {
+				position: relative;
+				display: inline-block;
+				vertical-align: top;
+				font-family: $additional-font-family;
+				line-height: 26px;
+				font-weight: 700;
+				letter-spacing: .04em;
+				color: $text-color;
+				box-sizing: border-box;
+				@include evcTransition(color .3s ease-in-out, background-color .3s ease-in-out, border-color .3s ease-in-out);
+			}
+		}
+	}
+	
+	.evc-tabs-item {
+		@include evcRelativeLayout();
+		box-sizing: border-box;
+		
+		p {
+			margin: 0;
+		}
+	}
+	
+	/***** Types styles - begin *****/
+	
+	&.evc-t-skin-light {
+		
+		.evc-tabs-item {
+			
+			p {
+				color: #fff;
+			}
+		}
+	}
+	
+	&.evc-t-standard {
+		
+		&.evc-t-skin-light {
+			
+			.evc-tabs-nav {
+				
+				li {
+					
+					a {
+						border-color: #fff;
+					}
+				}
+			}
+			
+			.evc-tabs-item {
+				border-color: #fff;
+			}
+		}
+		
+		.evc-tabs-nav {
+			
+			li {
+				
+				@media only screen and (min-width: $ipad-portrait-screen-plus-pixel) {
+					
+					&:not(:first-child) {
+						
+						a {
+							border-left: 0;
+						}
+					}
+				}
+				
+				a {
+					padding: 12px 30px;
+					font-size: 14px;
+					border: 1px solid $border-color;
+					border-bottom: 0;
+					background-color: #fbfbfc;
+				}
+				
+				&.ui-state-active a,
+				&.ui-state-hover a {
+					color: $dark-color;
+					background-color: #fff;
+				}
+			}
+		}
+		
+		.evc-tabs-item {
+			padding: 25px 32px 27px;
+			border: 1px solid $border-color;
+		}
+	}
+	
+	&.evc-t-simple {
+		
+		&.evc-t-skin-light {
+			
+			.evc-tabs-nav {
+				
+				li {
+					
+					a {
+						color: rgba(#fff, .7);
+					}
+					
+					&.ui-state-active a,
+					&.ui-state-hover a {
+						color: #fff;
+					}
+				}
+			}
+			
+			.evc-tabs-item {
+				border-color: #fff;
+			}
+		}
+		
+		.evc-tabs-nav {
+			
+			li {
+				padding-right: 29px;
+				
+				&:last-child {
+					padding-right: 0;
+				}
+				
+				a {
+					font-size: 15px;
+				}
+				
+				&.ui-state-active a,
+				&.ui-state-hover a {
+					color: $dark-color;
+				}
+			}
+		}
+		
+		.evc-tabs-item {
+			margin: 17px 0 0;
+			padding: 25px 0 0;
+			border-top: 1px solid $border-color;
+		}
+	}
+	
+	&.evc-t-vertical {
+		display: table;
+		
+		&.evc-t-skin-light {
+			
+			.evc-tabs-nav {
+				
+				li {
+					
+					a {
+						border-color: #fff;
+					}
+				}
+			}
+		}
+		
+		.evc-tabs-nav {
+			display: table-cell;
+			vertical-align: top;
+			width: 220px;
+			height: 100%;
+			padding: 0;
+			
+			li {
+				display: block;
+				float: none;
+				margin: 0;
+				padding: 0;
+				
+				&:not(:last-child) {
+					
+					a {
+						border-bottom: 0;
+					}
+				}
+				
+				a {
+					display: block;
+					padding: 21px 20px;
+					font-size: 15px;
+					text-align: center;
+					color: $text-color;
+					background-color: #fbfbfc;
+					border: 1px solid $border-color;
+					overflow: hidden;
+					
+					&:after {
+						content: '';
+						position: absolute;
+						top: 0;
+						right: -6px;
+						width: 6px;
+						height: 100%;
+						background-color: #e4e4e4;
+						@include evcTransition(right .3s ease-in-out);
+					}
+				}
+				
+				&.ui-state-active a,
+				&.ui-state-hover a {
+					color: $dark-color;
+					background-color: #fff;
+					
+					&:after {
+						right: 0;
+					}
+				}
+			}
+		}
+		
+		.evc-tabs-item {
+			display: table-cell;
+			vertical-align: top;
+			width: calc(100% - 220px);
+			height: 100%;
+			padding: 0 0 0 40px;
+		}
+	}
+	
+	/***** Types styles - end *****/
+	
+}
+
+/* ==========================================================================
+   Tabs shortcode style - end
+   ========================================================================== */

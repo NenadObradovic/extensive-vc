@@ -88,7 +88,7 @@ if ( ! class_exists( 'ExtensiveVCPredefinedStyle' ) ) {
 		function enqueueGoogleFont() {
 			
 			$defaultFontArgs = array(
-				'family' => urlencode( 'Raleway:400,500,600,700,800,900' ),
+				'family' => urlencode( 'Raleway:400,500,600,700,800,900|Poppins:400,700' ),
 				'subset' => urlencode( 'latin-ext' ),
 			);
 			

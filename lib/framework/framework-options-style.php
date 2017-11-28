@@ -28,7 +28,8 @@ if ( ! function_exists( 'extensive_vc_init_admin_options_style' ) ) {
 			'.evc-dropcaps.evc-d-simple .evc-d-letter',
 			'.evc-icon-list .evc-ili-icon-wrapper',
 			'.evc-icon-progress-bar .evc-ipb-icon.evc-active',
-			'.evc-icon-with-text .evc-iwt-icon'
+			'.evc-icon-with-text .evc-iwt-icon',
+			'.evc-full-screen-sections .evc-fss-nav-holder a:hover'
 		);
 		
 		$main_color_bg_selector = array(

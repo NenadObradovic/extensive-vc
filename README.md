@@ -12,7 +12,9 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
 	<li><a href="http://wprealize.com/classic/image-with-text/">Classic - Image With Text</a></li>
 	<li><a href="http://wprealize.com/classic/separator/">Classic - Separator</a></li>
 	<li><a href="http://wprealize.com/classic/single-image/">Classic - Single Image</a></li>
-	<li><a href="http://wprealize.com/interactive/flip-image/">Interactive - Flip Image (New)</a></li>
+	<li><a href="http://wprealize.com/classic/tabs/">Classic - Tabs (New)</a></li>
+	<li><a href="http://wprealize.com/interactive/flip-image/">Interactive - Flip Image</a></li>
+	<li><a href="http://wprealize.com/interactive/full-screen-sections/">Interactive - Full Screen Sections (New)</a></li>
     <li><a href="http://wprealize.com/interactive/gallery-block/">Interactive - Gallery Block</a></li>
 	<li><a href="http://wprealize.com/interactive/image-gallery/">Interactive - Image Gallery</a></li>
 	<li><a href="http://wprealize.com/interactive/interactive-banner/">Interactive - Interactive Banner</a></li>
@@ -20,10 +22,11 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
 	<li><a href="http://wprealize.com/interactive/process-2/">Interactive - Process 2</a></li>
 	<li><a href="http://wprealize.com/interactive/testimonials/">Interactive - Testimonials</a></li>
 	<li><a href="http://wprealize.com/infographic/counter/">Infographic - Counter</a></li>
-	<li><a href="http://wprealize.com/infographic/doughnut-chart/">Infographic - Doughnut Chart (New)</a></li>
-	<li><a href="http://wprealize.com/infographic/icon-progress-bar/">Infographic - Icon Progress Bar (New)</a></li>
-	<li><a href="http://wprealize.com/infographic/pie-chart/">Infographic - Pie Chart (New)</a></li>
+	<li><a href="http://wprealize.com/infographic/doughnut-chart/">Infographic - Doughnut Chart</a></li>
+	<li><a href="http://wprealize.com/infographic/icon-progress-bar/">Infographic - Icon Progress Bar</a></li>
+	<li><a href="http://wprealize.com/infographic/pie-chart/">Infographic - Pie Chart</a></li>
 	<li><a href="http://wprealize.com/infographic/progress-bar/">Infographic - Progress Bar</a></li>
+	<li><a href="http://wprealize.com/infographic/text-marquee/">Infographic - Text Marquee (New)</a></li>
 	<li><a href="http://wprealize.com/typography/blockquote/">Typography - Blockquote</a></li>
 	<li><a href="http://wprealize.com/typography/custom-font/">Typography - Custom Font</a></li>
 	<li><a href="http://wprealize.com/typography/dropcaps/">Typography - Dropcaps</a></li>
@@ -55,6 +58,22 @@ From wordpress.org
 You can find all instructions about plugin and all shortcodes in website <a href="http://wprealize.com/"><strong>WP Realize - Extensive VC</strong></a>
 
 <h3>Changelog</h3>
+
+<h5>1.4</h5>
+- Added Text Marquee shortcode <br />
+- Added Simple type for Tabs shortcode <br />
+- Added Skin option for Tabs shortcode <br />
+- Added Custom Link option for Full Screen Sections shortcode <br />
+- Improved shortcode parent constructor <br />
+- Improved shortcode helper functions <br />
+- Updated language pot file <br />
+- Redesigned logo and graphics <br />
+
+<h5>1.3</h5>
+- Added Full Screen Sections shortcode <br />
+- Added Tabs shortcode <br />
+- Updated language pot file <br />
+- Fixed minor bugs <br />
 
 <h5>1.2.2</h5>
 - Added With Icon type option for Blockquote shortcode <br />

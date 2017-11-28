@@ -27,18 +27,26 @@ if ( ! class_exists( 'EVCShortcode' ) ) {
 		/**
 		 * Constructor
 		 *
-		 * @param $shortcodeHasParent boolean - check is nested shortcode
+		 * @param $shortcodeParams array - set specific shortcode behavior
 		 */
-		function __construct( $shortcodeHasChild = false, $shortcodeHasParent = false, $shortcodeIsInCPT = false ) {
-			$mainBase = $shortcodeHasParent ? $this->getParentBase() : $this->getBase();
+		function __construct( $shortcodeParams = array() ) {
+			$hasChild = false; 
+			$hasParent = false; 
+			$isNested = false;
+			$isInCPT = false;
+			
+			extract( $shortcodeParams );
+			
+			$mainBase = $hasParent ? $this->getParentBase() : $this->getBase();
 			$this->setIsShortcodeEnabled( $this->checkIsShortcodeEnabled( $mainBase ) );
 			
 			if ( $this->getIsShortcodeEnabled() ) {
 				$this->setShortcodeConstructor(
 					array(
-						'has_child'  => $shortcodeHasChild,
-						'has_parent' => $shortcodeHasParent,
-						'in_cpt'     => $shortcodeIsInCPT
+						'has_child'  => $hasChild,
+						'has_parent' => $hasParent,
+						'is_nested'  => $isNested,
+						'in_cpt'     => $isInCPT
 				    )
 				);
 				$this->setIconClass( 'icon-wpb-' . strtolower( str_replace( ' ', '-', $this->getShortcodeName() ) ) );
@@ -50,7 +58,7 @@ if ( ! class_exists( 'EVCShortcode' ) ) {
 				add_action( 'vc_before_init', array( $this, 'vcMap' ) );
 			}
 			
-			if ( ! $shortcodeHasParent ) {
+			if ( ! $hasParent ) {
 				add_filter( 'extensive_vc_filter_shortcodes_list', array( $this, 'addShortcodeIntoOptions' ) );
 			}
 		}
@@ -256,6 +264,7 @@ if ( ! class_exists( 'EVCShortcode' ) ) {
 		function vcMap( $params ) {
 			
 			if ( function_exists( 'vc_map' ) ) {
+				$shortcodeConstructor = $this->getShortcodeConstructor();
 				
 				$getParent      = $this->getChildBase();
 				$parentSettings = array();
@@ -263,6 +272,7 @@ if ( ! class_exists( 'EVCShortcode' ) ) {
 					$parentSettings = array(
 						'as_parent'       => array( 'only' => $this->getChildBase() ),
 						'content_element' => true,
+						'is_container'    => true,
 						'js_view'         => 'VcColumnView'
 					);
 				}
@@ -273,6 +283,16 @@ if ( ! class_exists( 'EVCShortcode' ) ) {
 					$childSettings = array(
 						'as_child' => array( 'only' => $this->getParentBase() )
 					);
+					
+					if ( $shortcodeConstructor['is_nested'] ) {
+						$additionalChildSettings = array(
+							'content_element' => true,
+							'is_container'    => true,
+							'js_view'         => 'VcColumnView'
+						);
+						
+						$childSettings = array_merge( $childSettings, $additionalChildSettings );
+					}
 				}
 				
 				vc_map(

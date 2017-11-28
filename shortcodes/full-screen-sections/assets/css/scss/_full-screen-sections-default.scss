@@ -1,0 +1,218 @@
+/* ==========================================================================
+   Full Screen Sections shortcode style - begin
+   ========================================================================== */
+
+html.fp-enabled,
+.fp-enabled body {
+	margin: 0;
+	padding: 0;
+	overflow:hidden;
+	
+	/*Avoid flicker on slides transitions for mobile phones #336 */
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+#superContainer {
+	height: 100%;
+	position: relative;
+	
+	/* Touch detection for Windows 8 */
+	-ms-touch-action: none;
+	
+	/* IE 11 on Windows Phone 8.1*/
+	touch-action: none;
+}
+
+.fp-scrollable {
+	overflow: hidden;
+	position: relative;
+}
+
+.fp-scroller {
+	overflow: hidden;
+}
+
+.iScrollIndicator {
+	border: 0 !important;
+}
+
+.fp-notransition {
+	-webkit-transition: none !important;
+	transition: none !important;
+}
+
+.fp-auto-height.edgtf-fss-item,
+.fp-auto-height .edgtf-fss-slide,
+.fp-auto-height .fp-tableCell {
+	height: auto !important;
+}
+
+.fp-responsive .fp-auto-height-responsive.edgtf-fss-item,
+.fp-responsive .fp-auto-height-responsive .edgtf-fss-slide,
+.fp-responsive .fp-auto-height-responsive .fp-tableCell {
+	height: auto !important;
+}
+
+.evc-full-screen-sections {
+	@include evcRelativeLayout();
+	
+	.evc-fss-wrapper {
+		visibility: hidden;
+		-webkit-transition: -webkit-transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) 1s !important;
+		-moz-transition: -moz-transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) 1s !important;
+		transition: transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) 1s !important;
+		-webkit-transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+		-moz-transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+		transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+		
+		&.evc-fss-is-loaded {
+			visibility: visible;
+		}
+		
+		&.evc-fss-first-init {
+			
+			.evc-fss-item {
+				
+				&.active {
+					
+					.evc-fssi-bg {
+						-webkit-transition: none !important;
+						-moz-transition: none !important;
+						transition: none !important;
+					}
+				}
+			}
+		}
+	}
+	
+	.evc-fss-item {
+		@include evcTableLayout();
+		margin: 0;
+		padding: 5%;
+		box-sizing: border-box;
+		
+		&.active {
+			
+			.evc-fssi-bg {
+				-webkit-transition-delay: 2s !important;
+				-moz-transition-delay: 2s !important;
+				transition-delay: 2s !important;
+				@include evcTransform(scale(1));
+			}
+		}
+		
+		.evc-fssi-bg {
+			@include evcAbsoluteLayout();
+			background-position: center;
+			background-size: cover;
+			-webkit-transition: -webkit-transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+			-moz-transition: -moz-transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+			transition: transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+			-webkit-transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+			-moz-transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+			transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+			@include evcTransform(scale(0.6));
+		}
+		
+		.fp-scroller {
+			
+			> .vc_column_container {
+				padding: 0;
+				margin: 0;
+				
+				> .vc_column-inner {
+					padding: 0;
+					margin: 0;
+				}
+			}
+		}
+		
+		&.evc-fssi-va-top {
+			
+			.evc-fssi-inner {
+				vertical-align: top;
+			}
+		}
+		
+		&.evc-fssi-va-bottom {
+			
+			.evc-fssi-inner {
+				vertical-align: bottom;
+			}
+		}
+		
+		&.evc-fssi-ha-left {
+			
+			.evc-fssi-inner {
+				text-align: left;
+			}
+		}
+		
+		&.evc-fssi-ha-center {
+			
+			.evc-fssi-inner {
+				text-align: center;
+			}
+		}
+		
+		&.evc-fssi-ha-right {
+			
+			.evc-fssi-inner {
+				text-align: right;
+			}
+		}
+		
+		.evc-fssi-inner {
+			@include evcTableCellLayout();
+			
+			box-sizing: border-box;
+			
+			a {
+				position: relative;
+				z-index: 2;
+			}
+		}
+		
+		.evc-fssi-link {
+			@include evcAbsoluteLayout();
+		}
+	}
+	
+	.evc-fss-nav-holder {
+		position: fixed;
+		bottom: 49px;
+		left: 50px;
+		width: 55px;
+		display: block;
+		text-align: center;
+		visibility: hidden;
+		z-index: 1001;
+		
+		a {
+			display: block;
+			height: auto;
+			font-size: 38px;
+			line-height: 1;
+			color: $dark-color;
+			@include evcTransition(color .3s ease-in-out);
+			
+			&:hover {
+				color: $main-color;
+			}
+			
+			span {
+				display: block;
+				line-height: inherit;
+				
+				&:before {
+					display: block;
+					line-height: inherit;
+				}
+			}
+		}
+	}
+}
+
+/* ==========================================================================
+   Full Screen Sections shortcode style - end
+   ========================================================================== */

@@ -157,7 +157,7 @@ if ( ! class_exists( 'EVCInteractiveBanner' ) ) {
 			$params['title_tag']    = ! empty( $params['title_tag'] ) ? $params['title_tag'] : $args['title_tag'];
 			$params['title_styles'] = $this->getTitleStyles( $params );
 			
-			$params['link_attributes'] = $this->getLinkAttributes( $params['custom_link'] );
+			$params['link_attributes'] = extensive_vc_get_custom_link_attributes( $params['custom_link'], 'evc-ib-link' );
 			
 			$html = extensive_vc_get_module_template_part( 'shortcodes', 'interactive-banner', 'templates/interactive-banner', '', $params );
 			
@@ -232,40 +232,6 @@ if ( ! class_exists( 'EVCInteractiveBanner' ) ) {
 			}
 			
 			return implode( ';', $styles );
-		}
-		
-		/**
-		 * Get link attributes
-		 *
-		 * @param $custom_link array - link parameters value
-		 *
-		 * @return array
-		 */
-		private function getLinkAttributes( $custom_link ) {
-			$attributes = array();
-			
-			if ( ! empty( $custom_link ) ) {
-				$link = function_exists( 'vc_build_link' ) ? vc_build_link( $custom_link ) : array();
-				
-				if ( ! empty( $link ) ) {
-					$attributes[] = 'class="evc-ib-link"';
-					$attributes[] = 'href="' . esc_url( trim( $link['url'] ) ) . '"';
-					
-					if ( ! empty( $link['target'] ) ) {
-						$attributes[] = 'target="' . esc_attr( trim( $link['target'] ) ) . '"';
-					}
-					
-					if ( ! empty( $link['title'] ) ) {
-						$attributes[] = 'title="' . esc_attr( trim( $link['title'] ) ) . '"';
-					}
-					
-					if ( ! empty( $link['rel'] ) ) {
-						$attributes[] = 'rel="' . esc_attr( trim( $link['rel'] ) ) . '"';
-					}
-				}
-			}
-			
-			return $attributes;
 		}
 	}
 }

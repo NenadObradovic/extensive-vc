@@ -26,7 +26,7 @@ if ( ! class_exists( 'EVCIconListItem' ) ) {
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
-			parent::__construct( false, true );
+			parent::__construct( array( 'hasParent' => true ) );
 		}
 		
 		/**
@@ -130,7 +130,7 @@ if ( ! class_exists( 'EVCIconListItem' ) ) {
 			);
 			$params = shortcode_atts( $args, $atts );
 			
-			$params['holder_classes'] = $this->getHolderClasses( $params, $args );
+			$params['holder_classes'] = $this->getHolderClasses( $params );
 			$params['holder_styles']  = $this->getHolderStyles( $params );
 			
 			$params['icon_styles'] = $this->getIconStyles( $params );

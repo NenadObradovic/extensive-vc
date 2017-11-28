@@ -620,6 +620,215 @@
    Flip Image shortcode style - end
    ========================================================================== */
 /* ==========================================================================
+   Full Screen Sections shortcode style - begin
+   ========================================================================== */
+html.fp-enabled,
+.fp-enabled body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /*Avoid flicker on slides transitions for mobile phones #336 */
+  -webkit-tap-highlight-color: transparent;
+}
+
+#superContainer {
+  height: 100%;
+  position: relative;
+  /* Touch detection for Windows 8 */
+  -ms-touch-action: none;
+  /* IE 11 on Windows Phone 8.1*/
+  touch-action: none;
+}
+
+.fp-scrollable {
+  overflow: hidden;
+  position: relative;
+}
+
+.fp-scroller {
+  overflow: hidden;
+}
+
+.iScrollIndicator {
+  border: 0 !important;
+}
+
+.fp-notransition {
+  -webkit-transition: none !important;
+  transition: none !important;
+}
+
+.fp-auto-height.edgtf-fss-item,
+.fp-auto-height .edgtf-fss-slide,
+.fp-auto-height .fp-tableCell {
+  height: auto !important;
+}
+
+.fp-responsive .fp-auto-height-responsive.edgtf-fss-item,
+.fp-responsive .fp-auto-height-responsive .edgtf-fss-slide,
+.fp-responsive .fp-auto-height-responsive .fp-tableCell {
+  height: auto !important;
+}
+
+.evc-full-screen-sections {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+}
+
+.evc-full-screen-sections .evc-fss-wrapper {
+  visibility: hidden;
+  -webkit-transition: -webkit-transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) 1s !important;
+  -moz-transition: -moz-transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) 1s !important;
+  transition: transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) 1s !important;
+  -webkit-transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+  -moz-transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+  transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+}
+
+.evc-full-screen-sections .evc-fss-wrapper.evc-fss-is-loaded {
+  visibility: visible;
+}
+
+.evc-full-screen-sections .evc-fss-wrapper.evc-fss-first-init .evc-fss-item.active .evc-fssi-bg {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  transition: none !important;
+}
+
+.evc-full-screen-sections .evc-fss-item {
+  position: relative;
+  display: table;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 5%;
+  box-sizing: border-box;
+}
+
+.evc-full-screen-sections .evc-fss-item.active .evc-fssi-bg {
+  -webkit-transition-delay: 2s !important;
+  -moz-transition-delay: 2s !important;
+  transition-delay: 2s !important;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  transform: scale(1);
+}
+
+.evc-full-screen-sections .evc-fss-item .evc-fssi-bg {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-position: center;
+  background-size: cover;
+  -webkit-transition: -webkit-transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+  -moz-transition: -moz-transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+  transition: transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+  -webkit-transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+  -moz-transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+  transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+  -webkit-transform: scale(0.6);
+  -moz-transform: scale(0.6);
+  transform: scale(0.6);
+}
+
+.evc-full-screen-sections .evc-fss-item .fp-scroller > .vc_column_container {
+  padding: 0;
+  margin: 0;
+}
+
+.evc-full-screen-sections .evc-fss-item .fp-scroller > .vc_column_container > .vc_column-inner {
+  padding: 0;
+  margin: 0;
+}
+
+.evc-full-screen-sections .evc-fss-item.evc-fssi-va-top .evc-fssi-inner {
+  vertical-align: top;
+}
+
+.evc-full-screen-sections .evc-fss-item.evc-fssi-va-bottom .evc-fssi-inner {
+  vertical-align: bottom;
+}
+
+.evc-full-screen-sections .evc-fss-item.evc-fssi-ha-left .evc-fssi-inner {
+  text-align: left;
+}
+
+.evc-full-screen-sections .evc-fss-item.evc-fssi-ha-center .evc-fssi-inner {
+  text-align: center;
+}
+
+.evc-full-screen-sections .evc-fss-item.evc-fssi-ha-right .evc-fssi-inner {
+  text-align: right;
+}
+
+.evc-full-screen-sections .evc-fss-item .evc-fssi-inner {
+  position: relative;
+  display: table-cell;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+.evc-full-screen-sections .evc-fss-item .evc-fssi-inner a {
+  position: relative;
+  z-index: 2;
+}
+
+.evc-full-screen-sections .evc-fss-item .evc-fssi-link {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.evc-full-screen-sections .evc-fss-nav-holder {
+  position: fixed;
+  bottom: 49px;
+  left: 50px;
+  width: 55px;
+  display: block;
+  text-align: center;
+  visibility: hidden;
+  z-index: 1001;
+}
+
+.evc-full-screen-sections .evc-fss-nav-holder a {
+  display: block;
+  height: auto;
+  font-size: 38px;
+  line-height: 1;
+  color: #303030;
+  -webkit-transition: color 0.3s ease-in-out;
+  -moz-transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
+}
+
+.evc-full-screen-sections .evc-fss-nav-holder a:hover {
+  color: #43cb83;
+}
+
+.evc-full-screen-sections .evc-fss-nav-holder a span {
+  display: block;
+  line-height: inherit;
+}
+
+.evc-full-screen-sections .evc-fss-nav-holder a span:before {
+  display: block;
+  line-height: inherit;
+}
+
+/* ==========================================================================
+   Full Screen Sections shortcode style - end
+   ========================================================================== */
+/* ==========================================================================
    Gallery Block shortcode style - begin
    ========================================================================== */
 .evc-gallery-block {
@@ -1008,85 +1217,6 @@
    Pie Chart shortcode style - end
    ========================================================================== */
 /* ==========================================================================
-   Process 2 shortcode responsive style - begin
-   ========================================================================== */
-@media only screen and (max-width: 1280px) {
-  .evc-process-2 .evc-p2-cover-bg {
-    background-size: contain;
-  }
-  .evc-process-2.evc-responsive-1280 .evc-p2-cover-bg {
-    display: none;
-  }
-  .evc-process-2.evc-responsive-1280 .evc-process-2-item {
-    width: 100% !important;
-    float: none;
-    margin-top: 50px;
-  }
-  .evc-process-2.evc-responsive-1280 .evc-process-2-item:first-child {
-    margin-top: 0;
-  }
-}
-
-@media only screen and (max-width: 1024px) {
-  .evc-process-2.evc-responsive-1024 .evc-p2-cover-bg {
-    display: none;
-  }
-  .evc-process-2.evc-responsive-1024 .evc-process-2-item {
-    width: 100% !important;
-    float: none;
-    margin-top: 50px;
-  }
-  .evc-process-2.evc-responsive-1024 .evc-process-2-item:first-child {
-    margin-top: 0;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .evc-process-2.evc-responsive-768 .evc-p2-cover-bg {
-    display: none;
-  }
-  .evc-process-2.evc-responsive-768 .evc-process-2-item {
-    width: 100% !important;
-    float: none;
-    margin-top: 50px;
-  }
-  .evc-process-2.evc-responsive-768 .evc-process-2-item:first-child {
-    margin-top: 0;
-  }
-}
-
-@media only screen and (max-width: 680px) {
-  .evc-process-2.evc-responsive-680 .evc-p2-cover-bg {
-    display: none;
-  }
-  .evc-process-2.evc-responsive-680 .evc-process-2-item {
-    width: 100% !important;
-    float: none;
-    margin-top: 50px;
-  }
-  .evc-process-2.evc-responsive-680 .evc-process-2-item:first-child {
-    margin-top: 0;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  .evc-process-2.evc-responsive-480 .evc-p2-cover-bg {
-    display: none;
-  }
-  .evc-process-2.evc-responsive-480 .evc-process-2-item {
-    width: 100% !important;
-    float: none;
-    margin-top: 50px;
-  }
-  .evc-process-2.evc-responsive-480 .evc-process-2-item:first-child {
-    margin-top: 0;
-  }
-}
-
-/* ==========================================================================
-   Process shortcode responsive style - end
-   ========================================================================== */
-/* ==========================================================================
    Process 2 shortcode style - begin
    ========================================================================== */
 .evc-process-2 {
@@ -1224,145 +1354,6 @@
 
 /* ==========================================================================
    Process 2 shortcode style - end
-   ========================================================================== */
-/* ==========================================================================
-   Process shortcode responsive style - begin
-   ========================================================================== */
-@media only screen and (max-width: 1280px) {
-  .evc-process.evc-responsive-1280 .evc-p-mark-horizontal {
-    display: none;
-  }
-  .evc-process.evc-responsive-1280 .evc-p-mark-vertical {
-    display: block;
-  }
-  .evc-process.evc-responsive-1280 .evc-p-inner {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    vertical-align: top;
-    padding: 0 0 0 76px;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  .evc-process.evc-responsive-1280 .evc-process-item {
-    width: 100% !important;
-    min-height: 76px;
-    float: none;
-    padding: 0;
-    margin-top: 0;
-    text-align: inherit;
-  }
-  .evc-process.evc-responsive-1280 .evc-pi-content {
-    margin-bottom: 20px;
-  }
-}
-
-@media only screen and (max-width: 1024px) {
-  .evc-process.evc-responsive-1024 .evc-p-mark-horizontal {
-    display: none;
-  }
-  .evc-process.evc-responsive-1024 .evc-p-mark-vertical {
-    display: block;
-  }
-  .evc-process.evc-responsive-1024 .evc-p-inner {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    vertical-align: top;
-    padding: 0 0 0 76px;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  .evc-process.evc-responsive-1024 .evc-process-item {
-    width: 100% !important;
-    min-height: 76px;
-    float: none;
-    padding: 0;
-    margin-top: 0;
-    text-align: inherit;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .evc-process.evc-responsive-768 .evc-p-mark-horizontal {
-    display: none;
-  }
-  .evc-process.evc-responsive-768 .evc-p-mark-vertical {
-    display: block;
-  }
-  .evc-process.evc-responsive-768 .evc-p-inner {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    vertical-align: top;
-    padding: 0 0 0 76px;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  .evc-process.evc-responsive-768 .evc-process-item {
-    width: 100% !important;
-    min-height: 76px;
-    float: none;
-    padding: 0;
-    margin-top: 0;
-    text-align: inherit;
-  }
-}
-
-@media only screen and (max-width: 680px) {
-  .evc-process.evc-responsive-680 .evc-p-mark-horizontal {
-    display: none;
-  }
-  .evc-process.evc-responsive-680 .evc-p-mark-vertical {
-    display: block;
-  }
-  .evc-process.evc-responsive-680 .evc-p-inner {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    vertical-align: top;
-    padding: 0 0 0 76px;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  .evc-process.evc-responsive-680 .evc-process-item {
-    width: 100% !important;
-    min-height: 76px;
-    float: none;
-    padding: 0;
-    margin-top: 0;
-    text-align: inherit;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  .evc-process.evc-responsive-480 .evc-p-mark-horizontal {
-    display: none;
-  }
-  .evc-process.evc-responsive-480 .evc-p-mark-vertical {
-    display: block;
-  }
-  .evc-process.evc-responsive-480 .evc-p-inner {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    vertical-align: top;
-    padding: 0 0 0 76px;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  .evc-process.evc-responsive-480 .evc-process-item {
-    width: 100% !important;
-    min-height: 76px;
-    float: none;
-    padding: 0;
-    margin-top: 0;
-    text-align: inherit;
-  }
-}
-
-/* ==========================================================================
-   Process shortcode responsive style - end
    ========================================================================== */
 /* ==========================================================================
    Process shortcode style - begin
@@ -1786,6 +1777,516 @@
 
 /* ==========================================================================
    Single Image shortcode style - end
+   ========================================================================== */
+/* ==========================================================================
+   Tabs shortcode style - begin
+   ========================================================================== */
+.evc-tabs {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+  visibility: hidden;
+  /***** Types styles - begin *****/
+  /***** Types styles - end *****/
+}
+
+.evc-tabs .evc-tabs-nav {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.evc-tabs .evc-tabs-nav li {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+.evc-tabs .evc-tabs-nav li a {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  font-family: "Poppins", sans-serif;
+  line-height: 26px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: #808080;
+  box-sizing: border-box;
+  -webkit-transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  -moz-transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.evc-tabs .evc-tabs-item {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+
+.evc-tabs .evc-tabs-item p {
+  margin: 0;
+}
+
+.evc-tabs.evc-t-skin-light .evc-tabs-item p {
+  color: #fff;
+}
+
+.evc-tabs.evc-t-standard.evc-t-skin-light .evc-tabs-nav li a {
+  border-color: #fff;
+}
+
+.evc-tabs.evc-t-standard.evc-t-skin-light .evc-tabs-item {
+  border-color: #fff;
+}
+
+@media only screen and (min-width: 769px) {
+  .evc-tabs.evc-t-standard .evc-tabs-nav li:not(:first-child) a {
+    border-left: 0;
+  }
+}
+
+.evc-tabs.evc-t-standard .evc-tabs-nav li a {
+  padding: 12px 30px;
+  font-size: 14px;
+  border: 1px solid #ebebeb;
+  border-bottom: 0;
+  background-color: #fbfbfc;
+}
+
+.evc-tabs.evc-t-standard .evc-tabs-nav li.ui-state-active a,
+.evc-tabs.evc-t-standard .evc-tabs-nav li.ui-state-hover a {
+  color: #303030;
+  background-color: #fff;
+}
+
+.evc-tabs.evc-t-standard .evc-tabs-item {
+  padding: 25px 32px 27px;
+  border: 1px solid #ebebeb;
+}
+
+.evc-tabs.evc-t-simple.evc-t-skin-light .evc-tabs-nav li a {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.evc-tabs.evc-t-simple.evc-t-skin-light .evc-tabs-nav li.ui-state-active a,
+.evc-tabs.evc-t-simple.evc-t-skin-light .evc-tabs-nav li.ui-state-hover a {
+  color: #fff;
+}
+
+.evc-tabs.evc-t-simple.evc-t-skin-light .evc-tabs-item {
+  border-color: #fff;
+}
+
+.evc-tabs.evc-t-simple .evc-tabs-nav li {
+  padding-right: 29px;
+}
+
+.evc-tabs.evc-t-simple .evc-tabs-nav li:last-child {
+  padding-right: 0;
+}
+
+.evc-tabs.evc-t-simple .evc-tabs-nav li a {
+  font-size: 15px;
+}
+
+.evc-tabs.evc-t-simple .evc-tabs-nav li.ui-state-active a,
+.evc-tabs.evc-t-simple .evc-tabs-nav li.ui-state-hover a {
+  color: #303030;
+}
+
+.evc-tabs.evc-t-simple .evc-tabs-item {
+  margin: 17px 0 0;
+  padding: 25px 0 0;
+  border-top: 1px solid #ebebeb;
+}
+
+.evc-tabs.evc-t-vertical {
+  display: table;
+}
+
+.evc-tabs.evc-t-vertical.evc-t-skin-light .evc-tabs-nav li a {
+  border-color: #fff;
+}
+
+.evc-tabs.evc-t-vertical .evc-tabs-nav {
+  display: table-cell;
+  vertical-align: top;
+  width: 220px;
+  height: 100%;
+  padding: 0;
+}
+
+.evc-tabs.evc-t-vertical .evc-tabs-nav li {
+  display: block;
+  float: none;
+  margin: 0;
+  padding: 0;
+}
+
+.evc-tabs.evc-t-vertical .evc-tabs-nav li:not(:last-child) a {
+  border-bottom: 0;
+}
+
+.evc-tabs.evc-t-vertical .evc-tabs-nav li a {
+  display: block;
+  padding: 21px 20px;
+  font-size: 15px;
+  text-align: center;
+  color: #808080;
+  background-color: #fbfbfc;
+  border: 1px solid #ebebeb;
+  overflow: hidden;
+}
+
+.evc-tabs.evc-t-vertical .evc-tabs-nav li a:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -6px;
+  width: 6px;
+  height: 100%;
+  background-color: #e4e4e4;
+  -webkit-transition: right 0.3s ease-in-out;
+  -moz-transition: right 0.3s ease-in-out;
+  transition: right 0.3s ease-in-out;
+}
+
+.evc-tabs.evc-t-vertical .evc-tabs-nav li.ui-state-active a,
+.evc-tabs.evc-t-vertical .evc-tabs-nav li.ui-state-hover a {
+  color: #303030;
+  background-color: #fff;
+}
+
+.evc-tabs.evc-t-vertical .evc-tabs-nav li.ui-state-active a:after,
+.evc-tabs.evc-t-vertical .evc-tabs-nav li.ui-state-hover a:after {
+  right: 0;
+}
+
+.evc-tabs.evc-t-vertical .evc-tabs-item {
+  display: table-cell;
+  vertical-align: top;
+  width: calc(100% - 220px);
+  height: 100%;
+  padding: 0 0 0 40px;
+}
+
+/* ==========================================================================
+   Tabs shortcode style - end
+   ========================================================================== */
+/* ==========================================================================
+   Text Marquee shortcode style - begin
+   ========================================================================== */
+.evc-text-marquee {
+  position: relative;
+  color: #303030;
+  font-size: 54px;
+  line-height: 1.2em;
+  font-weight: 700;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.evc-text-marquee .evc-tm-element {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.evc-text-marquee .evc-tm-element.evc-tm-aux {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* ==========================================================================
+   Text Marquee shortcode style - text
+   ========================================================================== */
+/* ==========================================================================
+   Full Screen Sections shortcode responsive style - begin
+   ========================================================================== */
+@media only screen and (max-width: 1024px) {
+  .evc-full-screen-sections .evc-fss-nav-holder {
+    bottom: 29px;
+    left: 30px;
+  }
+}
+
+/* ==========================================================================
+   Full Screen Sections shortcode responsive style - end
+   ========================================================================== */
+/* ==========================================================================
+   Process 2 shortcode responsive style - begin
+   ========================================================================== */
+@media only screen and (max-width: 1280px) {
+  .evc-process-2 .evc-p2-cover-bg {
+    background-size: contain;
+  }
+  .evc-process-2.evc-responsive-1280 .evc-p2-cover-bg {
+    display: none;
+  }
+  .evc-process-2.evc-responsive-1280 .evc-process-2-item {
+    width: 100% !important;
+    float: none;
+    margin-top: 50px;
+  }
+  .evc-process-2.evc-responsive-1280 .evc-process-2-item:first-child {
+    margin-top: 0;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .evc-process-2.evc-responsive-1024 .evc-p2-cover-bg {
+    display: none;
+  }
+  .evc-process-2.evc-responsive-1024 .evc-process-2-item {
+    width: 100% !important;
+    float: none;
+    margin-top: 50px;
+  }
+  .evc-process-2.evc-responsive-1024 .evc-process-2-item:first-child {
+    margin-top: 0;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .evc-process-2.evc-responsive-768 .evc-p2-cover-bg {
+    display: none;
+  }
+  .evc-process-2.evc-responsive-768 .evc-process-2-item {
+    width: 100% !important;
+    float: none;
+    margin-top: 50px;
+  }
+  .evc-process-2.evc-responsive-768 .evc-process-2-item:first-child {
+    margin-top: 0;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .evc-process-2.evc-responsive-680 .evc-p2-cover-bg {
+    display: none;
+  }
+  .evc-process-2.evc-responsive-680 .evc-process-2-item {
+    width: 100% !important;
+    float: none;
+    margin-top: 50px;
+  }
+  .evc-process-2.evc-responsive-680 .evc-process-2-item:first-child {
+    margin-top: 0;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .evc-process-2.evc-responsive-480 .evc-p2-cover-bg {
+    display: none;
+  }
+  .evc-process-2.evc-responsive-480 .evc-process-2-item {
+    width: 100% !important;
+    float: none;
+    margin-top: 50px;
+  }
+  .evc-process-2.evc-responsive-480 .evc-process-2-item:first-child {
+    margin-top: 0;
+  }
+}
+
+/* ==========================================================================
+   Process shortcode responsive style - end
+   ========================================================================== */
+/* ==========================================================================
+   Process shortcode responsive style - begin
+   ========================================================================== */
+@media only screen and (max-width: 1280px) {
+  .evc-process.evc-responsive-1280 .evc-p-mark-horizontal {
+    display: none;
+  }
+  .evc-process.evc-responsive-1280 .evc-p-mark-vertical {
+    display: block;
+  }
+  .evc-process.evc-responsive-1280 .evc-p-inner {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    padding: 0 0 0 76px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .evc-process.evc-responsive-1280 .evc-process-item {
+    width: 100% !important;
+    min-height: 76px;
+    float: none;
+    padding: 0;
+    margin-top: 0;
+    text-align: inherit;
+  }
+  .evc-process.evc-responsive-1280 .evc-pi-content {
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .evc-process.evc-responsive-1024 .evc-p-mark-horizontal {
+    display: none;
+  }
+  .evc-process.evc-responsive-1024 .evc-p-mark-vertical {
+    display: block;
+  }
+  .evc-process.evc-responsive-1024 .evc-p-inner {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    padding: 0 0 0 76px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .evc-process.evc-responsive-1024 .evc-process-item {
+    width: 100% !important;
+    min-height: 76px;
+    float: none;
+    padding: 0;
+    margin-top: 0;
+    text-align: inherit;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .evc-process.evc-responsive-768 .evc-p-mark-horizontal {
+    display: none;
+  }
+  .evc-process.evc-responsive-768 .evc-p-mark-vertical {
+    display: block;
+  }
+  .evc-process.evc-responsive-768 .evc-p-inner {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    padding: 0 0 0 76px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .evc-process.evc-responsive-768 .evc-process-item {
+    width: 100% !important;
+    min-height: 76px;
+    float: none;
+    padding: 0;
+    margin-top: 0;
+    text-align: inherit;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .evc-process.evc-responsive-680 .evc-p-mark-horizontal {
+    display: none;
+  }
+  .evc-process.evc-responsive-680 .evc-p-mark-vertical {
+    display: block;
+  }
+  .evc-process.evc-responsive-680 .evc-p-inner {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    padding: 0 0 0 76px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .evc-process.evc-responsive-680 .evc-process-item {
+    width: 100% !important;
+    min-height: 76px;
+    float: none;
+    padding: 0;
+    margin-top: 0;
+    text-align: inherit;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .evc-process.evc-responsive-480 .evc-p-mark-horizontal {
+    display: none;
+  }
+  .evc-process.evc-responsive-480 .evc-p-mark-vertical {
+    display: block;
+  }
+  .evc-process.evc-responsive-480 .evc-p-inner {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    padding: 0 0 0 76px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .evc-process.evc-responsive-480 .evc-process-item {
+    width: 100% !important;
+    min-height: 76px;
+    float: none;
+    padding: 0;
+    margin-top: 0;
+    text-align: inherit;
+  }
+}
+
+/* ==========================================================================
+   Process shortcode responsive style - end
+   ========================================================================== */
+/* ==========================================================================
+   Tabs shortcode responsive style - begin
+   ========================================================================== */
+@media only screen and (max-width: 1024px) {
+  .evc-tabs.evc-t-vertical .evc-tabs-nav {
+    width: 200px;
+  }
+  .evc-tabs.evc-t-vertical .evc-tabs-item {
+    width: calc(100% - 200px);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .evc-tabs.evc-t-standard .evc-tabs-nav li {
+    display: block;
+    float: none;
+  }
+  .evc-tabs.evc-t-standard .evc-tabs-nav li a {
+    width: 100%;
+  }
+  .evc-tabs.evc-t-simple .evc-tabs-nav li {
+    padding-right: 19px;
+  }
+  .evc-tabs.evc-t-vertical .evc-tabs-nav,
+  .evc-tabs.evc-t-vertical .evc-tabs-item {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    height: auto;
+  }
+  .evc-tabs.evc-t-vertical .evc-tabs-item {
+    padding: 35px 0 0;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .evc-tabs.evc-t-vertical .evc-tabs-nav li a {
+    padding: 12px 20px;
+  }
+  .evc-tabs.evc-t-vertical .evc-tabs-item {
+    padding: 25px 0 0;
+  }
+}
+
+/* ==========================================================================
+   Tabs shortcode responsive style - end
    ========================================================================== */
 /* ==========================================================================
    Include shortcodes styles - end
