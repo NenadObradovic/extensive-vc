@@ -1,2 +1,3 @@
-gulp/node_modules
-gulp/node_modules/*
+assets/css/scss
+assets/js/modules
+gulp
