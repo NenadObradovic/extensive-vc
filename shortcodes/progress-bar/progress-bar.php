@@ -85,7 +85,7 @@ if ( ! class_exists( 'EVCProgressBar' ) ) {
 					'param_name' => 'percent_color',
 					'heading'    => esc_html__( 'Percentage Color', 'extensive-vc' ),
 					'dependency' => array( 'element' => 'percent', 'not_empty' => true ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Percentage Settings', 'extensive-vc' )
 				),
 				array(
 					'type'        => 'textfield',
@@ -99,26 +99,39 @@ if ( ! class_exists( 'EVCProgressBar' ) ) {
 					'heading'    => esc_html__( 'Title Tag', 'extensive-vc' ),
 					'value'      => array_flip( extensive_vc_get_title_tag_array( true, array( 'p' => 'p' ) ) ),
 					'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Title Settings', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'title_color',
 					'heading'    => esc_html__( 'Title Color', 'extensive-vc' ),
 					'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Title Settings', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'textfield',
+					'param_name' => 'title_bottom_margin',
+					'heading'    => esc_html__( 'Title Bottom Margin (px)', 'extensive-vc' ),
+					'dependency' => array( 'element' => 'title', 'not_empty' => true ),
+					'group'      => esc_html__( 'Title Settings', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'active_bar_color',
 					'heading'    => esc_html__( 'Active Bar Color', 'extensive-vc' ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Bar Settings', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'inactive_bar_color',
 					'heading'    => esc_html__( 'Inactive Bar Color', 'extensive-vc' ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Bar Settings', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'textfield',
+					'param_name' => 'bar_height',
+					'heading'    => esc_html__( 'Bar Height (px)', 'extensive-vc' ),
+					'group'      => esc_html__( 'Bar Settings', 'extensive-vc' )
 				)
 			);
 			
@@ -135,15 +148,17 @@ if ( ! class_exists( 'EVCProgressBar' ) ) {
 		 */
 		function render( $atts, $content = null ) {
 			$args   = array(
-				'custom_class'       => '',
-				'type'               => 'horizontal',
-				'percent'            => '100',
-				'percent_color'      => '',
-				'title'              => '',
-				'title_tag'          => 'h6',
-				'title_color'        => '',
-				'active_bar_color'   => '',
-				'inactive_bar_color' => ''
+				'custom_class'        => '',
+				'type'                => 'horizontal',
+				'percent'             => '100',
+				'percent_color'       => '',
+				'title'               => '',
+				'title_tag'           => 'h6',
+				'title_color'         => '',
+				'title_bottom_margin' => '',
+				'active_bar_color'    => '',
+				'inactive_bar_color'  => '',
+				'bar_height'          => ''
 			);
 			$params = shortcode_atts( $args, $atts );
 			
@@ -154,8 +169,8 @@ if ( ! class_exists( 'EVCProgressBar' ) ) {
 			$params['title_tag']      = ! empty( $params['title_tag'] ) ? $params['title_tag'] : $args['title_tag'];
 			$params['title_styles']   = $this->getTitleStyles( $params );
 			
-			$params['active_bar_style']   = $this->getActiveColor( $params );
-			$params['inactive_bar_style'] = $this->getInactiveColor( $params );
+			$params['active_bar_styles']   = $this->getActiveColor( $params );
+			$params['inactive_bar_styles'] = $this->getInactiveColor( $params );
 			
 			$html = extensive_vc_get_module_template_part( 'shortcodes', 'progress-bar', 'templates/progress-bar', $params['type'], $params );
 			
@@ -225,6 +240,10 @@ if ( ! class_exists( 'EVCProgressBar' ) ) {
 				$styles[] = 'color: ' . $params['title_color'];
 			}
 			
+			if ( $params['title_bottom_margin'] !== '' ) {
+				$styles[] = 'margin-bottom: ' . extensive_vc_filter_px( $params['title_bottom_margin'] ) . 'px';
+			}
+			
 			return implode( ';', $styles );
 		}
 		
@@ -257,6 +276,10 @@ if ( ! class_exists( 'EVCProgressBar' ) ) {
 			
 			if ( ! empty( $params['inactive_bar_color'] ) ) {
 				$styles[] = 'background-color: ' . $params['inactive_bar_color'];
+			}
+			
+			if ( ! empty( $params['bar_height'] ) ) {
+				$styles[] = 'height: ' . extensive_vc_filter_px( $params['bar_height'] ) . 'px';
 			}
 			
 			return implode( ';', $styles );

@@ -90,6 +90,24 @@ if ( ! class_exists( 'EVCProcess' ) ) {
 						esc_html__( 'Below 480px', 'extensive-vc' )  => '480'
 					),
 					'description' => esc_html__( 'Choose on which stage item will be full width', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'colorpicker',
+					'param_name' => 'circle_number_color',
+					'heading'    => esc_html__( 'Circle Number Color', 'extensive-vc' ),
+					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'colorpicker',
+					'param_name' => 'circle_background_color',
+					'heading'    => esc_html__( 'Circle Background Color', 'extensive-vc' ),
+					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'colorpicker',
+					'param_name' => 'line_color',
+					'heading'    => esc_html__( 'Line Color', 'extensive-vc' ),
+					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
 				)
 			);
 			
@@ -106,15 +124,20 @@ if ( ! class_exists( 'EVCProcess' ) ) {
 		 */
 		function render( $atts, $content = null ) {
 			$args   = array(
-				'custom_class'         => '',
-				'number_of_columns'    => 'three',
-				'switch_to_one_column' => ''
+				'custom_class'            => '',
+				'number_of_columns'       => 'three',
+				'switch_to_one_column'    => '',
+				'circle_number_color'     => '',
+				'circle_background_color' => '',
+				'line_color'              => ''
 			);
 			$params = shortcode_atts( $args, $atts );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params, $args );
 			
 			$params['number_of_items'] = $this->getNumberOfItems( $params['number_of_columns'] );
+			$params['circle_styles']   = $this->getCircleStyles( $params );
+			$params['line_styles']     = $this->getLineStyles( $params );
 			
 			$params['content'] = $content;
 			
@@ -164,6 +187,44 @@ if ( ! class_exists( 'EVCProcess' ) ) {
 			}
 			
 			return $number;
+		}
+		
+		/**
+		 * Get circle styles
+		 *
+		 * @param $params array - shortcode parameters value
+		 *
+		 * @return string
+		 */
+		private function getCircleStyles( $params ) {
+			$styles = array();
+			
+			if ( ! empty( $params['circle_number_color'] ) ) {
+				$styles[] = 'color: ' . $params['circle_number_color'];
+			}
+			
+			if ( ! empty( $params['circle_background_color'] ) ) {
+				$styles[] = 'background-color: ' . $params['circle_background_color'];
+			}
+			
+			return implode( ';', $styles );
+		}
+		
+		/**
+		 * Get line styles
+		 *
+		 * @param $params array - shortcode parameters value
+		 *
+		 * @return string
+		 */
+		private function getLineStyles( $params ) {
+			$styles = array();
+			
+			if ( ! empty( $params['line_color'] ) ) {
+				$styles[] = 'background-color: ' . $params['line_color'];
+			}
+			
+			return implode( ';', $styles );
 		}
 	}
 }

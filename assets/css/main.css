@@ -710,6 +710,18 @@ body.rtl {
   color: #43cb83;
 }
 
+.evc-carousel-skin-light .evc-owl-carousel .owl-nav .owl-prev,
+.evc-carousel-skin-light
+.evc-owl-carousel .owl-nav .owl-next {
+  color: #fff;
+}
+
+.evc-carousel-skin-light .evc-owl-carousel .owl-nav .owl-prev:hover,
+.evc-carousel-skin-light
+.evc-owl-carousel .owl-nav .owl-next:hover {
+  color: #43cb83;
+}
+
 .evc-owl-carousel .owl-nav .owl-prev > span,
 .evc-owl-carousel .owl-nav .owl-next > span {
   position: relative;
@@ -760,6 +772,15 @@ body.rtl {
 .evc-owl-carousel .owl-dots .owl-dot:hover span,
 .evc-owl-carousel .owl-dots .owl-dot.active span {
   background-color: #303030;
+}
+
+.evc-carousel-skin-light .evc-owl-carousel .owl-dots .owl-dot span {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.evc-carousel-skin-light .evc-owl-carousel .owl-dots .owl-dot:hover span,
+.evc-carousel-skin-light .evc-owl-carousel .owl-dots .owl-dot.active span {
+  background-color: #fff;
 }
 
 .evc-owl-carousel .owl-carousel .owl-item img {

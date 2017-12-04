@@ -124,6 +124,16 @@ if ( ! class_exists( 'EVCTestimonials' ) ) {
 					'heading'    => esc_html__( 'Enable Slider Pagination', 'extensive-vc' ),
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
 					'group'      => esc_html__( 'Slider Settings', 'extensive-vc' )
+				),
+				array(
+					'type'        => 'dropdown',
+					'param_name'  => 'carousel_navigation_skin',
+					'heading'     => esc_html__( 'Slider Navigation Skin', 'extensive-vc' ),
+					'value'       => array(
+						esc_html__( 'Default', 'extensive-vc' ) => '',
+						esc_html__( 'Light', 'extensive-vc' )   => 'light'
+					),
+					'group'      => esc_html__( 'Slider Settings', 'extensive-vc' )
 				)
 			);
 			
@@ -148,7 +158,8 @@ if ( ! class_exists( 'EVCTestimonials' ) ) {
 				'carousel_speed'           => '5000',
 				'carousel_speed_animation' => '600',
 				'carousel_navigation'      => 'yes',
-				'carousel_pagination'      => 'yes'
+				'carousel_pagination'      => 'yes',
+				'carousel_navigation_skin' => ''
 			);
 			$params = shortcode_atts( $args, $atts );
 			
@@ -172,6 +183,7 @@ if ( ! class_exists( 'EVCTestimonials' ) ) {
 			$holderClasses = array();
 			
 			$holderClasses[] = ! empty( $params['custom_class'] ) ? esc_attr( $params['custom_class'] ) : '';
+			$holderClasses[] = ! empty( $params['carousel_navigation_skin'] ) ? 'evc-carousel-skin-' . esc_attr( $params['carousel_navigation_skin'] ) : '';
 			
 			return implode( ' ', $holderClasses );
 		}

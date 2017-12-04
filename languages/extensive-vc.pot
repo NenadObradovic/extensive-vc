@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Extensive VC package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Extensive VC 1.4\n"
+"Project-Id-Version: Extensive VC 1.4.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/extensive-vc\n"
-"POT-Creation-Date: 2017-11-28 20:15:40+00:00\n"
+"POT-Creation-Date: 2017-12-04 20:05:23+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -120,9 +120,12 @@ msgstr ""
 #: lib/helpers-functions.php:487 lib/helpers-functions.php:510
 #: lib/helpers-functions.php:540 lib/helpers-functions.php:569
 #: lib/helpers-functions.php:594 lib/helpers-functions.php:620
-#: lib/helpers-functions.php:665 shortcodes/custom-font/custom-font.php:134
+#: lib/helpers-functions.php:665
+#: post-types/testimonials/shortcodes/testimonials.php:133
+#: shortcodes/custom-font/custom-font.php:134
 #: shortcodes/full-screen-sections/full-screen-sections-item.php:89
 #: shortcodes/full-screen-sections/full-screen-sections-item.php:100
+#: shortcodes/image-gallery/image-gallery.php:198
 #: shortcodes/section-title/section-title.php:60
 #: shortcodes/separator/separator.php:80 shortcodes/tabs/tabs.php:98
 msgid "Default"
@@ -408,8 +411,8 @@ msgid "Enter number of testimonials or leave empty for showing all testimonials"
 msgstr ""
 
 #: post-types/testimonials/shortcodes/testimonials.php:83
-#: post-types/testimonials/shortcodes/testimonials.php:243
-#: post-types/testimonials/shortcodes/testimonials.php:273
+#: post-types/testimonials/shortcodes/testimonials.php:255
+#: post-types/testimonials/shortcodes/testimonials.php:285
 msgid "Category"
 msgstr ""
 
@@ -428,6 +431,7 @@ msgstr ""
 #: post-types/testimonials/shortcodes/testimonials.php:112
 #: post-types/testimonials/shortcodes/testimonials.php:119
 #: post-types/testimonials/shortcodes/testimonials.php:126
+#: post-types/testimonials/shortcodes/testimonials.php:136
 #: shortcodes/image-gallery/image-gallery.php:143
 #: shortcodes/image-gallery/image-gallery.php:151
 #: shortcodes/image-gallery/image-gallery.php:159
@@ -435,6 +439,7 @@ msgstr ""
 #: shortcodes/image-gallery/image-gallery.php:175
 #: shortcodes/image-gallery/image-gallery.php:183
 #: shortcodes/image-gallery/image-gallery.php:191
+#: shortcodes/image-gallery/image-gallery.php:202
 msgid "Slider Settings"
 msgstr ""
 
@@ -471,6 +476,16 @@ msgstr ""
 #: post-types/testimonials/shortcodes/testimonials.php:124
 #: shortcodes/image-gallery/image-gallery.php:188
 msgid "Enable Slider Pagination"
+msgstr ""
+
+#: post-types/testimonials/shortcodes/testimonials.php:131
+#: shortcodes/image-gallery/image-gallery.php:196
+msgid "Slider Navigation Skin"
+msgstr ""
+
+#: post-types/testimonials/shortcodes/testimonials.php:134
+#: shortcodes/image-gallery/image-gallery.php:199 shortcodes/tabs/tabs.php:99
+msgid "Light"
 msgstr ""
 
 #: post-types/testimonials/testimonials-class.php:61
@@ -719,16 +734,12 @@ msgstr ""
 #: shortcodes/process/process-item.php:67
 #: shortcodes/process/process-item.php:74
 #: shortcodes/process/process-item.php:86
-#: shortcodes/process/process-item.php:93
+#: shortcodes/process/process-item.php:93 shortcodes/process/process.php:98
+#: shortcodes/process/process.php:104 shortcodes/process/process.php:110
 #: shortcodes/process-2/process-2-item.php:78
 #: shortcodes/process-2/process-2-item.php:85
 #: shortcodes/process-2/process-2-item.php:97
 #: shortcodes/process-2/process-2-item.php:104
-#: shortcodes/progress-bar/progress-bar.php:88
-#: shortcodes/progress-bar/progress-bar.php:102
-#: shortcodes/progress-bar/progress-bar.php:109
-#: shortcodes/progress-bar/progress-bar.php:115
-#: shortcodes/progress-bar/progress-bar.php:121
 #: shortcodes/section-title/section-title.php:77
 #: shortcodes/section-title/section-title.php:84
 #: shortcodes/section-title/section-title.php:96
@@ -763,7 +774,7 @@ msgstr ""
 msgid "Border Width (px)"
 msgstr ""
 
-#: shortcodes/button/button.php:195
+#: shortcodes/button/button.php:195 shortcodes/process/process.php:109
 msgid "Line Color"
 msgstr ""
 
@@ -1389,6 +1400,14 @@ msgstr ""
 msgid "Choose on which stage item will be full width"
 msgstr ""
 
+#: shortcodes/process/process.php:97
+msgid "Circle Number Color"
+msgstr ""
+
+#: shortcodes/process/process.php:103
+msgid "Circle Background Color"
+msgstr ""
+
 #: shortcodes/process-2/process-2-item.php:25
 msgid "Process 2 Item"
 msgstr ""
@@ -1421,12 +1440,36 @@ msgstr ""
 msgid "Percentage Color"
 msgstr ""
 
+#: shortcodes/progress-bar/progress-bar.php:88
+msgid "Percentage Settings"
+msgstr ""
+
+#: shortcodes/progress-bar/progress-bar.php:102
+#: shortcodes/progress-bar/progress-bar.php:109
+#: shortcodes/progress-bar/progress-bar.php:116
+msgid "Title Settings"
+msgstr ""
+
 #: shortcodes/progress-bar/progress-bar.php:114
+msgid "Title Bottom Margin (px)"
+msgstr ""
+
+#: shortcodes/progress-bar/progress-bar.php:121
 msgid "Active Bar Color"
 msgstr ""
 
-#: shortcodes/progress-bar/progress-bar.php:120
+#: shortcodes/progress-bar/progress-bar.php:122
+#: shortcodes/progress-bar/progress-bar.php:128
+#: shortcodes/progress-bar/progress-bar.php:134
+msgid "Bar Settings"
+msgstr ""
+
+#: shortcodes/progress-bar/progress-bar.php:127
 msgid "Inactive Bar Color"
+msgstr ""
+
+#: shortcodes/progress-bar/progress-bar.php:133
+msgid "Bar Height (px)"
 msgstr ""
 
 #: shortcodes/section-title/section-title.php:24
@@ -1499,10 +1542,6 @@ msgstr ""
 
 #: shortcodes/tabs/tabs.php:96
 msgid "Skin"
-msgstr ""
-
-#: shortcodes/tabs/tabs.php:99
-msgid "Light"
 msgstr ""
 
 #: shortcodes/text-marquee/text-marquee.php:24

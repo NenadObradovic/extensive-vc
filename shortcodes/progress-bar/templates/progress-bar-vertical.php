@@ -6,8 +6,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 <div class="evc-progress-bar evc-shortcode <?php echo esc_attr( $holder_classes ); ?>">
-	<div class="evc-pb-inactive-bar" <?php extensive_vc_print_inline_style( $inactive_bar_style ); ?>>
-		<div class="evc-pb-active-bar" <?php extensive_vc_print_inline_style( $active_bar_style ); ?> <?php extensive_vc_print_inline_attrs( $progress_bar_data ); ?>></div>
+	<div class="evc-pb-inactive-bar" <?php extensive_vc_print_inline_style( $inactive_bar_styles ); ?>>
+		<div class="evc-pb-active-bar" <?php extensive_vc_print_inline_style( $active_bar_styles ); ?> <?php extensive_vc_print_inline_attrs( $progress_bar_data ); ?>></div>
 	</div>
 	<div class="evc-pb-percent" <?php extensive_vc_print_inline_style( $percent_styles ); ?>>0</div>
 	<?php if( ! empty( $title ) ) { ?>

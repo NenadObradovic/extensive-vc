@@ -59,6 +59,16 @@ You can find all instructions about plugin and all shortcodes in website <a href
 
 <h3>Changelog</h3>
 
+<h5>1.4.1</h5>
+- Added Bar Height option for Progress Bar shortcode <br />
+- Added Title Margin Bottom option for Progress Bar shortcode <br />
+- Added Circle Number Color option for Process shortcode <br />
+- Added Circle Background Color option for Process shortcode <br />
+- Added Line Color option for Process shortcode <br />
+- Added Slider Navigation Skin option for Image Gallery shortcode <br />
+- Added Slider Navigation Skin option for Testimonials shortcode <br />
+- Updated language pot file <br />
+
 <h5>1.4</h5>
 - Added Text Marquee shortcode <br />
 - Added Simple type for Tabs shortcode <br />

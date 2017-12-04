@@ -29,7 +29,9 @@ if ( ! function_exists( 'extensive_vc_init_admin_options_style' ) ) {
 			'.evc-icon-list .evc-ili-icon-wrapper',
 			'.evc-icon-progress-bar .evc-ipb-icon.evc-active',
 			'.evc-icon-with-text .evc-iwt-icon',
-			'.evc-full-screen-sections .evc-fss-nav-holder a:hover'
+			'.evc-full-screen-sections .evc-fss-nav-holder a:hover',
+			'.evc-carousel-skin-light .evc-owl-carousel .owl-nav .owl-next:hover',
+			'.evc-carousel-skin-light .evc-owl-carousel .owl-nav .owl-prev:hover'
 		);
 		
 		$main_color_bg_selector = array(

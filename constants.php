@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'EXTENSIVE_VC_VERSION' ) ) {
-	define( 'EXTENSIVE_VC_VERSION', '1.4' );
+	define( 'EXTENSIVE_VC_VERSION', '1.4.1' );
 }
 
 if ( ! defined( 'EXTENSIVE_VC_ABS_PATH' ) ) {

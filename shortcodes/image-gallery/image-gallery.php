@@ -189,6 +189,17 @@ if ( ! class_exists( 'EVCImageGallery' ) ) {
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
 					'dependency' => array( 'element' => 'type', 'value' => array( 'slider', 'carousel' ) ),
 					'group'      => esc_html__( 'Slider Settings', 'extensive-vc' )
+				),
+				array(
+					'type'        => 'dropdown',
+					'param_name'  => 'carousel_navigation_skin',
+					'heading'     => esc_html__( 'Slider Navigation Skin', 'extensive-vc' ),
+					'value'       => array(
+						esc_html__( 'Default', 'extensive-vc' ) => '',
+						esc_html__( 'Light', 'extensive-vc' )   => 'light'
+					),
+					'dependency' => array( 'element' => 'type', 'value' => array( 'slider', 'carousel' ) ),
+					'group'      => esc_html__( 'Slider Settings', 'extensive-vc' )
 				)
 			);
 			
@@ -220,7 +231,8 @@ if ( ! class_exists( 'EVCImageGallery' ) ) {
 				'carousel_speed'           => '5000',
 				'carousel_speed_animation' => '600',
 				'carousel_navigation'      => 'yes',
-				'carousel_pagination'      => 'yes'
+				'carousel_pagination'      => 'yes',
+				'carousel_navigation_skin' => ''
 			);
 			$params = shortcode_atts( $args, $atts );
 			
@@ -255,6 +267,7 @@ if ( ! class_exists( 'EVCImageGallery' ) ) {
 			$holderClasses[] = ! empty( $params['type'] ) ? 'evc-ig-' . $params['type'] . '-type' : 'evc-ig-' . $args['type'] . '-type';
 			$holderClasses[] = ! empty( $params['space_between_items'] ) ? 'evc-' . $params['space_between_items'] . '-space' : 'evc-' . $args['space_between_items'] . '-space';
 			$holderClasses[] = ! empty( $params['custom_links'] ) && $params['image_behavior'] !== 'lightbox' ? 'evc-shortcode-has-link' : '';
+			$holderClasses[] = ! empty( $params['carousel_navigation_skin'] ) ? 'evc-carousel-skin-' . esc_attr( $params['carousel_navigation_skin'] ) : '';
 			
 			return implode( ' ', $holderClasses );
 		}

@@ -4,7 +4,7 @@ Plugin Name: Extensive VC
 Plugin URI: https://wprealize.com/
 Author: Nenad Obradovic
 Author URI: https://wprealize.com/
-Version: 1.4
+Version: 1.4.1
 Description: WordPress plugin which allows you to add unique, flexible and fully responsive shortcodes. It is an addon for premium plugin WPBakery page builder Visual Composer.
 Text Domain: extensive-vc
 License: GPLv2 or later
