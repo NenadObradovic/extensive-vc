@@ -9,13 +9,8 @@
 		position: relative;
 		display: inline-block;
 		vertical-align: top;
-		width: 50%;
 		float: left;
 		box-sizing: border-box;
-		
-		&.evc-gb-featured-image {
-			width: 100%;
-		}
 	}
 	
 	.evc-gb-image {
@@ -26,6 +21,33 @@
 			display: block;
 		}
 	}
+	
+	/***** Types styles - begin *****/
+	
+	&.evc-gb-featured-top {
+		
+		.evc-gb-image-wrapper {
+			width: 50%;
+			
+			&.evc-gb-featured-image {
+				width: 100%;
+			}
+		}
+	}
+	
+	&.evc-gb-featured-left {
+		
+		.evc-gb-image-wrapper {
+			width: 25%;
+			
+			&.evc-gb-featured-image {
+				width: 50%;
+			}
+		}
+	}
+	
+	/***** Types styles - end *****/
+	
 }
 
 /* ==========================================================================

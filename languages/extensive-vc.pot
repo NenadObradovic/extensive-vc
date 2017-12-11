@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Extensive VC package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Extensive VC 1.4.1\n"
+"Project-Id-Version: Extensive VC 1.4.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/extensive-vc\n"
-"POT-Creation-Date: 2017-12-04 20:05:23+00:00\n"
+"POT-Creation-Date: 2017-12-06 22:05:25+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -331,6 +331,7 @@ msgstr ""
 #: shortcodes/icon-list/icon-list-item.php:84
 #: shortcodes/icon-with-text/icon-with-text.php:112
 #: shortcodes/image-with-text/image-with-text.php:108
+#: shortcodes/interactive-banner/interactive-banner.php:124
 #: shortcodes/process/process-item.php:79
 #: shortcodes/process-2/process-2-item.php:90
 #: shortcodes/section-title/section-title.php:89
@@ -556,8 +557,10 @@ msgstr ""
 
 #: shortcodes/blockquote/blockquote.php:58 shortcodes/button/button.php:59
 #: shortcodes/dropcaps/dropcaps.php:58
+#: shortcodes/gallery-block/gallery-block.php:58
 #: shortcodes/icon-with-text/icon-with-text.php:59
 #: shortcodes/image-gallery/image-gallery.php:74
+#: shortcodes/interactive-banner/interactive-banner.php:59
 #: shortcodes/progress-bar/progress-bar.php:70 shortcodes/tabs/tabs.php:85
 msgid "Type"
 msgstr ""
@@ -580,6 +583,7 @@ msgstr ""
 #: shortcodes/icon-list/icon-list-item.php:89
 #: shortcodes/icon-with-text/icon-with-text.php:117
 #: shortcodes/image-with-text/image-with-text.php:113
+#: shortcodes/interactive-banner/interactive-banner.php:129
 #: shortcodes/process/process-item.php:84
 #: shortcodes/process-2/process-2-item.php:95
 #: shortcodes/section-title/section-title.php:94
@@ -667,7 +671,7 @@ msgstr ""
 #: shortcodes/button/button.php:95 shortcodes/flip-image/flip-image.php:70
 #: shortcodes/full-screen-sections/full-screen-sections-item.php:109
 #: shortcodes/image-with-text/image-with-text.php:76
-#: shortcodes/interactive-banner/interactive-banner.php:114
+#: shortcodes/interactive-banner/interactive-banner.php:143
 #: shortcodes/process-2/process-2-item.php:65
 #: shortcodes/single-image/single-image.php:76
 msgid "Custom Link"
@@ -726,9 +730,6 @@ msgstr ""
 #: shortcodes/image-with-text/image-with-text.php:103
 #: shortcodes/image-with-text/image-with-text.php:115
 #: shortcodes/image-with-text/image-with-text.php:122
-#: shortcodes/interactive-banner/interactive-banner.php:67
-#: shortcodes/interactive-banner/interactive-banner.php:102
-#: shortcodes/interactive-banner/interactive-banner.php:109
 #: shortcodes/pie-chart/pie-chart.php:105
 #: shortcodes/pie-chart/pie-chart.php:118
 #: shortcodes/process/process-item.php:67
@@ -823,7 +824,7 @@ msgstr ""
 #: shortcodes/flip-image/flip-image.php:81
 #: shortcodes/icon-with-text/icon-with-text.php:91
 #: shortcodes/image-with-text/image-with-text.php:81
-#: shortcodes/interactive-banner/interactive-banner.php:94
+#: shortcodes/interactive-banner/interactive-banner.php:104
 #: shortcodes/process/process-item.php:59
 #: shortcodes/process-2/process-2-item.php:70
 #: shortcodes/progress-bar/progress-bar.php:93
@@ -836,7 +837,7 @@ msgstr ""
 #: shortcodes/flip-image/flip-image.php:86
 #: shortcodes/icon-with-text/icon-with-text.php:96
 #: shortcodes/image-with-text/image-with-text.php:86
-#: shortcodes/interactive-banner/interactive-banner.php:99
+#: shortcodes/interactive-banner/interactive-banner.php:109
 #: shortcodes/process/process-item.php:64
 #: shortcodes/process-2/process-2-item.php:75
 #: shortcodes/progress-bar/progress-bar.php:99
@@ -852,7 +853,7 @@ msgstr ""
 #: shortcodes/counter/counter.php:118 shortcodes/flip-image/flip-image.php:94
 #: shortcodes/icon-with-text/icon-with-text.php:105
 #: shortcodes/image-with-text/image-with-text.php:94
-#: shortcodes/interactive-banner/interactive-banner.php:107
+#: shortcodes/interactive-banner/interactive-banner.php:117
 #: shortcodes/process/process-item.php:72
 #: shortcodes/process-2/process-2-item.php:83
 #: shortcodes/progress-bar/progress-bar.php:107
@@ -873,6 +874,7 @@ msgstr ""
 #: shortcodes/counter/counter.php:144 shortcodes/flip-image/flip-image.php:113
 #: shortcodes/icon-with-text/icon-with-text.php:124
 #: shortcodes/image-with-text/image-with-text.php:120
+#: shortcodes/interactive-banner/interactive-banner.php:136
 #: shortcodes/process/process-item.php:91
 #: shortcodes/process-2/process-2-item.php:102
 #: shortcodes/section-title/section-title.php:101
@@ -1081,7 +1083,7 @@ msgstr ""
 
 #: shortcodes/flip-image/flip-image.php:58
 #: shortcodes/image-with-text/image-with-text.php:58
-#: shortcodes/interactive-banner/interactive-banner.php:59
+#: shortcodes/interactive-banner/interactive-banner.php:70
 #: shortcodes/process-2/process-2-item.php:59
 #: shortcodes/single-image/single-image.php:58
 msgid "Image"
@@ -1089,7 +1091,7 @@ msgstr ""
 
 #: shortcodes/flip-image/flip-image.php:59
 #: shortcodes/image-with-text/image-with-text.php:59
-#: shortcodes/interactive-banner/interactive-banner.php:60
+#: shortcodes/interactive-banner/interactive-banner.php:71
 #: shortcodes/process-2/process-2-item.php:60
 #: shortcodes/process-2/process-2.php:98
 #: shortcodes/single-image/single-image.php:59
@@ -1097,7 +1099,7 @@ msgid "Select image from media library"
 msgstr ""
 
 #: shortcodes/flip-image/flip-image.php:64
-#: shortcodes/gallery-block/gallery-block.php:76
+#: shortcodes/gallery-block/gallery-block.php:86
 #: shortcodes/image-gallery/image-gallery.php:92
 #: shortcodes/image-with-text/image-with-text.php:64
 #: shortcodes/single-image/single-image.php:64
@@ -1105,8 +1107,8 @@ msgid "Image Size"
 msgstr ""
 
 #: shortcodes/flip-image/flip-image.php:65
-#: shortcodes/gallery-block/gallery-block.php:71
-#: shortcodes/gallery-block/gallery-block.php:77
+#: shortcodes/gallery-block/gallery-block.php:81
+#: shortcodes/gallery-block/gallery-block.php:87
 #: shortcodes/image-gallery/image-gallery.php:93
 #: shortcodes/image-with-text/image-with-text.php:65
 #: shortcodes/single-image/single-image.php:65
@@ -1177,42 +1179,50 @@ msgstr ""
 msgid "Gallery Block"
 msgstr ""
 
-#: shortcodes/gallery-block/gallery-block.php:58
+#: shortcodes/gallery-block/gallery-block.php:60
+msgid "Featured Image Top"
+msgstr ""
+
+#: shortcodes/gallery-block/gallery-block.php:61
+msgid "Featured Image On Left Side"
+msgstr ""
+
+#: shortcodes/gallery-block/gallery-block.php:68
 #: shortcodes/image-gallery/image-gallery.php:125
 msgid "Space Between Items"
 msgstr ""
 
-#: shortcodes/gallery-block/gallery-block.php:64
+#: shortcodes/gallery-block/gallery-block.php:74
 #: shortcodes/image-gallery/image-gallery.php:86
 msgid "Images"
 msgstr ""
 
-#: shortcodes/gallery-block/gallery-block.php:65
+#: shortcodes/gallery-block/gallery-block.php:75
 msgid "Select images from media library. The first image you upload will be set as the featured image if you set Featured Image Size"
 msgstr ""
 
-#: shortcodes/gallery-block/gallery-block.php:70
+#: shortcodes/gallery-block/gallery-block.php:80
 msgid "Featured Image Size"
 msgstr ""
 
-#: shortcodes/gallery-block/gallery-block.php:82
+#: shortcodes/gallery-block/gallery-block.php:92
 #: shortcodes/image-gallery/image-gallery.php:98
 #: shortcodes/image-with-text/image-with-text.php:70
 #: shortcodes/single-image/single-image.php:70
 msgid "Image Behavior"
 msgstr ""
 
-#: shortcodes/gallery-block/gallery-block.php:88
+#: shortcodes/gallery-block/gallery-block.php:98
 #: shortcodes/image-gallery/image-gallery.php:104
 msgid "Custom Links"
 msgstr ""
 
-#: shortcodes/gallery-block/gallery-block.php:89
+#: shortcodes/gallery-block/gallery-block.php:99
 #: shortcodes/image-gallery/image-gallery.php:105
 msgid "Delimit links by comma"
 msgstr ""
 
-#: shortcodes/gallery-block/gallery-block.php:94
+#: shortcodes/gallery-block/gallery-block.php:104
 #: shortcodes/image-gallery/image-gallery.php:110
 msgid "Custom Link Target"
 msgstr ""
@@ -1224,7 +1234,7 @@ msgstr ""
 #: shortcodes/icon-list/icon-list-item.php:63
 #: shortcodes/icon-progress-bar/icon-progress-bar.php:72
 #: shortcodes/icon-with-text/icon-with-text.php:77
-#: shortcodes/interactive-banner/interactive-banner.php:80
+#: shortcodes/interactive-banner/interactive-banner.php:90
 msgid "Icon Size (px)"
 msgstr ""
 
@@ -1233,15 +1243,15 @@ msgstr ""
 #: shortcodes/icon-list/icon-list-item.php:79
 #: shortcodes/icon-with-text/icon-with-text.php:79
 #: shortcodes/icon-with-text/icon-with-text.php:86
-#: shortcodes/interactive-banner/interactive-banner.php:82
-#: shortcodes/interactive-banner/interactive-banner.php:89
+#: shortcodes/interactive-banner/interactive-banner.php:92
+#: shortcodes/interactive-banner/interactive-banner.php:99
 msgid "Icon Settings"
 msgstr ""
 
 #: shortcodes/icon-list/icon-list-item.php:70
 #: shortcodes/icon-progress-bar/icon-progress-bar.php:78
 #: shortcodes/icon-with-text/icon-with-text.php:84
-#: shortcodes/interactive-banner/interactive-banner.php:87
+#: shortcodes/interactive-banner/interactive-banner.php:97
 msgid "Icon Color"
 msgstr ""
 
@@ -1254,6 +1264,8 @@ msgstr ""
 #: shortcodes/icon-with-text/icon-with-text.php:107
 #: shortcodes/icon-with-text/icon-with-text.php:119
 #: shortcodes/icon-with-text/icon-with-text.php:126
+#: shortcodes/interactive-banner/interactive-banner.php:131
+#: shortcodes/interactive-banner/interactive-banner.php:138
 msgid "Text Settings"
 msgstr ""
 
@@ -1302,7 +1314,7 @@ msgid "Icon Left"
 msgstr ""
 
 #: shortcodes/icon-with-text/icon-with-text.php:72
-#: shortcodes/interactive-banner/interactive-banner.php:75
+#: shortcodes/interactive-banner/interactive-banner.php:85
 msgid "Custom Icon"
 msgstr ""
 
@@ -1348,8 +1360,28 @@ msgstr ""
 msgid "Interactive Banner"
 msgstr ""
 
-#: shortcodes/interactive-banner/interactive-banner.php:65
+#: shortcodes/interactive-banner/interactive-banner.php:61
+msgid "Classic"
+msgstr ""
+
+#: shortcodes/interactive-banner/interactive-banner.php:62
+msgid "Bottom Animation"
+msgstr ""
+
+#: shortcodes/interactive-banner/interactive-banner.php:63
+msgid "Bordered"
+msgstr ""
+
+#: shortcodes/interactive-banner/interactive-banner.php:76
 msgid "Overlay Color"
+msgstr ""
+
+#: shortcodes/interactive-banner/interactive-banner.php:112
+#: shortcodes/interactive-banner/interactive-banner.php:119
+#: shortcodes/progress-bar/progress-bar.php:102
+#: shortcodes/progress-bar/progress-bar.php:109
+#: shortcodes/progress-bar/progress-bar.php:116
+msgid "Title Settings"
 msgstr ""
 
 #: shortcodes/pie-chart/pie-chart-item.php:25
@@ -1442,12 +1474,6 @@ msgstr ""
 
 #: shortcodes/progress-bar/progress-bar.php:88
 msgid "Percentage Settings"
-msgstr ""
-
-#: shortcodes/progress-bar/progress-bar.php:102
-#: shortcodes/progress-bar/progress-bar.php:109
-#: shortcodes/progress-bar/progress-bar.php:116
-msgid "Title Settings"
 msgstr ""
 
 #: shortcodes/progress-bar/progress-bar.php:114

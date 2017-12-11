@@ -53,6 +53,16 @@ if ( ! class_exists( 'EVCGalleryBlock' ) ) {
 					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
 				),
 				array(
+					'type'        => 'dropdown',
+					'param_name'  => 'type',
+					'heading'     => esc_html__( 'Type', 'extensive-vc' ),
+					'value'       => array(
+						esc_html__( 'Featured Image Top', 'extensive-vc' )          => 'featured-top',
+						esc_html__( 'Featured Image On Left Side', 'extensive-vc' ) => 'featured-left'
+					),
+					'save_always' => true
+				),
+				array(
 					'type'       => 'dropdown',
 					'param_name' => 'space_between_items',
 					'heading'    => esc_html__( 'Space Between Items', 'extensive-vc' ),
@@ -111,6 +121,7 @@ if ( ! class_exists( 'EVCGalleryBlock' ) ) {
 		function render( $atts, $content = null ) {
 			$args   = array(
 				'custom_class'        => '',
+				'type'                => 'featured-top',
 				'images'              => '',
 				'featured_image_size' => '',
 				'image_size'          => 'full',
@@ -125,8 +136,8 @@ if ( ! class_exists( 'EVCGalleryBlock' ) ) {
 			
 			$params['image_classes']       = $this->getImageClasses( $params );
 			$params['images']              = $this->getImages( $params );
-			$params['featured_image_size'] = $this->getFeaturedImageSize( $params['featured_image_size'] );
-			$params['image_size']          = $this->getImageSize( $params['image_size'] );
+			$params['featured_image_size'] = $this->getImageSize( false, $params['featured_image_size'] );
+			$params['default_image_size']  = $this->getImageSize( $params['image_size'], false );
 			
 			$params['custom_links']       = $this->getCustomLinks( $params );
 			$params['custom_link_target'] = ! empty( $params['custom_link_target'] ) ? $params['custom_link_target'] : $args['custom_link_target'];
@@ -148,6 +159,7 @@ if ( ! class_exists( 'EVCGalleryBlock' ) ) {
 			$holderClasses = array();
 			
 			$holderClasses[] = ! empty( $params['custom_class'] ) ? esc_attr( $params['custom_class'] ) : '';
+			$holderClasses[] = ! empty( $params['type'] ) ? 'evc-gb-' . esc_attr( $params['type'] ) : 'evc-gb-' . esc_attr( $args['type'] );
 			$holderClasses[] = ! empty( $params['space_between_items'] ) ? 'evc-' . $params['space_between_items'] . '-space' : 'evc-' . $args['space_between_items'] . '-space';
 			$holderClasses[] = ! empty( $params['custom_links'] ) && $params['image_behavior'] !== 'lightbox' ? 'evc-shortcode-has-link' : '';
 			
@@ -186,7 +198,6 @@ if ( ! class_exists( 'EVCGalleryBlock' ) ) {
 			}
 			
 			foreach ( $imageIds as $id ) {
-				
 				$image['image_id'] = $id;
 				$imageOriginal     = wp_get_attachment_image_src( $id, 'full' );
 				$image['url']      = $imageOriginal[0];
@@ -204,11 +215,12 @@ if ( ! class_exists( 'EVCGalleryBlock' ) ) {
 		 * Get image size
 		 *
 		 * @param $imageSize string/array - image size value
+		 * @param $featuredImageSize string/array - featured image size value
 		 *
 		 * @return string/array
 		 */
-		private function getImageSize( $imageSize ) {
-			$imageSize = trim( $imageSize );
+		private function getImageSize( $imageSize, $featuredImageSize ) {
+			$imageSize = ! empty( $featuredImageSize ) ? trim( $featuredImageSize ) : trim( $imageSize );
 			//Find digits
 			preg_match_all( '/\d+/', $imageSize, $matches );
 			
@@ -220,31 +232,7 @@ if ( ! class_exists( 'EVCGalleryBlock' ) ) {
 					$matches[0][1]
 				);
 			} else {
-				return 'full';
-			}
-		}
-		
-		/**
-		 * Get featured image size
-		 *
-		 * @param $featuredImageSize string/array - image size value
-		 *
-		 * @return string/array
-		 */
-		private function getFeaturedImageSize( $featuredImageSize ) {
-			$featuredImageSize = trim( $featuredImageSize );
-			//Find digits
-			preg_match_all( '/\d+/', $featuredImageSize, $matches );
-			
-			if ( in_array( $featuredImageSize, array( 'thumbnail', 'medium', 'large', 'full' ) ) ) {
-				return $featuredImageSize;
-			} elseif ( ! empty( $matches[0] ) ) {
-				return array(
-					$matches[0][0],
-					$matches[0][1]
-				);
-			} else {
-				return 'no-featured-image';
+				return ! empty( $featuredImageSize ) ? 'no-featured-image' : 'full';
 			}
 		}
 		

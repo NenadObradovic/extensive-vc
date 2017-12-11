@@ -59,6 +59,15 @@ You can find all instructions about plugin and all shortcodes in website <a href
 
 <h3>Changelog</h3>
 
+<h5>1.4.2</h5>
+- Added Type option for Interactive Banner shortcode <br />
+- Added Text option for Interactive Banner shortcode <br />
+- Added Text Color option for Interactive Banner shortcode <br />
+- Added Text Top Margin option for Interactive Banner shortcode <br />
+- Added Type option for Gallery Block shortcode <br />
+- Updated language pot file <br />
+- Fixed Image Size option for Gallery Block shortcode <br />
+
 <h5>1.4.1</h5>
 - Added Bar Height option for Progress Bar shortcode <br />
 - Added Title Margin Bottom option for Progress Bar shortcode <br />

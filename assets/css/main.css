@@ -1791,19 +1791,16 @@ html.fp-enabled,
   display: inline-block;
   width: 100%;
   vertical-align: top;
+  /***** Types styles - begin *****/
+  /***** Types styles - end *****/
 }
 
 .evc-gallery-block .evc-gb-image-wrapper {
   position: relative;
   display: inline-block;
   vertical-align: top;
-  width: 50%;
   float: left;
   box-sizing: border-box;
-}
-
-.evc-gallery-block .evc-gb-image-wrapper.evc-gb-featured-image {
-  width: 100%;
 }
 
 .evc-gallery-block .evc-gb-image {
@@ -1817,6 +1814,22 @@ html.fp-enabled,
 .evc-gallery-block .evc-gb-image img {
   position: relative;
   display: block;
+}
+
+.evc-gallery-block.evc-gb-featured-top .evc-gb-image-wrapper {
+  width: 50%;
+}
+
+.evc-gallery-block.evc-gb-featured-top .evc-gb-image-wrapper.evc-gb-featured-image {
+  width: 100%;
+}
+
+.evc-gallery-block.evc-gb-featured-left .evc-gb-image-wrapper {
+  width: 25%;
+}
+
+.evc-gallery-block.evc-gb-featured-left .evc-gb-image-wrapper.evc-gb-featured-image {
+  width: 50%;
 }
 
 /* ==========================================================================
@@ -2078,14 +2091,12 @@ html.fp-enabled,
   display: inline-block;
   width: 100%;
   vertical-align: top;
+  /***** Types styles - begin *****/
+  /***** Types styles - end *****/
 }
 
 .touch .evc-interactive-banner {
   cursor: pointer;
-}
-
-.evc-interactive-banner:hover .evc-ib-content-wrapper {
-  opacity: 1;
 }
 
 .evc-interactive-banner .evc-ib-image {
@@ -2107,13 +2118,7 @@ html.fp-enabled,
   height: 100%;
   top: 0;
   left: 0;
-  padding: 20px;
-  background-color: rgba(48, 48, 48, 0.3);
-  opacity: 0;
   box-sizing: border-box;
-  -webkit-transition: opacity 0.3s ease-in-out;
-  -moz-transition: opacity 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out;
 }
 
 .evc-interactive-banner .evc-ib-content-inner {
@@ -2121,7 +2126,6 @@ html.fp-enabled,
   display: table;
   width: 100%;
   height: 100%;
-  text-align: center;
 }
 
 .evc-interactive-banner .evc-ib-content {
@@ -2130,6 +2134,18 @@ html.fp-enabled,
   width: 100%;
   height: 100%;
   vertical-align: middle;
+}
+
+.evc-interactive-banner .evc-ib-content .evc-ib-icon {
+  color: #fff;
+}
+
+.evc-interactive-banner .evc-ib-content .evc-ib-title {
+  color: #fff;
+}
+
+.evc-interactive-banner .evc-ib-content .evc-ib-text {
+  color: #fff;
 }
 
 .evc-interactive-banner .evc-ib-custom-icon {
@@ -2141,12 +2157,14 @@ html.fp-enabled,
   display: block;
   margin-bottom: 20px;
   font-size: 40px;
-  color: #fff;
 }
 
 .evc-interactive-banner .evc-ib-title {
   margin: 0;
-  color: #fff;
+}
+
+.evc-interactive-banner .evc-ib-text {
+  margin: 10px 0 0;
 }
 
 .evc-interactive-banner .evc-ib-link {
@@ -2156,6 +2174,166 @@ html.fp-enabled,
   height: 100%;
   top: 0;
   left: 0;
+}
+
+.evc-interactive-banner.evc-ib-classic:hover .evc-ib-content-wrapper {
+  opacity: 1;
+}
+
+.evc-interactive-banner.evc-ib-classic .evc-ib-content-wrapper {
+  padding: 20px;
+  text-align: center;
+  background-color: rgba(48, 48, 48, 0.3);
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.evc-interactive-banner.evc-ib-bottom-animation {
+  overflow: hidden;
+}
+
+.evc-interactive-banner.evc-ib-bottom-animation:hover .evc-ib-image img {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.evc-interactive-banner.evc-ib-bottom-animation:hover .evc-ib-content-wrapper {
+  opacity: 1;
+  -webkit-transition: opacity 0.15s;
+  -moz-transition: opacity 0.15s;
+  transition: opacity 0.15s;
+}
+
+.evc-interactive-banner.evc-ib-bottom-animation:hover .evc-ib-icon,
+.evc-interactive-banner.evc-ib-bottom-animation:hover .evc-ib-title,
+.evc-interactive-banner.evc-ib-bottom-animation:hover .evc-ib-text {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.evc-interactive-banner.evc-ib-bottom-animation .evc-ib-image img {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: -webkit-transform 0.35s;
+  -moz-transition: -moz-transform 0.35s;
+  transition: transform 0.35s;
+}
+
+.evc-interactive-banner.evc-ib-bottom-animation .evc-ib-content-wrapper {
+  padding: 25px 35px 30px;
+  background-color: rgba(48, 48, 48, 0.3);
+  opacity: 0;
+  -webkit-transition: opacity 0.35s;
+  -moz-transition: opacity 0.35s;
+  transition: opacity 0.35s;
+}
+
+.evc-interactive-banner.evc-ib-bottom-animation .evc-ib-content {
+  vertical-align: bottom;
+}
+
+.evc-interactive-banner.evc-ib-bottom-animation .evc-ib-icon,
+.evc-interactive-banner.evc-ib-bottom-animation .evc-ib-title,
+.evc-interactive-banner.evc-ib-bottom-animation .evc-ib-text {
+  opacity: 0;
+  -webkit-transform: translate3d(0, 40px, 0);
+  -moz-transform: translate3d(0, 40px, 0);
+  transform: translate3d(0, 40px, 0);
+  -webkit-transition: -webkit-transform 0.35s, opacity 0.2s;
+  -moz-transition: -moz-transform 0.35s, opacity 0.2s;
+  transition: transform 0.35s, opacity 0.2s;
+}
+
+.evc-interactive-banner.evc-ib-bottom-animation .evc-ib-text {
+  margin: 5px 0 0;
+}
+
+.evc-interactive-banner.evc-ib-bordered:hover .evc-ib-content-wrapper {
+  background-color: rgba(48, 48, 48, 0.6);
+}
+
+.evc-interactive-banner.evc-ib-bordered:hover .evc-ib-content-wrapper:before,
+.evc-interactive-banner.evc-ib-bordered:hover .evc-ib-content-wrapper:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  transform: scale(1);
+}
+
+.evc-interactive-banner.evc-ib-bordered:hover .evc-ib-icon,
+.evc-interactive-banner.evc-ib-bordered:hover .evc-ib-title,
+.evc-interactive-banner.evc-ib-bordered:hover .evc-ib-text {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.evc-interactive-banner.evc-ib-bordered .evc-ib-content-wrapper {
+  padding: 40px;
+  text-align: center;
+  color: #fff;
+  -webkit-transition: background-color 0.35s;
+  -moz-transition: background-color 0.35s;
+  transition: background-color 0.35s;
+}
+
+.evc-interactive-banner.evc-ib-bordered .evc-ib-content-wrapper:before,
+.evc-interactive-banner.evc-ib-bordered .evc-ib-content-wrapper:after {
+  content: '';
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  bottom: 30px;
+  left: 30px;
+  opacity: 0;
+  -webkit-transition: -webkit-transform 0.35s, opacity 0.35s;
+  -moz-transition: -moz-transform 0.35s, opacity 0.35s;
+  transition: transform 0.35s, opacity 0.35s;
+}
+
+.evc-interactive-banner.evc-ib-bordered .evc-ib-content-wrapper:before {
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  -webkit-transform: scale(0, 1);
+  -moz-transform: scale(0, 1);
+  transform: scale(0, 1);
+}
+
+.evc-interactive-banner.evc-ib-bordered .evc-ib-content-wrapper:after {
+  border-right: 1px solid currentColor;
+  border-left: 1px solid currentColor;
+  -webkit-transform: scale(1, 0);
+  -moz-transform: scale(1, 0);
+  transform: scale(1, 0);
+}
+
+.evc-interactive-banner.evc-ib-bordered .evc-ib-icon,
+.evc-interactive-banner.evc-ib-bordered .evc-ib-title,
+.evc-interactive-banner.evc-ib-bordered .evc-ib-text {
+  opacity: 0;
+  -webkit-transition: -webkit-transform 0.35s, opacity 0.35s;
+  -moz-transition: -moz-transform 0.35s, opacity 0.35s;
+  transition: transform 0.35s, opacity 0.35s;
+}
+
+.evc-interactive-banner.evc-ib-bordered .evc-ib-icon,
+.evc-interactive-banner.evc-ib-bordered .evc-ib-title {
+  -webkit-transform: translate3d(0, -20px, 0);
+  -moz-transform: translate3d(0, -20px, 0);
+  transform: translate3d(0, -20px, 0);
+}
+
+.evc-interactive-banner.evc-ib-bordered .evc-ib-text {
+  -webkit-transform: translate3d(0, 20px, 0);
+  -moz-transform: translate3d(0, 20px, 0);
+  transform: translate3d(0, 20px, 0);
 }
 
 /* ==========================================================================
@@ -3013,6 +3191,24 @@ html.fp-enabled,
 
 /* ==========================================================================
    Full Screen Sections shortcode responsive style - end
+   ========================================================================== */
+
+/* ==========================================================================
+   Gallery Block shortcode responsive style - begin
+   ========================================================================== */
+
+@media only screen and (max-width: 1024px) {
+  .evc-gallery-block.evc-gb-featured-left .evc-gb-image-wrapper {
+    width: 50%;
+  }
+
+  .evc-gallery-block.evc-gb-featured-left .evc-gb-image-wrapper.evc-gb-featured-image {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   Gallery Block shortcode responsive style - end
    ========================================================================== */
 
 /* ==========================================================================

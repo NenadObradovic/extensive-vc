@@ -54,6 +54,17 @@ if ( ! class_exists( 'EVCInteractiveBanner' ) ) {
 						'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
 					),
 					array(
+						'type'        => 'dropdown',
+						'param_name'  => 'type',
+						'heading'     => esc_html__( 'Type', 'extensive-vc' ),
+						'value'       => array(
+							esc_html__( 'Classic', 'extensive-vc' )          => 'classic',
+							esc_html__( 'Bottom Animation', 'extensive-vc' ) => 'bottom-animation',
+							esc_html__( 'Bordered', 'extensive-vc' )         => 'bordered'
+						),
+						'save_always' => true
+					),
+					array(
 						'type'        => 'attach_image',
 						'param_name'  => 'image',
 						'heading'     => esc_html__( 'Image', 'extensive-vc' ),
@@ -63,8 +74,7 @@ if ( ! class_exists( 'EVCInteractiveBanner' ) ) {
 						'type'       => 'colorpicker',
 						'param_name' => 'overlay_color',
 						'heading'    => esc_html__( 'Overlay Color', 'extensive-vc' ),
-						'dependency' => array( 'element' => 'image', 'not_empty' => true ),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'dependency' => array( 'element' => 'image', 'not_empty' => true )
 					)
 				),
 				extensive_vc_get_shortcode_icon_options_array(),
@@ -99,14 +109,33 @@ if ( ! class_exists( 'EVCInteractiveBanner' ) ) {
 						'heading'    => esc_html__( 'Title Tag', 'extensive-vc' ),
 						'value'      => array_flip( extensive_vc_get_title_tag_array( true ) ),
 						'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Title Settings', 'extensive-vc' )
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'title_color',
 						'heading'    => esc_html__( 'Title Color', 'extensive-vc' ),
 						'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Title Settings', 'extensive-vc' )
+					),
+					array(
+						'type'       => 'textfield',
+						'param_name' => 'text',
+						'heading'    => esc_html__( 'Text', 'extensive-vc' )
+					),
+					array(
+						'type'       => 'colorpicker',
+						'param_name' => 'text_color',
+						'heading'    => esc_html__( 'Text Color', 'extensive-vc' ),
+						'dependency' => array( 'element' => 'text', 'not_empty' => true ),
+						'group'      => esc_html__( 'Text Settings', 'extensive-vc' )
+					),
+					array(
+						'type'       => 'textfield',
+						'param_name' => 'text_top_margin',
+						'heading'    => esc_html__( 'Text Top Margin (px)', 'extensive-vc' ),
+						'dependency' => array( 'element' => 'text', 'not_empty' => true ),
+						'group'      => esc_html__( 'Text Settings', 'extensive-vc' )
 					),
 					array(
 						'type'       => 'vc_link',
@@ -130,6 +159,7 @@ if ( ! class_exists( 'EVCInteractiveBanner' ) ) {
 		function render( $atts, $content = null ) {
 			$args   = array(
 				'custom_class'     => '',
+				'type'             => 'classic',
 				'image'            => '',
 				'overlay_color'    => '',
 				'icon_library'     => '',
@@ -146,16 +176,20 @@ if ( ! class_exists( 'EVCInteractiveBanner' ) ) {
 				'title'            => '',
 				'title_tag'        => 'h4',
 				'title_color'      => '',
+				'text'             => '',
+				'text_color'       => '',
+				'text_top_margin'  => '',
 				'custom_link'      => ''
 			);
 			$params = shortcode_atts( $args, $atts );
 			
-			$params['holder_classes'] = $this->getHolderClasses( $params );
+			$params['holder_classes'] = $this->getHolderClasses( $params, $args );
 			$params['content_styles'] = $this->getContentStyles( $params );
 			
 			$params['icon_styles']  = $this->getIconStyles( $params );
 			$params['title_tag']    = ! empty( $params['title_tag'] ) ? $params['title_tag'] : $args['title_tag'];
 			$params['title_styles'] = $this->getTitleStyles( $params );
+			$params['text_styles']  = $this->getTextStyles( $params );
 			
 			$params['link_attributes'] = extensive_vc_get_custom_link_attributes( $params['custom_link'], 'evc-ib-link' );
 			
@@ -171,10 +205,11 @@ if ( ! class_exists( 'EVCInteractiveBanner' ) ) {
 		 *
 		 * @return string
 		 */
-		private function getHolderClasses( $params ) {
+		private function getHolderClasses( $params, $args ) {
 			$holderClasses = array();
 			
 			$holderClasses[] = ! empty( $params['custom_class'] ) ? esc_attr( $params['custom_class'] ) : '';
+			$holderClasses[] = ! empty( $params['type'] ) ? 'evc-ib-' . esc_attr( $params['type'] ) : 'evc-ib-' . esc_attr( $args['type'] );
 			
 			return implode( ' ', $holderClasses );
 		}
@@ -229,6 +264,27 @@ if ( ! class_exists( 'EVCInteractiveBanner' ) ) {
 			
 			if ( ! empty( $params['title_color'] ) ) {
 				$styles[] = 'color: ' . $params['title_color'];
+			}
+			
+			return implode( ';', $styles );
+		}
+		
+		/**
+		 * Get text styles
+		 *
+		 * @param $params array - shortcode parameters value
+		 *
+		 * @return string
+		 */
+		private function getTextStyles( $params ) {
+			$styles = array();
+			
+			if ( ! empty( $params['text_color'] ) ) {
+				$styles[] = 'color: ' . $params['text_color'];
+			}
+			
+			if ( $params['text_top_margin'] !== '' ) {
+				$styles[] = 'margin-top: ' . extensive_vc_filter_px( $params['text_top_margin'] ) . 'px';
 			}
 			
 			return implode( ';', $styles );

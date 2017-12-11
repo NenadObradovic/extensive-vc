@@ -4,7 +4,7 @@ Tags: visual composer, visual composer addons, visual composer extensions, visua
 Donate link: http://wprealize.com/donate/
 Requires at least: 4.6
 Tested up to: 4.9.1
-Stable tag: 1.4.1
+Stable tag: 1.4.2
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -84,6 +84,15 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 5. Blockquote shortcode example.
 
 == Changelog ==
+
+= 1.4.2 =
+- Added Type option for Interactive Banner shortcode
+- Added Text option for Interactive Banner shortcode
+- Added Text Color option for Interactive Banner shortcode
+- Added Text Top Margin option for Interactive Banner shortcode
+- Added Type option for Gallery Block shortcode
+- Updated language pot file
+- Fixed Image Size option for Gallery Block shortcode
 
 = 1.4.1 =
 - Added Bar Height option for Progress Bar shortcode

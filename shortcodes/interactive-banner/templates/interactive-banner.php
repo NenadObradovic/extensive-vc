@@ -12,16 +12,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="evc-ib-content-wrapper" <?php extensive_vc_print_inline_style( $content_styles ); ?>>
 		<div class="evc-ib-content-inner">
 			<div class="evc-ib-content">
-				<?php if ( ! empty( $custom_icon ) ) {
+				<?php
+				if ( ! empty( $custom_icon ) ) {
 					echo wp_get_attachment_image( $custom_icon, 'full', false, array( 'class' => 'evc-ib-custom-icon' ) );
 				} else {
 					echo extensive_vc_get_module_template_part( 'shortcodes', 'interactive-banner', 'templates/parts/icon', '', $params );
-				} ?>
-				<?php if ( ! empty( $title ) ) { ?>
-					<<?php echo esc_attr( $title_tag ); ?> class="evc-ib-title" <?php extensive_vc_print_inline_style( $title_styles ); ?>>
-						<?php echo esc_html( $title ); ?>
-					</<?php echo esc_attr( $title_tag ); ?>>
-				<?php } ?>
+				}
+				
+				echo extensive_vc_get_module_template_part( 'shortcodes', 'interactive-banner', 'templates/parts/title', '', $params );
+				
+				echo extensive_vc_get_module_template_part( 'shortcodes', 'interactive-banner', 'templates/parts/text', '', $params );
+				?>
 			</div>
 		</div>
 	</div>

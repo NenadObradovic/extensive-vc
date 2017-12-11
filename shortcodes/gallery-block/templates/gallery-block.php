@@ -13,9 +13,10 @@ $id = rand( 1000, 9999 );
 			$i++;
 			
 			$image_wrapper_classes = '';
+			$image_size            = $default_image_size;
 			if ( $i === 1 && $featured_image_size !== 'no-featured-image' ) {
 				$image_wrapper_classes = 'evc-gb-featured-image';
-				$image_size    = $featured_image_size;
+				$image_size            = $featured_image_size;
 			}
 			?>
 			<div class="evc-gb-image-wrapper evc-element-item <?php echo esc_attr( $image_wrapper_classes ); ?>">

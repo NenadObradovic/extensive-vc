@@ -1,0 +1,24 @@
+/* ==========================================================================
+   Gallery Block shortcode responsive style - begin
+   ========================================================================== */
+
+@include ipad-landscape-screen {
+	
+	.evc-gallery-block {
+		
+		&.evc-gb-featured-left {
+			
+			.evc-gb-image-wrapper {
+				width: 50%;
+				
+				&.evc-gb-featured-image {
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+/* ==========================================================================
+   Gallery Block shortcode responsive style - end
+   ========================================================================== */
