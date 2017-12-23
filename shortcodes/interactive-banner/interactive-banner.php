@@ -58,9 +58,11 @@ if ( ! class_exists( 'EVCInteractiveBanner' ) ) {
 						'param_name'  => 'type',
 						'heading'     => esc_html__( 'Type', 'extensive-vc' ),
 						'value'       => array(
-							esc_html__( 'Classic', 'extensive-vc' )          => 'classic',
-							esc_html__( 'Bottom Animation', 'extensive-vc' ) => 'bottom-animation',
-							esc_html__( 'Bordered', 'extensive-vc' )         => 'bordered'
+							esc_html__( 'Classic', 'extensive-vc' )             => 'classic',
+							esc_html__( 'Bottom Animation', 'extensive-vc' )    => 'bottom-animation',
+							esc_html__( 'Bordered', 'extensive-vc' )            => 'bordered',
+							esc_html__( 'Slide From Bottom', 'extensive-vc' )   => 'slide-from-bottom',
+							esc_html__( 'Shutter In Vertical', 'extensive-vc' ) => 'shutter-in-vertical'
 						),
 						'save_always' => true
 					),
@@ -89,14 +91,14 @@ if ( ! class_exists( 'EVCInteractiveBanner' ) ) {
 						'param_name' => 'icon_size',
 						'heading'    => esc_html__( 'Icon Size (px)', 'extensive-vc' ),
 						'dependency' => array( 'element' => 'icon_library', 'not_empty' => true ),
-						'group'      => esc_html__( 'Icon Settings', 'extensive-vc' )
+						'group'      => esc_html__( 'Icon Options', 'extensive-vc' )
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'icon_color',
 						'heading'    => esc_html__( 'Icon Color', 'extensive-vc' ),
 						'dependency' => array( 'element' => 'icon_library', 'not_empty' => true ),
-						'group'      => esc_html__( 'Icon Settings', 'extensive-vc' )
+						'group'      => esc_html__( 'Icon Options', 'extensive-vc' )
 					),
 					array(
 						'type'       => 'textfield',
@@ -109,14 +111,14 @@ if ( ! class_exists( 'EVCInteractiveBanner' ) ) {
 						'heading'    => esc_html__( 'Title Tag', 'extensive-vc' ),
 						'value'      => array_flip( extensive_vc_get_title_tag_array( true ) ),
 						'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-						'group'      => esc_html__( 'Title Settings', 'extensive-vc' )
+						'group'      => esc_html__( 'Title Options', 'extensive-vc' )
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'title_color',
 						'heading'    => esc_html__( 'Title Color', 'extensive-vc' ),
 						'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-						'group'      => esc_html__( 'Title Settings', 'extensive-vc' )
+						'group'      => esc_html__( 'Title Options', 'extensive-vc' )
 					),
 					array(
 						'type'       => 'textfield',
@@ -128,14 +130,14 @@ if ( ! class_exists( 'EVCInteractiveBanner' ) ) {
 						'param_name' => 'text_color',
 						'heading'    => esc_html__( 'Text Color', 'extensive-vc' ),
 						'dependency' => array( 'element' => 'text', 'not_empty' => true ),
-						'group'      => esc_html__( 'Text Settings', 'extensive-vc' )
+						'group'      => esc_html__( 'Text Options', 'extensive-vc' )
 					),
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'text_top_margin',
 						'heading'    => esc_html__( 'Text Top Margin (px)', 'extensive-vc' ),
 						'dependency' => array( 'element' => 'text', 'not_empty' => true ),
-						'group'      => esc_html__( 'Text Settings', 'extensive-vc' )
+						'group'      => esc_html__( 'Text Options', 'extensive-vc' )
 					),
 					array(
 						'type'       => 'vc_link',
@@ -225,7 +227,12 @@ if ( ! class_exists( 'EVCInteractiveBanner' ) ) {
 			$styles = array();
 			
 			if ( ! empty( $params['overlay_color'] ) ) {
-				$styles[] = 'background-color: ' . $params['overlay_color'];
+				
+				if ( $params['type'] === 'shutter-in-vertical' ) {
+					$styles[] = 'color: ' . $params['overlay_color'];
+				} else {
+					$styles[] = 'background-color: ' . $params['overlay_color'];
+				}
 			}
 			
 			return implode( ';', $styles );

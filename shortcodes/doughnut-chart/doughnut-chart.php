@@ -98,6 +98,18 @@ if ( ! class_exists( 'EVCDoughnutChart' ) ) {
 					'description' => esc_html__( 'Fill space between items, default value is 2', 'extensive-vc' )
 				),
 				array(
+					'type'       => 'colorpicker',
+					'param_name' => 'space_color',
+					'heading'    => esc_html__( 'Canvas Space Color', 'extensive-vc' ),
+					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'colorpicker',
+					'param_name' => 'space_hover_color',
+					'heading'    => esc_html__( 'Canvas Space Hover Color', 'extensive-vc' ),
+					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+				),
+				array(
 					'type'       => 'dropdown',
 					'param_name' => 'enable_legend',
 					'heading'    => esc_html__( 'Enable Legend', 'extensive-vc' ),
@@ -131,13 +143,15 @@ if ( ! class_exists( 'EVCDoughnutChart' ) ) {
 		 * @return html
 		 */
 		function render( $atts, $content = null ) {
-			$args = array(
-				'custom_class'    => '',
-				'canvas_width'    => '',
-				'canvas_height'   => '',
-				'canvas_space'    => '',
-				'enable_legend'   => 'yes',
-				'legend_position' => 'top'
+			$args   = array(
+				'custom_class'      => '',
+				'canvas_width'      => '',
+				'canvas_height'     => '',
+				'canvas_space'      => '',
+				'space_color'       => '',
+				'space_hover_color' => '',
+				'enable_legend'     => 'yes',
+				'legend_position'   => 'top'
 			);
 			$params = shortcode_atts( $args, $atts );
 			
@@ -157,7 +171,6 @@ if ( ! class_exists( 'EVCDoughnutChart' ) ) {
 		 * Get shortcode holder classes
 		 *
 		 * @param $params array - shortcode parameters value
-		 * @param $args array - default shortcode parameters value
 		 *
 		 * @return string
 		 */
@@ -181,6 +194,14 @@ if ( ! class_exists( 'EVCDoughnutChart' ) ) {
 			
 			if ( $params['canvas_space'] !== '' ) {
 				$data['data-border-width'] = esc_attr( $params['canvas_space'] );
+			}
+			
+			if ( ! empty( $params['space_color'] ) ) {
+				$data['data-border-color'] = esc_attr( $params['space_color'] );
+			}
+			
+			if ( ! empty( $params['space_hover_color'] ) ) {
+				$data['data-border-hover-color'] = esc_attr( $params['space_hover_color'] );
 			}
 			
 			$data['data-enable-legend']   = $params['enable_legend'] === 'no' ? 'false' : 'true';

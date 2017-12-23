@@ -4,6 +4,7 @@
 
 .evc-interactive-banner {
     @include evcRelativeLayout();
+	overflow: hidden;
 
 	.touch & {
 		cursor: pointer;
@@ -87,7 +88,6 @@
 	}
 	
 	&.evc-ib-bottom-animation {
-		overflow: hidden;
 		
 		&:hover {
 			
@@ -210,6 +210,104 @@
 		
 		.evc-ib-text {
 			@include evcTransform(translate3d(0, 20px, 0));
+		}
+	}
+	
+	&.evc-ib-slide-from-bottom {
+		
+		&:hover {
+			
+			.evc-ib-image {
+				
+				img {
+					@include evcTransform(translateY(-30px));
+				}
+			}
+			
+			.evc-ib-content-wrapper {
+				@include evcTransform(translateY(0));
+			}
+		}
+		
+		.evc-ib-image {
+			
+			img {
+				@include evcTransform(translateY(0));
+				@include evcTransitionTransform(.35s);
+			}
+		}
+		
+		.evc-ib-content-wrapper {
+			top: auto;
+			bottom: 0;
+			height: auto;
+			padding: 20px 25px 22px;
+			background-color: $dark-color;
+			text-align: center;
+			@include evcTransform(translateY(101%));
+			@include evcTransitionTransform(.35s);
+		}
+		
+		.evc-ib-text {
+			margin: 4px 0 0;
+		}
+	}
+	
+	&.evc-ib-shutter-in-vertical {
+		
+		&:hover {
+			
+			.evc-ib-content-wrapper {
+				
+				&:before,
+				&:after {
+					height: 50%;
+				}
+			}
+			
+			.evc-ib-content-inner {
+				opacity: 1;
+				@include evcTransition(opacity .35s);
+				@include evcTransitionDelay(.21s);
+			}
+		}
+		
+		.evc-ib-content-wrapper {
+			padding: 25px 35px;
+			color: $dark-color;
+			
+			&:before,
+			&:after {
+				content: '';
+				position: absolute;
+				left: 0;
+				width: 100%;
+				height: 0;
+				background-color: currentColor;
+				@include evcTransition(height .35s);
+			}
+			
+			&:before {
+				top: 0;
+			}
+			
+			&:after {
+				bottom: 0;
+			}
+		}
+		
+		.evc-ib-content-inner {
+			opacity: 0;
+			z-index: 1;
+			@include evcTransition(opacity .2s);
+		}
+		
+		.evc-ib-text {
+			margin: 4px 0 0;
+		}
+		
+		.evc-ib-link {
+			z-index: 2;
 		}
 	}
 	

@@ -85,7 +85,7 @@ if ( ! class_exists( 'EVCProgressBar' ) ) {
 					'param_name' => 'percent_color',
 					'heading'    => esc_html__( 'Percentage Color', 'extensive-vc' ),
 					'dependency' => array( 'element' => 'percent', 'not_empty' => true ),
-					'group'      => esc_html__( 'Percentage Settings', 'extensive-vc' )
+					'group'      => esc_html__( 'Percentage Options', 'extensive-vc' )
 				),
 				array(
 					'type'        => 'textfield',
@@ -99,33 +99,33 @@ if ( ! class_exists( 'EVCProgressBar' ) ) {
 					'heading'    => esc_html__( 'Title Tag', 'extensive-vc' ),
 					'value'      => array_flip( extensive_vc_get_title_tag_array( true, array( 'p' => 'p' ) ) ),
 					'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-					'group'      => esc_html__( 'Title Settings', 'extensive-vc' )
+					'group'      => esc_html__( 'Title Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'title_color',
 					'heading'    => esc_html__( 'Title Color', 'extensive-vc' ),
 					'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-					'group'      => esc_html__( 'Title Settings', 'extensive-vc' )
+					'group'      => esc_html__( 'Title Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'title_bottom_margin',
 					'heading'    => esc_html__( 'Title Bottom Margin (px)', 'extensive-vc' ),
 					'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-					'group'      => esc_html__( 'Title Settings', 'extensive-vc' )
+					'group'      => esc_html__( 'Title Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'active_bar_color',
 					'heading'    => esc_html__( 'Active Bar Color', 'extensive-vc' ),
-					'group'      => esc_html__( 'Bar Settings', 'extensive-vc' )
+					'group'      => esc_html__( 'Bar Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'inactive_bar_color',
 					'heading'    => esc_html__( 'Inactive Bar Color', 'extensive-vc' ),
-					'group'      => esc_html__( 'Bar Settings', 'extensive-vc' )
+					'group'      => esc_html__( 'Bar Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'textfield',

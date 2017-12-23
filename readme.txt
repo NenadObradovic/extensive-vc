@@ -4,7 +4,7 @@ Tags: visual composer, visual composer addons, visual composer extensions, visua
 Donate link: http://wprealize.com/donate/
 Requires at least: 4.6
 Tested up to: 4.9.1
-Stable tag: 1.4.2
+Stable tag: 1.4.3
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -84,6 +84,17 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 5. Blockquote shortcode example.
 
 == Changelog ==
+
+= 1.4.3 =
+- Added Slide From Bottom type option for Interactive Banner shortcode
+- Added Shutter In Vertical type option for Interactive Banner shortcode
+- Added Canvas Space Color option for Doughnut Chart shortcode
+- Added Canvas Space Hover Color option for Doughnut Chart shortcode
+- Added Canvas Space Color option for Pie Chart shortcode
+- Added Canvas Space Hover Color option for Pie Chart shortcode
+- Added Text Tag option for Section Title shortcode
+- Updated language pot file
+- Renamed Settings label to Options for all shortcodes group options
 
 = 1.4.2 =
 - Added Type option for Interactive Banner shortcode

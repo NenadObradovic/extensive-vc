@@ -88,42 +88,42 @@ if ( ! class_exists( 'EVCTestimonials' ) ) {
 					'param_name' => 'carousel_loop',
 					'heading'    => esc_html__( 'Enable Slider Loop', 'extensive-vc' ),
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
-					'group'      => esc_html__( 'Slider Settings', 'extensive-vc' )
+					'group'      => esc_html__( 'Slider Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'carousel_autoplay',
 					'heading'    => esc_html__( 'Enable Slider Autoplay', 'extensive-vc' ),
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
-					'group'      => esc_html__( 'Slider Settings', 'extensive-vc' )
+					'group'      => esc_html__( 'Slider Options', 'extensive-vc' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'carousel_speed',
 					'heading'     => esc_html__( 'Slide Duration (ms)', 'extensive-vc' ),
 					'description' => esc_html__( 'Speed of slide in milliseconds. Default value is 5000', 'extensive-vc' ),
-					'group'       => esc_html__( 'Slider Settings', 'extensive-vc' )
+					'group'       => esc_html__( 'Slider Options', 'extensive-vc' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'carousel_speed_animation',
 					'heading'     => esc_html__( 'Slide Animation Duration (ms)', 'extensive-vc' ),
 					'description' => esc_html__( 'Speed of slide animation in milliseconds. Default value is 600', 'extensive-vc' ),
-					'group'       => esc_html__( 'Slider Settings', 'extensive-vc' )
+					'group'       => esc_html__( 'Slider Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'carousel_navigation',
 					'heading'    => esc_html__( 'Enable Slider Navigation', 'extensive-vc' ),
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
-					'group'      => esc_html__( 'Slider Settings', 'extensive-vc' )
+					'group'      => esc_html__( 'Slider Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'carousel_pagination',
 					'heading'    => esc_html__( 'Enable Slider Pagination', 'extensive-vc' ),
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
-					'group'      => esc_html__( 'Slider Settings', 'extensive-vc' )
+					'group'      => esc_html__( 'Slider Options', 'extensive-vc' )
 				),
 				array(
 					'type'        => 'dropdown',
@@ -133,7 +133,7 @@ if ( ! class_exists( 'EVCTestimonials' ) ) {
 						esc_html__( 'Default', 'extensive-vc' ) => '',
 						esc_html__( 'Light', 'extensive-vc' )   => 'light'
 					),
-					'group'      => esc_html__( 'Slider Settings', 'extensive-vc' )
+					'group'      => esc_html__( 'Slider Options', 'extensive-vc' )
 				)
 			);
 			

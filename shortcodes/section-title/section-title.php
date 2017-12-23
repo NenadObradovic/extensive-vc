@@ -74,14 +74,14 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 					'heading'    => esc_html__( 'Title Tag', 'extensive-vc' ),
 					'value'      => array_flip( extensive_vc_get_title_tag_array( true ) ),
 					'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Title Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'title_color',
 					'heading'    => esc_html__( 'Title Color', 'extensive-vc' ),
 					'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Title Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'textarea',
@@ -89,18 +89,26 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 					'heading'    => esc_html__( 'Text', 'extensive-vc' )
 				),
 				array(
+					'type'       => 'dropdown',
+					'param_name' => 'text_tag',
+					'heading'    => esc_html__( 'Text Tag', 'extensive-vc' ),
+					'value'      => array_flip( extensive_vc_get_title_tag_array( true, array( 'p' => 'p' ) ) ),
+					'dependency' => array( 'element' => 'text', 'not_empty' => true ),
+					'group'      => esc_html__( 'Text Options', 'extensive-vc' )
+				),
+				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'text_color',
 					'heading'    => esc_html__( 'Text Color', 'extensive-vc' ),
 					'dependency' => array( 'element' => 'text', 'not_empty' => true ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Text Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'text_top_margin',
 					'heading'    => esc_html__( 'Text Top Margin (px)', 'extensive-vc' ),
 					'dependency' => array( 'element' => 'text', 'not_empty' => true ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Text Options', 'extensive-vc' )
 				)
 			);
 			
@@ -123,6 +131,7 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 				'title_tag'       => 'h2',
 				'title_color'     => '',
 				'text'            => '',
+				'text_tag'        => 'p',
 				'text_color'      => '',
 				'text_top_margin' => ''
 			);
@@ -133,6 +142,7 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 			
 			$params['title_tag']    = ! empty( $params['title_tag'] ) ? $params['title_tag'] : $args['title_tag'];
 			$params['title_styles'] = $this->getTitleStyles( $params );
+			$params['text_tag']     = ! empty( $params['text_tag'] ) ? $params['text_tag'] : $args['text_tag'];
 			$params['text_styles']  = $this->getTextStyles( $params );
 			
 			$html = extensive_vc_get_module_template_part( 'shortcodes', 'section-title', 'templates/section-title', '', $params );

@@ -117,7 +117,7 @@ if ( ! class_exists( 'EVCImageGallery' ) ) {
 					'heading'    => esc_html__( 'Number of Columns', 'extensive-vc' ),
 					'value'      => array_flip( extensive_vc_get_number_of_columns_array() ),
 					'dependency' => array( 'element' => 'type', 'value' => array( 'grid' ) ),
-					'group'      => esc_html__( 'Grid Settings', 'extensive-vc' )
+					'group'      => esc_html__( 'Grid Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'dropdown',
@@ -125,7 +125,7 @@ if ( ! class_exists( 'EVCImageGallery' ) ) {
 					'heading'    => esc_html__( 'Space Between Items', 'extensive-vc' ),
 					'value'      => array_flip( extensive_vc_get_space_between_items_array() ),
 					'dependency' => array( 'element' => 'type', 'value' => array( 'grid' ) ),
-					'group'      => esc_html__( 'Grid Settings', 'extensive-vc' )
+					'group'      => esc_html__( 'Grid Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'dropdown',
@@ -140,7 +140,7 @@ if ( ! class_exists( 'EVCImageGallery' ) ) {
 						esc_html__( 'Six', 'extensive-vc' )   => '6'
 					),
 					'dependency' => array( 'element' => 'type', 'value' => array( 'carousel' ) ),
-					'group'      => esc_html__( 'Slider Settings', 'extensive-vc' )
+					'group'      => esc_html__( 'Slider Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'dropdown',
@@ -148,7 +148,7 @@ if ( ! class_exists( 'EVCImageGallery' ) ) {
 					'heading'    => esc_html__( 'Enable Slider Loop', 'extensive-vc' ),
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
 					'dependency' => array( 'element' => 'type', 'value' => array( 'slider', 'carousel' ) ),
-					'group'      => esc_html__( 'Slider Settings', 'extensive-vc' )
+					'group'      => esc_html__( 'Slider Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'dropdown',
@@ -156,7 +156,7 @@ if ( ! class_exists( 'EVCImageGallery' ) ) {
 					'heading'    => esc_html__( 'Enable Slider Autoplay', 'extensive-vc' ),
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
 					'dependency' => array( 'element' => 'type', 'value' => array( 'slider', 'carousel' ) ),
-					'group'      => esc_html__( 'Slider Settings', 'extensive-vc' )
+					'group'      => esc_html__( 'Slider Options', 'extensive-vc' )
 				),
 				array(
 					'type'        => 'textfield',
@@ -164,7 +164,7 @@ if ( ! class_exists( 'EVCImageGallery' ) ) {
 					'heading'     => esc_html__( 'Slide Duration (ms)', 'extensive-vc' ),
 					'description' => esc_html__( 'Speed of slide in milliseconds. Default value is 5000', 'extensive-vc' ),
 					'dependency'  => array( 'element' => 'type', 'value' => array( 'slider', 'carousel' ) ),
-					'group'       => esc_html__( 'Slider Settings', 'extensive-vc' )
+					'group'       => esc_html__( 'Slider Options', 'extensive-vc' )
 				),
 				array(
 					'type'        => 'textfield',
@@ -172,7 +172,7 @@ if ( ! class_exists( 'EVCImageGallery' ) ) {
 					'heading'     => esc_html__( 'Slide Animation Duration (ms)', 'extensive-vc' ),
 					'description' => esc_html__( 'Speed of slide animation in milliseconds. Default value is 600', 'extensive-vc' ),
 					'dependency'  => array( 'element' => 'type', 'value' => array( 'slider', 'carousel' ) ),
-					'group'       => esc_html__( 'Slider Settings', 'extensive-vc' )
+					'group'       => esc_html__( 'Slider Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'dropdown',
@@ -180,7 +180,7 @@ if ( ! class_exists( 'EVCImageGallery' ) ) {
 					'heading'    => esc_html__( 'Enable Slider Navigation', 'extensive-vc' ),
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
 					'dependency' => array( 'element' => 'type', 'value' => array( 'slider', 'carousel' ) ),
-					'group'      => esc_html__( 'Slider Settings', 'extensive-vc' )
+					'group'      => esc_html__( 'Slider Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'dropdown',
@@ -188,7 +188,7 @@ if ( ! class_exists( 'EVCImageGallery' ) ) {
 					'heading'    => esc_html__( 'Enable Slider Pagination', 'extensive-vc' ),
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
 					'dependency' => array( 'element' => 'type', 'value' => array( 'slider', 'carousel' ) ),
-					'group'      => esc_html__( 'Slider Settings', 'extensive-vc' )
+					'group'      => esc_html__( 'Slider Options', 'extensive-vc' )
 				),
 				array(
 					'type'        => 'dropdown',
@@ -199,7 +199,7 @@ if ( ! class_exists( 'EVCImageGallery' ) ) {
 						esc_html__( 'Light', 'extensive-vc' )   => 'light'
 					),
 					'dependency' => array( 'element' => 'type', 'value' => array( 'slider', 'carousel' ) ),
-					'group'      => esc_html__( 'Slider Settings', 'extensive-vc' )
+					'group'      => esc_html__( 'Slider Options', 'extensive-vc' )
 				)
 			);
 			

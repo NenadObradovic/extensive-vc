@@ -14,6 +14,10 @@
 		if (holder.length) {
 			holder.each(function () {
 				var thisHolder = $(this),
+					holderBorderColor = thisHolder.data('border-color'),
+					borderColor = holderBorderColor !== undefined && holderBorderColor !== '' ? holderBorderColor : '#fff',
+					holderBorderHoverColor = thisHolder.data('border-hover-color'),
+					hoverBorderColor = holderBorderHoverColor !== undefined && holderBorderHoverColor !== '' ? holderBorderHoverColor : '#efefef',
 					holderBorderWidth = thisHolder.data('border-width'),
 					borderWidth = holderBorderWidth !== undefined && holderBorderWidth !== '' ? parseInt(holderBorderWidth, 10) : 2,
 					enableLegend = thisHolder.data('enable-legend'),
@@ -50,7 +54,8 @@
 							datasets: [{
 								data: values,
 								backgroundColor: colors,
-								borderColor: '#fff',
+								borderColor: borderColor,
+								hoverBorderColor: hoverBorderColor,
 								borderWidth: borderWidth
 							}]
 						},

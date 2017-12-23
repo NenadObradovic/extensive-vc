@@ -59,6 +59,17 @@ You can find all instructions about plugin and all shortcodes in website <a href
 
 <h3>Changelog</h3>
 
+<h5>1.4.3</h5>
+- Added Slide From Bottom type option for Interactive Banner shortcode <br />
+- Added Shutter In Vertical type option for Interactive Banner shortcode <br />
+- Added Canvas Space Color option for Doughnut Chart shortcode <br />
+- Added Canvas Space Hover Color option for Doughnut Chart shortcode <br />
+- Added Canvas Space Color option for Pie Chart shortcode <br />
+- Added Canvas Space Hover Color option for Pie Chart shortcode <br />
+- Added Text Tag option for Section Title shortcode <br />
+- Updated language pot file <br />
+- Renamed Settings label to Options for all shortcodes group options <br />
+
 <h5>1.4.2</h5>
 - Added Type option for Interactive Banner shortcode <br />
 - Added Text option for Interactive Banner shortcode <br />

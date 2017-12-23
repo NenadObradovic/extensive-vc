@@ -13,7 +13,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</<?php echo esc_attr( $title_tag ); ?>>
 		<?php } ?>
 		<?php if ( ! empty( $text ) ) { ?>
-			<p class="evc-st-text" <?php extensive_vc_print_inline_style( $text_styles ); ?>><?php echo esc_html( $text ); ?></p>
+			<<?php echo esc_attr( $text_tag ); ?> class="evc-st-text" <?php extensive_vc_print_inline_style( $text_styles ); ?>>
+				<?php echo esc_html( $text ); ?>
+			</<?php echo esc_attr( $text_tag ); ?>>
 		<?php } ?>
 	</div>
 </div>

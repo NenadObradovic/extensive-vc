@@ -62,21 +62,21 @@ if ( ! class_exists( 'EVCIconListItem' ) ) {
 						'param_name' => 'icon_size',
 						'heading'    => esc_html__( 'Icon Size (px)', 'extensive-vc' ),
 						'dependency' => array( 'element' => 'icon_library', 'not_empty' => true ),
-						'group'      => esc_html__( 'Icon Settings', 'extensive-vc' )
+						'group'      => esc_html__( 'Icon Options', 'extensive-vc' )
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'icon_color',
 						'heading'    => esc_html__( 'Icon Color', 'extensive-vc' ),
 						'dependency' => array( 'element' => 'icon_library', 'not_empty' => true ),
-						'group'      => esc_html__( 'Icon Settings', 'extensive-vc' )
+						'group'      => esc_html__( 'Icon Options', 'extensive-vc' )
 					),
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'icon_right_padding',
 						'heading'    => esc_html__( 'Icon Right Padding (px)', 'extensive-vc' ),
 						'dependency' => array( 'element' => 'icon_library', 'not_empty' => true ),
-						'group'      => esc_html__( 'Icon Settings', 'extensive-vc' )
+						'group'      => esc_html__( 'Icon Options', 'extensive-vc' )
 					),
 					array(
 						'type'       => 'textfield',
@@ -88,7 +88,7 @@ if ( ! class_exists( 'EVCIconListItem' ) ) {
 						'param_name' => 'text_color',
 						'heading'    => esc_html__( 'Text Color', 'extensive-vc' ),
 						'dependency' => array( 'element' => 'text', 'not_empty' => true ),
-						'group'      => esc_html__( 'Text Settings', 'extensive-vc' )
+						'group'      => esc_html__( 'Text Options', 'extensive-vc' )
 					),
 					array(
 						'type'        => 'textfield',
