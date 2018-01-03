@@ -1,10 +1,10 @@
-=== Extensive VC ===
+=== Extensive VC addons for WPBakery page builder ===
 Contributors: nenad-obradovic
-Tags: visual composer, visual composer addons, visual composer extensions, visual composer shortcodes, wpbakery page builder
+Tags: visual composer, wpbakery page builder, visual composer addons, wpbakery addons, visual composer shortcodes, wpbakery
 Donate link: http://wprealize.com/donate/
 Requires at least: 4.6
 Tested up to: 4.9.1
-Stable tag: 1.4.3
+Stable tag: 1.4.4
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -84,6 +84,23 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 5. Blockquote shortcode example.
 
 == Changelog ==
+
+= 1.4.4 =
+- Added Letter Font Size option for Dropcaps shortcode
+- Added Letter Line Height option for Dropcaps shortcode
+- Added Letter Font Weight option for Dropcaps shortcode
+- Added paragraph value for Title Tag option for Icon With Text shortcode
+- Added paragraph value for Title Tag option for Image With Text shortcode
+- Added paragraph value for Title Tag option for Interactive Banner shortcode
+- Added Enable Separator option for Section Title shortcode
+- Added Separator Color option for Section Title shortcode
+- Added Separator Top Margin option for Section Title shortcode
+- Added paragraph value for Title Tag option for Process shortcode
+- Added paragraph value for Title Tag option for Process 2 shortcode
+- Added Title Top Margin option for Process 2 shortcode
+- Updated language pot file
+- Fixed default title margin style for Section Title shortcode
+- Fixed default text margin style for Section Title shortcode
 
 = 1.4.3 =
 - Added Slide From Bottom type option for Interactive Banner shortcode

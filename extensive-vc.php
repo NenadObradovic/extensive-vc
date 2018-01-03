@@ -4,7 +4,7 @@ Plugin Name: Extensive VC
 Plugin URI: https://wprealize.com/
 Author: Nenad Obradovic
 Author URI: https://wprealize.com/
-Version: 1.4.3
+Version: 1.4.4
 Description: WordPress plugin which allows you to add unique, flexible and fully responsive shortcodes. It is an addon for premium plugin WPBakery page builder Visual Composer.
 Text Domain: extensive-vc
 License: GPLv2 or later
@@ -91,6 +91,8 @@ if ( ! class_exists( 'Extensive_VC_Addon' ) ) {
 			
 			add_action( 'admin_init', array( $this, 'enqueueAdminScripts' ) );
 			
+			add_filter( 'plugin_action_links', array( $this, 'setPluginActionLinks' ), 10, 2 );
+			
 			if ( ( is_multisite() && is_network_admin() ) || ! is_multisite() ) {
 				add_action( 'admin_init', array( $this, 'initAdminNotice' ) );
 			}
@@ -161,6 +163,29 @@ if ( ! class_exists( 'Extensive_VC_Addon' ) ) {
 			
 			// Hook to enqueue additional scripts for admin panel
 			do_action( 'extensive_vc_enqueue_additional_admin_scripts' );
+		}
+		
+		/**
+		 * Add Settings link in plugin's page
+		 *
+		 * @param array $links
+		 * @param string $file - path of main plugin file
+		 *
+		 * @return array
+		 */
+		public function setPluginActionLinks( $links, $file ) {
+			
+			if ( plugin_basename( __FILE__ ) === $file ) {
+				$title = esc_html__( 'Extensive VC Settings', 'extensive-vc' );
+				$url   = add_query_arg( array( 'page' => 'evc-admin-options-page' ), admin_url( 'admin.php' ) );
+				$label = esc_html__( 'Settings', 'extensive-vc' );
+				
+				$link = '<a title="' . esc_attr( $title ) . '" href="' . esc_url( $url ) . '">' . $label . '</a>';
+				
+				array_unshift( $links, $link );
+			}
+			
+			return $links;
 		}
 		
 		/**

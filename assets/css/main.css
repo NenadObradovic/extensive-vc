@@ -2959,12 +2959,19 @@ html.fp-enabled,
   vertical-align: top;
 }
 
-.evc-section-title .evc-iwt-title {
+.evc-section-title .evc-st-title {
   margin: 0;
 }
 
-.evc-section-title .evc-iwt-text {
-  margin: 14px 0 0;
+.evc-section-title .evc-st-separator {
+  width: 60px;
+  height: 2px;
+  margin: 28px auto 0;
+  background-color: #303030;
+}
+
+.evc-section-title .evc-st-text {
+  margin: 25px 0 0;
 }
 
 /* ==========================================================================

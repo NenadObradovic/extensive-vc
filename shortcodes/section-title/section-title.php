@@ -84,6 +84,26 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 					'group'      => esc_html__( 'Title Options', 'extensive-vc' )
 				),
 				array(
+					'type'       => 'dropdown',
+					'param_name' => 'enable_separator',
+					'heading'    => esc_html__( 'Enable Separator', 'extensive-vc' ),
+					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false ) )
+				),
+				array(
+					'type'       => 'colorpicker',
+					'param_name' => 'separator_color',
+					'heading'    => esc_html__( 'Separator Color', 'extensive-vc' ),
+					'dependency' => array( 'element' => 'enable_separator', 'value' => array( 'yes' ) ),
+					'group'      => esc_html__( 'Separator Options', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'textfield',
+					'param_name' => 'separator_top_margin',
+					'heading'    => esc_html__( 'Separator Top Margin (px)', 'extensive-vc' ),
+					'dependency' => array( 'element' => 'enable_separator', 'value' => array( 'yes' ) ),
+					'group'      => esc_html__( 'Separator Options', 'extensive-vc' )
+				),
+				array(
 					'type'       => 'textarea',
 					'param_name' => 'text',
 					'heading'    => esc_html__( 'Text', 'extensive-vc' )
@@ -125,25 +145,29 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 		 */
 		function render( $atts, $content = null ) {
 			$args   = array(
-				'custom_class'    => '',
-				'text_alignment'  => '',
-				'title'           => '',
-				'title_tag'       => 'h2',
-				'title_color'     => '',
-				'text'            => '',
-				'text_tag'        => 'p',
-				'text_color'      => '',
-				'text_top_margin' => ''
+				'custom_class'         => '',
+				'text_alignment'       => '',
+				'title'                => '',
+				'title_tag'            => 'h2',
+				'title_color'          => '',
+				'enable_separator'     => 'no',
+				'separator_color'      => '',
+				'separator_top_margin' => '',
+				'text'                 => '',
+				'text_tag'             => 'p',
+				'text_color'           => '',
+				'text_top_margin'      => ''
 			);
 			$params = shortcode_atts( $args, $atts );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params );
 			$params['holder_styles']  = $this->getHolderStyles( $params );
 			
-			$params['title_tag']    = ! empty( $params['title_tag'] ) ? $params['title_tag'] : $args['title_tag'];
-			$params['title_styles'] = $this->getTitleStyles( $params );
-			$params['text_tag']     = ! empty( $params['text_tag'] ) ? $params['text_tag'] : $args['text_tag'];
-			$params['text_styles']  = $this->getTextStyles( $params );
+			$params['title_tag']        = ! empty( $params['title_tag'] ) ? $params['title_tag'] : $args['title_tag'];
+			$params['title_styles']     = $this->getTitleStyles( $params );
+			$params['separator_styles'] = $this->getSeparatorStyles( $params );
+			$params['text_tag']         = ! empty( $params['text_tag'] ) ? $params['text_tag'] : $args['text_tag'];
+			$params['text_styles']      = $this->getTextStyles( $params );
 			
 			$html = extensive_vc_get_module_template_part( 'shortcodes', 'section-title', 'templates/section-title', '', $params );
 			
@@ -194,6 +218,27 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 			
 			if ( ! empty( $params['title_color'] ) ) {
 				$styles[] = 'color: ' . $params['title_color'];
+			}
+			
+			return implode( ';', $styles );
+		}
+		
+		/**
+		 * Get separator styles
+		 *
+		 * @param $params array - shortcode parameters value
+		 *
+		 * @return string
+		 */
+		private function getSeparatorStyles( $params ) {
+			$styles = array();
+			
+			if ( ! empty( $params['separator_color'] ) ) {
+				$styles[] = 'background-color: ' . $params['separator_color'];
+			}
+			
+			if ( $params['separator_top_margin'] !== '' ) {
+				$styles[] = 'margin-top: ' . extensive_vc_filter_px( $params['separator_top_margin'] ) . 'px';
 			}
 			
 			return implode( ';', $styles );

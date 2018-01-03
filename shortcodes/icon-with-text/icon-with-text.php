@@ -94,7 +94,7 @@ if ( ! class_exists( 'EVCIconWithText' ) ) {
 						'type'        => 'dropdown',
 						'param_name'  => 'title_tag',
 						'heading'     => esc_html__( 'Title Tag', 'extensive-vc' ),
-						'value'       => array_flip( extensive_vc_get_title_tag_array( true ) ),
+						'value'       => array_flip( extensive_vc_get_title_tag_array( true, array( 'p' => 'p' ) ) ),
 						'save_always' => true,
 						'dependency'  => array( 'element' => 'title', 'not_empty' => true ),
 						'group'       => esc_html__( 'Title Options', 'extensive-vc' )

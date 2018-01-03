@@ -12,6 +12,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php echo esc_html( $title ); ?>
 			</<?php echo esc_attr( $title_tag ); ?>>
 		<?php } ?>
+		<?php if ( $enable_separator === 'yes' ) { ?>
+			<div class="evc-st-separator" <?php extensive_vc_print_inline_style( $separator_styles ); ?>></div>
+		<?php } ?>
 		<?php if ( ! empty( $text ) ) { ?>
 			<<?php echo esc_attr( $text_tag ); ?> class="evc-st-text" <?php extensive_vc_print_inline_style( $text_styles ); ?>>
 				<?php echo esc_html( $text ); ?>

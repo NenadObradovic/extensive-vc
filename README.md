@@ -59,6 +59,23 @@ You can find all instructions about plugin and all shortcodes in website <a href
 
 <h3>Changelog</h3>
 
+<h5>1.4.4</h5>
+- Added Letter Font Size option for Dropcaps shortcode <br />
+- Added Letter Line Height option for Dropcaps shortcode <br />
+- Added Letter Font Weight option for Dropcaps shortcode <br />
+- Added paragraph value for Title Tag option for Icon With Text shortcode <br />
+- Added paragraph value for Title Tag option for Image With Text shortcode <br />
+- Added paragraph value for Title Tag option for Interactive Banner shortcode <br />
+- Added Enable Separator option for Section Title shortcode <br />
+- Added Separator Color option for Section Title shortcode <br />
+- Added Separator Top Margin option for Section Title shortcode <br />
+- Added paragraph value for Title Tag option for Process shortcode <br />
+- Added paragraph value for Title Tag option for Process 2 shortcode <br />
+- Added Title Top Margin option for Process 2 shortcode <br />
+- Updated language pot file <br />
+- Fixed default title margin style for Section Title shortcode <br />
+- Fixed default text margin style for Section Title shortcode <br />
+
 <h5>1.4.3</h5>
 - Added Slide From Bottom type option for Interactive Banner shortcode <br />
 - Added Shutter In Vertical type option for Interactive Banner shortcode <br />

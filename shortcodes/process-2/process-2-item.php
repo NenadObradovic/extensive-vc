@@ -73,7 +73,7 @@ if ( ! class_exists( 'EVCProcess2Item' ) ) {
 					'type'       => 'dropdown',
 					'param_name' => 'title_tag',
 					'heading'    => esc_html__( 'Title Tag', 'extensive-vc' ),
-					'value'      => array_flip( extensive_vc_get_title_tag_array( true ) ),
+					'value'      => array_flip( extensive_vc_get_title_tag_array( true, array( 'p' => 'p' ) ) ),
 					'dependency' => array( 'element' => 'title', 'not_empty' => true ),
 					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
 				),
@@ -81,6 +81,13 @@ if ( ! class_exists( 'EVCProcess2Item' ) ) {
 					'type'       => 'colorpicker',
 					'param_name' => 'title_color',
 					'heading'    => esc_html__( 'Title Color', 'extensive-vc' ),
+					'dependency' => array( 'element' => 'title', 'not_empty' => true ),
+					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'textfield',
+					'param_name' => 'title_top_margin',
+					'heading'    => esc_html__( 'Title Top Margin (px)', 'extensive-vc' ),
 					'dependency' => array( 'element' => 'title', 'not_empty' => true ),
 					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
 				),
@@ -118,15 +125,16 @@ if ( ! class_exists( 'EVCProcess2Item' ) ) {
 		 */
 		function render( $atts, $content = null ) {
 			$args   = array(
-				'custom_class'    => '',
-				'image'           => '',
-				'custom_link'     => '',
-				'title'           => '',
-				'title_tag'       => 'h4',
-				'title_color'     => '',
-				'text'            => '',
-				'text_color'      => '',
-				'text_top_margin' => ''
+				'custom_class'     => '',
+				'image'            => '',
+				'custom_link'      => '',
+				'title'            => '',
+				'title_tag'        => 'h4',
+				'title_color'      => '',
+				'title_top_margin' => '',
+				'text'             => '',
+				'text_color'       => '',
+				'text_top_margin'  => ''
 			);
 			$params = shortcode_atts( $args, $atts );
 			
@@ -169,6 +177,10 @@ if ( ! class_exists( 'EVCProcess2Item' ) ) {
 			
 			if ( ! empty( $params['title_color'] ) ) {
 				$styles[] = 'color: ' . $params['title_color'];
+			}
+			
+			if ( $params['title_top_margin'] !== '' ) {
+				$styles[] = 'margin-top: ' . extensive_vc_filter_px( $params['title_top_margin'] ) . 'px';
 			}
 			
 			return implode( ';', $styles );

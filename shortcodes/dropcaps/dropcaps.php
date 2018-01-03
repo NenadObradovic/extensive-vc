@@ -82,6 +82,25 @@ if ( ! class_exists( 'EVCDropcaps' ) ) {
 					'group'      => esc_html__( 'Letter Options', 'extensive-vc' )
 				),
 				array(
+					'type'       => 'textfield',
+					'param_name' => 'letter_font_size',
+					'heading'    => esc_html__( 'Letter Font Size (px or em)', 'extensive-vc' ),
+					'group'      => esc_html__( 'Letter Options', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'textfield',
+					'param_name' => 'letter_line_height',
+					'heading'    => esc_html__( 'Letter Line Height (px or em)', 'extensive-vc' ),
+					'group'      => esc_html__( 'Letter Options', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'dropdown',
+					'param_name' => 'letter_font_weight',
+					'heading'    => esc_html__( 'Letter Font Weight', 'extensive-vc' ),
+					'value'      => array_flip( extensive_vc_get_font_weight_array( true ) ),
+					'group'      => esc_html__( 'Letter Options', 'extensive-vc' )
+				),
+				array(
 					'type'       => 'textarea',
 					'param_name' => 'text',
 					'heading'    => esc_html__( 'Text', 'extensive-vc' )
@@ -106,14 +125,17 @@ if ( ! class_exists( 'EVCDropcaps' ) ) {
 		 * @return html
 		 */
 		function render( $atts, $content = null ) {
-			$args = array(
-				'custom_class'    => '',
-				'type'            => 'simple',
-				'letter'          => '',
-				'letter_color'    => '',
-				'letter_bg_color' => '',
-				'text'            => '',
-				'text_color'      => ''
+			$args   = array(
+				'custom_class'       => '',
+				'type'               => 'simple',
+				'letter'             => '',
+				'letter_color'       => '',
+				'letter_bg_color'    => '',
+				'letter_font_size'   => '',
+				'letter_line_height' => '',
+				'letter_font_weight' => '',
+				'text'               => '',
+				'text_color'         => ''
 			);
 			$params = shortcode_atts( $args, $atts );
 			
@@ -176,6 +198,26 @@ if ( ! class_exists( 'EVCDropcaps' ) ) {
 			
 			if ( ! empty( $params['letter_bg_color'] ) ) {
 				$styles[] = 'background-color: ' . $params['letter_bg_color'];
+			}
+			
+			if ( ! empty( $params['letter_font_size'] ) ) {
+				if ( extensive_vc_string_ends_with( $params['letter_font_size'], 'px' ) || extensive_vc_string_ends_with( $params['letter_font_size'], 'em' ) ) {
+					$styles[] = 'font-size: ' . $params['letter_font_size'];
+				} else {
+					$styles[] = 'font-size: ' . $params['letter_font_size'] . 'px';
+				}
+			}
+			
+			if ( ! empty( $params['letter_line_height'] ) ) {
+				if ( extensive_vc_string_ends_with( $params['letter_line_height'], 'px' ) || extensive_vc_string_ends_with( $params['letter_line_height'], 'em' ) ) {
+					$styles[] = 'line-height: ' . $params['letter_line_height'];
+				} else {
+					$styles[] = 'line-height: ' . $params['letter_line_height'] . 'px';
+				}
+			}
+			
+			if ( ! empty( $params['letter_font_weight'] ) ) {
+				$styles[] = 'font-weight: ' . $params['letter_font_weight'];
 			}
 			
 			return implode( ';', $styles );

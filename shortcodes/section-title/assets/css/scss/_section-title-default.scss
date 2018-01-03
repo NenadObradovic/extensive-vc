@@ -12,12 +12,19 @@
 		vertical-align: top;
 	}
 	
-	.evc-iwt-title {
+	.evc-st-title {
 		margin: 0;
 	}
 	
-	.evc-iwt-text {
-		margin: 14px 0 0;
+	.evc-st-separator {
+		width: 60px;
+		height: 2px;
+		margin: 28px auto 0;
+		background-color: $dark-color;
+	}
+	
+	.evc-st-text {
+		margin: 25px 0 0;
 	}
 }
 /* ==========================================================================

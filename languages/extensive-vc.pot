@@ -1,14 +1,14 @@
-# Copyright (C) 2017 Extensive VC
+# Copyright (C) 2018 Extensive VC
 # This file is distributed under the same license as the Extensive VC package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Extensive VC 1.4.3\n"
+"Project-Id-Version: Extensive VC 1.4.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/extensive-vc\n"
-"POT-Creation-Date: 2017-12-23 17:17:51+00:00\n"
+"POT-Creation-Date: 2018-01-03 13:30:49+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
@@ -326,15 +326,15 @@ msgstr ""
 
 #: post-types/testimonials/admin/meta-boxes/testimonials-meta-boxes.php:80
 #: shortcodes/blockquote/blockquote.php:69 shortcodes/button/button.php:90
-#: shortcodes/counter/counter.php:132 shortcodes/dropcaps/dropcaps.php:87
+#: shortcodes/counter/counter.php:132 shortcodes/dropcaps/dropcaps.php:106
 #: shortcodes/flip-image/flip-image.php:101
 #: shortcodes/icon-list/icon-list-item.php:84
 #: shortcodes/icon-with-text/icon-with-text.php:112
 #: shortcodes/image-with-text/image-with-text.php:108
 #: shortcodes/interactive-banner/interactive-banner.php:126
 #: shortcodes/process/process-item.php:79
-#: shortcodes/process-2/process-2-item.php:90
-#: shortcodes/section-title/section-title.php:89
+#: shortcodes/process-2/process-2-item.php:97
+#: shortcodes/section-title/section-title.php:109
 #: shortcodes/text-marquee/text-marquee.php:58
 msgid "Text"
 msgstr ""
@@ -579,14 +579,15 @@ msgid "With Icon"
 msgstr ""
 
 #: shortcodes/blockquote/blockquote.php:74 shortcodes/counter/counter.php:137
-#: shortcodes/dropcaps/dropcaps.php:92 shortcodes/flip-image/flip-image.php:106
+#: shortcodes/dropcaps/dropcaps.php:111
+#: shortcodes/flip-image/flip-image.php:106
 #: shortcodes/icon-list/icon-list-item.php:89
 #: shortcodes/icon-with-text/icon-with-text.php:117
 #: shortcodes/image-with-text/image-with-text.php:113
 #: shortcodes/interactive-banner/interactive-banner.php:131
 #: shortcodes/process/process-item.php:84
-#: shortcodes/process-2/process-2-item.php:95
-#: shortcodes/section-title/section-title.php:102
+#: shortcodes/process-2/process-2-item.php:102
+#: shortcodes/section-title/section-title.php:122
 msgid "Text Color"
 msgstr ""
 
@@ -743,8 +744,9 @@ msgstr ""
 #: shortcodes/process/process.php:104 shortcodes/process/process.php:110
 #: shortcodes/process-2/process-2-item.php:78
 #: shortcodes/process-2/process-2-item.php:85
-#: shortcodes/process-2/process-2-item.php:97
+#: shortcodes/process-2/process-2-item.php:92
 #: shortcodes/process-2/process-2-item.php:104
+#: shortcodes/process-2/process-2-item.php:111
 #: shortcodes/separator/separator.php:90 shortcodes/separator/separator.php:96
 #: shortcodes/separator/separator.php:102
 msgid "Design Options"
@@ -872,19 +874,20 @@ msgstr ""
 
 #: shortcodes/counter/counter.php:125
 #: shortcodes/image-with-text/image-with-text.php:101
+#: shortcodes/process-2/process-2-item.php:90
 msgid "Title Top Margin (px)"
 msgstr ""
 
 #: shortcodes/counter/counter.php:139 shortcodes/counter/counter.php:146
-#: shortcodes/dropcaps/dropcaps.php:93
+#: shortcodes/dropcaps/dropcaps.php:112
 #: shortcodes/icon-list/icon-list-item.php:91
 #: shortcodes/icon-with-text/icon-with-text.php:119
 #: shortcodes/icon-with-text/icon-with-text.php:126
 #: shortcodes/interactive-banner/interactive-banner.php:133
 #: shortcodes/interactive-banner/interactive-banner.php:140
-#: shortcodes/section-title/section-title.php:97
-#: shortcodes/section-title/section-title.php:104
-#: shortcodes/section-title/section-title.php:111
+#: shortcodes/section-title/section-title.php:117
+#: shortcodes/section-title/section-title.php:124
+#: shortcodes/section-title/section-title.php:131
 msgid "Text Options"
 msgstr ""
 
@@ -893,8 +896,8 @@ msgstr ""
 #: shortcodes/image-with-text/image-with-text.php:120
 #: shortcodes/interactive-banner/interactive-banner.php:138
 #: shortcodes/process/process-item.php:91
-#: shortcodes/process-2/process-2-item.php:102
-#: shortcodes/section-title/section-title.php:109
+#: shortcodes/process-2/process-2-item.php:109
+#: shortcodes/section-title/section-title.php:129
 msgid "Text Top Margin (px)"
 msgstr ""
 
@@ -1097,11 +1100,25 @@ msgid "Letter Color"
 msgstr ""
 
 #: shortcodes/dropcaps/dropcaps.php:75 shortcodes/dropcaps/dropcaps.php:82
+#: shortcodes/dropcaps/dropcaps.php:88 shortcodes/dropcaps/dropcaps.php:94
+#: shortcodes/dropcaps/dropcaps.php:101
 msgid "Letter Options"
 msgstr ""
 
 #: shortcodes/dropcaps/dropcaps.php:80
 msgid "Letter Background Color"
+msgstr ""
+
+#: shortcodes/dropcaps/dropcaps.php:87
+msgid "Letter Font Size (px or em)"
+msgstr ""
+
+#: shortcodes/dropcaps/dropcaps.php:93
+msgid "Letter Line Height (px or em)"
+msgstr ""
+
+#: shortcodes/dropcaps/dropcaps.php:99
+msgid "Letter Font Weight"
 msgstr ""
 
 #: shortcodes/flip-image/flip-image.php:24
@@ -1526,7 +1543,24 @@ msgstr ""
 msgid "Text Alignment"
 msgstr ""
 
-#: shortcodes/section-title/section-title.php:94
+#: shortcodes/section-title/section-title.php:89
+msgid "Enable Separator"
+msgstr ""
+
+#: shortcodes/section-title/section-title.php:95
+msgid "Separator Color"
+msgstr ""
+
+#: shortcodes/section-title/section-title.php:97
+#: shortcodes/section-title/section-title.php:104
+msgid "Separator Options"
+msgstr ""
+
+#: shortcodes/section-title/section-title.php:102
+msgid "Separator Top Margin (px)"
+msgstr ""
+
+#: shortcodes/section-title/section-title.php:114
 msgid "Text Tag"
 msgstr ""
 
