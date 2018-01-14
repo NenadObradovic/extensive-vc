@@ -1,10 +1,10 @@
-=== Extensive VC addons for WPBakery page builder ===
+=== Extensive VC Addons for WPBakery page builder ===
 Contributors: nenad-obradovic
-Tags: visual composer, wpbakery page builder, visual composer addons, wpbakery addons, visual composer shortcodes, wpbakery
+Tags: visual composer, wpbakery page builder, visual composer addons, wpbakery addons, wpbakery visual composer
 Donate link: http://wprealize.com/donate/
 Requires at least: 4.6
 Tested up to: 4.9.1
-Stable tag: 1.4.4
+Stable tag: 1.5
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -13,7 +13,7 @@ Extensive addons or extensions for WPBakery page builder ex. Visual Composer, wh
 
 == Description ==
 
-<blockquote>Extensive WordPress Addon Plugin For Visual Composer</blockquote>
+<blockquote>Extensive WordPress Addons Plugin For WPBakery Page Builder (formerly Visual Composer)</blockquote>
 
 Extensive VC is a powerful WordPress tool which allows you to add unique, flexible and fully responsive shortcode elements on your site. It is an addons for premium plugin <a href="https://vc.wpbakery.com/"><strong>WPBakery Page Builder</strong></a> (formerly Visual Composer), so first you need to install/activate this required plugin to be able to use Extensive VC plugin. Plugin contains four packs of shortcode elements (classic, interactive, infographic and typography). All of these shortcode packs you can find in our website in Elements section inside header menu.
 
@@ -22,6 +22,7 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
 <h3>Features</h3>
 <ul>
 	<li><a href="http://wprealize.com/classic/button/">Classic - Button</a></li>
+	<li><a href="http://wprealize.com/classic/clients/">Classic - Clients (New)</a></li>
 	<li><a href="http://wprealize.com/classic/icon-with-text/">Classic - Icon With Text</a></li>
 	<li><a href="http://wprealize.com/classic/image-with-text/">Classic - Image With Text</a></li>
 	<li><a href="http://wprealize.com/classic/separator/">Classic - Separator</a></li>
@@ -84,6 +85,15 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 5. Blockquote shortcode example.
 
 == Changelog ==
+
+= 1.5 =
+- Added Clients Custom Post Type
+- Added Clients shortcode
+- Added Separator Width option for Section Title shortcode
+- Added Separator Thickness option for Section Title shortcode
+- Improved framework meta box types with image type
+- Improved framework shortcode functionality
+- Updated language pot file
 
 = 1.4.4 =
 - Added Letter Font Size option for Dropcaps shortcode

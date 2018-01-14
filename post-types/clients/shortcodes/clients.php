@@ -1,6 +1,6 @@
 <?php
 
-namespace ExtensiveVC\Shortcodes\EVCTestimonials;
+namespace ExtensiveVC\Shortcodes\EVCClients;
 
 use ExtensiveVC\Shortcodes;
 
@@ -8,8 +8,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-if ( ! class_exists( 'EVCTestimonials' ) ) {
-	class EVCTestimonials extends Shortcodes\EVCShortcode {
+if ( ! class_exists( 'EVCClients' ) ) {
+	class EVCClients extends Shortcodes\EVCShortcode {
 		
 		/**
 		 * Singleton variables
@@ -20,8 +20,8 @@ if ( ! class_exists( 'EVCTestimonials' ) ) {
 		 * Constructor
 		 */
 		function __construct() {
-			$this->setBase( 'evc_testimonials' );
-			$this->setShortcodeName( esc_html__( 'Testimonials', 'extensive-vc' ) );
+			$this->setBase( 'evc_clients' );
+			$this->setShortcodeName( esc_html__( 'Clients', 'extensive-vc' ) );
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
@@ -31,11 +31,11 @@ if ( ! class_exists( 'EVCTestimonials' ) ) {
 			if ( $this->getIsShortcodeEnabled() ) {
 				add_action( 'extensive_vc_enqueue_additional_scripts_before_main_js', array( $this, 'enqueueShortcodeAdditionalScripts' ) );
 				
-				//Testimonials category filter
-				add_filter( 'vc_autocomplete_evc_testimonials_category_callback', array( $this, 'testimonialsCategoryAutocompleteSuggester' ), 10, 1 ); // Get suggestion(find). Must return an array
+				//Clients category filter
+				add_filter( 'vc_autocomplete_evc_clients_category_callback', array( $this, 'clientsCategoryAutocompleteSuggester' ), 10, 1 ); // Get suggestion(find). Must return an array
 				
-				//Testimonials category render
-				add_filter( 'vc_autocomplete_evc_testimonials_category_render', array( $this, 'testimonialsCategoryAutocompleteRender' ), 10, 1 ); // Get suggestion(find). Must return an array
+				//Clients category render
+				add_filter( 'vc_autocomplete_evc_clients_category_render', array( $this, 'clientsCategoryAutocompleteRender' ), 10, 1 ); // Get suggestion(find). Must return an array
 			}
 		}
 		
@@ -74,14 +74,28 @@ if ( ! class_exists( 'EVCTestimonials' ) ) {
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'number',
-					'heading'     => esc_html__( 'Number of Testimonials', 'extensive-vc' ),
-					'description' => esc_html__( 'Enter number of testimonials or leave empty for showing all testimonials', 'extensive-vc' )
+					'heading'     => esc_html__( 'Number of Clients', 'extensive-vc' ),
+					'description' => esc_html__( 'Enter number of clients or leave empty for showing all clients', 'extensive-vc' )
 				),
 				array(
 					'type'        => 'autocomplete',
 					'param_name'  => 'category',
 					'heading'     => esc_html__( 'Category', 'extensive-vc' ),
 					'description' => esc_html__( 'Enter one category slug or leave empty for showing all categories', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'dropdown',
+					'param_name' => 'number_of_visible_items',
+					'heading'    => esc_html__( 'Number Of Visible Items', 'extensive-vc' ),
+					'value'      => array(
+						esc_html__( 'One', 'extensive-vc' )   => '1',
+						esc_html__( 'Two', 'extensive-vc' )   => '2',
+						esc_html__( 'Three', 'extensive-vc' ) => '3',
+						esc_html__( 'Four', 'extensive-vc' )  => '4',
+						esc_html__( 'Five', 'extensive-vc' )  => '5',
+						esc_html__( 'Six', 'extensive-vc' )   => '6'
+					),
+					'group'      => esc_html__( 'Slider Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'dropdown',
@@ -153,6 +167,7 @@ if ( ! class_exists( 'EVCTestimonials' ) ) {
 				'custom_class'             => '',
 				'number'                   => '-1',
 				'category'                 => '',
+				'number_of_visible_items'  => '4',
 				'carousel_loop'            => 'yes',
 				'carousel_autoplay'        => 'yes',
 				'carousel_speed'           => '5000',
@@ -167,7 +182,7 @@ if ( ! class_exists( 'EVCTestimonials' ) ) {
 			$params['holder_classes'] = $this->getHolderClasses( $params );
 			$params['slider_data']    = $this->getSliderData( $params, $args );
 			
-			$html = extensive_vc_get_module_template_part( 'cpt', 'testimonials', 'templates/testimonials-holder', '', $params );
+			$html = extensive_vc_get_module_template_part( 'cpt', 'clients', 'templates/clients-holder', '', $params );
 			
 			return $html;
 		}
@@ -198,14 +213,14 @@ if ( ! class_exists( 'EVCTestimonials' ) ) {
 		private function getQueryParams( $params ) {
 			$args = array(
 				'post_status'    => 'publish',
-				'post_type'      => 'testimonials',
+				'post_type'      => 'clients',
 				'posts_per_page' => $params['number'],
 				'orderby'        => 'date',
 				'order'          => 'ASC'
 			);
 			
 			if ( $params['category'] != '' ) {
-				$args['testimonials-category'] = $params['category'];
+				$args['clients-category'] = $params['category'];
 			}
 			
 			return $args;
@@ -222,12 +237,14 @@ if ( ! class_exists( 'EVCTestimonials' ) ) {
 		private function getSliderData( $params, $args ) {
 			$data = array();
 			
-			$data['data-enable-loop']              = ! empty( $params['carousel_loop'] ) ? $params['carousel_loop'] : $args['carousel_loop'];
-			$data['data-enable-autoplay']          = ! empty( $params['carousel_autoplay'] ) ? $params['carousel_autoplay'] : $args['carousel_autoplay'];
-			$data['data-carousel-speed']           = ! empty( $params['carousel_speed'] ) ? $params['carousel_speed'] : $args['carousel_speed'];
-			$data['data-carousel-speed-animation'] = ! empty( $params['carousel_speed_animation'] ) ? $params['carousel_speed_animation'] : $args['carousel_speed_animation'];
-			$data['data-enable-navigation']        = ! empty( $params['carousel_navigation'] ) ? $params['carousel_navigation'] : $args['carousel_navigation'];
-			$data['data-enable-pagination']        = ! empty( $params['carousel_pagination'] ) ? $params['carousel_pagination'] : $args['carousel_pagination'];
+			$data['data-number-of-items']             = ! empty( $params['number_of_visible_items'] ) ? $params['number_of_visible_items'] : $args['number_of_visible_items'];
+			$data['data-enable-loop']                 = ! empty( $params['carousel_loop'] ) ? $params['carousel_loop'] : $args['carousel_loop'];
+			$data['data-enable-autoplay']             = ! empty( $params['carousel_autoplay'] ) ? $params['carousel_autoplay'] : $args['carousel_autoplay'];
+			$data['data-enable-autoplay-hover-pause'] = 'no';
+			$data['data-carousel-speed']              = ! empty( $params['carousel_speed'] ) ? $params['carousel_speed'] : $args['carousel_speed'];
+			$data['data-carousel-speed-animation']    = ! empty( $params['carousel_speed_animation'] ) ? $params['carousel_speed_animation'] : $args['carousel_speed_animation'];
+			$data['data-enable-navigation']           = ! empty( $params['carousel_navigation'] ) ? $params['carousel_navigation'] : $args['carousel_navigation'];
+			$data['data-enable-pagination']           = ! empty( $params['carousel_pagination'] ) ? $params['carousel_pagination'] : $args['carousel_pagination'];
 			
 			return $data;
 		}
@@ -239,13 +256,13 @@ if ( ! class_exists( 'EVCTestimonials' ) ) {
 		 *
 		 * @return array
 		 */
-		function testimonialsCategoryAutocompleteSuggester( $query ) {
+		function clientsCategoryAutocompleteSuggester( $query ) {
 			global $wpdb;
 			
-			$post_meta_infos = $wpdb->get_results( $wpdb->prepare( "SELECT a.slug AS slug, a.name AS testimonials_category_title
+			$post_meta_infos = $wpdb->get_results( $wpdb->prepare( "SELECT a.slug AS slug, a.name AS clients_category_title
 				FROM {$wpdb->terms} AS a
 				LEFT JOIN ( SELECT term_id, taxonomy  FROM {$wpdb->term_taxonomy} ) AS b ON b.term_id = a.term_id
-				WHERE b.taxonomy = 'testimonials-category' AND a.name LIKE '%%%s%%'", stripslashes( $query ) ), ARRAY_A );
+				WHERE b.taxonomy = 'clients-category' AND a.name LIKE '%%%s%%'", stripslashes( $query ) ), ARRAY_A );
 			
 			$results = array();
 			
@@ -253,7 +270,7 @@ if ( ! class_exists( 'EVCTestimonials' ) ) {
 				foreach ( $post_meta_infos as $value ) {
 					$data          = array();
 					$data['value'] = $value['slug'];
-					$data['label'] = ( ( strlen( $value['testimonials_category_title'] ) > 0 ) ? esc_html__( 'Category', 'extensive-vc' ) . ': ' . $value['testimonials_category_title'] : '' );
+					$data['label'] = ( ( strlen( $value['clients_category_title'] ) > 0 ) ? esc_html__( 'Category', 'extensive-vc' ) . ': ' . $value['clients_category_title'] : '' );
 					$results[]     = $data;
 				}
 			}
@@ -269,26 +286,26 @@ if ( ! class_exists( 'EVCTestimonials' ) ) {
 		 *
 		 * @return bool|array
 		 */
-		function testimonialsCategoryAutocompleteRender( $query ) {
+		function clientsCategoryAutocompleteRender( $query ) {
 			$query = trim( $query['value'] ); // get value from requested
 			
 			if ( ! empty( $query ) ) {
 				// get portfolio category
-				$testimonials_category = get_term_by( 'slug', $query, 'testimonials-category' );
+				$clients_category = get_term_by( 'slug', $query, 'clients-category' );
 				
-				if ( is_object( $testimonials_category ) ) {
-					$testimonials_category_slug  = $testimonials_category->slug;
-					$testimonials_category_title = $testimonials_category->name;
+				if ( is_object( $clients_category ) ) {
+					$clients_category_slug  = $clients_category->slug;
+					$clients_category_title = $clients_category->name;
 					
-					$testimonials_category_title_display = '';
+					$clients_category_title_display = '';
 					
-					if ( ! empty( $testimonials_category_title ) ) {
-						$testimonials_category_title_display = esc_html__( 'Category', 'extensive-vc' ) . ': ' . $testimonials_category_title;
+					if ( ! empty( $clients_category_title ) ) {
+						$clients_category_title_display = esc_html__( 'Category', 'extensive-vc' ) . ': ' . $clients_category_title;
 					}
 					
 					$data          = array();
-					$data['value'] = $testimonials_category_slug;
-					$data['label'] = $testimonials_category_title_display;
+					$data['value'] = $clients_category_slug;
+					$data['label'] = $clients_category_title_display;
 					
 					return ! empty( $data ) ? $data : false;
 				}
@@ -301,4 +318,4 @@ if ( ! class_exists( 'EVCTestimonials' ) ) {
 	}
 }
 
-EVCTestimonials::getInstance();
+EVCClients::getInstance();

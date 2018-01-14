@@ -4,6 +4,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
+if ( ! function_exists( 'extensive_vc_enqueue_admin_meta_box_scripts' ) ) {
+	/**
+	 * Enqueue plugin scripts for meta boxes page
+	 */
+	function extensive_vc_enqueue_admin_meta_box_scripts() {
+		wp_enqueue_media();
+		
+		// Hook to enqueue additional scripts for meta boxes page
+		do_action( 'extensive_vc_enqueue_additional_admin_meta_box_scripts' );
+	}
+}
+
 if ( ! function_exists( 'extensive_vc_add_admin_meta_boxes' ) ) {
 	/**
 	 * Add admin custom meta boxes fields
@@ -24,6 +36,8 @@ if ( ! function_exists( 'extensive_vc_add_admin_meta_boxes' ) ) {
 				array( 'meta_box' => $meta_box )
 			);
 		}
+		
+		add_action( 'admin_enqueue_scripts', 'extensive_vc_enqueue_admin_meta_box_scripts' );
 	}
 	
 	add_action( 'add_meta_boxes', 'extensive_vc_add_admin_meta_boxes' );
@@ -68,14 +82,21 @@ if ( ! function_exists( 'extensive_vc_save_admin_meta_boxes' ) ) {
 		
 		if ( is_array( $meta_boxes ) && ! empty( $meta_boxes ) ) {
 			foreach ( $meta_boxes as $meta_box ) {
-				$nonce_array[] = 'extensive_vc_meta_box_' . esc_attr( $meta_box['id'] ) . '_save';
+				$id = esc_attr( $meta_box['id'] );
+				
+				$nonce_array[] = array(
+					'nonce'     => 'extensive_vc_meta_box_' . $id . '_save',
+					'post_type' => $id
+				);
 			}
 		}
 		
 		if ( is_array( $nonce_array ) && count( $nonce_array ) ) {
 			foreach ( $nonce_array as $nonce ) {
-				if ( ! isset( $_POST[ $nonce ] ) || ! wp_verify_nonce( $_POST[ $nonce ], $nonce ) ) {
-					return;
+				if ( extensive_vc_is_forwarded_admin_page_active( $nonce['post_type'] ) ) {
+					if ( ! isset( $_POST[ $nonce['nonce'] ] ) || ! wp_verify_nonce( $_POST[ $nonce['nonce'] ], $nonce['nonce'] ) ) {
+						return;
+					}
 				}
 			}
 		}

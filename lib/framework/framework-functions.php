@@ -11,7 +11,7 @@ if ( ! function_exists( 'extensive_vc_add_admin_menu_page' ) ) {
 	function extensive_vc_add_admin_menu_page() {
 		
 		add_menu_page(
-			esc_html__( 'Extensive VC Addon', 'extensive-vc' ),
+			esc_html__( 'Extensive VC Addons', 'extensive-vc' ),
 			esc_html__( 'Extensive VC', 'extensive-vc' ),
 			'edit_posts',
 			'evc-admin-menu-page',
@@ -176,5 +176,20 @@ if ( ! function_exists( 'extensive_vc_add_admin_bar_menu_options' ) ) {
 	
 	if ( ! is_admin() ) {
 		add_action( 'admin_bar_menu', 'extensive_vc_add_admin_bar_menu_options', 100 );
+	}
+}
+
+if ( ! function_exists( 'extensive_vc_is_forwarded_admin_page_active' ) ) {
+	/**
+	 * Checks if forwarded page in active
+	 *
+	 * @param string $page
+	 *
+	 * @return bool
+	 */
+	function extensive_vc_is_forwarded_admin_page_active( $page ) {
+		$current_screen = get_current_screen();
+		
+		return $current_screen->post_type === $page;
 	}
 }

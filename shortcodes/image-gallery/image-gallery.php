@@ -238,7 +238,7 @@ if ( ! class_exists( 'EVCImageGallery' ) ) {
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params, $args );
 			$params['inner_classes']  = $this->getInnerClasses( $params, $args );
-			$params['slider_data']    = $this->getSliderData( $params );
+			$params['slider_data']    = $this->getSliderData( $params, $args );
 			
 			$params['image_classes'] = $this->getImageClasses( $params );
 			$params['images']        = $this->getImages( $params );
@@ -292,20 +292,21 @@ if ( ! class_exists( 'EVCImageGallery' ) ) {
 		 * Get slider data
 		 *
 		 * @param $params array - shortcode parameters value
+		 * @param $args array - default shortcode parameters value
 		 *
 		 * @return array
 		 */
-		private function getSliderData( $params ) {
+		private function getSliderData( $params, $args ) {
 			$data = array();
 			
-			$data['data-number-of-items']          = $params['number_of_visible_items'] !== '' && $params['type'] === 'carousel' ? $params['number_of_visible_items'] : '1';
-			$data['data-enable-loop']              = ! empty( $params['carousel_loop'] ) ? $params['carousel_loop'] : '';
-			$data['data-enable-autoplay']          = ! empty( $params['carousel_autoplay'] ) ? $params['carousel_autoplay'] : '';
-			$data['data-carousel-speed']           = ! empty( $params['carousel_speed'] ) ? $params['carousel_speed'] : '5000';
-			$data['data-carousel-speed-animation'] = ! empty( $params['carousel_speed_animation'] ) ? $params['carousel_speed_animation'] : '600';
+			$data['data-number-of-items']          = $params['number_of_visible_items'] !== '' && $params['type'] === 'carousel' ? $params['number_of_visible_items'] : $args['number_of_visible_items'];
+			$data['data-enable-loop']              = ! empty( $params['carousel_loop'] ) ? $params['carousel_loop'] : $args['carousel_loop'];
+			$data['data-enable-autoplay']          = ! empty( $params['carousel_autoplay'] ) ? $params['carousel_autoplay'] : $args['carousel_autoplay'];
+			$data['data-carousel-speed']           = ! empty( $params['carousel_speed'] ) ? $params['carousel_speed'] : $args['carousel_speed'];
+			$data['data-carousel-speed-animation'] = ! empty( $params['carousel_speed_animation'] ) ? $params['carousel_speed_animation'] : $args['carousel_speed_animation'];
 			$data['data-carousel-margin']          = $params['type'] === 'carousel' ? '30' : '0';
-			$data['data-enable-navigation']        = ! empty( $params['carousel_navigation'] ) ? $params['carousel_navigation'] : '';
-			$data['data-enable-pagination']        = ! empty( $params['carousel_pagination'] ) ? $params['carousel_pagination'] : '';
+			$data['data-enable-navigation']        = ! empty( $params['carousel_navigation'] ) ? $params['carousel_navigation'] : $args['carousel_navigation'];
+			$data['data-enable-pagination']        = ! empty( $params['carousel_pagination'] ) ? $params['carousel_pagination'] : $args['carousel_pagination'];
 			
 			return $data;
 		}

@@ -1,0 +1,74 @@
+/* ==========================================================================
+   Clients shortcode style - begin
+   ========================================================================== */
+
+.evc-clients {
+    @include evcRelativeLayout();
+    text-align: center;
+	
+    .evc-c-item {
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        
+        .touch & {
+            cursor: pointer;
+        }
+        
+        &.evc-c-has-hover {
+    
+            &:hover {
+        
+                .evc-c-original-image {
+                    opacity: 0;
+                }
+        
+                .evc-c-hover-image {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    
+    .evc-c-link {
+        position: relative;
+        display: block;
+    }
+    
+    .evc-c-image {
+        display: block;
+        @include evcTransition(opacity .35s);
+    }
+    
+    .evc-c-original-image {
+        position: relative;
+        opacity: 1;
+        z-index: 1;
+    }
+    
+    .evc-c-hover-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        opacity: 0;
+    }
+    
+    .evc-owl-carousel {
+        
+        .owl-nav {
+            
+            .owl-prev {
+                left: -10px;
+            }
+    
+            .owl-next {
+                right: -10px;
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+   Clients shortcode style - end
+   ========================================================================== */

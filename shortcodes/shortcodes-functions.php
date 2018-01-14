@@ -78,6 +78,7 @@ if ( ! function_exists( 'extensive_vc_return_shortcodes_label_array' ) ) {
 	 */
 	function extensive_vc_return_shortcodes_label_array() {
 		$shortcodes = apply_filters( 'extensive_vc_filter_shortcodes_list', $shortcodes = array() );
+		sort( $shortcodes );
 		
 		return $shortcodes;
 	}

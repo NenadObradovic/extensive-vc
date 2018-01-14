@@ -42,7 +42,7 @@ if ( ! function_exists( 'extensive_vc_allowed_testimonials_meta_boxes' ) ) {
 	 *
 	 * @param $postTypes array - array of post types
 	 *
-	 * @return string
+	 * @return array
 	 */
 	function extensive_vc_allowed_testimonials_meta_boxes( $postTypes ) {
 		$postTypes[] = 'testimonials';

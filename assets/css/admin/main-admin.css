@@ -81,6 +81,14 @@
   margin: 5px 0 0;
 }
 
+.evc-meta-box-page .evc-meta-box-image {
+  position: relative;
+  display: block;
+  max-width: 120px;
+  height: auto;
+  margin: 0 0 1em;
+}
+
 /* ==========================================================================
    Meta Boxes styles - end
    ========================================================================== */

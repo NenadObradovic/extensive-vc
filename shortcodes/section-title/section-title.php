@@ -98,6 +98,20 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 				),
 				array(
 					'type'       => 'textfield',
+					'param_name' => 'separator_width',
+					'heading'    => esc_html__( 'Separator Width (px or %)', 'extensive-vc' ),
+					'dependency' => array( 'element' => 'enable_separator', 'value' => array( 'yes' ) ),
+					'group'      => esc_html__( 'Separator Options', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'textfield',
+					'param_name' => 'separator_thickness',
+					'heading'    => esc_html__( 'Separator Thickness (px)', 'extensive-vc' ),
+					'dependency' => array( 'element' => 'enable_separator', 'value' => array( 'yes' ) ),
+					'group'      => esc_html__( 'Separator Options', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'textfield',
 					'param_name' => 'separator_top_margin',
 					'heading'    => esc_html__( 'Separator Top Margin (px)', 'extensive-vc' ),
 					'dependency' => array( 'element' => 'enable_separator', 'value' => array( 'yes' ) ),
@@ -152,6 +166,8 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 				'title_color'          => '',
 				'enable_separator'     => 'no',
 				'separator_color'      => '',
+				'separator_width'      => '',
+				'separator_thickness'  => '',
 				'separator_top_margin' => '',
 				'text'                 => '',
 				'text_tag'             => 'p',
@@ -235,6 +251,18 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 			
 			if ( ! empty( $params['separator_color'] ) ) {
 				$styles[] = 'background-color: ' . $params['separator_color'];
+			}
+			
+			if ( $params['separator_width'] !== '' ) {
+				if ( extensive_vc_string_ends_with( $params['separator_width'], '%' ) || extensive_vc_string_ends_with( $params['separator_width'], 'px' ) ) {
+					$styles[] = 'width: ' . $params['separator_width'];
+				} else {
+					$styles[] = 'width: ' . extensive_vc_filter_px( $params['separator_width'] ) . 'px';
+				}
+			}
+			
+			if ( $params['separator_thickness'] !== '' ) {
+				$styles[] = 'height: ' . extensive_vc_filter_px( $params['separator_thickness'] ) . 'px';
 			}
 			
 			if ( $params['separator_top_margin'] !== '' ) {

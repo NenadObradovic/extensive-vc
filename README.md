@@ -8,6 +8,7 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
 <h3>Features</h3>
 <ul>
 	<li><a href="http://wprealize.com/classic/button/">Classic - Button</a></li>
+	<li><a href="http://wprealize.com/classic/clients/">Classic - Clients (New)</a></li>
 	<li><a href="http://wprealize.com/classic/icon-with-text/">Classic - Icon With Text</a></li>
 	<li><a href="http://wprealize.com/classic/image-with-text/">Classic - Image With Text</a></li>
 	<li><a href="http://wprealize.com/classic/separator/">Classic - Separator</a></li>
@@ -58,6 +59,15 @@ From wordpress.org
 You can find all instructions about plugin and all shortcodes in website <a href="http://wprealize.com/"><strong>WP Realize - Extensive VC</strong></a>
 
 <h3>Changelog</h3>
+
+<h5>1.5</h5>
+- Added Clients Custom Post Type <br />
+- Added Clients shortcode <br />
+- Added Separator Width option for Section Title shortcode <br />
+- Added Separator Thickness option for Section Title shortcode <br />
+- Improved framework meta box types with image type <br />
+- Improved framework shortcode functionality <br />
+- Updated language pot file <br />
 
 <h5>1.4.4</h5>
 - Added Letter Font Size option for Dropcaps shortcode <br />

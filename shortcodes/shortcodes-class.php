@@ -58,8 +58,13 @@ if ( ! class_exists( 'ShortcodesClass' ) ) {
 		 * @param $shortcode EVCShortcode
 		 */
 		private function addShortcode( EVCShortcode $shortcode ) {
-			if ( ! array_key_exists( $shortcode->getBase(), $this->loadedShortcodes ) ) {
-				$this->loadedShortcodes[ $shortcode->getBase() ] = $shortcode;
+			$shortcodeBase = $shortcode->getBase();
+			
+			if ( ! array_key_exists( $shortcodeBase, $this->loadedShortcodes ) ) {
+				$this->loadedShortcodes[ $shortcodeBase ] = array(
+					'base'   => $shortcodeBase,
+					'render' => array( $shortcode, 'render' )
+				);
 			}
 		}
 		
@@ -70,7 +75,6 @@ if ( ! class_exists( 'ShortcodesClass' ) ) {
 		 */
 		private function addShortcodes() {
 			$shortcodesInstance = apply_filters( 'extensive_vc_filter_add_vc_shortcode', $shortcodesInstance = array() );
-			sort( $shortcodesInstance );
 			
 			if ( ! empty( $shortcodesInstance ) ) {
 				foreach ( $shortcodesInstance as $shortcodeInstance ) {
@@ -86,7 +90,7 @@ if ( ! class_exists( 'ShortcodesClass' ) ) {
 			$this->addShortcodes();
 			
 			foreach ( $this->loadedShortcodes as $shortcode ) {
-				add_shortcode( $shortcode->getBase(), array( $shortcode, 'render' ) );
+				add_shortcode( $shortcode['base'], $shortcode['render'] );
 			}
 		}
 	}

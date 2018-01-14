@@ -40,8 +40,6 @@ if ( ! class_exists( 'ExtensiveVCFramework' ) ) {
 if ( ! function_exists( 'extensive_vc_framework_instance' ) ) {
 	/**
 	 * Returns instance of ExtensiveVCFramework class
-	 *
-	 * @return ExtensiveVCFramework
 	 */
 	function extensive_vc_framework_instance() {
 		global $evc_options;
@@ -318,6 +316,21 @@ if ( ! class_exists( 'ExtensiveVCMetaBoxes' ) ) {
 						case 'textarea':
 							?>
 							<textarea class="evc-meta-box-field evc-meta-box-textarea" type="textarea" rows="4" name="<?php echo esc_attr( $option_name ); ?>"><?php echo esc_attr( $option_value ); ?></textarea>
+							<?php
+							break;
+						case 'image':
+							$visibilityClass = ! empty( $option_value ) ? '' : 'hidden';
+							?>
+							<div class="evc-meta-box-image-holder">
+								<?php if ( ! empty( $option_value ) ) {
+									echo wp_get_attachment_image( $option_value, 'medium', false, array( 'class' => 'evc-meta-box-image' ) );
+								} ?>
+								
+								<input class="button button-primary button-large evc-meta-box-upload-button" type="button" value="<?php esc_attr_e( 'Upload Image', 'extensive-vc' ); ?>" />
+								<input class="button button-large evc-meta-box-remove-upload-button <?php echo esc_attr( $visibilityClass ); ?>" type="button" value="<?php esc_attr_e( 'Remove Image', 'extensive-vc' ); ?>" />
+								
+								<input type="hidden" name="<?php echo esc_attr( $option_name ); ?>" value="<?php echo esc_attr( $option_value ); ?>" />
+							</div>
 							<?php
 							break;
 					} ?>

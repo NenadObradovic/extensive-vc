@@ -849,6 +849,74 @@ body.rtl {
    ========================================================================== */
 
 /* ==========================================================================
+   Clients shortcode style - begin
+   ========================================================================== */
+
+.evc-clients {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+  text-align: center;
+}
+
+.evc-clients .evc-c-item {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.touch .evc-clients .evc-c-item {
+  cursor: pointer;
+}
+
+.evc-clients .evc-c-item.evc-c-has-hover:hover .evc-c-original-image {
+  opacity: 0;
+}
+
+.evc-clients .evc-c-item.evc-c-has-hover:hover .evc-c-hover-image {
+  opacity: 1;
+}
+
+.evc-clients .evc-c-link {
+  position: relative;
+  display: block;
+}
+
+.evc-clients .evc-c-image {
+  display: block;
+  -webkit-transition: opacity 0.35s;
+  -moz-transition: opacity 0.35s;
+  transition: opacity 0.35s;
+}
+
+.evc-clients .evc-c-original-image {
+  position: relative;
+  opacity: 1;
+  z-index: 1;
+}
+
+.evc-clients .evc-c-hover-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  opacity: 0;
+}
+
+.evc-clients .evc-owl-carousel .owl-nav .owl-prev {
+  left: -10px;
+}
+
+.evc-clients .evc-owl-carousel .owl-nav .owl-next {
+  right: -10px;
+}
+
+/* ==========================================================================
+   Clients shortcode style - end
+   ========================================================================== */
+
+/* ==========================================================================
    Testimonials shortcode style - begin
    ========================================================================== */
 
