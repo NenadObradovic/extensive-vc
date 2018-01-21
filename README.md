@@ -60,6 +60,9 @@ You can find all instructions about plugin and all shortcodes in website <a href
 
 <h3>Changelog</h3>
 
+<h5>1.5.1</h5>
+- Fixed internal server issue with get_current_screen function <br />
+
 <h5>1.5</h5>
 - Added Clients Custom Post Type <br />
 - Added Clients shortcode <br />

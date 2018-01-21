@@ -86,6 +86,9 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 
 == Changelog ==
 
+= 1.5.1 =
+- Fixed internal server issue with get_current_screen function
+
 = 1.5 =
 - Added Clients Custom Post Type
 - Added Clients shortcode
