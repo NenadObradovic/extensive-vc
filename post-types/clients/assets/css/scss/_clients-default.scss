@@ -14,44 +14,22 @@
         .touch & {
             cursor: pointer;
         }
-        
-        &.evc-c-has-hover {
-    
-            &:hover {
-        
-                .evc-c-original-image {
-                    opacity: 0;
-                }
-        
-                .evc-c-hover-image {
-                    opacity: 1;
-                }
-            }
-        }
     }
+	
+	.evc-c-original-image {
+		position: relative;
+		z-index: 1;
+	}
+	
+	.evc-c-hover-image {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
     
     .evc-c-link {
         position: relative;
         display: block;
-    }
-    
-    .evc-c-image {
-        display: block;
-        @include evcTransition(opacity .35s);
-    }
-    
-    .evc-c-original-image {
-        position: relative;
-        opacity: 1;
-        z-index: 1;
-    }
-    
-    .evc-c-hover-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: block;
-        opacity: 0;
     }
     
     .evc-owl-carousel {
@@ -67,6 +45,71 @@
             }
         }
     }
+    
+    /***** Hover Animation styles - end *****/
+	
+	&.evc-c-switch-images {
+		
+		.evc-c-item {
+			
+			&.evc-c-has-hover {
+				
+				&:hover {
+					
+					.evc-c-original-image {
+						opacity: 0;
+					}
+					
+					.evc-c-hover-image {
+						opacity: 1;
+					}
+				}
+			}
+			
+			.evc-c-original-image {
+				opacity: 1;
+				@include evcTransition(opacity .35s);
+			}
+			
+			.evc-c-hover-image {
+				opacity: 0;
+				@include evcTransition(opacity .35s);
+			}
+		}
+	}
+	
+	&.evc-c-roll-over {
+		
+		.evc-c-item {
+			overflow: hidden;
+			
+			&.evc-c-has-hover {
+				
+				&:hover {
+					
+					.evc-c-original-image {
+						@include evcTransform(translateY(100%));
+					}
+					
+					.evc-c-hover-image {
+						@include evcTransform(translateY(0));
+					}
+				}
+			}
+			
+			.evc-c-original-image {
+				@include evcTransform(translateY(0));
+				@include evcTransitionTransform(.35s);
+			}
+			
+			.evc-c-hover-image {
+				@include evcTransform(translateY(-100%));
+				@include evcTransitionTransform(.35s);
+			}
+		}
+	}
+    
+    /***** Hover Animation styles - end *****/
 }
 
 /* ==========================================================================

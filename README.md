@@ -60,6 +60,12 @@ You can find all instructions about plugin and all shortcodes in website <a href
 
 <h3>Changelog</h3>
 
+<h5>1.5.2</h5>
+- Added Animation Type option for Tabs shortcode <br />
+- Added Items Hover Animation option for Clients shortcode <br />
+- Added Target option for Clients shortcode <br />
+- Updated language pot file <br />
+
 <h5>1.5.1</h5>
 - Fixed internal server issue with get_current_screen function <br />
 

@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					$current_post_id       = get_the_ID();
 					$params['image']       = get_post_meta( $current_post_id, 'evc_client_image', true );
 					$params['hover_image'] = get_post_meta( $current_post_id, 'evc_client_hover_image', true );
-					$params['link']        = get_post_meta( $current_post_id, 'evc_client_link', true );
+					$params['custom_link'] = get_post_meta( $current_post_id, 'evc_client_link', true );
 					
 					echo extensive_vc_get_module_template_part( 'cpt', 'clients', 'templates/clients-item', '', $params );
 				endwhile;

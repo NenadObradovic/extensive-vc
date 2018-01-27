@@ -665,10 +665,12 @@
 		
 		if (tabs.length) {
 			tabs.each(function () {
-				var thisTabs = $(this);
+				var thisTabs = $(this),
+					tabContent = thisTabs.find('.evc-tabs-item');
 				
-				thisTabs.children('.evc-tabs-item').each(function (index) {
+				tabContent.each(function (index) {
 					index = index + 1;
+					
 					var that = $(this),
 						link = that.attr('id'),
 						navItem = that.parent().find('.evc-tabs-nav li:nth-child(' + index + ') a'),
@@ -683,7 +685,30 @@
 				
 				thisTabs.tabs();
 				
-				thisTabs.css({'visibility': 'visible'});
+				thisTabs.appear(function () {
+					thisTabs.css({'visibility': 'visible'});
+					showTabContent(tabContent);
+				});
+				
+				thisTabs.find('.evc-tabs-nav li').each(function () {
+					$(this).children().on('click', function () {
+						setTimeout(function () {
+							showTabContent(tabContent);
+						}, 50);
+					});
+				});
+			});
+		}
+		
+		function showTabContent(tabContent) {
+			tabContent.each(function () {
+				var thisTabContent = $(this);
+				
+				if (thisTabContent.is(':visible')) {
+					thisTabContent.addClass('evc-active');
+				} else {
+					thisTabContent.removeClass('evc-active');
+				}
 			});
 		}
 	}

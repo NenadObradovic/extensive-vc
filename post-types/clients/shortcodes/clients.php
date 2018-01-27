@@ -85,6 +85,21 @@ if ( ! class_exists( 'EVCClients' ) ) {
 				),
 				array(
 					'type'       => 'dropdown',
+					'param_name' => 'custom_link_target',
+					'heading'    => esc_html__( 'Custom Link Target', 'extensive-vc' ),
+					'value'      => array_flip( extensive_vc_get_link_target_array() )
+				),
+				array(
+					'type'        => 'dropdown',
+					'param_name'  => 'items_hover_animation',
+					'heading'     => esc_html__( 'Items Hover Animation', 'extensive-vc' ),
+					'value'       => array(
+						esc_html__( 'Switch Images', 'extensive-vc' ) => 'switch-images',
+						esc_html__( 'Roll Over', 'extensive-vc' )     => 'roll-over'
+					)
+				),
+				array(
+					'type'       => 'dropdown',
 					'param_name' => 'number_of_visible_items',
 					'heading'    => esc_html__( 'Number Of Visible Items', 'extensive-vc' ),
 					'value'      => array(
@@ -167,6 +182,8 @@ if ( ! class_exists( 'EVCClients' ) ) {
 				'custom_class'             => '',
 				'number'                   => '-1',
 				'category'                 => '',
+				'custom_link_target'       => '_self',
+				'items_hover_animation'    => 'switch-images',
 				'number_of_visible_items'  => '4',
 				'carousel_loop'            => 'yes',
 				'carousel_autoplay'        => 'yes',
@@ -179,8 +196,10 @@ if ( ! class_exists( 'EVCClients' ) ) {
 			$params = shortcode_atts( $args, $atts );
 			
 			$params['query_results']  = new \WP_Query( $this->getQueryParams( $params ) );
-			$params['holder_classes'] = $this->getHolderClasses( $params );
+			$params['holder_classes'] = $this->getHolderClasses( $params, $args );
 			$params['slider_data']    = $this->getSliderData( $params, $args );
+			
+			$params['custom_link_target'] = ! empty( $params['custom_link_target'] ) ? $params['custom_link_target'] : $args['custom_link_target'];
 			
 			$html = extensive_vc_get_module_template_part( 'cpt', 'clients', 'templates/clients-holder', '', $params );
 			
@@ -191,13 +210,15 @@ if ( ! class_exists( 'EVCClients' ) ) {
 		 * Get shortcode holder classes
 		 *
 		 * @param $params array - shortcode parameters value
+		 * @param $args array - default shortcode parameters value
 		 *
 		 * @return string
 		 */
-		private function getHolderClasses( $params ) {
+		private function getHolderClasses( $params, $args ) {
 			$holderClasses = array();
 			
 			$holderClasses[] = ! empty( $params['custom_class'] ) ? esc_attr( $params['custom_class'] ) : '';
+			$holderClasses[] = ! empty( $params['items_hover_animation'] ) ? 'evc-c-' . esc_attr( $params['items_hover_animation'] ) : 'evc-c-' . esc_attr( $args['items_hover_animation'] );
 			$holderClasses[] = ! empty( $params['carousel_navigation_skin'] ) ? 'evc-carousel-skin-' . esc_attr( $params['carousel_navigation_skin'] ) : '';
 			
 			return implode( ' ', $holderClasses );

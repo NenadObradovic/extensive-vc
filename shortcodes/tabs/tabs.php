@@ -92,6 +92,18 @@ if ( ! class_exists( 'EVCTabs' ) ) {
 				),
 				array(
 					'type'        => 'dropdown',
+					'param_name'  => 'animation_type',
+					'heading'     => esc_html__( 'Animation Type', 'extensive-vc' ),
+					'description' => esc_html__( 'Choose tab content animation on item click', 'extensive-vc' ),
+					'value'       => array(
+						esc_html__( 'Default', 'extensive-vc' )           => '',
+						esc_html__( 'Fade', 'extensive-vc' )              => 'fade',
+						esc_html__( 'Slide From Bottom', 'extensive-vc' ) => 'slide-from-bottom',
+						esc_html__( 'Slide From Right', 'extensive-vc' )  => 'slide-from-right'
+					)
+				),
+				array(
+					'type'        => 'dropdown',
 					'param_name'  => 'skin',
 					'heading'     => esc_html__( 'Skin', 'extensive-vc' ),
 					'value'       => array(
@@ -114,9 +126,10 @@ if ( ! class_exists( 'EVCTabs' ) ) {
 		 */
 		function render( $atts, $content = null ) {
 			$args   = array(
-				'custom_class' => '',
-				'type'         => 'standard',
-				'skin'         => ''
+				'custom_class'   => '',
+				'type'           => 'standard',
+				'animation_type' => '',
+				'skin'           => ''
 			);
 			$params = shortcode_atts( $args, $atts );
 			
@@ -142,6 +155,7 @@ if ( ! class_exists( 'EVCTabs' ) ) {
 			
 			$holderClasses[] = ! empty( $params['custom_class'] ) ? esc_attr( $params['custom_class'] ) : '';
 			$holderClasses[] = ! empty( $params['type'] ) ? 'evc-t-' . esc_attr( $params['type'] ) : 'evc-t-' . esc_attr( $args['type'] );
+			$holderClasses[] = ! empty( $params['animation_type'] ) ? 'evc-t-' . esc_attr( $params['animation_type'] ) : '';
 			$holderClasses[] = ! empty( $params['skin'] ) ? 'evc-t-skin-' . esc_attr( $params['skin'] ) : '';
 			
 			return implode( ' ', $holderClasses );
