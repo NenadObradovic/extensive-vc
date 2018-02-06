@@ -4,11 +4,31 @@
 
 .evc-process-2 {
 	
-	@include mac-screen {
+	@include laptop-small-screen {
 		
 		.evc-p2-cover-bg {
 			background-size: contain;
 		}
+		
+		&.evc-responsive-1366 {
+			
+			.evc-p2-cover-bg {
+				display: none;
+			}
+			
+			.evc-process-2-item {
+				width: 100% !important;
+				float: none;
+				margin-top: 50px;
+				
+				&:first-child {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+	
+	@include mac-screen {
 		
 		&.evc-responsive-1280 {
 			

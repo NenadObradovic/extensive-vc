@@ -86,7 +86,8 @@ if ( ! class_exists( 'EVCTabs' ) ) {
 					'value'       => array(
 						esc_html__( 'Standard', 'extensive-vc' ) => 'standard',
 						esc_html__( 'Simple', 'extensive-vc' )   => 'simple',
-						esc_html__( 'Vertical', 'extensive-vc' ) => 'vertical'
+						esc_html__( 'Vertical', 'extensive-vc' ) => 'vertical',
+						esc_html__( 'Centered', 'extensive-vc' ) => 'centered'
 					),
 					'save_always' => true
 				),
@@ -147,6 +148,7 @@ if ( ! class_exists( 'EVCTabs' ) ) {
 		 * Get shortcode holder classes
 		 *
 		 * @param $params array - shortcode parameters
+		 * @param $args array - default shortcode parameters value
 		 *
 		 * @return string
 		 */

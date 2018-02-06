@@ -83,6 +83,7 @@ if ( ! class_exists( 'EVCProcess' ) ) {
 					'heading'     => esc_html__( 'Switch to One Column', 'extensive-vc' ),
 					'value'       => array(
 						esc_html__( 'Default None', 'extensive-vc' ) => '',
+						esc_html__( 'Below 1366px', 'extensive-vc' ) => '1366',
 						esc_html__( 'Below 1280px', 'extensive-vc' ) => '1280',
 						esc_html__( 'Below 1024px', 'extensive-vc' ) => '1024',
 						esc_html__( 'Below 768px', 'extensive-vc' )  => '768',

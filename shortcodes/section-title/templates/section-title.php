@@ -20,5 +20,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php echo esc_html( $text ); ?>
 			</<?php echo esc_attr( $text_tag ); ?>>
 		<?php } ?>
+		<?php if ( ! empty( $button_text ) && ! empty( $button_custom_link ) ) { ?>
+			<div class="evc-st-button">
+				<?php echo extensive_vc_render_shortcode( 'evc_button', $button_params ); ?>
+			</div>
+		<?php } ?>
 	</div>
 </div>

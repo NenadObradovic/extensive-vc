@@ -4,6 +4,40 @@
 
 .evc-process {
 	
+	@include laptop-small-screen {
+		
+		&.evc-responsive-1366 {
+			
+			.evc-p-mark-horizontal {
+				display: none;
+			}
+			
+			.evc-p-mark-vertical {
+				display: block;
+			}
+			
+			.evc-p-inner {
+				@include evcRelativeLayout();
+				padding: 0 0 0 76px;
+				margin: 0;
+				box-sizing: border-box;
+			}
+			
+			.evc-process-item {
+				width: 100% !important;
+				min-height: 76px;
+				float: none;
+				padding: 0;
+				margin-top: 0;
+				text-align: inherit;
+			}
+			
+			.evc-pi-content {
+				margin-bottom: 20px;
+			}
+		}
+	}
+	
 	@include mac-screen {
 		
 		&.evc-responsive-1280 {

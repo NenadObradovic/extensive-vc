@@ -348,6 +348,37 @@ if ( ! function_exists( 'extensive_vc_generate_thumbnail' ) ) {
 	}
 }
 
+if ( ! function_exists( 'extensive_vc_render_shortcode' ) ) {
+	/**
+	 * Execute render shortcode function and display forward shortcode element
+	 *
+	 * @param $shortcode_tag - shortcode base
+	 * @param $atts - shortcode attributes
+	 *
+	 * @return mixed|string
+	 */
+	function extensive_vc_render_shortcode( $shortcode_tag, $atts ) {
+		global $shortcode_tags;
+		
+		$content = null;
+		
+		if ( ! isset( $shortcode_tags[ $shortcode_tag ] ) ) {
+			return;
+		}
+		
+		if ( is_array( $shortcode_tags[ $shortcode_tag ] ) ) {
+			$shortcode_array = $shortcode_tags[ $shortcode_tag ];
+			
+			return call_user_func( array(
+				$shortcode_array[0],
+				$shortcode_array[1]
+			), $atts, $content, $shortcode_tag );
+		}
+		
+		return call_user_func( $shortcode_tags[ $shortcode_tag ], $atts, $content, $shortcode_tag );
+	}
+}
+
 if ( ! function_exists( 'extensive_vc_get_custom_link_attributes' ) ) {
 	/**
 	 * Get custom link attributes
@@ -640,11 +671,12 @@ if ( ! function_exists( 'extensive_vc_get_image_behavior_array' ) ) {
 	function extensive_vc_get_image_behavior_array() {
 		$options = array();
 		
-		$options['']           = esc_html__( 'None', 'extensive-vc' );
-		$options['overlay']    = esc_html__( 'Overlay', 'extensive-vc' );
-		$options['zoom']       = esc_html__( 'Zoom', 'extensive-vc' );
-		$options['lightbox']   = esc_html__( 'Lightbox', 'extensive-vc' );
-		$options['top-moving'] = esc_html__( 'Top Moving', 'extensive-vc' );
+		$options['']                = esc_html__( 'None', 'extensive-vc' );
+		$options['overlay']         = esc_html__( 'Overlay', 'extensive-vc' );
+		$options['zoom']            = esc_html__( 'Zoom', 'extensive-vc' );
+		$options['lightbox']        = esc_html__( 'Lightbox', 'extensive-vc' );
+		$options['top-moving']      = esc_html__( 'Top Moving', 'extensive-vc' );
+		$options['circle-fade-out'] = esc_html__( 'Circle Fade Out', 'extensive-vc' );
 		
 		return $options;
 	}

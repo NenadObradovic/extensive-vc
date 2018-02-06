@@ -60,6 +60,32 @@ You can find all instructions about plugin and all shortcodes in website <a href
 
 <h3>Changelog</h3>
 
+<h5>1.5.3</h5>
+- Added Type option for Flip Image shortcode <br />
+- Added Centered Type option value for Tab shortcode <br />
+- Added Button Text option for Section Title shortcode <br />
+- Added Button Custom Link option for Section Title shortcode <br />
+- Added Button Type option for Section Title shortcode <br />
+- Added Button Size option for Section Title shortcode <br />
+- Added Button Font Size option for Section Title shortcode <br />
+- Added Button Color option for Section Title shortcode <br />
+- Added Button Hover Color option for Section Title shortcode <br />
+- Added Button Background Color option for Section Title shortcode <br />
+- Added Button Hover Background Color option for Section Title shortcode <br />
+- Added Button Border Color option for Section Title shortcode <br />
+- Added Button Hover Border Color option for Section Title shortcode <br />
+- Added Button Border Width option for Section Title shortcode <br />
+- Added Button Line Color option for Section Title shortcode <br />
+- Added Button Switch Line Color option for Section Title shortcode <br />
+- Added Button Margin option for Section Title shortcode <br />
+- Added Letter Margin optino for Dropcaps shortcode  <br />
+- Added Font Size option for Custom Font shortcode for 1366px screen size <br />
+- Added Line Height option for Custom Font shortcode for 1366px screen size <br />
+- Added Circle Fade Out Image Behavior option value for few shortcodes <br />
+- Improved framework functions <br />
+- Updated language pot file <br />
+- Fixed plugin global option link in admin toolbar <br />
+
 <h5>1.5.2</h5>
 - Added Animation Type option for Tabs shortcode <br />
 - Added Items Hover Animation option for Clients shortcode <br />

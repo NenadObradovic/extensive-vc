@@ -664,6 +664,64 @@ body.rtl {
   transition: transform 0.3s cubic-bezier(0.21, 0.6, 0.44, 2.18);
 }
 
+.evc-shortcode .evc-ib-circle-fade-out:after,
+.evc-shortcode .evc-ib-circle-fade-out a:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 0;
+  padding-top: 100%;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 100%;
+  opacity: 1;
+  visibility: visible;
+  box-sizing: border-box;
+  -webkit-transform: scale(1.5) translate3d(-33.33%, -33.33%, 0);
+  -moz-transform: scale(1.5) translate3d(-33.33%, -33.33%, 0);
+  transform: scale(1.5) translate3d(-33.33%, -33.33%, 0);
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.evc-shortcode .evc-ib-circle-fade-out:hover:after,
+.evc-shortcode .evc-ib-circle-fade-out a:hover:before {
+  width: 60px;
+  padding-top: 60px;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.evc-shortcode.evc-shortcode-has-link .evc-ib-circle-fade-out:after {
+  display: none;
+}
+
+.evc-shortcode .evc-ib-circle-fade-out {
+  overflow: hidden;
+}
+
+.touch .evc-shortcode .evc-ib-circle-fade-out {
+  cursor: pointer;
+}
+
+.evc-shortcode .evc-ib-circle-fade-out a:before {
+  z-index: 1;
+}
+
+.evc-shortcode .evc-ib-circle-fade-out a:after {
+  display: none;
+}
+
+.evc-shortcode .evc-ib-circle-fade-out img {
+  width: 100%;
+}
+
 /* ==========================================================================
    Image Behavior styles - end
    ========================================================================== */
@@ -1575,22 +1633,12 @@ body.rtl {
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
+  /***** Types styles - begin *****/
+  /***** Types styles - end *****/
 }
 
 .touch .evc-flip-image {
   cursor: pointer;
-}
-
-.evc-flip-image:hover .evc-fi-image {
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  transform: rotateY(180deg);
-}
-
-.evc-flip-image:hover .evc-fi-content-wrapper {
-  -webkit-transform: rotateY(0);
-  -moz-transform: rotateY(0);
-  transform: rotateY(0);
 }
 
 .evc-flip-image .evc-fi-image {
@@ -1600,9 +1648,6 @@ body.rtl {
   vertical-align: top;
   z-index: 1;
   backface-visibility: hidden;
-  -webkit-transform: rotateY(0);
-  -moz-transform: rotateY(0);
-  transform: rotateY(0);
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
@@ -1613,7 +1658,7 @@ body.rtl {
 
 .evc-flip-image .evc-fi-image img {
   display: block;
-  width: 100.2%;
+  width: calc(100% + 1px);
 }
 
 .evc-flip-image .evc-fi-content-wrapper {
@@ -1627,9 +1672,6 @@ body.rtl {
   background-color: #303030;
   box-sizing: border-box;
   backface-visibility: hidden;
-  -webkit-transform: rotateY(-180deg);
-  -moz-transform: rotateY(-180deg);
-  transform: rotateY(-180deg);
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
@@ -1673,6 +1715,54 @@ body.rtl {
   left: 0;
   cursor: pointer;
   z-index: 3;
+}
+
+.evc-flip-image.evc-fi-horizontal:hover .evc-fi-image {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.evc-flip-image.evc-fi-horizontal:hover .evc-fi-content-wrapper {
+  -webkit-transform: rotateY(0);
+  -moz-transform: rotateY(0);
+  transform: rotateY(0);
+}
+
+.evc-flip-image.evc-fi-horizontal .evc-fi-image {
+  -webkit-transform: rotateY(0);
+  -moz-transform: rotateY(0);
+  transform: rotateY(0);
+}
+
+.evc-flip-image.evc-fi-horizontal .evc-fi-content-wrapper {
+  -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+
+.evc-flip-image.evc-fi-vertical:hover .evc-fi-image {
+  -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+}
+
+.evc-flip-image.evc-fi-vertical:hover .evc-fi-content-wrapper {
+  -webkit-transform: rotateX(0);
+  -moz-transform: rotateX(0);
+  transform: rotateX(0);
+}
+
+.evc-flip-image.evc-fi-vertical .evc-fi-image {
+  -webkit-transform: rotateX(0);
+  -moz-transform: rotateX(0);
+  transform: rotateX(0);
+}
+
+.evc-flip-image.evc-fi-vertical .evc-fi-content-wrapper {
+  -webkit-transform: rotateX(-180deg);
+  -moz-transform: rotateX(-180deg);
+  transform: rotateX(-180deg);
 }
 
 /* ==========================================================================
@@ -3072,14 +3162,20 @@ html.fp-enabled,
 }
 
 .evc-section-title .evc-st-separator {
+  display: inline-block;
+  vertical-align: top;
   width: 60px;
   height: 2px;
-  margin: 28px auto 0;
+  margin-top: 28px;
   background-color: #303030;
 }
 
 .evc-section-title .evc-st-text {
   margin: 25px 0 0;
+}
+
+.evc-section-title .evc-st-button button {
+  margin: 40px 0 0;
 }
 
 /* ==========================================================================
@@ -3162,8 +3258,8 @@ html.fp-enabled,
   vertical-align: top;
   visibility: hidden;
   /***** Specific styles - begin *****/
-  /***** Specific styles - begin *****/
-  /***** Types styles - end *****/
+  /***** Specific styles - end *****/
+  /***** Types styles - begin *****/
   /***** Types styles - end *****/
 }
 
@@ -3401,6 +3497,40 @@ html.fp-enabled,
   padding: 0 0 0 40px;
 }
 
+.evc-tabs.evc-t-centered {
+  text-align: center;
+}
+
+.evc-tabs.evc-t-centered.evc-t-skin-light .evc-tabs-nav li a {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.evc-tabs.evc-t-centered.evc-t-skin-light .evc-tabs-nav li.ui-state-active a,
+.evc-tabs.evc-t-centered.evc-t-skin-light .evc-tabs-nav li.ui-state-hover a {
+  color: #fff;
+}
+
+.evc-tabs.evc-t-centered .evc-tabs-nav {
+  width: auto;
+}
+
+.evc-tabs.evc-t-centered .evc-tabs-nav li {
+  margin: 0 22px;
+}
+
+.evc-tabs.evc-t-centered .evc-tabs-nav li a {
+  font-size: 16px;
+}
+
+.evc-tabs.evc-t-centered .evc-tabs-nav li.ui-state-active a,
+.evc-tabs.evc-t-centered .evc-tabs-nav li.ui-state-hover a {
+  color: #303030;
+}
+
+.evc-tabs.evc-t-centered .evc-tabs-item {
+  margin: 30px 0 0;
+}
+
 /* ==========================================================================
    Tabs shortcode style - end
    ========================================================================== */
@@ -3474,11 +3604,27 @@ html.fp-enabled,
    Process 2 shortcode responsive style - begin
    ========================================================================== */
 
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width: 1366px) {
   .evc-process-2 .evc-p2-cover-bg {
     background-size: contain;
   }
 
+  .evc-process-2.evc-responsive-1366 .evc-p2-cover-bg {
+    display: none;
+  }
+
+  .evc-process-2.evc-responsive-1366 .evc-process-2-item {
+    width: 100% !important;
+    float: none;
+    margin-top: 50px;
+  }
+
+  .evc-process-2.evc-responsive-1366 .evc-process-2-item:first-child {
+    margin-top: 0;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
   .evc-process-2.evc-responsive-1280 .evc-p2-cover-bg {
     display: none;
   }
@@ -3565,6 +3711,39 @@ html.fp-enabled,
 /* ==========================================================================
    Process shortcode responsive style - begin
    ========================================================================== */
+
+@media only screen and (max-width: 1366px) {
+  .evc-process.evc-responsive-1366 .evc-p-mark-horizontal {
+    display: none;
+  }
+
+  .evc-process.evc-responsive-1366 .evc-p-mark-vertical {
+    display: block;
+  }
+
+  .evc-process.evc-responsive-1366 .evc-p-inner {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    padding: 0 0 0 76px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .evc-process.evc-responsive-1366 .evc-process-item {
+    width: 100% !important;
+    min-height: 76px;
+    float: none;
+    padding: 0;
+    margin-top: 0;
+    text-align: inherit;
+  }
+
+  .evc-process.evc-responsive-1366 .evc-pi-content {
+    margin-bottom: 20px;
+  }
+}
 
 @media only screen and (max-width: 1280px) {
   .evc-process.evc-responsive-1280 .evc-p-mark-horizontal {

@@ -10,28 +10,16 @@
 		cursor: pointer;
 	}
 	
-	&:hover {
-		
-		.evc-fi-image {
-			@include evcTransform(rotateY(180deg));
-		}
-		
-		.evc-fi-content-wrapper {
-			@include evcTransform(rotateY(0));
-		}
-	}
-	
 	.evc-fi-image {
 		@include evcRelativeLayout();
 		z-index: 1;
 		backface-visibility: hidden;
-		@include evcTransform(rotateY(0));
 		@include evcTransformStyle(preserve-3d);
 		@include evcTransitionTransform(.7s ease);
 		
 		img {
 			display: block;
-			width: 100.2%;
+			width: calc(100% + 1px);
 		}
 	}
 	
@@ -41,7 +29,6 @@
 		background-color: $dark-color;
 		box-sizing: border-box;
 		backface-visibility: hidden;
-		@include evcTransform(rotateY(-180deg));
 		@include evcTransformStyle(preserve-3d);
 		@include evcTransitionTransform(.7s ease);
 	}
@@ -70,6 +57,54 @@
 		cursor: pointer;
 		z-index: 3;
 	}
+	
+	/***** Types styles - begin *****/
+	
+	&.evc-fi-horizontal {
+		
+		&:hover {
+			
+			.evc-fi-image {
+				@include evcTransform(rotateY(180deg));
+			}
+			
+			.evc-fi-content-wrapper {
+				@include evcTransform(rotateY(0));
+			}
+		}
+		
+		.evc-fi-image {
+			@include evcTransform(rotateY(0));
+		}
+		
+		.evc-fi-content-wrapper {
+			@include evcTransform(rotateY(-180deg));
+		}
+	}
+	
+	&.evc-fi-vertical {
+		
+		&:hover {
+			
+			.evc-fi-image {
+				@include evcTransform(rotateX(180deg));
+			}
+			
+			.evc-fi-content-wrapper {
+				@include evcTransform(rotateX(0));
+			}
+		}
+		
+		.evc-fi-image {
+			@include evcTransform(rotateX(0));
+		}
+		
+		.evc-fi-content-wrapper {
+			@include evcTransform(rotateX(-180deg));
+		}
+	}
+	
+	/***** Types styles - end *****/
 }
 /* ==========================================================================
    Flip Image shortcode style - end

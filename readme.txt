@@ -4,7 +4,7 @@ Tags: visual composer, wpbakery page builder, visual composer addons, wpbakery a
 Donate link: http://wprealize.com/donate/
 Requires at least: 4.6
 Tested up to: 4.9.1
-Stable tag: 1.5.2
+Stable tag: 1.5.3
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -85,6 +85,32 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 5. Blockquote shortcode example.
 
 == Changelog ==
+
+= 1.5.3 =
+- Added Type option for Flip Image shortcode
+- Added Centered Type option value for Tab shortcode
+- Added Button Text option for Section Title shortcode
+- Added Button Custom Link option for Section Title shortcode
+- Added Button Type option for Section Title shortcode
+- Added Button Size option for Section Title shortcode
+- Added Button Font Size option for Section Title shortcode
+- Added Button Color option for Section Title shortcode
+- Added Button Hover Color option for Section Title shortcode
+- Added Button Background Color option for Section Title shortcode
+- Added Button Hover Background Color option for Section Title shortcode
+- Added Button Border Color option for Section Title shortcode
+- Added Button Hover Border Color option for Section Title shortcode
+- Added Button Border Width option for Section Title shortcode
+- Added Button Line Color option for Section Title shortcode
+- Added Button Switch Line Color option for Section Title shortcode
+- Added Button Margin option for Section Title shortcode
+- Added Letter Margin optino for Dropcaps shortcode
+- Added Font Size option for Custom Font shortcode for 1366px screen size
+- Added Line Height option for Custom Font shortcode for 1366px screen size
+- Added Circle Fade Out Image Behavior option value for few shortcodes
+- Improved framework functions
+- Updated language pot file
+- Fixed plugin global option link in admin toolbar
 
 = 1.5.2 =
 - Added Animation Type option for Tabs shortcode

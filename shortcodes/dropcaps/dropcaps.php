@@ -101,6 +101,13 @@ if ( ! class_exists( 'EVCDropcaps' ) ) {
 					'group'      => esc_html__( 'Letter Options', 'extensive-vc' )
 				),
 				array(
+					'type'        => 'textfield',
+					'param_name'  => 'letter_margin',
+					'heading'     => esc_html__( 'Letter Margin', 'extensive-vc' ),
+					'description' => esc_html__( 'Insert margin in format: top right bottom left (e.g. 10px 5px 10px 5px)', 'extensive-vc' ),
+					'group'       => esc_html__( 'Letter Options', 'extensive-vc' )
+				),
+				array(
 					'type'       => 'textarea',
 					'param_name' => 'text',
 					'heading'    => esc_html__( 'Text', 'extensive-vc' )
@@ -134,6 +141,7 @@ if ( ! class_exists( 'EVCDropcaps' ) ) {
 				'letter_font_size'   => '',
 				'letter_line_height' => '',
 				'letter_font_weight' => '',
+				'letter_margin'      => '',
 				'text'               => '',
 				'text_color'         => ''
 			);
@@ -218,6 +226,10 @@ if ( ! class_exists( 'EVCDropcaps' ) ) {
 			
 			if ( ! empty( $params['letter_font_weight'] ) ) {
 				$styles[] = 'font-weight: ' . $params['letter_font_weight'];
+			}
+			
+			if ( $params['letter_margin'] !== '' ) {
+				$styles[] = 'margin: ' . $params['letter_margin'];
 			}
 			
 			return implode( ';', $styles );

@@ -143,28 +143,42 @@ if ( ! class_exists( 'EVCCustomFont' ) ) {
 					'type'        => 'textfield',
 					'param_name'  => 'font_size_1440',
 					'heading'     => esc_html__( 'Font Size (px or em)', 'extensive-vc' ),
-					'description' => esc_html__( 'Set font size for laptop screen size', 'extensive-vc' ),
+					'description' => esc_html__( 'Set font size for 1440px screen size', 'extensive-vc' ),
 					'group'       => esc_html__( 'Responsive Options', 'extensive-vc' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'line_height_1440',
 					'heading'     => esc_html__( 'Line Height (px or em)', 'extensive-vc' ),
-					'description' => esc_html__( 'Set line height for laptop screen size', 'extensive-vc' ),
+					'description' => esc_html__( 'Set line height for 1440px screen size', 'extensive-vc' ),
+					'group'       => esc_html__( 'Responsive Options', 'extensive-vc' )
+				),
+				array(
+					'type'        => 'textfield',
+					'param_name'  => 'font_size_1366',
+					'heading'     => esc_html__( 'Font Size (px or em)', 'extensive-vc' ),
+					'description' => esc_html__( 'Set font size for 1366px screen size', 'extensive-vc' ),
+					'group'       => esc_html__( 'Responsive Options', 'extensive-vc' )
+				),
+				array(
+					'type'        => 'textfield',
+					'param_name'  => 'line_height_1366',
+					'heading'     => esc_html__( 'Line Height (px or em)', 'extensive-vc' ),
+					'description' => esc_html__( 'Set line height for 1366px screen size', 'extensive-vc' ),
 					'group'       => esc_html__( 'Responsive Options', 'extensive-vc' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'font_size_1280',
 					'heading'     => esc_html__( 'Font Size (px or em)', 'extensive-vc' ),
-					'description' => esc_html__( 'Set font size for small laptop screen size', 'extensive-vc' ),
+					'description' => esc_html__( 'Set font size for 1280px screen size', 'extensive-vc' ),
 					'group'       => esc_html__( 'Responsive Options', 'extensive-vc' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'line_height_1280',
 					'heading'     => esc_html__( 'Line Height (px or em)', 'extensive-vc' ),
-					'description' => esc_html__( 'Set line height for small laptop screen size', 'extensive-vc' ),
+					'description' => esc_html__( 'Set line height for 1280px screen size', 'extensive-vc' ),
 					'group'       => esc_html__( 'Responsive Options', 'extensive-vc' )
 				),
 				array(
@@ -240,6 +254,8 @@ if ( ! class_exists( 'EVCCustomFont' ) ) {
 				'margin'           => '',
 				'font_size_1440'   => '',
 				'line_height_1440' => '',
+				'font_size_1366'   => '',
+				'line_height_1366' => '',
 				'font_size_1280'   => '',
 				'line_height_1280' => '',
 				'font_size_1024'   => '',
@@ -368,12 +384,21 @@ if ( ! class_exists( 'EVCCustomFont' ) ) {
 				}
 			}
 			
-			$laptopSmallFS = $params['font_size_1280'];
+			$laptopSmallFS = $params['font_size_1366'];
 			if ( $laptopSmallFS !== '' ) {
 				if ( extensive_vc_string_ends_with( $laptopSmallFS, 'px' ) || extensive_vc_string_ends_with( $laptopSmallFS, 'em' ) ) {
-					$data['data-font-size-1280'] = $laptopSmallFS;
+					$data['data-font-size-1366'] = $laptopSmallFS;
 				} else {
-					$data['data-font-size-1280'] = $laptopSmallFS . 'px';
+					$data['data-font-size-1366'] = $laptopSmallFS . 'px';
+				}
+			}
+			
+			$laptopMacFS = $params['font_size_1280'];
+			if ( $laptopMacFS !== '' ) {
+				if ( extensive_vc_string_ends_with( $laptopMacFS, 'px' ) || extensive_vc_string_ends_with( $laptopMacFS, 'em' ) ) {
+					$data['data-font-size-1280'] = $laptopMacFS;
+				} else {
+					$data['data-font-size-1280'] = $laptopMacFS . 'px';
 				}
 			}
 			
@@ -413,12 +438,21 @@ if ( ! class_exists( 'EVCCustomFont' ) ) {
 				}
 			}
 			
-			$laptopSmallLH = $params['line_height_1280'];
+			$laptopSmallLH = $params['line_height_1366'];
 			if ( $laptopSmallLH !== '' ) {
 				if ( extensive_vc_string_ends_with( $laptopSmallLH, 'px' ) || extensive_vc_string_ends_with( $laptopSmallLH, 'em' ) ) {
-					$data['data-line-height-1280'] = $laptopSmallLH;
+					$data['data-line-height-1366'] = $laptopSmallLH;
 				} else {
-					$data['data-line-height-1280'] = $laptopSmallLH . 'px';
+					$data['data-line-height-1366'] = $laptopSmallLH . 'px';
+				}
+			}
+			
+			$laptopMacLH = $params['line_height_1280'];
+			if ( $laptopMacLH !== '' ) {
+				if ( extensive_vc_string_ends_with( $laptopMacLH, 'px' ) || extensive_vc_string_ends_with( $laptopMacLH, 'em' ) ) {
+					$data['data-line-height-1280'] = $laptopMacLH;
+				} else {
+					$data['data-line-height-1280'] = $laptopMacLH . 'px';
 				}
 			}
 			

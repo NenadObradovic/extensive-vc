@@ -53,6 +53,16 @@ if ( ! class_exists( 'EVCFlipImage' ) ) {
 					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
 				),
 				array(
+					'type'        => 'dropdown',
+					'param_name'  => 'type',
+					'heading'     => esc_html__( 'Type', 'extensive-vc' ),
+					'value'       => array(
+						esc_html__( 'Horizontal', 'extensive-vc' ) => 'horizontal',
+						esc_html__( 'Vertical', 'extensive-vc' )   => 'vertical'
+					),
+					'admin_label' => true
+				),
+				array(
 					'type'        => 'attach_image',
 					'param_name'  => 'image',
 					'heading'     => esc_html__( 'Image', 'extensive-vc' ),
@@ -130,6 +140,7 @@ if ( ! class_exists( 'EVCFlipImage' ) ) {
 		function render( $atts, $content = null ) {
 			$args   = array(
 				'custom_class'     => '',
+				'type'             => 'horizontal',
 				'image'            => '',
 				'image_size'       => 'full',
 				'custom_link'      => '',
@@ -143,7 +154,7 @@ if ( ! class_exists( 'EVCFlipImage' ) ) {
 			);
 			$params = shortcode_atts( $args, $atts );
 			
-			$params['holder_classes'] = $this->getHolderClasses( $params );
+			$params['holder_classes'] = $this->getHolderClasses( $params, $args );
 			
 			$params['image_size']      = $this->getImageSize( $params['image_size'] );
 			$params['link_attributes'] = extensive_vc_get_custom_link_attributes( $params['custom_link'], 'evc-fi-link' );
@@ -162,13 +173,15 @@ if ( ! class_exists( 'EVCFlipImage' ) ) {
 		 * Get shortcode holder classes
 		 *
 		 * @param $params array - shortcode parameters value
+		 * @param $args array - default shortcode parameters value
 		 *
 		 * @return string
 		 */
-		private function getHolderClasses( $params ) {
+		private function getHolderClasses( $params, $args ) {
 			$holderClasses = array();
 			
 			$holderClasses[] = ! empty( $params['custom_class'] ) ? esc_attr( $params['custom_class'] ) : '';
+			$holderClasses[] = ! empty( $params['type'] ) ? 'evc-fi-' . esc_attr( $params['type'] ) : 'evc-fi-' . esc_attr( $args['type'] );
 			
 			return implode( ' ', $holderClasses );
 		}

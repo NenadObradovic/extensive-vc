@@ -93,9 +93,9 @@
 		}
 	}
 	
-	/***** Specific styles - begin *****/
+	/***** Specific styles - end *****/
 	
-	/***** Types styles - end *****/
+	/***** Types styles - begin *****/
 	
 	&.evc-t-standard {
 		
@@ -276,6 +276,49 @@
 			width: calc(100% - 220px);
 			height: 100%;
 			padding: 0 0 0 40px;
+		}
+	}
+	
+	&.evc-t-centered {
+		text-align: center;
+		
+		&.evc-t-skin-light {
+			
+			.evc-tabs-nav {
+				
+				li {
+					
+					a {
+						color: rgba(#fff, .7);
+					}
+					
+					&.ui-state-active a,
+					&.ui-state-hover a {
+						color: #fff;
+					}
+				}
+			}
+		}
+		
+		.evc-tabs-nav {
+			width: auto;
+			
+			li {
+				margin: 0 22px;
+				
+				a {
+					font-size: 16px;
+				}
+				
+				&.ui-state-active a,
+				&.ui-state-hover a {
+					color: $dark-color;
+				}
+			}
+		}
+		
+		.evc-tabs-item {
+			margin: 30px 0 0;
 		}
 	}
 	
