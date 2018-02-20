@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Extensive VC package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Extensive VC 1.5.3\n"
+"Project-Id-Version: Extensive VC 1.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/extensive-vc\n"
-"POT-Creation-Date: 2018-02-06 19:29:04+00:00\n"
+"POT-Creation-Date: 2018-02-20 20:14:01+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -144,9 +144,10 @@ msgstr ""
 #: lib/helpers-functions.php:518 lib/helpers-functions.php:541
 #: lib/helpers-functions.php:571 lib/helpers-functions.php:600
 #: lib/helpers-functions.php:625 lib/helpers-functions.php:651
-#: lib/helpers-functions.php:697 post-types/clients/shortcodes/clients.php:162
+#: lib/helpers-functions.php:698 post-types/clients/shortcodes/clients.php:162
 #: post-types/testimonials/shortcodes/testimonials.php:133
 #: shortcodes/custom-font/custom-font.php:134
+#: shortcodes/custom-font/widgets/custom-font-widget.php:110
 #: shortcodes/full-screen-sections/full-screen-sections-item.php:89
 #: shortcodes/full-screen-sections/full-screen-sections-item.php:100
 #: shortcodes/image-gallery/image-gallery.php:198
@@ -157,27 +158,32 @@ msgid "Default"
 msgstr ""
 
 #: lib/helpers-functions.php:467 shortcodes/button/button.php:77
+#: shortcodes/button/widgets/button-widget.php:60
 #: shortcodes/section-title/section-title.php:180
 msgid "Large"
 msgstr ""
 
 #: lib/helpers-functions.php:468 shortcodes/button/button.php:78
+#: shortcodes/button/widgets/button-widget.php:61
 #: shortcodes/section-title/section-title.php:181
 msgid "Medium"
 msgstr ""
 
 #: lib/helpers-functions.php:469 lib/helpers-functions.php:603
 #: shortcodes/button/button.php:79
+#: shortcodes/button/widgets/button-widget.php:62
 #: shortcodes/section-title/section-title.php:182
 msgid "Normal"
 msgstr ""
 
 #: lib/helpers-functions.php:470 shortcodes/button/button.php:80
+#: shortcodes/button/widgets/button-widget.php:63
 #: shortcodes/section-title/section-title.php:183
 msgid "Small"
 msgstr ""
 
 #: lib/helpers-functions.php:471 shortcodes/button/button.php:81
+#: shortcodes/button/widgets/button-widget.php:64
 #: shortcodes/section-title/section-title.php:184
 msgid "Tiny"
 msgstr ""
@@ -303,53 +309,58 @@ msgstr ""
 msgid "Circle Fade Out"
 msgstr ""
 
-#: lib/helpers-functions.php:700
-msgid "Font Awesome"
+#: lib/helpers-functions.php:680
+#: shortcodes/interactive-banner/interactive-banner.php:63
+msgid "Bordered"
 msgstr ""
 
 #: lib/helpers-functions.php:701
-msgid "Open Iconic"
+msgid "Font Awesome"
 msgstr ""
 
 #: lib/helpers-functions.php:702
-msgid "Typicons"
+msgid "Open Iconic"
 msgstr ""
 
 #: lib/helpers-functions.php:703
-msgid "Entypo"
+msgid "Typicons"
 msgstr ""
 
 #: lib/helpers-functions.php:704
-msgid "Linecons"
+msgid "Entypo"
 msgstr ""
 
 #: lib/helpers-functions.php:705
-msgid "Mono Social"
+msgid "Linecons"
 msgstr ""
 
 #: lib/helpers-functions.php:706
+msgid "Mono Social"
+msgstr ""
+
+#: lib/helpers-functions.php:707
 msgid "Material"
 msgstr ""
 
-#: lib/helpers-functions.php:724
+#: lib/helpers-functions.php:725
 msgid "Icon Library"
 msgstr ""
 
-#: lib/helpers-functions.php:726
+#: lib/helpers-functions.php:727
 msgid "Choose icon library"
-msgstr ""
-
-#: lib/helpers-functions.php:731 lib/helpers-functions.php:743
-#: lib/helpers-functions.php:755 lib/helpers-functions.php:767
-#: lib/helpers-functions.php:779 lib/helpers-functions.php:791
-#: lib/helpers-functions.php:803
-msgid "Icon"
 msgstr ""
 
 #: lib/helpers-functions.php:732 lib/helpers-functions.php:744
 #: lib/helpers-functions.php:756 lib/helpers-functions.php:768
 #: lib/helpers-functions.php:780 lib/helpers-functions.php:792
 #: lib/helpers-functions.php:804
+msgid "Icon"
+msgstr ""
+
+#: lib/helpers-functions.php:733 lib/helpers-functions.php:745
+#: lib/helpers-functions.php:757 lib/helpers-functions.php:769
+#: lib/helpers-functions.php:781 lib/helpers-functions.php:793
+#: lib/helpers-functions.php:805
 msgid "Select icon from library"
 msgstr ""
 
@@ -440,7 +451,9 @@ msgstr ""
 #: post-types/clients/shortcodes/clients.php:71
 #: post-types/testimonials/shortcodes/testimonials.php:71
 #: shortcodes/blockquote/blockquote.php:52 shortcodes/button/button.php:53
+#: shortcodes/button/widgets/button-widget.php:31
 #: shortcodes/counter/counter.php:64 shortcodes/custom-font/custom-font.php:52
+#: shortcodes/custom-font/widgets/custom-font-widget.php:31
 #: shortcodes/doughnut-chart/doughnut-chart.php:79
 #: shortcodes/dropcaps/dropcaps.php:52 shortcodes/flip-image/flip-image.php:52
 #: shortcodes/full-screen-sections/full-screen-sections-item.php:53
@@ -467,7 +480,9 @@ msgstr ""
 #: post-types/clients/shortcodes/clients.php:72
 #: post-types/testimonials/shortcodes/testimonials.php:72
 #: shortcodes/blockquote/blockquote.php:53 shortcodes/button/button.php:54
+#: shortcodes/button/widgets/button-widget.php:32
 #: shortcodes/counter/counter.php:65 shortcodes/custom-font/custom-font.php:53
+#: shortcodes/custom-font/widgets/custom-font-widget.php:32
 #: shortcodes/doughnut-chart/doughnut-chart.php:80
 #: shortcodes/dropcaps/dropcaps.php:53 shortcodes/flip-image/flip-image.php:53
 #: shortcodes/full-screen-sections/full-screen-sections-item.php:54
@@ -514,6 +529,7 @@ msgid "Enter one category slug or leave empty for showing all categories"
 msgstr ""
 
 #: post-types/clients/shortcodes/clients.php:89
+#: shortcodes/button/widgets/button-widget.php:81
 #: shortcodes/gallery-block/gallery-block.php:104
 #: shortcodes/image-gallery/image-gallery.php:110
 msgid "Custom Link Target"
@@ -634,6 +650,7 @@ msgstr ""
 
 #: post-types/testimonials/admin/meta-boxes/testimonials-meta-boxes.php:80
 #: shortcodes/blockquote/blockquote.php:69 shortcodes/button/button.php:90
+#: shortcodes/button/widgets/button-widget.php:71
 #: shortcodes/counter/counter.php:132 shortcodes/dropcaps/dropcaps.php:113
 #: shortcodes/flip-image/flip-image.php:111
 #: shortcodes/icon-list/icon-list-item.php:84
@@ -730,6 +747,7 @@ msgid "Blockquote"
 msgstr ""
 
 #: shortcodes/blockquote/blockquote.php:58 shortcodes/button/button.php:59
+#: shortcodes/button/widgets/button-widget.php:42
 #: shortcodes/dropcaps/dropcaps.php:58 shortcodes/flip-image/flip-image.php:58
 #: shortcodes/gallery-block/gallery-block.php:58
 #: shortcodes/icon-with-text/icon-with-text.php:59
@@ -741,6 +759,7 @@ msgid "Type"
 msgstr ""
 
 #: shortcodes/blockquote/blockquote.php:60 shortcodes/button/button.php:63
+#: shortcodes/button/widgets/button-widget.php:46
 #: shortcodes/dropcaps/dropcaps.php:60
 #: shortcodes/section-title/section-title.php:165 shortcodes/tabs/tabs.php:88
 msgid "Simple"
@@ -792,6 +811,7 @@ msgid "Typography Options"
 msgstr ""
 
 #: shortcodes/blockquote/blockquote.php:81 shortcodes/button/button.php:109
+#: shortcodes/button/widgets/button-widget.php:92
 #: shortcodes/custom-font/custom-font.php:86
 #: shortcodes/custom-font/custom-font.php:145
 #: shortcodes/custom-font/custom-font.php:159
@@ -799,12 +819,20 @@ msgstr ""
 #: shortcodes/custom-font/custom-font.php:187
 #: shortcodes/custom-font/custom-font.php:201
 #: shortcodes/custom-font/custom-font.php:215
+#: shortcodes/custom-font/widgets/custom-font-widget.php:69
+#: shortcodes/custom-font/widgets/custom-font-widget.php:121
+#: shortcodes/custom-font/widgets/custom-font-widget.php:133
+#: shortcodes/custom-font/widgets/custom-font-widget.php:145
+#: shortcodes/custom-font/widgets/custom-font-widget.php:157
+#: shortcodes/custom-font/widgets/custom-font-widget.php:169
+#: shortcodes/custom-font/widgets/custom-font-widget.php:181
 #: shortcodes/section-title/section-title.php:193
 #: shortcodes/text-marquee/text-marquee.php:69
 msgid "Font Size (px or em)"
 msgstr ""
 
 #: shortcodes/blockquote/blockquote.php:88 shortcodes/button/button.php:115
+#: shortcodes/button/widgets/button-widget.php:97
 #: shortcodes/custom-font/custom-font.php:92
 #: shortcodes/custom-font/custom-font.php:152
 #: shortcodes/custom-font/custom-font.php:166
@@ -812,6 +840,13 @@ msgstr ""
 #: shortcodes/custom-font/custom-font.php:194
 #: shortcodes/custom-font/custom-font.php:208
 #: shortcodes/custom-font/custom-font.php:222
+#: shortcodes/custom-font/widgets/custom-font-widget.php:74
+#: shortcodes/custom-font/widgets/custom-font-widget.php:127
+#: shortcodes/custom-font/widgets/custom-font-widget.php:139
+#: shortcodes/custom-font/widgets/custom-font-widget.php:151
+#: shortcodes/custom-font/widgets/custom-font-widget.php:163
+#: shortcodes/custom-font/widgets/custom-font-widget.php:175
+#: shortcodes/custom-font/widgets/custom-font-widget.php:187
 #: shortcodes/text-marquee/text-marquee.php:75
 msgid "Line Height (px or em)"
 msgstr ""
@@ -821,42 +856,51 @@ msgid "Button"
 msgstr ""
 
 #: shortcodes/button/button.php:61
+#: shortcodes/button/widgets/button-widget.php:44
 #: shortcodes/section-title/section-title.php:163
 #: shortcodes/separator/separator.php:82
 msgid "Solid"
 msgstr ""
 
 #: shortcodes/button/button.php:62
+#: shortcodes/button/widgets/button-widget.php:45
 #: shortcodes/section-title/section-title.php:164
 msgid "Outline"
 msgstr ""
 
 #: shortcodes/button/button.php:64
+#: shortcodes/button/widgets/button-widget.php:47
 #: shortcodes/section-title/section-title.php:166
 msgid "Simple Fill Line On Hover"
 msgstr ""
 
 #: shortcodes/button/button.php:65
+#: shortcodes/button/widgets/button-widget.php:48
 #: shortcodes/section-title/section-title.php:167
 msgid "Simple Fill Text On Hover"
 msgstr ""
 
 #: shortcodes/button/button.php:66
+#: shortcodes/button/widgets/button-widget.php:49
 #: shortcodes/section-title/section-title.php:168
 msgid "Simple Strike Line On Hover"
 msgstr ""
 
 #: shortcodes/button/button.php:67
+#: shortcodes/button/widgets/button-widget.php:50
 #: shortcodes/section-title/section-title.php:169
 msgid "Simple Switch Line On Hover"
 msgstr ""
 
 #: shortcodes/button/button.php:75
+#: shortcodes/button/widgets/button-widget.php:57
 #: shortcodes/section-title/section-title.php:178
 msgid "Size"
 msgstr ""
 
-#: shortcodes/button/button.php:95 shortcodes/flip-image/flip-image.php:80
+#: shortcodes/button/button.php:95
+#: shortcodes/button/widgets/button-widget.php:76
+#: shortcodes/flip-image/flip-image.php:80
 #: shortcodes/full-screen-sections/full-screen-sections-item.php:109
 #: shortcodes/image-with-text/image-with-text.php:76
 #: shortcodes/interactive-banner/interactive-banner.php:145
@@ -865,31 +909,49 @@ msgstr ""
 msgid "Custom Link"
 msgstr ""
 
-#: shortcodes/button/button.php:103 shortcodes/custom-font/custom-font.php:80
+#: shortcodes/button/button.php:103
+#: shortcodes/button/widgets/button-widget.php:87
+#: shortcodes/custom-font/custom-font.php:80
+#: shortcodes/custom-font/widgets/custom-font-widget.php:64
 msgid "Font Family"
 msgstr ""
 
-#: shortcodes/button/button.php:121 shortcodes/custom-font/custom-font.php:98
+#: shortcodes/button/button.php:121
+#: shortcodes/button/widgets/button-widget.php:102
+#: shortcodes/custom-font/custom-font.php:98
+#: shortcodes/custom-font/widgets/custom-font-widget.php:79
 #: shortcodes/text-marquee/text-marquee.php:81
 msgid "Font Weight"
 msgstr ""
 
-#: shortcodes/button/button.php:128 shortcodes/custom-font/custom-font.php:105
+#: shortcodes/button/button.php:128
+#: shortcodes/button/widgets/button-widget.php:108
+#: shortcodes/custom-font/custom-font.php:105
+#: shortcodes/custom-font/widgets/custom-font-widget.php:85
 #: shortcodes/text-marquee/text-marquee.php:88
 msgid "Font Style"
 msgstr ""
 
-#: shortcodes/button/button.php:135 shortcodes/custom-font/custom-font.php:112
+#: shortcodes/button/button.php:135
+#: shortcodes/button/widgets/button-widget.php:114
+#: shortcodes/custom-font/custom-font.php:112
+#: shortcodes/custom-font/widgets/custom-font-widget.php:91
 #: shortcodes/text-marquee/text-marquee.php:95
 msgid "Letter Spacing (px or em)"
 msgstr ""
 
-#: shortcodes/button/button.php:141 shortcodes/custom-font/custom-font.php:118
+#: shortcodes/button/button.php:141
+#: shortcodes/button/widgets/button-widget.php:119
+#: shortcodes/custom-font/custom-font.php:118
+#: shortcodes/custom-font/widgets/custom-font-widget.php:96
 #: shortcodes/text-marquee/text-marquee.php:101
 msgid "Text Transform"
 msgstr ""
 
-#: shortcodes/button/button.php:148 shortcodes/custom-font/custom-font.php:69
+#: shortcodes/button/button.php:148
+#: shortcodes/button/widgets/button-widget.php:125
+#: shortcodes/custom-font/custom-font.php:69
+#: shortcodes/custom-font/widgets/custom-font-widget.php:53
 #: shortcodes/doughnut-chart/doughnut-chart-item.php:63
 #: shortcodes/pie-chart/pie-chart-item.php:63
 #: shortcodes/section-title/section-title.php:200
@@ -941,55 +1003,98 @@ msgid "Design Options"
 msgstr ""
 
 #: shortcodes/button/button.php:154
+#: shortcodes/button/widgets/button-widget.php:130
 #: shortcodes/section-title/section-title.php:207
 msgid "Hover Color"
 msgstr ""
 
 #: shortcodes/button/button.php:160
+#: shortcodes/button/widgets/button-widget.php:135
 #: shortcodes/full-screen-sections/full-screen-sections-item.php:59
 #: shortcodes/section-title/section-title.php:214
 msgid "Background Color"
 msgstr ""
 
 #: shortcodes/button/button.php:167
+#: shortcodes/button/widgets/button-widget.php:141
 #: shortcodes/section-title/section-title.php:221
 msgid "Hover Background Color"
 msgstr ""
 
 #: shortcodes/button/button.php:174
+#: shortcodes/button/widgets/button-widget.php:147
 #: shortcodes/section-title/section-title.php:228
 msgid "Border Color"
 msgstr ""
 
 #: shortcodes/button/button.php:181
+#: shortcodes/button/widgets/button-widget.php:153
 #: shortcodes/section-title/section-title.php:235
 msgid "Hover Border Color"
 msgstr ""
 
 #: shortcodes/button/button.php:188
+#: shortcodes/button/widgets/button-widget.php:159
 #: shortcodes/section-title/section-title.php:242
 msgid "Border Width (px)"
 msgstr ""
 
-#: shortcodes/button/button.php:195 shortcodes/process/process.php:110
+#: shortcodes/button/button.php:195
+#: shortcodes/button/widgets/button-widget.php:165
+#: shortcodes/process/process.php:110
 #: shortcodes/section-title/section-title.php:249
 msgid "Line Color"
 msgstr ""
 
 #: shortcodes/button/button.php:202
+#: shortcodes/button/widgets/button-widget.php:171
 #: shortcodes/section-title/section-title.php:259
 msgid "Switch Line Color"
 msgstr ""
 
 #: shortcodes/button/button.php:209
+#: shortcodes/button/widgets/button-widget.php:177
 #: shortcodes/section-title/section-title.php:266
 msgid "Margin"
 msgstr ""
 
-#: shortcodes/button/button.php:210 shortcodes/custom-font/custom-font.php:75
+#: shortcodes/button/button.php:210
+#: shortcodes/button/widgets/button-widget.php:178
+#: shortcodes/custom-font/custom-font.php:75
+#: shortcodes/custom-font/widgets/custom-font-widget.php:59
 #: shortcodes/dropcaps/dropcaps.php:107
 #: shortcodes/section-title/section-title.php:267
 msgid "Insert margin in format: top right bottom left (e.g. 10px 5px 10px 5px)"
+msgstr ""
+
+#: shortcodes/button/widgets/button-widget.php:16
+msgid "EVC Button"
+msgstr ""
+
+#: shortcodes/button/widgets/button-widget.php:17
+msgid "Add button element to widget areas"
+msgstr ""
+
+#: shortcodes/button/widgets/button-widget.php:37
+#: shortcodes/custom-font/widgets/custom-font-widget.php:37
+msgid "Widget Title"
+msgstr ""
+
+#: shortcodes/button/widgets/button-widget.php:58
+#: shortcodes/button/widgets/button-widget.php:136
+#: shortcodes/button/widgets/button-widget.php:142
+#: shortcodes/button/widgets/button-widget.php:148
+#: shortcodes/button/widgets/button-widget.php:154
+#: shortcodes/button/widgets/button-widget.php:160
+msgid "Only for solid and outline button types"
+msgstr ""
+
+#: shortcodes/button/widgets/button-widget.php:166
+msgid "Only for fill line, strike line and switch line button types"
+msgstr ""
+
+#: shortcodes/button/widgets/button-widget.php:172
+msgid "Only for switch line button type"
 msgstr ""
 
 #: shortcodes/counter/counter.php:24
@@ -1022,6 +1127,7 @@ msgid "Digit Font Weight"
 msgstr ""
 
 #: shortcodes/counter/counter.php:104 shortcodes/custom-font/custom-font.php:58
+#: shortcodes/custom-font/widgets/custom-font-widget.php:42
 #: shortcodes/flip-image/flip-image.php:91
 #: shortcodes/icon-with-text/icon-with-text.php:91
 #: shortcodes/image-with-text/image-with-text.php:81
@@ -1035,6 +1141,7 @@ msgid "Title"
 msgstr ""
 
 #: shortcodes/counter/counter.php:110 shortcodes/custom-font/custom-font.php:63
+#: shortcodes/custom-font/widgets/custom-font-widget.php:47
 #: shortcodes/flip-image/flip-image.php:96
 #: shortcodes/icon-with-text/icon-with-text.php:96
 #: shortcodes/image-with-text/image-with-text.php:86
@@ -1105,18 +1212,22 @@ msgid "Custom Font"
 msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:74
+#: shortcodes/custom-font/widgets/custom-font-widget.php:58
 msgid "Margin (px or %)"
 msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:125
+#: shortcodes/custom-font/widgets/custom-font-widget.php:102
 msgid "Text Decoration"
 msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:132
+#: shortcodes/custom-font/widgets/custom-font-widget.php:108
 msgid "Text Align"
 msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:135
+#: shortcodes/custom-font/widgets/custom-font-widget.php:111
 #: shortcodes/doughnut-chart/doughnut-chart.php:127
 #: shortcodes/full-screen-sections/full-screen-sections-item.php:101
 #: shortcodes/pie-chart/pie-chart.php:127
@@ -1126,6 +1237,7 @@ msgid "Left"
 msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:136
+#: shortcodes/custom-font/widgets/custom-font-widget.php:112
 #: shortcodes/full-screen-sections/full-screen-sections-item.php:102
 #: shortcodes/section-title/section-title.php:62
 #: shortcodes/separator/separator.php:60
@@ -1133,6 +1245,7 @@ msgid "Center"
 msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:137
+#: shortcodes/custom-font/widgets/custom-font-widget.php:113
 #: shortcodes/doughnut-chart/doughnut-chart.php:125
 #: shortcodes/full-screen-sections/full-screen-sections-item.php:103
 #: shortcodes/pie-chart/pie-chart.php:125
@@ -1142,10 +1255,12 @@ msgid "Right"
 msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:138
+#: shortcodes/custom-font/widgets/custom-font-widget.php:114
 msgid "Justify"
 msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:146
+#: shortcodes/custom-font/widgets/custom-font-widget.php:122
 msgid "Set font size for 1440px screen size"
 msgstr ""
 
@@ -1165,47 +1280,66 @@ msgid "Responsive Options"
 msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:153
+#: shortcodes/custom-font/widgets/custom-font-widget.php:128
 msgid "Set line height for 1440px screen size"
 msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:160
+#: shortcodes/custom-font/widgets/custom-font-widget.php:134
 msgid "Set font size for 1366px screen size"
 msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:167
+#: shortcodes/custom-font/widgets/custom-font-widget.php:140
 msgid "Set line height for 1366px screen size"
 msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:174
+#: shortcodes/custom-font/widgets/custom-font-widget.php:146
 msgid "Set font size for 1280px screen size"
 msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:181
+#: shortcodes/custom-font/widgets/custom-font-widget.php:152
 msgid "Set line height for 1280px screen size"
 msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:188
+#: shortcodes/custom-font/widgets/custom-font-widget.php:158
 msgid "Set font size for tablet landscape screen size"
 msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:195
+#: shortcodes/custom-font/widgets/custom-font-widget.php:164
 msgid "Set line height for tablet landscape screen size"
 msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:202
+#: shortcodes/custom-font/widgets/custom-font-widget.php:170
 msgid "Set font size for tablet portrait screen size"
 msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:209
+#: shortcodes/custom-font/widgets/custom-font-widget.php:176
 msgid "Set line height for tablet portrait screen size"
 msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:216
+#: shortcodes/custom-font/widgets/custom-font-widget.php:182
 msgid "Set font size for mobiles screen size"
 msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:223
+#: shortcodes/custom-font/widgets/custom-font-widget.php:188
 msgid "Set line height for mobiles screen size"
+msgstr ""
+
+#: shortcodes/custom-font/widgets/custom-font-widget.php:16
+msgid "EVC Custom Font"
+msgstr ""
+
+#: shortcodes/custom-font/widgets/custom-font-widget.php:17
+msgid "Add custom font element to widget areas"
 msgstr ""
 
 #: shortcodes/doughnut-chart/doughnut-chart-item.php:25
@@ -1608,10 +1742,6 @@ msgstr ""
 msgid "Bottom Animation"
 msgstr ""
 
-#: shortcodes/interactive-banner/interactive-banner.php:63
-msgid "Bordered"
-msgstr ""
-
 #: shortcodes/interactive-banner/interactive-banner.php:64
 #: shortcodes/tabs/tabs.php:102
 msgid "Slide From Bottom"
@@ -1887,6 +2017,10 @@ msgstr ""
 
 #: shortcodes/text-marquee/text-marquee.php:24
 msgid "Text Marquee"
+msgstr ""
+
+#: widgets/widgets-class.php:105
+msgid "Please add some options for this widget"
 msgstr ""
 #. Plugin Name of the plugin/theme
 msgid "Extensive VC"

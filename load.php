@@ -18,4 +18,9 @@ if ( extensive_vc_is_visual_composer_installed() ) {
 		include_once 'shortcodes/shortcodes-extends-class.php';
 		include_once 'shortcodes/shortcodes-functions.php';
 	}
+	
+	if ( file_exists( EXTENSIVE_VC_ABS_PATH . '/widgets' ) ) {
+		include_once 'widgets/widgets-class.php';
+		include_once 'widgets/widgets-functions.php';
+	}
 }

@@ -60,6 +60,15 @@ You can find all instructions about plugin and all shortcodes in website <a href
 
 <h3>Changelog</h3>
 
+<h5>1.6</h5>
+- Added Widgets functionality <br />
+- Added Button widget <br />
+- Added Custom Font widget <br />
+- Added Bordered Animation value for Image Behavior Type <br />
+- Improved framework functions <br />
+- Updated language pot file <br />
+- Changed button shortcode html tag from button to a <br />
+
 <h5>1.5.3</h5>
 - Added Type option for Flip Image shortcode <br />
 - Added Centered Type option value for Tab shortcode <br />
@@ -78,7 +87,7 @@ You can find all instructions about plugin and all shortcodes in website <a href
 - Added Button Line Color option for Section Title shortcode <br />
 - Added Button Switch Line Color option for Section Title shortcode <br />
 - Added Button Margin option for Section Title shortcode <br />
-- Added Letter Margin optino for Dropcaps shortcode  <br />
+- Added Letter Margin option for Dropcaps shortcode  <br />
 - Added Font Size option for Custom Font shortcode for 1366px screen size <br />
 - Added Line Height option for Custom Font shortcode for 1366px screen size <br />
 - Added Circle Fade Out Image Behavior option value for few shortcodes <br />

@@ -3,7 +3,12 @@
 	
 	$(document).ready(function () {
 		evcInitColorPicker();
+		evcInitWidgetsColorPicker();
 		evcInitMediaUploader();
+	});
+	
+	$(document).on('widget-added widget-updated', function (event, widget) {
+		evcInitColorPickerOnFormUpdate(event, widget);
 	});
 	
 	/**
@@ -21,6 +26,48 @@
 		}
 	}
 	
+	/**
+	 * Init color picker option functionality for widgets
+	 */
+	function evcInitWidgetsColorPicker() {
+		var colorPicker = $('.evc-color-picker-widget-field');
+		
+		if (colorPicker.length && colorPicker.find('.wp-picker-container').length <= 0) {
+			colorPicker.each(function () {
+				var thisColorPicker = $(this),
+					listParent = thisColorPicker.parents('#widget-list');
+				
+				//do not initiate color picker if in widget list
+				if (listParent.length <= 0) {
+					evcInitWidgetColorPicker(thisColorPicker);
+				}
+			});
+		}
+	}
+	
+	/**
+	 * Re init color picker option functionality for widgets
+	 */
+	function evcInitColorPickerOnFormUpdate(event, widget) {
+		evcInitWidgetColorPicker(widget);
+	}
+	
+	/**
+	 * Init color picker functionality for widgets
+	 */
+	function evcInitWidgetColorPicker(widget) {
+		if (widget.find('.wp-picker-container').length <= 0) {
+			widget.find('input.evc-color-picker-field').wpColorPicker({
+				change: _.throttle(function () { // For Customizer
+					$(this).trigger('change');
+				}, 3000)
+			});
+		}
+	}
+	
+	/**
+	 * Init pop-up media uploader for meta boxes
+	 */
 	function evcInitMediaUploader() {
 		var holder = $('.evc-meta-box-image-holder');
 		

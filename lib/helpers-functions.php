@@ -677,6 +677,7 @@ if ( ! function_exists( 'extensive_vc_get_image_behavior_array' ) ) {
 		$options['lightbox']        = esc_html__( 'Lightbox', 'extensive-vc' );
 		$options['top-moving']      = esc_html__( 'Top Moving', 'extensive-vc' );
 		$options['circle-fade-out'] = esc_html__( 'Circle Fade Out', 'extensive-vc' );
+		$options['bordered']        = esc_html__( 'Bordered', 'extensive-vc' );
 		
 		return $options;
 	}

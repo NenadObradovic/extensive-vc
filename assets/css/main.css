@@ -518,6 +518,18 @@ body.rtl {
    ========================================================================== */
 
 /* ==========================================================================
+   Widgets common styles - begin
+   ========================================================================== */
+
+.widget.evc-widget {
+  margin: 0;
+}
+
+/* ==========================================================================
+   Widgets common styles - end
+   ========================================================================== */
+
+/* ==========================================================================
    Image Behavior styles - begin
    ========================================================================== */
 
@@ -720,6 +732,40 @@ body.rtl {
 
 .evc-shortcode .evc-ib-circle-fade-out img {
   width: 100%;
+}
+
+.touch .evc-shortcode .evc-ib-bordered {
+  cursor: pointer;
+}
+
+.evc-shortcode .evc-ib-bordered:after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+  border: 3px solid #43cb83;
+  z-index: -1;
+}
+
+.evc-shortcode .evc-ib-bordered:hover img {
+  -webkit-transform: translate3d(-20px, -20px, 0);
+  -moz-transform: translate3d(-20px, -20px, 0);
+  transform: translate3d(-20px, -20px, 0);
+}
+
+.evc-shortcode .evc-ib-bordered a:after {
+  display: none;
+}
+
+.evc-shortcode .evc-ib-bordered img {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 0.3s ease;
+  -moz-transition: -moz-transform 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 /* ==========================================================================
@@ -1809,14 +1855,12 @@ html.fp-enabled,
   transition: none !important;
 }
 
-.fp-auto-height.edgtf-fss-item,
-.fp-auto-height .edgtf-fss-slide,
+.fp-auto-height.evc-fss-item,
 .fp-auto-height .fp-tableCell {
   height: auto !important;
 }
 
-.fp-responsive .fp-auto-height-responsive.edgtf-fss-item,
-.fp-responsive .fp-auto-height-responsive .edgtf-fss-slide,
+.fp-responsive .fp-auto-height-responsive.evc-fss-item,
 .fp-responsive .fp-auto-height-responsive .fp-tableCell {
   height: auto !important;
 }

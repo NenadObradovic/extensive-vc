@@ -6,10 +6,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-/**
- * EVCShortcode class is main class for shortcode where we implemented generic methods for all shortcodes
- */
 if ( ! class_exists( 'EVCShortcode' ) ) {
+	/**
+	 * EVCShortcode class is main class for shortcode where we implemented generic methods for all shortcodes
+	 */
 	class EVCShortcode {
 		
 		/**

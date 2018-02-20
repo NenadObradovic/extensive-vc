@@ -47,7 +47,8 @@ if ( ! function_exists( 'extensive_vc_init_admin_options_style' ) ) {
 		$main_color_b_selector = array(
 			'.evc-blockquote.evc-b-left-line',
 			'.evc-button.evc-btn-fill-line .evc-btn-fill-line',
-			'.evc-button.evc-btn-switch-line .evc-btn-switch-line-2'
+			'.evc-button.evc-btn-switch-line .evc-btn-switch-line-2',
+			'.evc-shortcode .evc-ib-bordered:after'
 		);
 		
 		if ( ! empty( $main_color ) ) {
@@ -63,4 +64,3 @@ if ( ! function_exists( 'extensive_vc_init_admin_options_style' ) ) {
 	
 	add_filter( 'extensive_vc_filter_main_custom_style', 'extensive_vc_init_admin_options_style' );
 }
-

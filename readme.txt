@@ -3,8 +3,8 @@ Contributors: nenad-obradovic
 Tags: visual composer, wpbakery page builder, visual composer addons, wpbakery addons, wpbakery visual composer
 Donate link: http://wprealize.com/donate/
 Requires at least: 4.6
-Tested up to: 4.9.1
-Stable tag: 1.5.3
+Tested up to: 4.9.4
+Stable tag: 1.6
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -86,6 +86,15 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 
 == Changelog ==
 
+= 1.6 =
+- Added Widgets functionality
+- Added Button widget
+- Added Custom Font widget
+- Added Bordered Animation value for Image Behavior Type
+- Improved framework functions
+- Updated language pot file
+- Changed button shortcode html tag from button to a
+
 = 1.5.3 =
 - Added Type option for Flip Image shortcode
 - Added Centered Type option value for Tab shortcode
@@ -104,7 +113,7 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 - Added Button Line Color option for Section Title shortcode
 - Added Button Switch Line Color option for Section Title shortcode
 - Added Button Margin option for Section Title shortcode
-- Added Letter Margin optino for Dropcaps shortcode
+- Added Letter Margin option for Dropcaps shortcode
 - Added Font Size option for Custom Font shortcode for 1366px screen size
 - Added Line Height option for Custom Font shortcode for 1366px screen size
 - Added Circle Fade Out Image Behavior option value for few shortcodes
