@@ -23,4 +23,8 @@ if ( extensive_vc_is_visual_composer_installed() ) {
 		include_once 'widgets/widgets-class.php';
 		include_once 'widgets/widgets-functions.php';
 	}
+	
+	if ( file_exists( EXTENSIVE_VC_ABS_PATH . '/plugins' ) ) {
+		include_once 'plugins/plugins-functions.php';
+	}
 }

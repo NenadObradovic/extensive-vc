@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Extensive VC 1.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/extensive-vc\n"
-"POT-Creation-Date: 2018-02-20 20:14:01+00:00\n"
+"POT-Creation-Date: 2018-02-21 17:45:48+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -144,7 +144,8 @@ msgstr ""
 #: lib/helpers-functions.php:518 lib/helpers-functions.php:541
 #: lib/helpers-functions.php:571 lib/helpers-functions.php:600
 #: lib/helpers-functions.php:625 lib/helpers-functions.php:651
-#: lib/helpers-functions.php:698 post-types/clients/shortcodes/clients.php:162
+#: lib/helpers-functions.php:698 plugins/contact-form-7/cf7-functions.php:31
+#: post-types/clients/shortcodes/clients.php:162
 #: post-types/testimonials/shortcodes/testimonials.php:133
 #: shortcodes/custom-font/custom-font.php:134
 #: shortcodes/custom-font/widgets/custom-font-widget.php:110
@@ -364,6 +365,88 @@ msgstr ""
 msgid "Select icon from library"
 msgstr ""
 
+#: plugins/contact-form-7/cf7-functions.php:39
+msgid "No contact forms 7 found"
+msgstr ""
+
+#: plugins/contact-form-7/widgets/cf7-widget.php:16
+msgid "EVC Contact Form 7"
+msgstr ""
+
+#: plugins/contact-form-7/widgets/cf7-widget.php:17
+msgid "Add contact form 7 element to widget areas"
+msgstr ""
+
+#: plugins/contact-form-7/widgets/cf7-widget.php:31
+#: post-types/clients/shortcodes/clients.php:71
+#: post-types/testimonials/shortcodes/testimonials.php:71
+#: shortcodes/blockquote/blockquote.php:52 shortcodes/button/button.php:53
+#: shortcodes/button/widgets/button-widget.php:31
+#: shortcodes/counter/counter.php:64 shortcodes/custom-font/custom-font.php:52
+#: shortcodes/custom-font/widgets/custom-font-widget.php:31
+#: shortcodes/doughnut-chart/doughnut-chart.php:79
+#: shortcodes/dropcaps/dropcaps.php:52 shortcodes/flip-image/flip-image.php:52
+#: shortcodes/full-screen-sections/full-screen-sections-item.php:53
+#: shortcodes/full-screen-sections/full-screen-sections.php:79
+#: shortcodes/gallery-block/gallery-block.php:52
+#: shortcodes/icon-list/icon-list-item.php:54
+#: shortcodes/icon-list/icon-list.php:71
+#: shortcodes/icon-progress-bar/icon-progress-bar.php:53
+#: shortcodes/icon-with-text/icon-with-text.php:53
+#: shortcodes/image-gallery/image-gallery.php:68
+#: shortcodes/image-with-text/image-with-text.php:52
+#: shortcodes/interactive-banner/interactive-banner.php:53
+#: shortcodes/pie-chart/pie-chart.php:79 shortcodes/process/process-item.php:53
+#: shortcodes/process/process.php:71 shortcodes/process-2/process-2-item.php:53
+#: shortcodes/process-2/process-2.php:71
+#: shortcodes/progress-bar/progress-bar.php:64
+#: shortcodes/section-title/section-title.php:52
+#: shortcodes/separator/separator.php:52
+#: shortcodes/single-image/single-image.php:52 shortcodes/tabs/tabs-item.php:53
+#: shortcodes/tabs/tabs.php:79 shortcodes/text-marquee/text-marquee.php:52
+msgid "Custom CSS Class"
+msgstr ""
+
+#: plugins/contact-form-7/widgets/cf7-widget.php:32
+#: post-types/clients/shortcodes/clients.php:72
+#: post-types/testimonials/shortcodes/testimonials.php:72
+#: shortcodes/blockquote/blockquote.php:53 shortcodes/button/button.php:54
+#: shortcodes/button/widgets/button-widget.php:32
+#: shortcodes/counter/counter.php:65 shortcodes/custom-font/custom-font.php:53
+#: shortcodes/custom-font/widgets/custom-font-widget.php:32
+#: shortcodes/doughnut-chart/doughnut-chart.php:80
+#: shortcodes/dropcaps/dropcaps.php:53 shortcodes/flip-image/flip-image.php:53
+#: shortcodes/full-screen-sections/full-screen-sections-item.php:54
+#: shortcodes/full-screen-sections/full-screen-sections.php:80
+#: shortcodes/gallery-block/gallery-block.php:53
+#: shortcodes/icon-list/icon-list-item.php:55
+#: shortcodes/icon-list/icon-list.php:72
+#: shortcodes/icon-progress-bar/icon-progress-bar.php:54
+#: shortcodes/icon-with-text/icon-with-text.php:54
+#: shortcodes/image-gallery/image-gallery.php:69
+#: shortcodes/image-with-text/image-with-text.php:53
+#: shortcodes/interactive-banner/interactive-banner.php:54
+#: shortcodes/pie-chart/pie-chart.php:80 shortcodes/process/process-item.php:54
+#: shortcodes/process/process.php:72 shortcodes/process-2/process-2-item.php:54
+#: shortcodes/process-2/process-2.php:72
+#: shortcodes/progress-bar/progress-bar.php:65
+#: shortcodes/section-title/section-title.php:53
+#: shortcodes/separator/separator.php:53
+#: shortcodes/single-image/single-image.php:53 shortcodes/tabs/tabs-item.php:54
+#: shortcodes/tabs/tabs.php:80 shortcodes/text-marquee/text-marquee.php:53
+msgid "Style particular content element differently - add a class name and refer to it in custom CSS"
+msgstr ""
+
+#: plugins/contact-form-7/widgets/cf7-widget.php:37
+#: shortcodes/button/widgets/button-widget.php:37
+#: shortcodes/custom-font/widgets/custom-font-widget.php:37
+msgid "Widget Title"
+msgstr ""
+
+#: plugins/contact-form-7/widgets/cf7-widget.php:42
+msgid "Select Contact Form 7"
+msgstr ""
+
 #: post-types/clients/admin/meta-boxes/clients-meta-boxes.php:26
 #: post-types/clients/shortcodes/clients.php:24
 msgid "Clients"
@@ -446,64 +529,6 @@ msgstr ""
 
 #: post-types/clients/clients-class.php:95
 msgid "New Clients Category Name"
-msgstr ""
-
-#: post-types/clients/shortcodes/clients.php:71
-#: post-types/testimonials/shortcodes/testimonials.php:71
-#: shortcodes/blockquote/blockquote.php:52 shortcodes/button/button.php:53
-#: shortcodes/button/widgets/button-widget.php:31
-#: shortcodes/counter/counter.php:64 shortcodes/custom-font/custom-font.php:52
-#: shortcodes/custom-font/widgets/custom-font-widget.php:31
-#: shortcodes/doughnut-chart/doughnut-chart.php:79
-#: shortcodes/dropcaps/dropcaps.php:52 shortcodes/flip-image/flip-image.php:52
-#: shortcodes/full-screen-sections/full-screen-sections-item.php:53
-#: shortcodes/full-screen-sections/full-screen-sections.php:79
-#: shortcodes/gallery-block/gallery-block.php:52
-#: shortcodes/icon-list/icon-list-item.php:54
-#: shortcodes/icon-list/icon-list.php:71
-#: shortcodes/icon-progress-bar/icon-progress-bar.php:53
-#: shortcodes/icon-with-text/icon-with-text.php:53
-#: shortcodes/image-gallery/image-gallery.php:68
-#: shortcodes/image-with-text/image-with-text.php:52
-#: shortcodes/interactive-banner/interactive-banner.php:53
-#: shortcodes/pie-chart/pie-chart.php:79 shortcodes/process/process-item.php:53
-#: shortcodes/process/process.php:71 shortcodes/process-2/process-2-item.php:53
-#: shortcodes/process-2/process-2.php:71
-#: shortcodes/progress-bar/progress-bar.php:64
-#: shortcodes/section-title/section-title.php:52
-#: shortcodes/separator/separator.php:52
-#: shortcodes/single-image/single-image.php:52 shortcodes/tabs/tabs-item.php:53
-#: shortcodes/tabs/tabs.php:79 shortcodes/text-marquee/text-marquee.php:52
-msgid "Custom CSS Class"
-msgstr ""
-
-#: post-types/clients/shortcodes/clients.php:72
-#: post-types/testimonials/shortcodes/testimonials.php:72
-#: shortcodes/blockquote/blockquote.php:53 shortcodes/button/button.php:54
-#: shortcodes/button/widgets/button-widget.php:32
-#: shortcodes/counter/counter.php:65 shortcodes/custom-font/custom-font.php:53
-#: shortcodes/custom-font/widgets/custom-font-widget.php:32
-#: shortcodes/doughnut-chart/doughnut-chart.php:80
-#: shortcodes/dropcaps/dropcaps.php:53 shortcodes/flip-image/flip-image.php:53
-#: shortcodes/full-screen-sections/full-screen-sections-item.php:54
-#: shortcodes/full-screen-sections/full-screen-sections.php:80
-#: shortcodes/gallery-block/gallery-block.php:53
-#: shortcodes/icon-list/icon-list-item.php:55
-#: shortcodes/icon-list/icon-list.php:72
-#: shortcodes/icon-progress-bar/icon-progress-bar.php:54
-#: shortcodes/icon-with-text/icon-with-text.php:54
-#: shortcodes/image-gallery/image-gallery.php:69
-#: shortcodes/image-with-text/image-with-text.php:53
-#: shortcodes/interactive-banner/interactive-banner.php:54
-#: shortcodes/pie-chart/pie-chart.php:80 shortcodes/process/process-item.php:54
-#: shortcodes/process/process.php:72 shortcodes/process-2/process-2-item.php:54
-#: shortcodes/process-2/process-2.php:72
-#: shortcodes/progress-bar/progress-bar.php:65
-#: shortcodes/section-title/section-title.php:53
-#: shortcodes/separator/separator.php:53
-#: shortcodes/single-image/single-image.php:53 shortcodes/tabs/tabs-item.php:54
-#: shortcodes/tabs/tabs.php:80 shortcodes/text-marquee/text-marquee.php:53
-msgid "Style particular content element differently - add a class name and refer to it in custom CSS"
 msgstr ""
 
 #: post-types/clients/shortcodes/clients.php:77
@@ -1073,11 +1098,6 @@ msgstr ""
 
 #: shortcodes/button/widgets/button-widget.php:17
 msgid "Add button element to widget areas"
-msgstr ""
-
-#: shortcodes/button/widgets/button-widget.php:37
-#: shortcodes/custom-font/widgets/custom-font-widget.php:37
-msgid "Widget Title"
 msgstr ""
 
 #: shortcodes/button/widgets/button-widget.php:58
@@ -2027,7 +2047,7 @@ msgid "Extensive VC"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://wprealize.com/"
+msgid "http://wprealize.com/"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -2039,5 +2059,5 @@ msgid "Nenad Obradovic"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://wprealize.com/"
+msgid "http://wprealize.com/"
 msgstr ""

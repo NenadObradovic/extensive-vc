@@ -20,6 +20,7 @@ Extensive VC is a powerful WordPress tool which allows you to add unique, flexib
 See the all of addon elements in action here - <a href="http://wprealize.com/" title="Extensive VC Addons for Visual Composer"><strong>LIVE DEMO</strong></a>
 
 <h3>Features</h3>
+<h4 style="margin-top: 1rem;">1. Shortcodes</h4>
 <ul>
 	<li><a href="http://wprealize.com/classic/button/">Classic - Button</a></li>
 	<li><a href="http://wprealize.com/classic/clients/">Classic - Clients (New)</a></li>
@@ -47,6 +48,17 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
 	<li><a href="http://wprealize.com/typography/dropcaps/">Typography - Dropcaps</a></li>
 	<li><a href="http://wprealize.com/typography/icon-list/">Typography - Icon List</a></li>
 	<li><a href="http://wprealize.com/typography/section-title/">Typography - Section Title</a></li>
+</ul>
+<h4 style="margin-top: 1rem;">2. Custom Post Types</h4>
+<ul>
+	<li><a href="http://wprealize.com/classic/clients/">Clients</a></li>
+	<li><a href="http://wprealize.com/interactive/testimonials/">Testimonials</a></li>
+</ul>
+<h4 style="margin-top: 1rem;">3. Widgets</h4>
+<ul>
+    <li>Button Widget</li>
+    <li>Contact Form 7 Widget</li>
+    <li>Custom Font Widget</li>
 </ul>
 <p><strong>This is just the beginning...</strong></p>
 
@@ -89,6 +101,7 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 = 1.6 =
 - Added Widgets functionality
 - Added Button widget
+- Added Contact Form 7 widget
 - Added Custom Font widget
 - Added Bordered Animation value for Image Behavior Type
 - Improved framework functions

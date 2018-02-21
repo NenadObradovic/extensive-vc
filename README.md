@@ -63,6 +63,7 @@ You can find all instructions about plugin and all shortcodes in website <a href
 <h5>1.6</h5>
 - Added Widgets functionality <br />
 - Added Button widget <br />
+- Added Contact Form 7 widget <br />
 - Added Custom Font widget <br />
 - Added Bordered Animation value for Image Behavior Type <br />
 - Improved framework functions <br />

@@ -44,6 +44,14 @@ if ( ! defined( 'EXTENSIVE_VC_CPT_URL_PATH' ) ) {
 	define( 'EXTENSIVE_VC_CPT_URL_PATH', EXTENSIVE_VC_URL_PATH . 'post-types' );
 }
 
+if ( ! defined( 'EXTENSIVE_VC_PLUGINS_ABS_PATH' ) ) {
+	define( 'EXTENSIVE_VC_PLUGINS_ABS_PATH', EXTENSIVE_VC_ABS_PATH . '/plugins' );
+}
+
+if ( ! defined( 'EXTENSIVE_VC_PLUGINS_URL_PATH' ) ) {
+	define( 'EXTENSIVE_VC_PLUGINS_URL_PATH', EXTENSIVE_VC_URL_PATH . 'plugins' );
+}
+
 if ( ! defined( 'EXTENSIVE_VC_THEME_ROOT_PATH' ) ) {
 	define( 'EXTENSIVE_VC_THEME_ROOT_PATH', get_template_directory() );
 }
