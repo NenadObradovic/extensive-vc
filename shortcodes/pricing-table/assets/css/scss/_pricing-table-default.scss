@@ -1,0 +1,80 @@
+/* ==========================================================================
+   Pricing Table shortcode style - begin
+   ========================================================================== */
+
+.evc-pricing-table {
+    @include evcRelativeLayout();
+	
+	.evc-pti-inner {
+		@include evcRelativeLayout();
+		background-color: #fff;
+		border: 1px solid $border-color;
+		box-sizing: border-box;
+		
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		
+		li {
+			margin: 0;
+			padding: 11px 20px;
+			text-align: center;
+			
+			&.evc-pti-prices {
+				padding-top: 50px;
+				padding-bottom: 45px;
+				background-color: $main-color;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			
+			&.evc-pti-title-holder {
+				padding-top: 50px;
+				padding-bottom: 2px;
+			}
+			
+			&.evc-pti-button {
+				padding-top: 19px;
+				padding-bottom: 60px;
+			}
+			
+			.evc-pti-value {
+				position: relative;
+				top: 5px;
+				display: inline-block;
+				vertical-align: top;
+				margin-right: 3px;
+				font-size: 35px;
+				line-height: 1;
+				font-weight: 700;
+				color: #fff;
+			}
+			
+			.evc-pti-price {
+				display: inline-block;
+				vertical-align: top;
+				font-size: 80px;
+				line-height: 1;
+				font-weight: 700;
+				color: #fff;
+			}
+			
+			.evc-pti-mark {
+				display: block;
+				margin: 12px 0 0;
+				color: #fff;
+			}
+			
+			.evc-pti-title {
+				margin: 0;
+			}
+		}
+	}
+}
+
+/* ==========================================================================
+   Pricing Table shortcode style - end
+   ========================================================================== */

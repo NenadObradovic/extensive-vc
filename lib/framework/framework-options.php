@@ -34,7 +34,7 @@ if ( ! function_exists( 'extensive_vc_render_admin_options_fields' ) ) {
 				'type'        => 'colorpicker',
 				'id'          => 'evc_main_color',
 				'title'       => esc_html__( 'Main Color', 'extensive-vc' ),
-				'description' => esc_html__( 'Set main color. Default color is #00bbb3.', 'extensive-vc' )
+				'description' => esc_html__( 'Set main color. Default color is #00bbb3', 'extensive-vc' )
 			)
 		);
 	
@@ -44,8 +44,19 @@ if ( ! function_exists( 'extensive_vc_render_admin_options_fields' ) ) {
 				'type'        => 'checkboxes',
 				'id'          => 'evc_disable_shortcodes',
 				'title'       => esc_html__( 'Disable Shortcodes', 'extensive-vc' ),
-				'description' => esc_html__( 'Disable shortcodes you don\'t want to use on your site to increase site performance.', 'extensive-vc' ),
-				'cb_options'  => extensive_vc_return_shortcodes_label_array(),
+				'description' => esc_html__( 'Disable shortcodes you don\'t use on your site to increase site performance', 'extensive-vc' ),
+				'cb_options'  => extensive_vc_return_shortcodes_label_array()
+			)
+		);
+		
+		$evc_options->options->addField(
+			array(
+				'page'        => 'evc_options_general_page',
+				'type'        => 'checkboxes',
+				'id'          => 'evc_disable_widgets',
+				'title'       => esc_html__( 'Disable Widgets', 'extensive-vc' ),
+				'description' => esc_html__( 'Disable widgets you don\'t use on your site to increase admin performance', 'extensive-vc' ),
+				'cb_options'  => extensive_vc_return_widgets_label_array()
 			)
 		);
 	}

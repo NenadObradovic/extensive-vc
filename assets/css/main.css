@@ -2704,6 +2704,93 @@ html.fp-enabled,
    ========================================================================== */
 
 /* ==========================================================================
+   Pricing Table shortcode style - begin
+   ========================================================================== */
+
+.evc-pricing-table {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+}
+
+.evc-pricing-table .evc-pti-inner {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+  background-color: #fff;
+  border: 1px solid #ebebeb;
+  box-sizing: border-box;
+}
+
+.evc-pricing-table .evc-pti-inner ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.evc-pricing-table .evc-pti-inner li {
+  margin: 0;
+  padding: 11px 20px;
+  text-align: center;
+}
+
+.evc-pricing-table .evc-pti-inner li.evc-pti-prices {
+  padding-top: 50px;
+  padding-bottom: 45px;
+  background-color: #43cb83;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.evc-pricing-table .evc-pti-inner li.evc-pti-title-holder {
+  padding-top: 50px;
+  padding-bottom: 2px;
+}
+
+.evc-pricing-table .evc-pti-inner li.evc-pti-button {
+  padding-top: 19px;
+  padding-bottom: 60px;
+}
+
+.evc-pricing-table .evc-pti-inner li .evc-pti-value {
+  position: relative;
+  top: 5px;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 3px;
+  font-size: 35px;
+  line-height: 1;
+  font-weight: 700;
+  color: #fff;
+}
+
+.evc-pricing-table .evc-pti-inner li .evc-pti-price {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 80px;
+  line-height: 1;
+  font-weight: 700;
+  color: #fff;
+}
+
+.evc-pricing-table .evc-pti-inner li .evc-pti-mark {
+  display: block;
+  margin: 12px 0 0;
+  color: #fff;
+}
+
+.evc-pricing-table .evc-pti-inner li .evc-pti-title {
+  margin: 0;
+}
+
+/* ==========================================================================
+   Pricing Table shortcode style - end
+   ========================================================================== */
+
+/* ==========================================================================
    Process 2 shortcode style - begin
    ========================================================================== */
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace ExtensiveVC\Shortcodes\EVCSectionTitle;
+namespace ExtensiveVC\Shortcodes\EVCPricingTable;
 
 use ExtensiveVC\Shortcodes;
 
@@ -8,24 +8,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-if ( ! class_exists( 'EVCSectionTitle' ) ) {
-	class EVCSectionTitle extends Shortcodes\EVCShortcode {
+if ( ! class_exists( 'EVCPricingTableItem' ) ) {
+	class EVCPricingTableItem extends Shortcodes\EVCShortcode {
 		
 		/**
 		 * Singleton variables
 		 */
 		private static $instance;
-	
+		
 		/**
 		 * Constructor
 		 */
 		function __construct() {
-			$this->setBase( 'evc_section_title' );
-			$this->setShortcodeName( esc_html__( 'Section Title', 'extensive-vc' ) );
+			$this->setBase( 'evc_pricing_table_item' );
+			$this->setParentBase( 'evc_pricing_table' );
+			$this->setShortcodeName( esc_html__( 'Pricing Table Item', 'extensive-vc' ) );
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
-			parent::__construct();
+			parent::__construct( array( 'hasParent' => true ) );
 		}
 		
 		/**
@@ -53,17 +54,6 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
 				),
 				array(
-					'type'       => 'dropdown',
-					'param_name' => 'text_alignment',
-					'heading'    => esc_html__( 'Text Alignment', 'extensive-vc' ),
-					'value'      => array(
-						esc_html__( 'Default', 'extensive-vc' ) => 'top',
-						esc_html__( 'Left', 'extensive-vc' )    => 'left',
-						esc_html__( 'Center', 'extensive-vc' )  => 'center',
-						esc_html__( 'Right', 'extensive-vc' )   => 'right'
-					)
-				),
-				array(
 					'type'       => 'textfield',
 					'param_name' => 'title',
 					'heading'    => esc_html__( 'Title', 'extensive-vc' )
@@ -72,77 +62,68 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 					'type'       => 'dropdown',
 					'param_name' => 'title_tag',
 					'heading'    => esc_html__( 'Title Tag', 'extensive-vc' ),
-					'value'      => array_flip( extensive_vc_get_title_tag_array( true ) ),
+					'value'      => array_flip( extensive_vc_get_title_tag_array( true, array( 'p' => 'p' ) ) ),
 					'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-					'group'      => esc_html__( 'Title Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'title_color',
 					'heading'    => esc_html__( 'Title Color', 'extensive-vc' ),
 					'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-					'group'      => esc_html__( 'Title Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
 				),
 				array(
-					'type'       => 'dropdown',
-					'param_name' => 'enable_separator',
-					'heading'    => esc_html__( 'Enable Separator', 'extensive-vc' ),
-					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false ) )
+					'type'       => 'textfield',
+					'param_name' => 'price',
+					'heading'    => esc_html__( 'Price', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'colorpicker',
-					'param_name' => 'separator_color',
-					'heading'    => esc_html__( 'Separator Color', 'extensive-vc' ),
-					'dependency' => array( 'element' => 'enable_separator', 'value' => array( 'yes' ) ),
-					'group'      => esc_html__( 'Separator Options', 'extensive-vc' )
+					'param_name' => 'price_bg_color',
+					'heading'    => esc_html__( 'Price Background Color', 'extensive-vc' ),
+					'dependency' => array( 'element' => 'price', 'not_empty' => true ),
+					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
 				),
 				array(
-					'type'       => 'textfield',
-					'param_name' => 'separator_width',
-					'heading'    => esc_html__( 'Separator Width (px or %)', 'extensive-vc' ),
-					'dependency' => array( 'element' => 'enable_separator', 'value' => array( 'yes' ) ),
-					'group'      => esc_html__( 'Separator Options', 'extensive-vc' )
-				),
-				array(
-					'type'       => 'textfield',
-					'param_name' => 'separator_thickness',
-					'heading'    => esc_html__( 'Separator Thickness (px)', 'extensive-vc' ),
-					'dependency' => array( 'element' => 'enable_separator', 'value' => array( 'yes' ) ),
-					'group'      => esc_html__( 'Separator Options', 'extensive-vc' )
-				),
-				array(
-					'type'       => 'textfield',
-					'param_name' => 'separator_top_margin',
-					'heading'    => esc_html__( 'Separator Top Margin (px)', 'extensive-vc' ),
-					'dependency' => array( 'element' => 'enable_separator', 'value' => array( 'yes' ) ),
-					'group'      => esc_html__( 'Separator Options', 'extensive-vc' )
-				),
-				array(
-					'type'       => 'textarea',
-					'param_name' => 'text',
-					'heading'    => esc_html__( 'Text', 'extensive-vc' )
-				),
-				array(
-					'type'       => 'dropdown',
-					'param_name' => 'text_tag',
-					'heading'    => esc_html__( 'Text Tag', 'extensive-vc' ),
-					'value'      => array_flip( extensive_vc_get_title_tag_array( true, array( 'p' => 'p' ) ) ),
-					'dependency' => array( 'element' => 'text', 'not_empty' => true ),
-					'group'      => esc_html__( 'Text Options', 'extensive-vc' )
+					'type'       => 'attach_image',
+					'param_name' => 'price_bg_image',
+					'heading'    => esc_html__( 'Price Background Image', 'extensive-vc' ),
+					'dependency' => array( 'element' => 'price', 'not_empty' => true ),
+					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'colorpicker',
-					'param_name' => 'text_color',
-					'heading'    => esc_html__( 'Text Color', 'extensive-vc' ),
-					'dependency' => array( 'element' => 'text', 'not_empty' => true ),
-					'group'      => esc_html__( 'Text Options', 'extensive-vc' )
+					'param_name' => 'price_color',
+					'heading'    => esc_html__( 'Price Color', 'extensive-vc' ),
+					'dependency' => array( 'element' => 'price', 'not_empty' => true ),
+					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
 				),
 				array(
-					'type'       => 'textfield',
-					'param_name' => 'text_top_margin',
-					'heading'    => esc_html__( 'Text Top Margin (px)', 'extensive-vc' ),
-					'dependency' => array( 'element' => 'text', 'not_empty' => true ),
-					'group'      => esc_html__( 'Text Options', 'extensive-vc' )
+					'type'        => 'textfield',
+					'param_name'  => 'currency',
+					'heading'     => esc_html__( 'Currency', 'extensive-vc' ),
+					'description' => esc_html__( 'Default mark is $', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'colorpicker',
+					'param_name' => 'currency_color',
+					'heading'    => esc_html__( 'Currency Color', 'extensive-vc' ),
+					'dependency' => array( 'element' => 'currency', 'not_empty' => true ),
+					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+				),
+				array(
+					'type'        => 'textfield',
+					'param_name'  => 'price_period',
+					'heading'     => esc_html__( 'Price Period', 'extensive-vc' ),
+					'description' => esc_html__( 'Default label is monthly', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'colorpicker',
+					'param_name' => 'price_period_color',
+					'heading'    => esc_html__( 'Price Period Color', 'extensive-vc' ),
+					'dependency' => array( 'element' => 'price_period', 'not_empty' => true ),
+					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'textfield',
@@ -258,12 +239,10 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 					'group'      => esc_html__( 'Button Options', 'extensive-vc' )
 				),
 				array(
-					'type'        => 'textfield',
-					'param_name'  => 'button_margin',
-					'heading'     => esc_html__( 'Margin', 'extensive-vc' ),
-					'description' => esc_html__( 'Insert margin in format: top right bottom left (e.g. 10px 5px 10px 5px)', 'extensive-vc' ),
-					'dependency'  => array( 'element' => 'button_text', 'not_empty' => true ),
-					'group'       => esc_html__( 'Button Options', 'extensive-vc' )
+					'type'       => 'textarea_html',
+					'param_name' => 'content',
+					'heading'    => esc_html__( 'Content', 'extensive-vc' ),
+					'value'      => '<li>' . esc_html__( 'This is pricing table item content', 'extensive-vc' ) . '</li><li>' . esc_html__( 'This is pricing table item content', 'extensive-vc' ) . '</li><li>' . esc_html__( 'This is pricing table item content', 'extensive-vc' ) . '</li>'
 				)
 			);
 			
@@ -281,19 +260,17 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 		function render( $atts, $content = null ) {
 			$args   = array(
 				'custom_class'              => '',
-				'text_alignment'            => '',
 				'title'                     => '',
-				'title_tag'                 => 'h2',
+				'title_tag'                 => 'h4',
 				'title_color'               => '',
-				'enable_separator'          => 'no',
-				'separator_color'           => '',
-				'separator_width'           => '',
-				'separator_thickness'       => '',
-				'separator_top_margin'      => '',
-				'text'                      => '',
-				'text_tag'                  => 'p',
-				'text_color'                => '',
-				'text_top_margin'           => '',
+				'price'                     => '129',
+				'price_bg_color'            => '',
+				'price_bg_image'	        => '',
+				'price_color'               => '',
+				'currency'                  => '$',
+				'currency_color'            => '',
+				'price_period'              => 'monthly',
+				'price_period_color'        => '',
 				'button_text'               => '',
 				'button_custom_link'        => '',
 				'button_type'               => '',
@@ -307,22 +284,23 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 				'button_hover_border_color' => '',
 				'button_border_width'       => '',
 				'button_line_color'         => '',
-				'button_switch_line_color'  => '',
-				'button_margin'             => ''
+				'button_switch_line_color'  => ''
 			);
 			$params = shortcode_atts( $args, $atts );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params );
-			$params['holder_styles']  = $this->getHolderStyles( $params );
 			
-			$params['title_tag']        = ! empty( $params['title_tag'] ) ? $params['title_tag'] : $args['title_tag'];
-			$params['title_styles']     = $this->getTitleStyles( $params );
-			$params['separator_styles'] = $this->getSeparatorStyles( $params );
-			$params['text_tag']         = ! empty( $params['text_tag'] ) ? $params['text_tag'] : $args['text_tag'];
-			$params['text_styles']      = $this->getTextStyles( $params );
-			$params['button_params']    = $this->getButtonParameters( $params );
+			$params['title_tag']           = ! empty( $params['title_tag'] ) ? $params['title_tag'] : $args['title_tag'];
+			$params['title_styles']        = $this->getTitleStyles( $params );
+			$params['price_styles']        = $this->getPriceStyles( $params );
+			$params['price_holder_styles'] = $this->getPriceHolderStyles( $params );
+			$params['price_period_styles'] = $this->getPricePeriodStyles( $params );
+			$params['currency_styles']     = $this->getCurrencyStyles( $params );
+			$params['button_params']       = $this->getButtonParameters( $params );
 			
-			$html = extensive_vc_get_module_template_part( 'shortcodes', 'section-title', 'templates/section-title', '', $params );
+			$params['content'] = $content;
+			
+			$html = extensive_vc_get_module_template_part( 'shortcodes', 'pricing-table', 'templates/pricing-table-item', '', $params );
 			
 			return $html;
 		}
@@ -338,25 +316,9 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 			$holderClasses = array();
 			
 			$holderClasses[] = ! empty( $params['custom_class'] ) ? esc_attr( $params['custom_class'] ) : '';
+			$holderClasses[] = ! empty( $params['price_bg_image'] ) ? 'evc-pti-has-image' : '';
 			
 			return implode( ' ', $holderClasses );
-		}
-		
-		/**
-		 * Get shortcode holder styles
-		 *
-		 * @param $params array - shortcode parameters value
-		 *
-		 * @return string
-		 */
-		private function getHolderStyles( $params ) {
-			$styles = array();
-			
-			if ( ! empty( $params['text_alignment'] ) ) {
-				$styles[] = 'text-align: ' . $params['text_alignment'];
-			}
-			
-			return implode( ';', $styles );
 		}
 		
 		/**
@@ -377,54 +339,72 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 		}
 		
 		/**
-		 * Get separator styles
+		 * Get price styles
 		 *
 		 * @param $params array - shortcode parameters value
 		 *
 		 * @return string
 		 */
-		private function getSeparatorStyles( $params ) {
+		private function getPriceStyles( $params ) {
 			$styles = array();
 			
-			if ( ! empty( $params['separator_color'] ) ) {
-				$styles[] = 'background-color: ' . $params['separator_color'];
-			}
-			
-			if ( $params['separator_width'] !== '' ) {
-				if ( extensive_vc_string_ends_with( $params['separator_width'], '%' ) || extensive_vc_string_ends_with( $params['separator_width'], 'px' ) ) {
-					$styles[] = 'width: ' . $params['separator_width'];
-				} else {
-					$styles[] = 'width: ' . extensive_vc_filter_px( $params['separator_width'] ) . 'px';
-				}
-			}
-			
-			if ( $params['separator_thickness'] !== '' ) {
-				$styles[] = 'height: ' . extensive_vc_filter_px( $params['separator_thickness'] ) . 'px';
-			}
-			
-			if ( $params['separator_top_margin'] !== '' ) {
-				$styles[] = 'margin-top: ' . extensive_vc_filter_px( $params['separator_top_margin'] ) . 'px';
+			if ( ! empty( $params['price_color'] ) ) {
+				$styles[] = 'color: ' . $params['price_color'];
 			}
 			
 			return implode( ';', $styles );
 		}
 		
 		/**
-		 * Get text styles
+		 * Get price holder styles
 		 *
 		 * @param $params array - shortcode parameters value
 		 *
 		 * @return string
 		 */
-		private function getTextStyles( $params ) {
+		private function getPriceHolderStyles( $params ) {
 			$styles = array();
 			
-			if ( ! empty( $params['text_color'] ) ) {
-				$styles[] = 'color: ' . $params['text_color'];
+			if ( ! empty( $params['price_bg_color'] ) ) {
+				$styles[] = 'background-color: ' . $params['price_bg_color'];
 			}
 			
-			if ( $params['text_top_margin'] !== '' ) {
-				$styles[] = 'margin-top: ' . extensive_vc_filter_px( $params['text_top_margin'] ) . 'px';
+			if ( ! empty( $params['price_bg_image'] ) ) {
+				$styles[] = 'background-image: url(' . wp_get_attachment_image_url( $params['price_bg_image'], 'full' ) . ')';
+			}
+			
+			return implode( ';', $styles );
+		}
+		
+		/**
+		 * Get price period styles
+		 *
+		 * @param $params array - shortcode parameters value
+		 *
+		 * @return string
+		 */
+		private function getPricePeriodStyles( $params ) {
+			$styles = array();
+			
+			if ( ! empty( $params['price_period_color'] ) ) {
+				$styles[] = 'color: ' . $params['price_period_color'];
+			}
+			
+			return implode( ';', $styles );
+		}
+		
+		/**
+		 * Get currency styles
+		 *
+		 * @param $params array - shortcode parameters value
+		 *
+		 * @return string
+		 */
+		private function getCurrencyStyles( $params ) {
+			$styles = array();
+			
+			if ( ! empty( $params['currency_color'] ) ) {
+				$styles[] = 'color: ' . $params['currency_color'];
 			}
 			
 			return implode( ';', $styles );
@@ -504,4 +484,4 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 	}
 }
 
-EVCSectionTitle::getInstance();
+EVCPricingTableItem::getInstance();

@@ -4,7 +4,7 @@ Tags: visual composer, wpbakery page builder, visual composer addons, wpbakery a
 Donate link: http://wprealize.com/donate/
 Requires at least: 4.6
 Tested up to: 4.9.4
-Stable tag: 1.6
+Stable tag: 1.6.1
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -23,14 +23,15 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
 <h4 style="margin-top: 1rem;">1. Shortcodes</h4>
 <ul>
 	<li><a href="http://wprealize.com/classic/button/">Classic - Button</a></li>
-	<li><a href="http://wprealize.com/classic/clients/">Classic - Clients (New)</a></li>
+	<li><a href="http://wprealize.com/classic/clients/">Classic - Clients</a></li>
 	<li><a href="http://wprealize.com/classic/icon-with-text/">Classic - Icon With Text</a></li>
 	<li><a href="http://wprealize.com/classic/image-with-text/">Classic - Image With Text</a></li>
+	<li><a href="http://wprealize.com/classic/pricing-table/">Classic - Pricing Table (New)</a></li>
 	<li><a href="http://wprealize.com/classic/separator/">Classic - Separator</a></li>
 	<li><a href="http://wprealize.com/classic/single-image/">Classic - Single Image</a></li>
-	<li><a href="http://wprealize.com/classic/tabs/">Classic - Tabs (New)</a></li>
+	<li><a href="http://wprealize.com/classic/tabs/">Classic - Tabs</a></li>
 	<li><a href="http://wprealize.com/interactive/flip-image/">Interactive - Flip Image</a></li>
-	<li><a href="http://wprealize.com/interactive/full-screen-sections/">Interactive - Full Screen Sections (New)</a></li>
+	<li><a href="http://wprealize.com/interactive/full-screen-sections/">Interactive - Full Screen Sections</a></li>
 	<li><a href="http://wprealize.com/interactive/gallery-block/">Interactive - Gallery Block</a></li>
 	<li><a href="http://wprealize.com/interactive/image-gallery/">Interactive - Image Gallery</a></li>
 	<li><a href="http://wprealize.com/interactive/interactive-banner/">Interactive - Interactive Banner</a></li>
@@ -42,7 +43,7 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
 	<li><a href="http://wprealize.com/infographic/icon-progress-bar/">Infographic - Icon Progress Bar</a></li>
 	<li><a href="http://wprealize.com/infographic/pie-chart/">Infographic - Pie Chart</a></li>
 	<li><a href="http://wprealize.com/infographic/progress-bar/">Infographic - Progress Bar</a></li>
-	<li><a href="http://wprealize.com/infographic/text-marquee/">Infographic - Text Marquee (New)</a></li>
+	<li><a href="http://wprealize.com/infographic/text-marquee/">Infographic - Text Marquee</a></li>
 	<li><a href="http://wprealize.com/typography/blockquote/">Typography - Blockquote</a></li>
 	<li><a href="http://wprealize.com/typography/custom-font/">Typography - Custom Font</a></li>
 	<li><a href="http://wprealize.com/typography/dropcaps/">Typography - Dropcaps</a></li>
@@ -59,6 +60,8 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
     <li>Button Widget</li>
     <li>Contact Form 7 Widget</li>
     <li>Custom Font Widget</li>
+    <li>Image Gallery Widget</li>
+    <li>Separator Widget</li>
 </ul>
 <p><strong>This is just the beginning...</strong></p>
 
@@ -97,6 +100,15 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 5. Blockquote shortcode example.
 
 == Changelog ==
+
+= 1.6.1 =
+- Added Pricing Tables shortcode
+- Added Separator widget
+- Added Text Marquee widget
+- Added Disable Widgets option in general plugin settings panel
+- Improved framework functions
+- Updated Chart.js 3rd party library to 2.7.2
+- Updated language pot file
 
 = 1.6 =
 - Added Widgets functionality

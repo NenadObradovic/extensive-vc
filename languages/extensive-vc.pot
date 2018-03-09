@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Extensive VC package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Extensive VC 1.6\n"
+"Project-Id-Version: Extensive VC 1.6.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/extensive-vc\n"
-"POT-Creation-Date: 2018-02-21 17:45:48+00:00\n"
+"POT-Creation-Date: 2018-03-09 18:40:28+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -99,7 +99,7 @@ msgid "Main Color"
 msgstr ""
 
 #: lib/framework/framework-options.php:37
-msgid "Set main color. Default color is #00bbb3."
+msgid "Set main color. Default color is #00bbb3"
 msgstr ""
 
 #: lib/framework/framework-options.php:46
@@ -107,7 +107,15 @@ msgid "Disable Shortcodes"
 msgstr ""
 
 #: lib/framework/framework-options.php:47
-msgid "Disable shortcodes you don't want to use on your site to increase site performance."
+msgid "Disable shortcodes you don't use on your site to increase site performance"
+msgstr ""
+
+#: lib/framework/framework-options.php:57
+msgid "Disable Widgets"
+msgstr ""
+
+#: lib/framework/framework-options.php:58
+msgid "Disable widgets you don't use on your site to increase admin performance"
 msgstr ""
 
 #: lib/helpers-functions.php:433 post-types/clients/shortcodes/clients.php:106
@@ -153,19 +161,22 @@ msgstr ""
 #: shortcodes/full-screen-sections/full-screen-sections-item.php:100
 #: shortcodes/image-gallery/image-gallery.php:198
 #: shortcodes/section-title/section-title.php:60
-#: shortcodes/separator/separator.php:80 shortcodes/tabs/tabs.php:100
-#: shortcodes/tabs/tabs.php:111
+#: shortcodes/separator/separator.php:80
+#: shortcodes/separator/widgets/separator-widget.php:60
+#: shortcodes/tabs/tabs.php:100 shortcodes/tabs/tabs.php:111
 msgid "Default"
 msgstr ""
 
 #: lib/helpers-functions.php:467 shortcodes/button/button.php:77
 #: shortcodes/button/widgets/button-widget.php:60
+#: shortcodes/pricing-table/pricing-table-item.php:161
 #: shortcodes/section-title/section-title.php:180
 msgid "Large"
 msgstr ""
 
 #: lib/helpers-functions.php:468 shortcodes/button/button.php:78
 #: shortcodes/button/widgets/button-widget.php:61
+#: shortcodes/pricing-table/pricing-table-item.php:162
 #: shortcodes/section-title/section-title.php:181
 msgid "Medium"
 msgstr ""
@@ -173,18 +184,21 @@ msgstr ""
 #: lib/helpers-functions.php:469 lib/helpers-functions.php:603
 #: shortcodes/button/button.php:79
 #: shortcodes/button/widgets/button-widget.php:62
+#: shortcodes/pricing-table/pricing-table-item.php:163
 #: shortcodes/section-title/section-title.php:182
 msgid "Normal"
 msgstr ""
 
 #: lib/helpers-functions.php:470 shortcodes/button/button.php:80
 #: shortcodes/button/widgets/button-widget.php:63
+#: shortcodes/pricing-table/pricing-table-item.php:164
 #: shortcodes/section-title/section-title.php:183
 msgid "Small"
 msgstr ""
 
 #: lib/helpers-functions.php:471 shortcodes/button/button.php:81
 #: shortcodes/button/widgets/button-widget.php:64
+#: shortcodes/pricing-table/pricing-table-item.php:165
 #: shortcodes/section-title/section-title.php:184
 msgid "Tiny"
 msgstr ""
@@ -396,14 +410,19 @@ msgstr ""
 #: shortcodes/image-gallery/image-gallery.php:68
 #: shortcodes/image-with-text/image-with-text.php:52
 #: shortcodes/interactive-banner/interactive-banner.php:53
-#: shortcodes/pie-chart/pie-chart.php:79 shortcodes/process/process-item.php:53
-#: shortcodes/process/process.php:71 shortcodes/process-2/process-2-item.php:53
+#: shortcodes/pie-chart/pie-chart.php:79
+#: shortcodes/pricing-table/pricing-table-item.php:53
+#: shortcodes/pricing-table/pricing-table.php:71
+#: shortcodes/process/process-item.php:53 shortcodes/process/process.php:71
+#: shortcodes/process-2/process-2-item.php:53
 #: shortcodes/process-2/process-2.php:71
 #: shortcodes/progress-bar/progress-bar.php:64
 #: shortcodes/section-title/section-title.php:52
 #: shortcodes/separator/separator.php:52
+#: shortcodes/separator/widgets/separator-widget.php:31
 #: shortcodes/single-image/single-image.php:52 shortcodes/tabs/tabs-item.php:53
 #: shortcodes/tabs/tabs.php:79 shortcodes/text-marquee/text-marquee.php:52
+#: shortcodes/text-marquee/widgets/text-marquee-widget.php:31
 msgid "Custom CSS Class"
 msgstr ""
 
@@ -426,20 +445,26 @@ msgstr ""
 #: shortcodes/image-gallery/image-gallery.php:69
 #: shortcodes/image-with-text/image-with-text.php:53
 #: shortcodes/interactive-banner/interactive-banner.php:54
-#: shortcodes/pie-chart/pie-chart.php:80 shortcodes/process/process-item.php:54
-#: shortcodes/process/process.php:72 shortcodes/process-2/process-2-item.php:54
+#: shortcodes/pie-chart/pie-chart.php:80
+#: shortcodes/pricing-table/pricing-table-item.php:54
+#: shortcodes/pricing-table/pricing-table.php:72
+#: shortcodes/process/process-item.php:54 shortcodes/process/process.php:72
+#: shortcodes/process-2/process-2-item.php:54
 #: shortcodes/process-2/process-2.php:72
 #: shortcodes/progress-bar/progress-bar.php:65
 #: shortcodes/section-title/section-title.php:53
 #: shortcodes/separator/separator.php:53
+#: shortcodes/separator/widgets/separator-widget.php:32
 #: shortcodes/single-image/single-image.php:53 shortcodes/tabs/tabs-item.php:54
 #: shortcodes/tabs/tabs.php:80 shortcodes/text-marquee/text-marquee.php:53
+#: shortcodes/text-marquee/widgets/text-marquee-widget.php:32
 msgid "Style particular content element differently - add a class name and refer to it in custom CSS"
 msgstr ""
 
 #: plugins/contact-form-7/widgets/cf7-widget.php:37
 #: shortcodes/button/widgets/button-widget.php:37
 #: shortcodes/custom-font/widgets/custom-font-widget.php:37
+#: shortcodes/text-marquee/widgets/text-marquee-widget.php:37
 msgid "Widget Title"
 msgstr ""
 
@@ -686,6 +711,7 @@ msgstr ""
 #: shortcodes/process-2/process-2-item.php:97
 #: shortcodes/section-title/section-title.php:123
 #: shortcodes/text-marquee/text-marquee.php:58
+#: shortcodes/text-marquee/widgets/text-marquee-widget.php:42
 msgid "Text"
 msgstr ""
 
@@ -778,6 +804,7 @@ msgstr ""
 #: shortcodes/icon-with-text/icon-with-text.php:59
 #: shortcodes/image-gallery/image-gallery.php:74
 #: shortcodes/interactive-banner/interactive-banner.php:59
+#: shortcodes/pricing-table/pricing-table-item.php:142
 #: shortcodes/progress-bar/progress-bar.php:70
 #: shortcodes/section-title/section-title.php:161 shortcodes/tabs/tabs.php:85
 msgid "Type"
@@ -786,6 +813,7 @@ msgstr ""
 #: shortcodes/blockquote/blockquote.php:60 shortcodes/button/button.php:63
 #: shortcodes/button/widgets/button-widget.php:46
 #: shortcodes/dropcaps/dropcaps.php:60
+#: shortcodes/pricing-table/pricing-table-item.php:146
 #: shortcodes/section-title/section-title.php:165 shortcodes/tabs/tabs.php:88
 msgid "Simple"
 msgstr ""
@@ -851,8 +879,10 @@ msgstr ""
 #: shortcodes/custom-font/widgets/custom-font-widget.php:157
 #: shortcodes/custom-font/widgets/custom-font-widget.php:169
 #: shortcodes/custom-font/widgets/custom-font-widget.php:181
+#: shortcodes/pricing-table/pricing-table-item.php:174
 #: shortcodes/section-title/section-title.php:193
 #: shortcodes/text-marquee/text-marquee.php:69
+#: shortcodes/text-marquee/widgets/text-marquee-widget.php:52
 msgid "Font Size (px or em)"
 msgstr ""
 
@@ -873,6 +903,7 @@ msgstr ""
 #: shortcodes/custom-font/widgets/custom-font-widget.php:175
 #: shortcodes/custom-font/widgets/custom-font-widget.php:187
 #: shortcodes/text-marquee/text-marquee.php:75
+#: shortcodes/text-marquee/widgets/text-marquee-widget.php:57
 msgid "Line Height (px or em)"
 msgstr ""
 
@@ -882,43 +913,51 @@ msgstr ""
 
 #: shortcodes/button/button.php:61
 #: shortcodes/button/widgets/button-widget.php:44
+#: shortcodes/pricing-table/pricing-table-item.php:144
 #: shortcodes/section-title/section-title.php:163
 #: shortcodes/separator/separator.php:82
+#: shortcodes/separator/widgets/separator-widget.php:62
 msgid "Solid"
 msgstr ""
 
 #: shortcodes/button/button.php:62
 #: shortcodes/button/widgets/button-widget.php:45
+#: shortcodes/pricing-table/pricing-table-item.php:145
 #: shortcodes/section-title/section-title.php:164
 msgid "Outline"
 msgstr ""
 
 #: shortcodes/button/button.php:64
 #: shortcodes/button/widgets/button-widget.php:47
+#: shortcodes/pricing-table/pricing-table-item.php:147
 #: shortcodes/section-title/section-title.php:166
 msgid "Simple Fill Line On Hover"
 msgstr ""
 
 #: shortcodes/button/button.php:65
 #: shortcodes/button/widgets/button-widget.php:48
+#: shortcodes/pricing-table/pricing-table-item.php:148
 #: shortcodes/section-title/section-title.php:167
 msgid "Simple Fill Text On Hover"
 msgstr ""
 
 #: shortcodes/button/button.php:66
 #: shortcodes/button/widgets/button-widget.php:49
+#: shortcodes/pricing-table/pricing-table-item.php:149
 #: shortcodes/section-title/section-title.php:168
 msgid "Simple Strike Line On Hover"
 msgstr ""
 
 #: shortcodes/button/button.php:67
 #: shortcodes/button/widgets/button-widget.php:50
+#: shortcodes/pricing-table/pricing-table-item.php:150
 #: shortcodes/section-title/section-title.php:169
 msgid "Simple Switch Line On Hover"
 msgstr ""
 
 #: shortcodes/button/button.php:75
 #: shortcodes/button/widgets/button-widget.php:57
+#: shortcodes/pricing-table/pricing-table-item.php:159
 #: shortcodes/section-title/section-title.php:178
 msgid "Size"
 msgstr ""
@@ -946,6 +985,7 @@ msgstr ""
 #: shortcodes/custom-font/custom-font.php:98
 #: shortcodes/custom-font/widgets/custom-font-widget.php:79
 #: shortcodes/text-marquee/text-marquee.php:81
+#: shortcodes/text-marquee/widgets/text-marquee-widget.php:62
 msgid "Font Weight"
 msgstr ""
 
@@ -954,6 +994,7 @@ msgstr ""
 #: shortcodes/custom-font/custom-font.php:105
 #: shortcodes/custom-font/widgets/custom-font-widget.php:85
 #: shortcodes/text-marquee/text-marquee.php:88
+#: shortcodes/text-marquee/widgets/text-marquee-widget.php:68
 msgid "Font Style"
 msgstr ""
 
@@ -962,6 +1003,7 @@ msgstr ""
 #: shortcodes/custom-font/custom-font.php:112
 #: shortcodes/custom-font/widgets/custom-font-widget.php:91
 #: shortcodes/text-marquee/text-marquee.php:95
+#: shortcodes/text-marquee/widgets/text-marquee-widget.php:74
 msgid "Letter Spacing (px or em)"
 msgstr ""
 
@@ -970,6 +1012,7 @@ msgstr ""
 #: shortcodes/custom-font/custom-font.php:118
 #: shortcodes/custom-font/widgets/custom-font-widget.php:96
 #: shortcodes/text-marquee/text-marquee.php:101
+#: shortcodes/text-marquee/widgets/text-marquee-widget.php:79
 msgid "Text Transform"
 msgstr ""
 
@@ -979,9 +1022,12 @@ msgstr ""
 #: shortcodes/custom-font/widgets/custom-font-widget.php:53
 #: shortcodes/doughnut-chart/doughnut-chart-item.php:63
 #: shortcodes/pie-chart/pie-chart-item.php:63
+#: shortcodes/pricing-table/pricing-table-item.php:181
 #: shortcodes/section-title/section-title.php:200
 #: shortcodes/separator/separator.php:101
+#: shortcodes/separator/widgets/separator-widget.php:80
 #: shortcodes/text-marquee/text-marquee.php:64
+#: shortcodes/text-marquee/widgets/text-marquee-widget.php:47
 msgid "Color"
 msgstr ""
 
@@ -1012,6 +1058,13 @@ msgstr ""
 #: shortcodes/pie-chart/pie-chart.php:110
 #: shortcodes/pie-chart/pie-chart.php:117
 #: shortcodes/pie-chart/pie-chart.php:130
+#: shortcodes/pricing-table/pricing-table-item.php:67
+#: shortcodes/pricing-table/pricing-table-item.php:74
+#: shortcodes/pricing-table/pricing-table-item.php:86
+#: shortcodes/pricing-table/pricing-table-item.php:93
+#: shortcodes/pricing-table/pricing-table-item.php:100
+#: shortcodes/pricing-table/pricing-table-item.php:113
+#: shortcodes/pricing-table/pricing-table-item.php:126
 #: shortcodes/process/process-item.php:67
 #: shortcodes/process/process-item.php:74
 #: shortcodes/process/process-item.php:86
@@ -1029,6 +1082,7 @@ msgstr ""
 
 #: shortcodes/button/button.php:154
 #: shortcodes/button/widgets/button-widget.php:130
+#: shortcodes/pricing-table/pricing-table-item.php:188
 #: shortcodes/section-title/section-title.php:207
 msgid "Hover Color"
 msgstr ""
@@ -1036,36 +1090,42 @@ msgstr ""
 #: shortcodes/button/button.php:160
 #: shortcodes/button/widgets/button-widget.php:135
 #: shortcodes/full-screen-sections/full-screen-sections-item.php:59
+#: shortcodes/pricing-table/pricing-table-item.php:195
 #: shortcodes/section-title/section-title.php:214
 msgid "Background Color"
 msgstr ""
 
 #: shortcodes/button/button.php:167
 #: shortcodes/button/widgets/button-widget.php:141
+#: shortcodes/pricing-table/pricing-table-item.php:202
 #: shortcodes/section-title/section-title.php:221
 msgid "Hover Background Color"
 msgstr ""
 
 #: shortcodes/button/button.php:174
 #: shortcodes/button/widgets/button-widget.php:147
+#: shortcodes/pricing-table/pricing-table-item.php:209
 #: shortcodes/section-title/section-title.php:228
 msgid "Border Color"
 msgstr ""
 
 #: shortcodes/button/button.php:181
 #: shortcodes/button/widgets/button-widget.php:153
+#: shortcodes/pricing-table/pricing-table-item.php:216
 #: shortcodes/section-title/section-title.php:235
 msgid "Hover Border Color"
 msgstr ""
 
 #: shortcodes/button/button.php:188
 #: shortcodes/button/widgets/button-widget.php:159
+#: shortcodes/pricing-table/pricing-table-item.php:223
 #: shortcodes/section-title/section-title.php:242
 msgid "Border Width (px)"
 msgstr ""
 
 #: shortcodes/button/button.php:195
 #: shortcodes/button/widgets/button-widget.php:165
+#: shortcodes/pricing-table/pricing-table-item.php:230
 #: shortcodes/process/process.php:110
 #: shortcodes/section-title/section-title.php:249
 msgid "Line Color"
@@ -1073,13 +1133,14 @@ msgstr ""
 
 #: shortcodes/button/button.php:202
 #: shortcodes/button/widgets/button-widget.php:171
-#: shortcodes/section-title/section-title.php:259
+#: shortcodes/pricing-table/pricing-table-item.php:237
+#: shortcodes/section-title/section-title.php:256
 msgid "Switch Line Color"
 msgstr ""
 
 #: shortcodes/button/button.php:209
 #: shortcodes/button/widgets/button-widget.php:177
-#: shortcodes/section-title/section-title.php:266
+#: shortcodes/section-title/section-title.php:263
 msgid "Margin"
 msgstr ""
 
@@ -1088,7 +1149,7 @@ msgstr ""
 #: shortcodes/custom-font/custom-font.php:75
 #: shortcodes/custom-font/widgets/custom-font-widget.php:59
 #: shortcodes/dropcaps/dropcaps.php:107
-#: shortcodes/section-title/section-title.php:267
+#: shortcodes/section-title/section-title.php:264
 msgid "Insert margin in format: top right bottom left (e.g. 10px 5px 10px 5px)"
 msgstr ""
 
@@ -1152,6 +1213,7 @@ msgstr ""
 #: shortcodes/icon-with-text/icon-with-text.php:91
 #: shortcodes/image-with-text/image-with-text.php:81
 #: shortcodes/interactive-banner/interactive-banner.php:106
+#: shortcodes/pricing-table/pricing-table-item.php:59
 #: shortcodes/process/process-item.php:59
 #: shortcodes/process-2/process-2-item.php:70
 #: shortcodes/progress-bar/progress-bar.php:93
@@ -1166,6 +1228,7 @@ msgstr ""
 #: shortcodes/icon-with-text/icon-with-text.php:96
 #: shortcodes/image-with-text/image-with-text.php:86
 #: shortcodes/interactive-banner/interactive-banner.php:111
+#: shortcodes/pricing-table/pricing-table-item.php:64
 #: shortcodes/process/process-item.php:64
 #: shortcodes/process-2/process-2-item.php:75
 #: shortcodes/progress-bar/progress-bar.php:99
@@ -1191,6 +1254,7 @@ msgstr ""
 #: shortcodes/icon-with-text/icon-with-text.php:105
 #: shortcodes/image-with-text/image-with-text.php:94
 #: shortcodes/interactive-banner/interactive-banner.php:119
+#: shortcodes/pricing-table/pricing-table-item.php:72
 #: shortcodes/process/process-item.php:72
 #: shortcodes/process-2/process-2-item.php:83
 #: shortcodes/progress-bar/progress-bar.php:107
@@ -1253,6 +1317,7 @@ msgstr ""
 #: shortcodes/pie-chart/pie-chart.php:127
 #: shortcodes/section-title/section-title.php:61
 #: shortcodes/separator/separator.php:61
+#: shortcodes/separator/widgets/separator-widget.php:40
 msgid "Left"
 msgstr ""
 
@@ -1261,6 +1326,7 @@ msgstr ""
 #: shortcodes/full-screen-sections/full-screen-sections-item.php:102
 #: shortcodes/section-title/section-title.php:62
 #: shortcodes/separator/separator.php:60
+#: shortcodes/separator/widgets/separator-widget.php:39
 msgid "Center"
 msgstr ""
 
@@ -1271,6 +1337,7 @@ msgstr ""
 #: shortcodes/pie-chart/pie-chart.php:125
 #: shortcodes/section-title/section-title.php:63
 #: shortcodes/separator/separator.php:62
+#: shortcodes/separator/widgets/separator-widget.php:41
 msgid "Right"
 msgstr ""
 
@@ -1602,6 +1669,7 @@ msgstr ""
 
 #: shortcodes/gallery-block/gallery-block.php:68
 #: shortcodes/image-gallery/image-gallery.php:125
+#: shortcodes/pricing-table/pricing-table.php:83
 msgid "Space Between Items"
 msgstr ""
 
@@ -1737,6 +1805,7 @@ msgid "Select images from media library"
 msgstr ""
 
 #: shortcodes/image-gallery/image-gallery.php:117
+#: shortcodes/pricing-table/pricing-table.php:77
 #: shortcodes/process/process.php:77 shortcodes/process-2/process-2.php:77
 msgid "Number of Columns"
 msgstr ""
@@ -1781,6 +1850,100 @@ msgstr ""
 
 #: shortcodes/pie-chart/pie-chart.php:25
 msgid "Pie Chart"
+msgstr ""
+
+#: shortcodes/pricing-table/pricing-table-item.php:25
+msgid "Pricing Table Item"
+msgstr ""
+
+#: shortcodes/pricing-table/pricing-table-item.php:79
+msgid "Price"
+msgstr ""
+
+#: shortcodes/pricing-table/pricing-table-item.php:84
+msgid "Price Background Color"
+msgstr ""
+
+#: shortcodes/pricing-table/pricing-table-item.php:91
+msgid "Price Background Image"
+msgstr ""
+
+#: shortcodes/pricing-table/pricing-table-item.php:98
+msgid "Price Color"
+msgstr ""
+
+#: shortcodes/pricing-table/pricing-table-item.php:105
+msgid "Currency"
+msgstr ""
+
+#: shortcodes/pricing-table/pricing-table-item.php:106
+msgid "Default mark is $"
+msgstr ""
+
+#: shortcodes/pricing-table/pricing-table-item.php:111
+msgid "Currency Color"
+msgstr ""
+
+#: shortcodes/pricing-table/pricing-table-item.php:118
+msgid "Price Period"
+msgstr ""
+
+#: shortcodes/pricing-table/pricing-table-item.php:119
+msgid "Default label is monthly"
+msgstr ""
+
+#: shortcodes/pricing-table/pricing-table-item.php:124
+msgid "Price Period Color"
+msgstr ""
+
+#: shortcodes/pricing-table/pricing-table-item.php:131
+#: shortcodes/section-title/section-title.php:150
+msgid "Button Text"
+msgstr ""
+
+#: shortcodes/pricing-table/pricing-table-item.php:136
+#: shortcodes/section-title/section-title.php:155
+msgid "Button Custom Link"
+msgstr ""
+
+#: shortcodes/pricing-table/pricing-table-item.php:154
+#: shortcodes/pricing-table/pricing-table-item.php:169
+#: shortcodes/pricing-table/pricing-table-item.php:176
+#: shortcodes/pricing-table/pricing-table-item.php:183
+#: shortcodes/pricing-table/pricing-table-item.php:190
+#: shortcodes/pricing-table/pricing-table-item.php:197
+#: shortcodes/pricing-table/pricing-table-item.php:204
+#: shortcodes/pricing-table/pricing-table-item.php:211
+#: shortcodes/pricing-table/pricing-table-item.php:218
+#: shortcodes/pricing-table/pricing-table-item.php:225
+#: shortcodes/pricing-table/pricing-table-item.php:232
+#: shortcodes/pricing-table/pricing-table-item.php:239
+#: shortcodes/section-title/section-title.php:173
+#: shortcodes/section-title/section-title.php:188
+#: shortcodes/section-title/section-title.php:195
+#: shortcodes/section-title/section-title.php:202
+#: shortcodes/section-title/section-title.php:209
+#: shortcodes/section-title/section-title.php:216
+#: shortcodes/section-title/section-title.php:223
+#: shortcodes/section-title/section-title.php:230
+#: shortcodes/section-title/section-title.php:237
+#: shortcodes/section-title/section-title.php:244
+#: shortcodes/section-title/section-title.php:251
+#: shortcodes/section-title/section-title.php:258
+#: shortcodes/section-title/section-title.php:266
+msgid "Button Options"
+msgstr ""
+
+#: shortcodes/pricing-table/pricing-table-item.php:244
+msgid "Content"
+msgstr ""
+
+#: shortcodes/pricing-table/pricing-table-item.php:245
+msgid "This is pricing table item content"
+msgstr ""
+
+#: shortcodes/pricing-table/pricing-table.php:25
+msgid "Pricing Table"
 msgstr ""
 
 #: shortcodes/process/process-item.php:25
@@ -1927,64 +2090,56 @@ msgstr ""
 msgid "Text Tag"
 msgstr ""
 
-#: shortcodes/section-title/section-title.php:150
-msgid "Button Text"
-msgstr ""
-
-#: shortcodes/section-title/section-title.php:155
-msgid "Button Custom Link"
-msgstr ""
-
-#: shortcodes/section-title/section-title.php:173
-#: shortcodes/section-title/section-title.php:188
-#: shortcodes/section-title/section-title.php:195
-#: shortcodes/section-title/section-title.php:202
-#: shortcodes/section-title/section-title.php:209
-#: shortcodes/section-title/section-title.php:216
-#: shortcodes/section-title/section-title.php:223
-#: shortcodes/section-title/section-title.php:230
-#: shortcodes/section-title/section-title.php:237
-#: shortcodes/section-title/section-title.php:244
-#: shortcodes/section-title/section-title.php:254
-#: shortcodes/section-title/section-title.php:261
-#: shortcodes/section-title/section-title.php:269
-msgid "Button Options"
-msgstr ""
-
 #: shortcodes/separator/separator.php:24
 msgid "Separator"
 msgstr ""
 
 #: shortcodes/separator/separator.php:58
+#: shortcodes/separator/widgets/separator-widget.php:37
 msgid "Position"
 msgstr ""
 
 #: shortcodes/separator/separator.php:68
+#: shortcodes/separator/widgets/separator-widget.php:48
 msgid "Width (px or %)"
 msgstr ""
 
 #: shortcodes/separator/separator.php:73
+#: shortcodes/separator/widgets/separator-widget.php:53
 msgid "Thickness (px)"
 msgstr ""
 
 #: shortcodes/separator/separator.php:78
+#: shortcodes/separator/widgets/separator-widget.php:58
 msgid "Style"
 msgstr ""
 
 #: shortcodes/separator/separator.php:81
+#: shortcodes/separator/widgets/separator-widget.php:61
 msgid "Dashed"
 msgstr ""
 
 #: shortcodes/separator/separator.php:83
+#: shortcodes/separator/widgets/separator-widget.php:63
 msgid "Dotted"
 msgstr ""
 
 #: shortcodes/separator/separator.php:89
+#: shortcodes/separator/widgets/separator-widget.php:70
 msgid "Top Margin (px or %)"
 msgstr ""
 
 #: shortcodes/separator/separator.php:95
+#: shortcodes/separator/widgets/separator-widget.php:75
 msgid "Bottom Margin (px or %)"
+msgstr ""
+
+#: shortcodes/separator/widgets/separator-widget.php:16
+msgid "EVC Separator"
+msgstr ""
+
+#: shortcodes/separator/widgets/separator-widget.php:17
+msgid "Add separator element to widget areas"
 msgstr ""
 
 #: shortcodes/shortcodes-extends-class.php:301
@@ -2037,6 +2192,14 @@ msgstr ""
 
 #: shortcodes/text-marquee/text-marquee.php:24
 msgid "Text Marquee"
+msgstr ""
+
+#: shortcodes/text-marquee/widgets/text-marquee-widget.php:16
+msgid "EVC Text Marquee"
+msgstr ""
+
+#: shortcodes/text-marquee/widgets/text-marquee-widget.php:17
+msgid "Add text marquee element to widget areas"
 msgstr ""
 
 #: widgets/widgets-class.php:105
