@@ -15,9 +15,9 @@ Extensive addons or extensions for WPBakery page builder ex. Visual Composer, wh
 
 <blockquote>Extensive WordPress Addons Plugin For WPBakery Page Builder (formerly Visual Composer)</blockquote>
 
-Extensive VC is a powerful WordPress tool which allows you to add unique, flexible and fully responsive shortcode elements on your site. It is an addons for premium plugin <a href="https://codecanyon.net/item/visual-composer-page-builder-for-wordpress/242431?ref=extensive-vc-addons"><strong>WPBakery Page Builder</strong></a> (formerly Visual Composer), so first you need to install/activate this required plugin to be able to use Extensive VC plugin. Plugin contains four packs of shortcode elements (classic, interactive, infographic and typography). All of these shortcode packs you can find in our website in Elements section inside header menu.
+Extensive VC is a powerful WordPress tool which allows you to add unique, flexible and fully responsive shortcode elements on your site. It is an addons for premium plugin <a href="https://codecanyon.net/item/visual-composer-page-builder-for-wordpress/242431?ref=extensive-vc-addon" target="_blank"><strong>WPBakery Page Builder</strong></a> (formerly Visual Composer), so first you need to install/activate this required plugin to be able to use Extensive VC plugin. Plugin contains four packs of shortcode elements (classic, interactive, infographic and typography). All of these shortcode packs you can find in our website in Elements section inside header menu.
 
-See the all of addon elements in action here - <a href="http://wprealize.com/" title="Extensive VC Addons for Visual Composer"><strong>LIVE DEMO</strong></a>
+See the all of addon elements in action here - <a href="http://wprealize.com/" target="_blank" title="Extensive VC Addons for Visual Composer"><strong>LIVE DEMO</strong></a>
 
 <h3>Features</h3>
 <h4 style="margin-top: 1rem;">1. Shortcodes</h4>
@@ -66,9 +66,9 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
 </ul>
 <h4 style="margin-top: 1rem;">4. Plugins Compatibility</h4>
 <ul>
-    <li>WPBakery Page Builder (formerly Visual Composer)</li>
-    <li>Contact Form 7</li>
-    <li>WooCommerce</li>
+    <li><a href="https://codecanyon.net/item/visual-composer-page-builder-for-wordpress/242431?ref=extensive-vc-addon" target="_blank">WPBakery Page Builder (formerly Visual Composer)</a></li>
+    <li><a href="https://wordpress.org/plugins/contact-form-7" target="_blank">Contact Form 7</a></li>
+    <li><a href="https://wordpress.org/plugins/woocommerce/" target="_blank">WooCommerce</a></li>
 </ul>
 <p><strong>This is just the beginning...</strong></p>
 
