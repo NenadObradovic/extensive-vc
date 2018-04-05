@@ -93,6 +93,7 @@ You can find all instructions about plugin and all shortcodes in website <a href
 - Added Title Tag option for Clients shortcode <br />
 - Added Title Color option for Clients shortcode <br />
 - Added Title Top Margin option for Clients shortcode <br />
+- Added Title Bottom Margin option for Clients shortcode <br />
 - Improved framework functions <br />
 - Updated language pot file <br />
 

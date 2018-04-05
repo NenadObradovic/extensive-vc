@@ -130,7 +130,7 @@ if ( ! class_exists( 'EVCImageGallery' ) ) {
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'number_of_visible_items',
-					'heading'    => esc_html__( 'Number Of Visible Items', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Number of Visible Items', 'extensive-vc' ),
 					'value'      => array(
 						esc_html__( 'One', 'extensive-vc' )   => '1',
 						esc_html__( 'Two', 'extensive-vc' )   => '2',

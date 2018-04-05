@@ -1520,6 +1520,10 @@ body.rtl {
   overflow: hidden;
 }
 
+.evc-clients .evc-c-images img {
+  display: block;
+}
+
 .evc-clients .evc-c-original-image {
   position: relative;
   z-index: 1;
@@ -1537,7 +1541,7 @@ body.rtl {
 }
 
 .evc-clients .evc-c-title {
-  margin: 15px 0 0;
+  margin: 25px 0 10px;
 }
 
 .evc-clients .evc-owl-carousel .owl-nav .owl-prev {

@@ -118,6 +118,7 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 - Added Title Tag option for Clients shortcode
 - Added Title Color option for Clients shortcode
 - Added Title Top Margin option for Clients shortcode
+- Added Title Bottom Margin option for Clients shortcode
 - Improved framework functions
 - Updated language pot file
 

@@ -112,7 +112,7 @@ if ( ! class_exists( 'EVCClients' ) ) {
 					'type'       => 'dropdown',
 					'param_name' => 'enable_title',
 					'heading'    => esc_html__( 'Enable Title Text', 'extensive-vc' ),
-					'value'      => array_flip( extensive_vc_get_yes_no_select_array() )
+					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false ) )
 				),
 				array(
 					'type'       => 'dropdown',
@@ -137,6 +137,13 @@ if ( ! class_exists( 'EVCClients' ) ) {
 					'group'      => esc_html__( 'Title Options', 'extensive-vc' )
 				),
 				array(
+					'type'       => 'textfield',
+					'param_name' => 'title_bottom_margin',
+					'heading'    => esc_html__( 'Title Bottom Margin (px)', 'extensive-vc' ),
+					'dependency' => array( 'element' => 'enable_title', 'value' => array( 'yes') ),
+					'group'      => esc_html__( 'Title Options', 'extensive-vc' )
+				),
+				array(
 					'type'       => 'dropdown',
 					'param_name' => 'number_of_columns',
 					'heading'    => esc_html__( 'Number of Columns', 'extensive-vc' ),
@@ -155,7 +162,7 @@ if ( ! class_exists( 'EVCClients' ) ) {
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'number_of_visible_items',
-					'heading'    => esc_html__( 'Number Of Visible Items', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Number of Visible Items', 'extensive-vc' ),
 					'value'      => array(
 						esc_html__( 'One', 'extensive-vc' )   => '1',
 						esc_html__( 'Two', 'extensive-vc' )   => '2',
@@ -251,6 +258,7 @@ if ( ! class_exists( 'EVCClients' ) ) {
 				'title_tag'                => 'h4',
 				'title_color'              => '',
 				'title_top_margin'         => '',
+				'title_bottom_margin'      => '',
 				'number_of_columns'        => 'three',
 				'space_between_items'      => 'normal',
 				'number_of_visible_items'  => '4',
@@ -362,6 +370,10 @@ if ( ! class_exists( 'EVCClients' ) ) {
 			
 			if ( $params['title_top_margin'] !== '' ) {
 				$styles[] = 'margin-top: ' . extensive_vc_filter_px( $params['title_top_margin'] ) . 'px';
+			}
+			
+			if ( $params['title_bottom_margin'] !== '' ) {
+				$styles[] = 'margin-bottom: ' . extensive_vc_filter_px( $params['title_bottom_margin'] ) . 'px';
 			}
 			
 			return implode( ';', $styles );

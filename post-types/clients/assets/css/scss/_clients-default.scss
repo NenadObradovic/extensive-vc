@@ -23,6 +23,10 @@
 	.evc-c-images {
 		@include evcRelativeLayout();
 		overflow: hidden;
+		
+		img {
+			display: block;
+		}
 	}
 	
 	.evc-c-original-image {
@@ -42,7 +46,7 @@
     }
 	
 	.evc-c-title {
-		margin: 15px 0 0;
+		margin: 25px 0 10px;
 	}
     
     .evc-owl-carousel {

@@ -43,7 +43,9 @@ if ( ! function_exists( 'extensive_vc_init_admin_options_style' ) ) {
 				'.evc-process .evc-p-circle',
 				'.evc-process .evc-p-line',
 				'.evc-progress-bar .evc-pb-active-bar',
-				'.evc-pricing-table .evc-pti-inner li.evc-pti-prices'
+				'.evc-pricing-table .evc-pti-inner li.evc-pti-prices',
+				'.evc-pli-add-to-cart a:hover',
+				'.evc-pli-mark .onsale'
 			);
 			
 			$main_color_b_selector = array(
