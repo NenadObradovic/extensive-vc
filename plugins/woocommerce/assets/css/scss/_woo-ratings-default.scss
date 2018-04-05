@@ -1,0 +1,58 @@
+/* ==========================================================================
+   WooCommerce Ratings global styles - begin
+   ========================================================================== */
+
+@mixin evcWooCommerceRatingIcon($content: '\f3ae\f3ae\f3ae\f3ae\f3ae', $size: 16px){
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	content: $content;
+	font-family: 'Ionicons';
+	font-size: $size;
+	line-height: inherit;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	letter-spacing: .2em;
+	text-transform: none;
+	text-rendering: auto;
+	color: inherit;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.evc-pli-ratings {
+	@include evcRelativeLayout();
+	line-height: 1;
+	color: #fbd60c;
+	
+	.star-rating {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		line-height: inherit;
+		
+		&:before {
+			@include evcWooCommerceRatingIcon();
+		}
+		
+		> span {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			font-size: 0;
+			line-height: inherit;
+			overflow: hidden;
+			
+			&:before {
+				@include evcWooCommerceRatingIcon('\f2fc\f2fc\f2fc\f2fc\f2fc');
+			}
+		}
+	}
+}
+
+/* ==========================================================================
+   WooCommerce Ratings global styles - end
+   ========================================================================== */

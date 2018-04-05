@@ -46,9 +46,31 @@ if ( ! function_exists( 'extensive_vc_add_admin_shortcodes_icon_styles' ) ) {
 		
 		if ( ! empty( $icons ) ) {
 			foreach ( $icons as $icon ) {
-				$module     = isset( $icon['module'] ) && $icon['module'] === true ? EXTENSIVE_VC_CPT_URL_PATH : EXTENSIVE_VC_SHORTCODES_URL_PATH;
+				$module_path = EXTENSIVE_VC_SHORTCODES_URL_PATH;
+				$module      = isset( $icon['module'] ) && ! empty( $icon['module'] ) ? esc_attr( $icon['module'] ) : '';
+				
+				if ( ! empty( $module ) ) {
+					switch ( $module ) {
+						case 'in_cpt':
+							$module_path = EXTENSIVE_VC_CPT_URL_PATH;
+							break;
+						case 'in_plugins':
+							$plugin_module = isset( $icon['plugin_module'] ) && ! empty( $icon['plugin_module'] ) ? esc_attr( $icon['plugin_module'] ) : '';
+							
+							if ( ! empty( $plugin_module ) ) {
+								switch ( $plugin_module ) {
+									case 'woocommerce':
+										$plugin_module = '/woocommerce/shortcodes';
+										break;
+								}
+							}
+							$module_path   = EXTENSIVE_VC_PLUGINS_URL_PATH . $plugin_module;
+							break;
+					}
+				}
+				
 				$icon_name  = isset( $icon['child_item'] ) && $icon['child_item'] === true ? 'admin_child_icon' : 'admin_icon';
-				$admin_icon = $module . '/' . esc_attr( $icon['shortcode'] ) . '/assets/img/' . $icon_name . '.png';
+				$admin_icon = $module_path . '/' . esc_attr( $icon['shortcode'] ) . '/assets/img/' . $icon_name . '.png';
 				
 				if ( ! empty( $admin_icon ) ) {
 					$iconStyles[] = '.vc_element-icon.evc-vc-custom-icon' . esc_attr( $icon['class'] ) . ' {

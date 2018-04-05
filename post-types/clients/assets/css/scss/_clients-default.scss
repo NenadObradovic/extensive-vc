@@ -7,14 +7,23 @@
     text-align: center;
 	
     .evc-c-item {
-        position: relative;
-        display: inline-block;
-        vertical-align: top;
-        
-        .touch & {
-            cursor: pointer;
-        }
+        @include evcRelativeLayout();
     }
+	
+	.evc-c-item-inner {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		
+		.touch & {
+			cursor: pointer;
+		}
+	}
+	
+	.evc-c-images {
+		@include evcRelativeLayout();
+		overflow: hidden;
+	}
 	
 	.evc-c-original-image {
 		position: relative;
@@ -31,6 +40,10 @@
         position: relative;
         display: block;
     }
+	
+	.evc-c-title {
+		margin: 15px 0 0;
+	}
     
     .evc-owl-carousel {
         
@@ -54,14 +67,17 @@
 			
 			&.evc-c-has-hover {
 				
-				&:hover {
+				.evc-c-item-inner {
 					
-					.evc-c-original-image {
-						opacity: 0;
-					}
-					
-					.evc-c-hover-image {
-						opacity: 1;
+					&:hover {
+						
+						.evc-c-original-image {
+							opacity: 0;
+						}
+						
+						.evc-c-hover-image {
+							opacity: 1;
+						}
 					}
 				}
 			}
@@ -81,18 +97,20 @@
 	&.evc-c-roll-over {
 		
 		.evc-c-item {
-			overflow: hidden;
 			
 			&.evc-c-has-hover {
 				
-				&:hover {
+				.evc-c-item-inner {
 					
-					.evc-c-original-image {
-						@include evcTransform(translateY(100%));
-					}
-					
-					.evc-c-hover-image {
-						@include evcTransform(translateY(0));
+					&:hover {
+						
+						.evc-c-original-image {
+							@include evcTransform(translateY(100%));
+						}
+						
+						.evc-c-hover-image {
+							@include evcTransform(translateY(0));
+						}
 					}
 				}
 			}

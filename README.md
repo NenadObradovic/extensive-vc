@@ -2,7 +2,7 @@
 
 Welcome to the Extensive VC repository on GitHub. Here you can browse the source, look at open issues and keep track of development. 
 
-Extensive VC is a powerful WordPress tool which allows you to add unique, flexible and fully responsive shortcode elements on your site. It is an addons for premium plugin <a href="https://vc.wpbakery.com/"><strong>WPBakery Page Builder</strong></a> (formerly Visual Composer), so first you need to install/activate this required plugin to be able to use Extensive VC plugin. Plugin contains four packs of shortcode elements (classic, interactive, infographic and typography). All of these shortcode packs you can find in our website in Elements section inside header menu.
+Extensive VC is a powerful WordPress tool which allows you to add unique, flexible and fully responsive shortcode elements on your site. It is an addons for premium plugin <a href="https://codecanyon.net/item/visual-composer-page-builder-for-wordpress/242431?ref=extensive-vc-addons"><strong>WPBakery Page Builder</strong></a> (formerly Visual Composer), so first you need to install/activate this required plugin to be able to use Extensive VC plugin. Plugin contains four packs of shortcode elements (classic, interactive, infographic and typography). All of these shortcode packs you can find in our website in Elements section inside header menu.
 
 See the all of addon elements in action here - <a href="http://wprealize.com/" title="Extensive VC Addons for Visual Composer"><strong>LIVE DEMO</strong></a>
 <h3>Features</h3>
@@ -23,6 +23,7 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
 	<li><a href="http://wprealize.com/interactive/interactive-banner/">Interactive - Interactive Banner</a></li>
 	<li><a href="http://wprealize.com/interactive/process/">Interactive - Process</a></li>
 	<li><a href="http://wprealize.com/interactive/process-2/">Interactive - Process 2</a></li>
+	<li><a href="http://wprealize.com/interactive/product-list/">Interactive - Product List (New)</a></li>
 	<li><a href="http://wprealize.com/interactive/testimonials/">Interactive - Testimonials</a></li>
 	<li><a href="http://wprealize.com/infographic/counter/">Infographic - Counter</a></li>
 	<li><a href="http://wprealize.com/infographic/doughnut-chart/">Infographic - Doughnut Chart</a></li>
@@ -46,8 +47,14 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
     <li>Button Widget</li>
     <li>Contact Form 7 Widget</li>
     <li>Custom Font Widget</li>
-    <li>Image Gallery Widget</li>
     <li>Separator Widget</li>
+    <li>Text Marquee Widget</li>
+</ul>
+<h4 style="margin-top: 1rem;">4. Plugins Compatibility</h4>
+<ul>
+    <li>WPBakery Page Builder (formerly Visual Composer)</li>
+    <li>Contact Form 7</li>
+    <li>WooCommerce</li>
 </ul>
 <p><strong>This is just the beginning...</strong></p>
 
@@ -74,6 +81,19 @@ From wordpress.org
 You can find all instructions about plugin and all shortcodes in website <a href="http://wprealize.com/"><strong>WP Realize - Extensive VC</strong></a>
 
 <h3>Changelog</h3>
+
+<h5>1.6.2</h5>
+- Added WooCommerce compatibility <br />
+- Added Product List shortcode <br />
+- Added Type option for Clients shortcode <br />
+- Added Number Of Columns option for Clients shortcode <br />
+- Added Space Between Items option for Clients shortcode <br />
+- Added Enable Title option for Clients shortcode <br />
+- Added Title Tag option for Clients shortcode <br />
+- Added Title Color option for Clients shortcode <br />
+- Added Title Top Margin option for Clients shortcode <br />
+- Improved framework functions <br />
+- Updated language pot file <br />
 
 <h5>1.6.1</h5>
 - Added Pricing Tables shortcode <br />

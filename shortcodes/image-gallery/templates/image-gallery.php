@@ -7,8 +7,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 $i  = 0;
 $id = rand( 1000, 9999 );
 ?>
-<div class="evc-image-gallery evc-shortcode <?php echo esc_attr( $holder_classes ); ?>">
-	<div class="evc-ig-wrapper evc-element-has-columns evc-element-wrapper <?php echo esc_attr( $inner_classes ); ?>">
+<div class="evc-image-gallery evc-shortcode evc-element-has-columns <?php echo esc_attr( $holder_classes ); ?>">
+	<div class="evc-ig-wrapper evc-element-wrapper">
 		<?php foreach ( $images as $image ) { ?>
 			<div class="evc-ig-image-item evc-element-item">
 				<div class="evc-ig-image <?php echo esc_attr( $image_classes ); ?>">

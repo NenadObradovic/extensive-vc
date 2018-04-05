@@ -237,7 +237,6 @@ if ( ! class_exists( 'EVCImageGallery' ) ) {
 			$params = shortcode_atts( $args, $atts );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params, $args );
-			$params['inner_classes']  = $this->getInnerClasses( $params, $args );
 			$params['slider_data']    = $this->getSliderData( $params, $args );
 			
 			$params['image_classes'] = $this->getImageClasses( $params );
@@ -265,25 +264,10 @@ if ( ! class_exists( 'EVCImageGallery' ) ) {
 			
 			$holderClasses[] = ! empty( $params['custom_class'] ) ? esc_attr( $params['custom_class'] ) : '';
 			$holderClasses[] = ! empty( $params['type'] ) ? 'evc-ig-' . $params['type'] . '-type' : 'evc-ig-' . $args['type'] . '-type';
+			$holderClasses[] = ! empty( $params['number_of_columns'] ) ? 'evc-' . $params['number_of_columns'] . '-columns' : 'evc-' . $args['number_of_columns'] . '-columns';
 			$holderClasses[] = ! empty( $params['space_between_items'] ) ? 'evc-' . $params['space_between_items'] . '-space' : 'evc-' . $args['space_between_items'] . '-space';
 			$holderClasses[] = ! empty( $params['custom_links'] ) && $params['image_behavior'] !== 'lightbox' ? 'evc-shortcode-has-link' : '';
 			$holderClasses[] = ! empty( $params['carousel_navigation_skin'] ) ? 'evc-carousel-skin-' . esc_attr( $params['carousel_navigation_skin'] ) : '';
-			
-			return implode( ' ', $holderClasses );
-		}
-		
-		/**
-		 * Get shortcode inner classes
-		 *
-		 * @param $params array - shortcode parameters value
-		 * @param $args array - default shortcode parameters value
-		 *
-		 * @return string
-		 */
-		private function getInnerClasses( $params, $args ) {
-			$holderClasses = array();
-			
-			$holderClasses[] = ! empty( $params['number_of_columns'] ) ? 'evc-' . $params['number_of_columns'] . '-columns' : 'evc-' . $args['number_of_columns'] . '-columns';
 			
 			return implode( ' ', $holderClasses );
 		}

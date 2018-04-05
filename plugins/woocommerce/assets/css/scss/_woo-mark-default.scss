@@ -1,0 +1,30 @@
+/* ==========================================================================
+   WooCommerce Mark global styles - begin
+   ========================================================================== */
+
+.evc-pli-mark {
+	
+	.onsale {
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		display: block;
+		width: 55px;
+		height: 55px;
+		padding: 2px;
+		font-size: 12px;
+		line-height: 53px;
+		font-weight: 700;
+		text-transform: uppercase;
+		text-align: center;
+		color: #fff;
+		background-color: $main-color;
+		border-radius: 50%;
+		z-index: 100;
+		box-sizing: border-box;
+	}
+}
+
+/* ==========================================================================
+   WooCommerce Mark global styles - end
+   ========================================================================== */

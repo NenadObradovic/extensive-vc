@@ -1,0 +1,46 @@
+/* ==========================================================================
+   WooCommerce Add To Cart global styles - begin
+   ========================================================================== */
+
+.evc-pli-add-to-cart {
+	@include evcRelativeLayout();
+	
+	a {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		width: auto;
+		margin: 0;
+		padding: 11px 36px;
+		font-family: inherit;
+		font-size: 11px;
+		line-height: 2em;
+		letter-spacing: 0.1em;
+		font-weight: 700;
+		text-transform: uppercase;
+		text-decoration: none;
+		text-shadow: none;
+		color: $light-color;
+		background-color: $dark-color;
+		border: 0;
+		border-radius: 0;
+		box-shadow: none;
+		outline: none;
+		cursor: pointer;
+		box-sizing: border-box;
+		@include evcTransition(color .3s ease-in-out, background-color .3s ease-in-out, border-color .3s ease-in-out);
+		
+		&:hover {
+			color: $light-color;
+			background-color: $main-color;
+		}
+		
+		&.add_to_cart_button.added {
+			display: none;
+		}
+	}
+}
+
+/* ==========================================================================
+   WooCommerce Add To Cart global styles - end
+   ========================================================================== */

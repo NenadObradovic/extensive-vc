@@ -30,10 +30,12 @@ if ( ! class_exists( 'EVCShortcode' ) ) {
 		 * @param $shortcodeParams array - set specific shortcode behavior
 		 */
 		function __construct( $shortcodeParams = array() ) {
-			$hasChild = false; 
-			$hasParent = false; 
-			$isNested = false;
-			$isInCPT = false;
+			$hasChild     = false;
+			$hasParent    = false;
+			$isNested     = false;
+			$isInCPT      = false;
+			$isInPlugins  = false;
+			$pluginModule = '';
 			
 			extract( $shortcodeParams );
 			
@@ -43,10 +45,12 @@ if ( ! class_exists( 'EVCShortcode' ) ) {
 			if ( $this->getIsShortcodeEnabled() ) {
 				$this->setShortcodeConstructor(
 					array(
-						'has_child'  => $hasChild,
-						'has_parent' => $hasParent,
-						'is_nested'  => $isNested,
-						'in_cpt'     => $isInCPT
+						'has_child'     => $hasChild,
+						'has_parent'    => $hasParent,
+						'is_nested'     => $isNested,
+						'in_cpt'        => $isInCPT,
+						'in_plugins'    => $isInPlugins,
+						'plugin_module' => $pluginModule
 				    )
 				);
 				$this->setIconClass( 'icon-wpb-' . strtolower( str_replace( ' ', '-', $this->getShortcodeName() ) ) );
@@ -214,7 +218,7 @@ if ( ! class_exists( 'EVCShortcode' ) ) {
 		 * @return array
 		 */
 		function addShortcode( $shortcodesInstance ) {
-			$shortcodesInstance[] = $this;
+			$shortcodesInstance[ $this->getBase() ] = array( $this, 'render' );
 			
 			return $shortcodesInstance;
 		}
@@ -229,11 +233,21 @@ if ( ! class_exists( 'EVCShortcode' ) ) {
 		function addShortcodeIcon( $icon ) {
 			$shortcodeConstructor = $this->getShortcodeConstructor();
 			
+			$module       = false;
+			$pluginModule = '';
+			if ( $shortcodeConstructor['in_cpt'] === true ) {
+				$module = 'in_cpt';
+			} else if ( $shortcodeConstructor['in_plugins'] === true ) {
+				$module       = 'in_plugins';
+				$pluginModule = ! empty( $shortcodeConstructor['plugin_module'] ) ? $shortcodeConstructor['plugin_module'] : '';
+			}
+			
 			$icon[] = array(
-				'module'     => $shortcodeConstructor['in_cpt'] === true ? true : false,
-				'class'      => '.' . $this->getIconClass(),
-				'shortcode'  => $shortcodeConstructor['has_parent'] === true ? str_replace( array( ' ', '-item' ), array( '-', '' ), strtolower( $this->getShortcodeName() ) ) : strtolower( str_replace( ' ', '-', $this->getShortcodeName() ) ),
-				'child_item' => $shortcodeConstructor['has_parent'] === true ? true : false
+				'module'        => $module,
+				'plugin_module' => $pluginModule,
+				'class'         => '.' . $this->getIconClass(),
+				'shortcode'     => $shortcodeConstructor['has_parent'] === true ? str_replace( array( ' ', '-item' ), array( '-', '' ), strtolower( $this->getShortcodeName() ) ) : strtolower( str_replace( ' ', '-', $this->getShortcodeName() ) ),
+				'child_item'    => $shortcodeConstructor['has_parent'] === true
 			);
 			
 			return apply_filters( 'extensive_vc_filter_add_shortcodes_custom_icon_object', $icon );

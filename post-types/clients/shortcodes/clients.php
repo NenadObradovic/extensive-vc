@@ -72,6 +72,16 @@ if ( ! class_exists( 'EVCClients' ) ) {
 					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
 				),
 				array(
+					'type'        => 'dropdown',
+					'param_name'  => 'type',
+					'heading'     => esc_html__( 'Type', 'extensive-vc' ),
+					'value'       => array(
+						esc_html__( 'Slider', 'extensive-vc' )  => 'slider',
+						esc_html__( 'Gallery', 'extensive-vc' ) => 'gallery'
+					),
+					'save_always' => true
+				),
+				array(
 					'type'        => 'textfield',
 					'param_name'  => 'number',
 					'heading'     => esc_html__( 'Number of Clients', 'extensive-vc' ),
@@ -100,6 +110,50 @@ if ( ! class_exists( 'EVCClients' ) ) {
 				),
 				array(
 					'type'       => 'dropdown',
+					'param_name' => 'enable_title',
+					'heading'    => esc_html__( 'Enable Title Text', 'extensive-vc' ),
+					'value'      => array_flip( extensive_vc_get_yes_no_select_array() )
+				),
+				array(
+					'type'       => 'dropdown',
+					'param_name' => 'title_tag',
+					'heading'    => esc_html__( 'Title Tag', 'extensive-vc' ),
+					'value'      => array_flip( extensive_vc_get_title_tag_array( true, array( 'p' => 'p' ) ) ),
+					'dependency' => array( 'element' => 'enable_title', 'value' => array( 'yes') ),
+					'group'      => esc_html__( 'Title Options', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'colorpicker',
+					'param_name' => 'title_color',
+					'heading'    => esc_html__( 'Title Color', 'extensive-vc' ),
+					'dependency' => array( 'element' => 'enable_title', 'value' => array( 'yes') ),
+					'group'      => esc_html__( 'Title Options', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'textfield',
+					'param_name' => 'title_top_margin',
+					'heading'    => esc_html__( 'Title Top Margin (px)', 'extensive-vc' ),
+					'dependency' => array( 'element' => 'enable_title', 'value' => array( 'yes') ),
+					'group'      => esc_html__( 'Title Options', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'dropdown',
+					'param_name' => 'number_of_columns',
+					'heading'    => esc_html__( 'Number of Columns', 'extensive-vc' ),
+					'value'      => array_flip( extensive_vc_get_number_of_columns_array() ),
+					'dependency' => array( 'element' => 'type', 'value' => array( 'gallery' ) ),
+					'group'      => esc_html__( 'Gallery Options', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'dropdown',
+					'param_name' => 'space_between_items',
+					'heading'    => esc_html__( 'Space Between Items', 'extensive-vc' ),
+					'value'      => array_flip( extensive_vc_get_space_between_items_array() ),
+					'dependency' => array( 'element' => 'type', 'value' => array( 'gallery' ) ),
+					'group'      => esc_html__( 'Gallery Options', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'dropdown',
 					'param_name' => 'number_of_visible_items',
 					'heading'    => esc_html__( 'Number Of Visible Items', 'extensive-vc' ),
 					'value'      => array(
@@ -110,6 +164,7 @@ if ( ! class_exists( 'EVCClients' ) ) {
 						esc_html__( 'Five', 'extensive-vc' )  => '5',
 						esc_html__( 'Six', 'extensive-vc' )   => '6'
 					),
+					'dependency' => array( 'element' => 'type', 'value' => array( 'slider' ) ),
 					'group'      => esc_html__( 'Slider Options', 'extensive-vc' )
 				),
 				array(
@@ -117,6 +172,7 @@ if ( ! class_exists( 'EVCClients' ) ) {
 					'param_name' => 'carousel_loop',
 					'heading'    => esc_html__( 'Enable Slider Loop', 'extensive-vc' ),
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
+					'dependency' => array( 'element' => 'type', 'value' => array( 'slider' ) ),
 					'group'      => esc_html__( 'Slider Options', 'extensive-vc' )
 				),
 				array(
@@ -124,6 +180,7 @@ if ( ! class_exists( 'EVCClients' ) ) {
 					'param_name' => 'carousel_autoplay',
 					'heading'    => esc_html__( 'Enable Slider Autoplay', 'extensive-vc' ),
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
+					'dependency' => array( 'element' => 'type', 'value' => array( 'slider' ) ),
 					'group'      => esc_html__( 'Slider Options', 'extensive-vc' )
 				),
 				array(
@@ -131,6 +188,7 @@ if ( ! class_exists( 'EVCClients' ) ) {
 					'param_name'  => 'carousel_speed',
 					'heading'     => esc_html__( 'Slide Duration (ms)', 'extensive-vc' ),
 					'description' => esc_html__( 'Speed of slide in milliseconds. Default value is 5000', 'extensive-vc' ),
+					'dependency'  => array( 'element' => 'type', 'value' => array( 'slider' ) ),
 					'group'       => esc_html__( 'Slider Options', 'extensive-vc' )
 				),
 				array(
@@ -138,6 +196,7 @@ if ( ! class_exists( 'EVCClients' ) ) {
 					'param_name'  => 'carousel_speed_animation',
 					'heading'     => esc_html__( 'Slide Animation Duration (ms)', 'extensive-vc' ),
 					'description' => esc_html__( 'Speed of slide animation in milliseconds. Default value is 600', 'extensive-vc' ),
+					'dependency'  => array( 'element' => 'type', 'value' => array( 'slider' ) ),
 					'group'       => esc_html__( 'Slider Options', 'extensive-vc' )
 				),
 				array(
@@ -145,6 +204,7 @@ if ( ! class_exists( 'EVCClients' ) ) {
 					'param_name' => 'carousel_navigation',
 					'heading'    => esc_html__( 'Enable Slider Navigation', 'extensive-vc' ),
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
+					'dependency' => array( 'element' => 'type', 'value' => array( 'slider' ) ),
 					'group'      => esc_html__( 'Slider Options', 'extensive-vc' )
 				),
 				array(
@@ -152,6 +212,7 @@ if ( ! class_exists( 'EVCClients' ) ) {
 					'param_name' => 'carousel_pagination',
 					'heading'    => esc_html__( 'Enable Slider Pagination', 'extensive-vc' ),
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
+					'dependency' => array( 'element' => 'type', 'value' => array( 'slider' ) ),
 					'group'      => esc_html__( 'Slider Options', 'extensive-vc' )
 				),
 				array(
@@ -162,6 +223,7 @@ if ( ! class_exists( 'EVCClients' ) ) {
 						esc_html__( 'Default', 'extensive-vc' ) => '',
 						esc_html__( 'Light', 'extensive-vc' )   => 'light'
 					),
+					'dependency' => array( 'element' => 'type', 'value' => array( 'slider' ) ),
 					'group'      => esc_html__( 'Slider Options', 'extensive-vc' )
 				)
 			);
@@ -180,10 +242,17 @@ if ( ! class_exists( 'EVCClients' ) ) {
 		function render( $atts, $content = null ) {
 			$args   = array(
 				'custom_class'             => '',
+				'type'                     => 'slider',
 				'number'                   => '-1',
 				'category'                 => '',
 				'custom_link_target'       => '_self',
 				'items_hover_animation'    => 'switch-images',
+				'enable_title'             => 'no',
+				'title_tag'                => 'h4',
+				'title_color'              => '',
+				'title_top_margin'         => '',
+				'number_of_columns'        => 'three',
+				'space_between_items'      => 'normal',
 				'number_of_visible_items'  => '4',
 				'carousel_loop'            => 'yes',
 				'carousel_autoplay'        => 'yes',
@@ -196,12 +265,17 @@ if ( ! class_exists( 'EVCClients' ) ) {
 			$params = shortcode_atts( $args, $atts );
 			
 			$params['query_results']  = new \WP_Query( $this->getQueryParams( $params ) );
+			
+			$params['type'] = ! empty( $params['type'] ) ? $params['type'] : $args['type'];
+			
 			$params['holder_classes'] = $this->getHolderClasses( $params, $args );
 			$params['slider_data']    = $this->getSliderData( $params, $args );
 			
+			$params['title_tag']          = ! empty( $params['title_tag'] ) ? $params['title_tag'] : $args['title_tag'];
+			$params['title_styles']       = $this->getTitleStyles( $params );
 			$params['custom_link_target'] = ! empty( $params['custom_link_target'] ) ? $params['custom_link_target'] : $args['custom_link_target'];
 			
-			$html = extensive_vc_get_module_template_part( 'cpt', 'clients', 'templates/clients-holder', '', $params );
+			$html = extensive_vc_get_module_template_part( 'cpt', 'clients', 'templates/clients-holder', $params['type'], $params );
 			
 			return $html;
 		}
@@ -219,6 +293,8 @@ if ( ! class_exists( 'EVCClients' ) ) {
 			
 			$holderClasses[] = ! empty( $params['custom_class'] ) ? esc_attr( $params['custom_class'] ) : '';
 			$holderClasses[] = ! empty( $params['items_hover_animation'] ) ? 'evc-c-' . esc_attr( $params['items_hover_animation'] ) : 'evc-c-' . esc_attr( $args['items_hover_animation'] );
+			$holderClasses[] = ! empty( $params['number_of_columns'] ) ? 'evc-' . $params['number_of_columns'] . '-columns' : 'evc-' . $args['number_of_columns'] . '-columns';
+			$holderClasses[] = ! empty( $params['space_between_items'] ) ? 'evc-' . $params['space_between_items'] . '-space' : 'evc-' . $args['space_between_items'] . '-space';
 			$holderClasses[] = ! empty( $params['carousel_navigation_skin'] ) ? 'evc-carousel-skin-' . esc_attr( $params['carousel_navigation_skin'] ) : '';
 			
 			return implode( ' ', $holderClasses );
@@ -268,6 +344,27 @@ if ( ! class_exists( 'EVCClients' ) ) {
 			$data['data-enable-pagination']           = ! empty( $params['carousel_pagination'] ) ? $params['carousel_pagination'] : $args['carousel_pagination'];
 			
 			return $data;
+		}
+		
+		/**
+		 * Get title styles
+		 *
+		 * @param $params array - shortcode parameters value
+		 *
+		 * @return string
+		 */
+		private function getTitleStyles( $params ) {
+			$styles = array();
+			
+			if ( ! empty( $params['title_color'] ) ) {
+				$styles[] = 'color: ' . $params['title_color'];
+			}
+			
+			if ( $params['title_top_margin'] !== '' ) {
+				$styles[] = 'margin-top: ' . extensive_vc_filter_px( $params['title_top_margin'] ) . 'px';
+			}
+			
+			return implode( ';', $styles );
 		}
 		
 		/**

@@ -1,0 +1,137 @@
+/* ==========================================================================
+   Product List shortcode styles - begin
+   ========================================================================== */
+
+.evc-product-list {
+    @include evcRelativeLayout();
+
+    .evc-pli-inner {
+	    @include evcRelativeLayout();
+	    
+	    .touch & {
+		    cursor: pointer;
+	    }
+	
+	    &:hover {
+		
+		    .evc-pli-info-on-image {
+			    opacity: 1;
+		    }
+	    }
+    }
+	
+	.evc-pli-image-wrapper {
+		@include evcRelativeLayout();
+	}
+	
+	.evc-pli-info-on-image {
+		@include evcFlexAbsoluteLayout();
+		padding: 20px;
+		background-color: rgba($dark-color, .5);
+		opacity: 0;
+		box-sizing: border-box;
+		@include evcTransition(opacity .3s ease-in-out);
+	}
+	
+	.evc-pli-content {
+		@include evcRelativeLayout();
+		margin: 25px 0 7px;
+	}
+	
+	.evc-pli-ratings {
+		margin-top: 10px;
+	}
+	
+	.evc-pli-price {
+		margin-top: 9px;
+	}
+	
+	.evc-pli-add-to-cart {
+		z-index: 2;
+	}
+	
+	/***** Specific styles - begin *****/
+	
+	.evc-pli-info-on-image {
+		
+		.evc-pli-title {
+			color: #fff;
+		}
+		
+		.evc-pli-price {
+			
+			.price {
+				color: #fff;
+			}
+			
+			del {
+				color: rgba(#fff, .6);
+			}
+		}
+		
+		.evc-pli-category {
+			
+			a {
+				position: relative;
+				color: #fff;
+				z-index: 2;
+				
+				&:hover {
+					color: rgba(#fff, .6);
+				}
+			}
+		}
+	}
+	
+	/***** Specific styles - end *****/
+	
+	/***** Layout Collections styles - begin *****/
+	
+	&.evc-layout-standard-button-sliding {
+		
+		.evc-pli-inner {
+			
+			&:hover {
+				
+				.evc-pli-add-to-cart {
+					@include evcTransform(translateY(0));
+				}
+			}
+		}
+		
+		.evc-pli-image-wrapper {
+			overflow: hidden;
+		}
+		
+		.evc-pli-add-to-cart {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			@include evcTransform(translateY(101%));
+			@include evcTransitionTransform(.3s ease-in-out);
+			
+			a {
+				width: 100%;
+				padding: 13px 20px;
+				text-align: center;
+			}
+		}
+	}
+	
+	&.evc-layout-gallery {
+		
+		.evc-pli-inner {
+			overflow: hidden;
+		}
+		
+		.evc-pli-add-to-cart {
+			margin-top: 25px;
+		}
+	}
+	
+	/***** Layout Collections styles - end *****/
+}
+
+/* ==========================================================================
+   Product List shortcode styles - end
+   ========================================================================== */

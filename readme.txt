@@ -1,10 +1,10 @@
 === Extensive VC Addons for WPBakery page builder ===
 Contributors: nenad-obradovic
-Tags: visual composer, wpbakery page builder, visual composer addons, wpbakery addons, wpbakery visual composer
+Tags: visual composer, visual composer addons, wpbakery page builder, wpbakery addons, wpbakery shortcodes
 Donate link: http://wprealize.com/donate/
 Requires at least: 4.6
-Tested up to: 4.9.4
-Stable tag: 1.6.1
+Tested up to: 4.9.5
+Stable tag: 1.6.2
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -15,7 +15,7 @@ Extensive addons or extensions for WPBakery page builder ex. Visual Composer, wh
 
 <blockquote>Extensive WordPress Addons Plugin For WPBakery Page Builder (formerly Visual Composer)</blockquote>
 
-Extensive VC is a powerful WordPress tool which allows you to add unique, flexible and fully responsive shortcode elements on your site. It is an addons for premium plugin <a href="https://vc.wpbakery.com/"><strong>WPBakery Page Builder</strong></a> (formerly Visual Composer), so first you need to install/activate this required plugin to be able to use Extensive VC plugin. Plugin contains four packs of shortcode elements (classic, interactive, infographic and typography). All of these shortcode packs you can find in our website in Elements section inside header menu.
+Extensive VC is a powerful WordPress tool which allows you to add unique, flexible and fully responsive shortcode elements on your site. It is an addons for premium plugin <a href="https://codecanyon.net/item/visual-composer-page-builder-for-wordpress/242431?ref=extensive-vc-addons"><strong>WPBakery Page Builder</strong></a> (formerly Visual Composer), so first you need to install/activate this required plugin to be able to use Extensive VC plugin. Plugin contains four packs of shortcode elements (classic, interactive, infographic and typography). All of these shortcode packs you can find in our website in Elements section inside header menu.
 
 See the all of addon elements in action here - <a href="http://wprealize.com/" title="Extensive VC Addons for Visual Composer"><strong>LIVE DEMO</strong></a>
 
@@ -37,6 +37,7 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
 	<li><a href="http://wprealize.com/interactive/interactive-banner/">Interactive - Interactive Banner</a></li>
 	<li><a href="http://wprealize.com/interactive/process/">Interactive - Process</a></li>
 	<li><a href="http://wprealize.com/interactive/process-2/">Interactive - Process 2</a></li>
+	<li><a href="http://wprealize.com/interactive/product-list/">Interactive - Product List (New)</a></li>
 	<li><a href="http://wprealize.com/interactive/testimonials/">Interactive - Testimonials</a></li>
 	<li><a href="http://wprealize.com/infographic/counter/">Infographic - Counter</a></li>
 	<li><a href="http://wprealize.com/infographic/doughnut-chart/">Infographic - Doughnut Chart</a></li>
@@ -60,8 +61,14 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
     <li>Button Widget</li>
     <li>Contact Form 7 Widget</li>
     <li>Custom Font Widget</li>
-    <li>Image Gallery Widget</li>
     <li>Separator Widget</li>
+    <li>Text Marquee Widget</li>
+</ul>
+<h4 style="margin-top: 1rem;">4. Plugins Compatibility</h4>
+<ul>
+    <li>WPBakery Page Builder (formerly Visual Composer)</li>
+    <li>Contact Form 7</li>
+    <li>WooCommerce</li>
 </ul>
 <p><strong>This is just the beginning...</strong></p>
 
@@ -100,6 +107,19 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 5. Blockquote shortcode example.
 
 == Changelog ==
+
+= 1.6.2 =
+- Added WooCommerce compatibility
+- Added Product List shortcode
+- Added Type option for Clients shortcode
+- Added Number Of Columns option for Clients shortcode
+- Added Space Between Items option for Clients shortcode
+- Added Enable Title option for Clients shortcode
+- Added Title Tag option for Clients shortcode
+- Added Title Color option for Clients shortcode
+- Added Title Top Margin option for Clients shortcode
+- Improved framework functions
+- Updated language pot file
 
 = 1.6.1 =
 - Added Pricing Tables shortcode

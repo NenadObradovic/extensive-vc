@@ -31,11 +31,17 @@ if ( ! function_exists( 'extensive_vc_get_module_template_part' ) ) {
 	 * @param $slug string - name of the template suffix to load different file
 	 * @param $params array - array of parameters to pass to template
 	 *
-	 * @return html
+	 * @return string/html
 	 */
 	function extensive_vc_get_module_template_part( $module, $shortcode, $template_path, $slug = '', $params = array() ) {
 		
 		switch ( $module ) {
+			case 'woocommerce':
+				$module        = EXTENSIVE_VC_PLUGINS_ABS_PATH . '/woocommerce/shortcodes';
+				break;
+			case 'woocommerce-part':
+				$module        = EXTENSIVE_VC_PLUGINS_ABS_PATH . '/woocommerce';
+				break;
 			case 'cpt':
 				$module        = EXTENSIVE_VC_CPT_ABS_PATH;
 				$template_path = 'shortcodes/' . $template_path;
@@ -470,6 +476,59 @@ if ( ! function_exists( 'extensive_vc_get_space_between_items_array' ) ) {
 		$options['small']  = esc_html__( 'Small', 'extensive-vc' );
 		$options['tiny']   = esc_html__( 'Tiny', 'extensive-vc' );
 		$options['no']     = esc_html__( 'No', 'extensive-vc' );
+		
+		return $options;
+	}
+}
+
+if ( ! function_exists( 'extensive_vc_get_query_order_by_array' ) ) {
+	/**
+	 * Returns array of query order by
+	 *
+	 * @param bool $first_empty
+	 * @param array $additional_options
+	 *
+	 * @return array
+	 */
+	function extensive_vc_get_query_order_by_array( $first_empty = false, $additional_options = array() ) {
+		$options = array();
+		
+		if ( $first_empty ) {
+			$options[''] = esc_html__( 'Default', 'extensive-vc' );
+		}
+		
+		$options['date']       = esc_html__( 'Date', 'extensive-vc' );
+		$options['ID']         = esc_html__( 'ID', 'extensive-vc' );
+		$options['menu_order'] = esc_html__( 'Menu Order', 'extensive-vc' );
+		$options['name']       = esc_html__( 'Post Name', 'extensive-vc' );
+		$options['rand']       = esc_html__( 'Random', 'extensive-vc' );
+		$options['title']      = esc_html__( 'Title', 'extensive-vc' );
+		
+		if ( ! empty( $additional_options ) ) {
+			$options = array_merge( $options, $additional_options );
+		}
+		
+		return $options;
+	}
+}
+
+if ( ! function_exists( 'extensive_vc_get_query_order_array' ) ) {
+	/**
+	 * Returns array of query order
+	 *
+	 * @param $first_empty boolean
+	 *
+	 * @return array
+	 */
+	function extensive_vc_get_query_order_array( $first_empty = false ) {
+		$options = array();
+		
+		if ( $first_empty ) {
+			$options[''] = esc_html__( 'Default', 'extensive-vc' );
+		}
+		
+		$options['ASC']  = esc_html__( 'ASC', 'extensive-vc' );
+		$options['DESC'] = esc_html__( 'DESC', 'extensive-vc' );
 		
 		return $options;
 	}

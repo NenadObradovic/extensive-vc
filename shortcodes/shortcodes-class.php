@@ -53,32 +53,30 @@ if ( ! class_exists( 'ShortcodesClass' ) ) {
 		}
 		
 		/**
-		 * Adds shortcode
+		 * Getter for private param
 		 *
-		 * @param $shortcode EVCShortcode
+		 * @return array
 		 */
-		private function addShortcode( EVCShortcode $shortcode ) {
-			$shortcodeBase = $shortcode->getBase();
-			
-			if ( ! array_key_exists( $shortcodeBase, $this->loadedShortcodes ) ) {
-				$this->loadedShortcodes[ $shortcodeBase ] = array(
-					'base'   => $shortcodeBase,
-					'render' => array( $shortcode, 'render' )
-				);
-			}
+		public function getLoadedShortcodes() {
+			return $this->loadedShortcodes;
+		}
+		
+		/**
+		 * Setter for private param
+		 */
+		public function setLoadedShortcodes( $key, $value ) {
+			$this->loadedShortcodes[ $key ] = $value;
 		}
 		
 		/**
 		 * Adds all shortcodes
-		 *
-		 * @see ShortcodesClass::addShortcode()
 		 */
 		private function addShortcodes() {
-			$shortcodesInstance = apply_filters( 'extensive_vc_filter_add_vc_shortcode', $shortcodesInstance = array() );
+			$shortcodes = apply_filters( 'extensive_vc_filter_add_vc_shortcode', $shortcodes = array() );
 			
-			if ( ! empty( $shortcodesInstance ) ) {
-				foreach ( $shortcodesInstance as $shortcodeInstance ) {
-					$this->addShortcode( $shortcodeInstance );
+			foreach ( $shortcodes as $key => $value ) {
+				if ( ! array_key_exists( $key, $this->getLoadedShortcodes() ) ) {
+					$this->setLoadedShortcodes( $key, $value );
 				}
 			}
 		}
@@ -89,8 +87,12 @@ if ( ! class_exists( 'ShortcodesClass' ) ) {
 		function load() {
 			$this->addShortcodes();
 			
-			foreach ( $this->loadedShortcodes as $shortcode ) {
-				add_shortcode( $shortcode['base'], $shortcode['render'] );
+			$shortcodes = $this->getLoadedShortcodes();
+			
+			ksort( $shortcodes );
+			
+			foreach ( $shortcodes as $key => $value ) {
+				add_shortcode( $key, $value );
 			}
 		}
 	}

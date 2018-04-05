@@ -35,6 +35,14 @@
    ========================================================================== */
 
 /* ==========================================================================
+   Specific mixin style - end
+   ========================================================================== */
+
+/* ==========================================================================
+   Specific mixin style - end
+   ========================================================================== */
+
+/* ==========================================================================
    Responsive mixin style - begin
    ========================================================================== */
 
@@ -54,8 +62,12 @@
    Grid styles - begin
    ========================================================================== */
 
-.evc-no-space.evc-disable-bottom-space .evc-element-wrapper .evc-element-item {
+.evc-no-space.evc-disable-bottom-space {
   margin-bottom: 0;
+}
+
+.evc-no-space.evc-columns-side-space {
+  padding: 0 0px;
 }
 
 .evc-no-space .evc-element-wrapper {
@@ -67,8 +79,12 @@
   margin: 0 0 0px;
 }
 
-.evc-tiny-space.evc-disable-bottom-space .evc-element-wrapper .evc-element-item {
+.evc-tiny-space.evc-disable-bottom-space {
   margin-bottom: -10px;
+}
+
+.evc-tiny-space.evc-columns-side-space {
+  padding: 0 10px;
 }
 
 .evc-tiny-space .evc-element-wrapper {
@@ -80,8 +96,12 @@
   margin: 0 0 10px;
 }
 
-.evc-small-space.evc-disable-bottom-space .evc-element-wrapper .evc-element-item {
+.evc-small-space.evc-disable-bottom-space {
   margin-bottom: -20px;
+}
+
+.evc-small-space.evc-columns-side-space {
+  padding: 0 20px;
 }
 
 .evc-small-space .evc-element-wrapper {
@@ -93,8 +113,12 @@
   margin: 0 0 20px;
 }
 
-.evc-normal-space.evc-disable-bottom-space .evc-element-wrapper .evc-element-item {
+.evc-normal-space.evc-disable-bottom-space {
   margin-bottom: -30px;
+}
+
+.evc-normal-space.evc-columns-side-space {
+  padding: 0 30px;
 }
 
 .evc-normal-space .evc-element-wrapper {
@@ -106,8 +130,12 @@
   margin: 0 0 30px;
 }
 
-.evc-medium-space.evc-disable-bottom-space .evc-element-wrapper .evc-element-item {
+.evc-medium-space.evc-disable-bottom-space {
   margin-bottom: -40px;
+}
+
+.evc-medium-space.evc-columns-side-space {
+  padding: 0 40px;
 }
 
 .evc-medium-space .evc-element-wrapper {
@@ -119,8 +147,12 @@
   margin: 0 0 40px;
 }
 
-.evc-large-space.evc-disable-bottom-space .evc-element-wrapper .evc-element-item {
+.evc-large-space.evc-disable-bottom-space {
   margin-bottom: -50px;
+}
+
+.evc-large-space.evc-columns-side-space {
+  padding: 0 50px;
 }
 
 .evc-large-space .evc-element-wrapper {
@@ -146,18 +178,15 @@
   position: relative;
   display: inline-block;
   vertical-align: top;
-  float: left;
   box-sizing: border-box;
+}
+
+.evc-element-has-columns:not(.evc-one-columns) .evc-element-item {
+  float: left;
 }
 
 .evc-element-has-columns.evc-one-columns .evc-element-item {
   width: 100%;
-}
-
-@media only screen and (min-width: 681px) {
-  .evc-element-has-columns.evc-one-columns .evc-element-item:nth-child(1n+1) {
-    clear: both;
-  }
 }
 
 .evc-element-has-columns.evc-two-columns .evc-element-item {
@@ -194,7 +223,7 @@
   width: 20%;
 }
 
-@media only screen and (min-width: 1281px) {
+@media only screen and (min-width: 1367px) {
   .evc-element-has-columns.evc-five-columns .evc-element-item:nth-child(5n+1) {
     clear: both;
   }
@@ -204,7 +233,7 @@
   width: 16.66667%;
 }
 
-@media only screen and (min-width: 1281px) {
+@media only screen and (min-width: 1441px) {
   .evc-element-has-columns.evc-six-columns .evc-element-item:nth-child(6n+1) {
     clear: both;
   }
@@ -218,38 +247,50 @@
    Grid responsive style - begin
    ========================================================================== */
 
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width: 1440px) {
+  .evc-element-has-columns.evc-six-columns .evc-element-item {
+    width: 20%;
+  }
+}
+
+@media only screen and (max-width: 1440px) and (min-width: 1367px) {
+  .evc-element-has-columns.evc-six-columns .evc-element-item:nth-child(5n+1) {
+    clear: both;
+  }
+}
+
+@media only screen and (max-width: 1366px) {
   .evc-element-has-columns.evc-five-columns .evc-element-item {
     width: 25%;
   }
 }
 
-@media only screen and (max-width: 1280px) and (min-width: 1025px) {
-  .evc-element-has-columns.evc-five-columns .evc-element-item:nth-child(5n+1) {
+@media only screen and (max-width: 1366px) and (min-width: 1025px) {
+  .evc-element-has-columns.evc-five-columns .evc-element-item:nth-child(4n+1) {
     clear: both;
   }
 }
 
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width: 1366px) {
   .evc-element-has-columns.evc-six-columns .evc-element-item {
     width: 25%;
   }
 }
 
-@media only screen and (max-width: 1280px) and (min-width: 1025px) {
-  .evc-element-has-columns.evc-six-columns .evc-element-item:nth-child(6n+1) {
+@media only screen and (max-width: 1366px) and (min-width: 1025px) {
+  .evc-element-has-columns.evc-six-columns .evc-element-item:nth-child(4n+1) {
     clear: both;
   }
 }
 
 @media only screen and (max-width: 1024px) {
   .evc-element-has-columns.evc-four-columns .evc-element-item {
-    width: 50%;
+    width: 33.33333%;
   }
 }
 
-@media only screen and (max-width: 1024px) and (min-width: 681px) {
-  .evc-element-has-columns.evc-four-columns .evc-element-item:nth-child(2n+1) {
+@media only screen and (max-width: 1024px) and (min-width: 769px) {
+  .evc-element-has-columns.evc-four-columns .evc-element-item:nth-child(3n+1) {
     clear: both;
   }
 }
@@ -280,12 +321,24 @@
 
 @media only screen and (max-width: 768px) {
   .evc-element-has-columns.evc-three-columns .evc-element-item {
-    width: 100%;
+    width: 50%;
   }
 }
 
 @media only screen and (max-width: 768px) and (min-width: 681px) {
-  .evc-element-has-columns.evc-three-columns .evc-element-item:nth-child(1n+1) {
+  .evc-element-has-columns.evc-three-columns .evc-element-item:nth-child(2n+1) {
+    clear: both;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .evc-element-has-columns.evc-four-columns .evc-element-item {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 681px) {
+  .evc-element-has-columns.evc-four-columns .evc-element-item:nth-child(2n+1) {
     clear: both;
   }
 }
@@ -315,10 +368,6 @@
 }
 
 @media only screen and (max-width: 680px) {
-  .evc-element-has-columns.evc-one-columns .evc-element-item {
-    width: 100%;
-  }
-
   .evc-element-has-columns.evc-two-columns .evc-element-item {
     width: 100%;
   }
@@ -620,10 +669,10 @@ body.rtl {
   content: '';
   background-color: rgba(48, 48, 48, 0.3);
   opacity: 0;
-  z-index: 1;
   -webkit-transition: opacity 0.2s ease-in-out;
   -moz-transition: opacity 0.2s ease-in-out;
   transition: opacity 0.2s ease-in-out;
+  z-index: 1;
 }
 
 .evc-shortcode .evc-ib-lightbox a:after {
@@ -900,6 +949,8 @@ body.rtl {
    ========================================================================== */
 
 /*# sourceMappingURL=common-map.css.map */
+@charset "UTF-8";
+
 /* ==========================================================================
    Include global partials - begin
    ========================================================================== */
@@ -937,6 +988,484 @@ body.rtl {
    ========================================================================== */
 
 /* ==========================================================================
+   Specific mixin style - end
+   ========================================================================== */
+
+/* ==========================================================================
+   Specific mixin style - end
+   ========================================================================== */
+
+/* ==========================================================================
+   Responsive mixin style - begin
+   ========================================================================== */
+
+/* ==========================================================================
+   Responsive mixin style - end
+   ========================================================================== */
+
+/* ==========================================================================
+   Include global partials - end
+   ========================================================================== */
+
+/* ==========================================================================
+   Include plugins styles - begin
+   ========================================================================== */
+
+/* ==========================================================================
+   WooCommerce Add To Cart global styles - begin
+   ========================================================================== */
+
+.evc-pli-add-to-cart {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+}
+
+.evc-pli-add-to-cart a {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: auto;
+  margin: 0;
+  padding: 11px 36px;
+  font-family: inherit;
+  font-size: 11px;
+  line-height: 2em;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-shadow: none;
+  color: #fff;
+  background-color: #303030;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  -webkit-transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  -moz-transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.evc-pli-add-to-cart a:hover {
+  color: #fff;
+  background-color: #43cb83;
+}
+
+.evc-pli-add-to-cart a.add_to_cart_button.added {
+  display: none;
+}
+
+/* ==========================================================================
+   WooCommerce Add To Cart global styles - end
+   ========================================================================== */
+
+/* ==========================================================================
+   WooCommerce Category global styles - begin
+   ========================================================================== */
+
+.evc-pli-category {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+  margin: 6px 0 0;
+}
+
+.evc-pli-category a {
+  color: #808080;
+}
+
+.evc-pli-category a:hover {
+  color: #303030;
+}
+
+/* ==========================================================================
+   WooCommerce Category global styles - end
+   ========================================================================== */
+
+/* ==========================================================================
+   WooCommerce Image global styles - begin
+   ========================================================================== */
+
+.evc-pli-image {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+}
+
+.evc-pli-image img {
+  display: block;
+  width: 100%;
+}
+
+/* ==========================================================================
+   WooCommerce Image global styles - end
+   ========================================================================== */
+
+/* ==========================================================================
+   WooCommerce Link global styles - begin
+   ========================================================================== */
+
+.evc-pli-link {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   WooCommerce Link global styles - end
+   ========================================================================== */
+
+/* ==========================================================================
+   WooCommerce Mark global styles - begin
+   ========================================================================== */
+
+.evc-pli-mark .onsale {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: block;
+  width: 55px;
+  height: 55px;
+  padding: 2px;
+  font-size: 12px;
+  line-height: 53px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  background-color: #43cb83;
+  border-radius: 50%;
+  z-index: 100;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   WooCommerce Mark global styles - end
+   ========================================================================== */
+
+/* ==========================================================================
+   WooCommerce Title global styles - begin
+   ========================================================================== */
+
+.evc-pli-price {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+}
+
+.evc-pli-price .price {
+  display: block;
+  font-size: 15px;
+  line-height: inherit;
+  font-weight: 700;
+  color: #303030;
+}
+
+.evc-pli-price .price del {
+  margin: 0 9px 0 0;
+  color: rgba(48, 48, 48, 0.4);
+}
+
+.evc-pli-price .price ins {
+  margin: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   WooCommerce Title global styles - end
+   ========================================================================== */
+
+/* ==========================================================================
+   WooCommerce Ratings global styles - begin
+   ========================================================================== */
+
+.evc-pli-ratings {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+  line-height: 1;
+  color: #fbd60c;
+}
+
+.evc-pli-ratings .star-rating {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  line-height: inherit;
+}
+
+.evc-pli-ratings .star-rating:before {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  content: "";
+  font-family: 'Ionicons';
+  font-size: 16px;
+  line-height: inherit;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  letter-spacing: .2em;
+  text-transform: none;
+  text-rendering: auto;
+  color: inherit;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.evc-pli-ratings .star-rating > span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  font-size: 0;
+  line-height: inherit;
+  overflow: hidden;
+}
+
+.evc-pli-ratings .star-rating > span:before {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  content: "";
+  font-family: 'Ionicons';
+  font-size: 16px;
+  line-height: inherit;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  letter-spacing: .2em;
+  text-transform: none;
+  text-rendering: auto;
+  color: inherit;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   WooCommerce Ratings global styles - end
+   ========================================================================== */
+
+/* ==========================================================================
+   WooCommerce Title global styles - begin
+   ========================================================================== */
+
+.evc-pli-title {
+  display: block;
+  margin: 0;
+}
+
+/* ==========================================================================
+   WooCommerce Title global styles - end
+   ========================================================================== */
+
+/* ==========================================================================
+   Product List shortcode styles - begin
+   ========================================================================== */
+
+.evc-product-list {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+  /***** Specific styles - begin *****/
+  /***** Specific styles - end *****/
+  /***** Layout Collections styles - begin *****/
+  /***** Layout Collections styles - end *****/
+}
+
+.evc-product-list .evc-pli-inner {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+}
+
+.touch .evc-product-list .evc-pli-inner {
+  cursor: pointer;
+}
+
+.evc-product-list .evc-pli-inner:hover .evc-pli-info-on-image {
+  opacity: 1;
+}
+
+.evc-product-list .evc-pli-image-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+}
+
+.evc-product-list .evc-pli-info-on-image {
+  position: absolute;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(48, 48, 48, 0.5);
+  opacity: 0;
+  box-sizing: border-box;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.evc-product-list .evc-pli-content {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+  margin: 25px 0 7px;
+}
+
+.evc-product-list .evc-pli-ratings {
+  margin-top: 10px;
+}
+
+.evc-product-list .evc-pli-price {
+  margin-top: 9px;
+}
+
+.evc-product-list .evc-pli-add-to-cart {
+  z-index: 2;
+}
+
+.evc-product-list .evc-pli-info-on-image .evc-pli-title {
+  color: #fff;
+}
+
+.evc-product-list .evc-pli-info-on-image .evc-pli-price .price {
+  color: #fff;
+}
+
+.evc-product-list .evc-pli-info-on-image .evc-pli-price del {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.evc-product-list .evc-pli-info-on-image .evc-pli-category a {
+  position: relative;
+  color: #fff;
+  z-index: 2;
+}
+
+.evc-product-list .evc-pli-info-on-image .evc-pli-category a:hover {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.evc-product-list.evc-layout-standard-button-sliding .evc-pli-inner:hover .evc-pli-add-to-cart {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.evc-product-list.evc-layout-standard-button-sliding .evc-pli-image-wrapper {
+  overflow: hidden;
+}
+
+.evc-product-list.evc-layout-standard-button-sliding .evc-pli-add-to-cart {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  -webkit-transform: translateY(101%);
+  -moz-transform: translateY(101%);
+  transform: translateY(101%);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  -moz-transition: -moz-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+}
+
+.evc-product-list.evc-layout-standard-button-sliding .evc-pli-add-to-cart a {
+  width: 100%;
+  padding: 13px 20px;
+  text-align: center;
+}
+
+.evc-product-list.evc-layout-gallery .evc-pli-inner {
+  overflow: hidden;
+}
+
+.evc-product-list.evc-layout-gallery .evc-pli-add-to-cart {
+  margin-top: 25px;
+}
+
+/* ==========================================================================
+   Product List shortcode styles - end
+   ========================================================================== */
+
+/* ==========================================================================
+   Include plugins styles - end
+   ========================================================================== */
+
+/*# sourceMappingURL=plugins-map.css.map */
+/* ==========================================================================
+   Include global partials - begin
+   ========================================================================== */
+
+/* ==========================================================================
+   Common variables - begin
+   ========================================================================== */
+
+/* ==========================================================================
+   Common variables - end
+   ========================================================================== */
+
+/* ==========================================================================
+   Responsive variables - begin
+   ========================================================================== */
+
+/* ==========================================================================
+   Responsive variables - end
+   ========================================================================== */
+
+/* ==========================================================================
+   Layout mixin style - begin
+   ========================================================================== */
+
+/* ==========================================================================
+   Layout mixin style - end
+   ========================================================================== */
+
+/* ==========================================================================
+   Animation mixin style - begin
+   ========================================================================== */
+
+/* ==========================================================================
+   Animation mixin style - end
+   ========================================================================== */
+
+/* ==========================================================================
+   Specific mixin style - end
+   ========================================================================== */
+
+/* ==========================================================================
+   Specific mixin style - end
+   ========================================================================== */
+
+/* ==========================================================================
    Responsive mixin style - begin
    ========================================================================== */
 
@@ -969,11 +1498,26 @@ body.rtl {
 .evc-clients .evc-c-item {
   position: relative;
   display: inline-block;
+  width: 100%;
   vertical-align: top;
 }
 
-.touch .evc-clients .evc-c-item {
+.evc-clients .evc-c-item-inner {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.touch .evc-clients .evc-c-item-inner {
   cursor: pointer;
+}
+
+.evc-clients .evc-c-images {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+  overflow: hidden;
 }
 
 .evc-clients .evc-c-original-image {
@@ -992,6 +1536,10 @@ body.rtl {
   display: block;
 }
 
+.evc-clients .evc-c-title {
+  margin: 15px 0 0;
+}
+
 .evc-clients .evc-owl-carousel .owl-nav .owl-prev {
   left: -10px;
 }
@@ -1000,11 +1548,11 @@ body.rtl {
   right: -10px;
 }
 
-.evc-clients.evc-c-switch-images .evc-c-item.evc-c-has-hover:hover .evc-c-original-image {
+.evc-clients.evc-c-switch-images .evc-c-item.evc-c-has-hover .evc-c-item-inner:hover .evc-c-original-image {
   opacity: 0;
 }
 
-.evc-clients.evc-c-switch-images .evc-c-item.evc-c-has-hover:hover .evc-c-hover-image {
+.evc-clients.evc-c-switch-images .evc-c-item.evc-c-has-hover .evc-c-item-inner:hover .evc-c-hover-image {
   opacity: 1;
 }
 
@@ -1022,17 +1570,13 @@ body.rtl {
   transition: opacity 0.35s;
 }
 
-.evc-clients.evc-c-roll-over .evc-c-item {
-  overflow: hidden;
-}
-
-.evc-clients.evc-c-roll-over .evc-c-item.evc-c-has-hover:hover .evc-c-original-image {
+.evc-clients.evc-c-roll-over .evc-c-item.evc-c-has-hover .evc-c-item-inner:hover .evc-c-original-image {
   -webkit-transform: translateY(100%);
   -moz-transform: translateY(100%);
   transform: translateY(100%);
 }
 
-.evc-clients.evc-c-roll-over .evc-c-item.evc-c-has-hover:hover .evc-c-hover-image {
+.evc-clients.evc-c-roll-over .evc-c-item.evc-c-has-hover .evc-c-item-inner:hover .evc-c-hover-image {
   -webkit-transform: translateY(0);
   -moz-transform: translateY(0);
   transform: translateY(0);
@@ -1167,6 +1711,14 @@ body.rtl {
 
 /* ==========================================================================
    Animation mixin style - end
+   ========================================================================== */
+
+/* ==========================================================================
+   Specific mixin style - end
+   ========================================================================== */
+
+/* ==========================================================================
+   Specific mixin style - end
    ========================================================================== */
 
 /* ==========================================================================
