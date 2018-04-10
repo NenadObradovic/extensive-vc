@@ -52,9 +52,7 @@ if ( ! class_exists( 'EVCFullScreenSections' ) ) {
 		 * Add shortcode custom css style for Visual Composer shortcodes panel
 		 */
 		function addShortcodeIconCustomStyle( $style ) {
-			$current_style = '.vc_shortcodes_container.wpb_evc_full_screen_sections_item {
-				background-color: #f5f5f5;
-			}';
+			$current_style = '.vc_shortcodes_container.wpb_evc_full_screen_sections_item { background-color: #f5f5f5; }';
 			
 			$style .= $current_style;
 			

@@ -51,9 +51,7 @@ if ( ! class_exists( 'EVCProcess2' ) ) {
 		 * Add shortcode custom css style for Visual Composer shortcodes panel
 		 */
 		function addShortcodeIconCustomStyle( $style ) {
-			$current_style = '.wpb_content_element.wpb_evc_process_2_item > .wpb_element_wrapper {
-				background-color: #f5f5f5;
-			}';
+			$current_style = '.wpb_content_element.wpb_evc_process_2_item > .wpb_element_wrapper { background-color: #f5f5f5; }';
 			
 			$style .= $current_style;
 			

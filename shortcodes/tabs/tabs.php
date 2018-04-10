@@ -52,9 +52,7 @@ if ( ! class_exists( 'EVCTabs' ) ) {
 		 * Add shortcode custom css style for Visual Composer shortcodes panel
 		 */
 		function addShortcodeIconCustomStyle( $style ) {
-			$current_style = '.vc_shortcodes_container.wpb_evc_tabs_item {
-				background-color: #f5f5f5;
-			}';
+			$current_style = '.vc_shortcodes_container.wpb_evc_tabs_item { background-color: #f5f5f5; }';
 			
 			$style .= $current_style;
 			

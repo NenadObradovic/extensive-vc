@@ -100,7 +100,7 @@ if ( ! class_exists( 'EVCProductList' ) ) {
 						esc_html__( 'Default', 'extensive-vc' )  => '',
 						esc_html__( 'Category', 'extensive-vc' ) => 'category',
 						esc_html__( 'Tag', 'extensive-vc' )      => 'tag',
-						esc_html__( 'Id', 'extensive-vc' )       => 'id'
+						esc_html__( 'ID', 'extensive-vc' )       => 'id'
 					),
 					'description' => esc_html__( 'If you would like to display only certain products, this is where you can select the criteria to choose which products to display', 'extensive-vc' )
 				),

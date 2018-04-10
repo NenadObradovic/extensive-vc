@@ -527,8 +527,8 @@ if ( ! function_exists( 'extensive_vc_get_query_order_array' ) ) {
 			$options[''] = esc_html__( 'Default', 'extensive-vc' );
 		}
 		
-		$options['ASC']  = esc_html__( 'ASC', 'extensive-vc' );
-		$options['DESC'] = esc_html__( 'DESC', 'extensive-vc' );
+		$options['ASC']  = esc_html__( 'Ascending', 'extensive-vc' );
+		$options['DESC'] = esc_html__( 'Descending', 'extensive-vc' );
 		
 		return $options;
 	}
