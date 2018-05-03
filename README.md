@@ -13,7 +13,7 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
 	<li><a href="http://wprealize.com/classic/clients/">Classic - Clients</a></li>
 	<li><a href="http://wprealize.com/classic/icon-with-text/">Classic - Icon With Text</a></li>
 	<li><a href="http://wprealize.com/classic/image-with-text/">Classic - Image With Text</a></li>
-	<li><a href="http://wprealize.com/classic/pricing-table/">Classic - Pricing Table (New)</a></li>
+	<li><a href="http://wprealize.com/classic/pricing-table/">Classic - Pricing Table</a></li>
 	<li><a href="http://wprealize.com/classic/separator/">Classic - Separator</a></li>
 	<li><a href="http://wprealize.com/classic/single-image/">Classic - Single Image</a></li>
 	<li><a href="http://wprealize.com/classic/tabs/">Classic - Tabs</a></li>
@@ -29,6 +29,7 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
 	<li><a href="http://wprealize.com/infographic/counter/">Infographic - Counter</a></li>
 	<li><a href="http://wprealize.com/infographic/doughnut-chart/">Infographic - Doughnut Chart</a></li>
 	<li><a href="http://wprealize.com/infographic/icon-progress-bar/">Infographic - Icon Progress Bar</a></li>
+	<li><a href="http://wprealize.com/infographic/line-graph/">Infographic - Line Graph (New)</a></li>
 	<li><a href="http://wprealize.com/infographic/pie-chart/">Infographic - Pie Chart</a></li>
 	<li><a href="http://wprealize.com/infographic/progress-bar/">Infographic - Progress Bar</a></li>
 	<li><a href="http://wprealize.com/infographic/text-marquee/">Infographic - Text Marquee</a></li>
@@ -37,6 +38,7 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
 	<li><a href="http://wprealize.com/typography/dropcaps/">Typography - Dropcaps</a></li>
 	<li><a href="http://wprealize.com/typography/icon-list/">Typography - Icon List</a></li>
 	<li><a href="http://wprealize.com/typography/section-title/">Typography - Section Title</a></li>
+	<li><a href="http://wprealize.com/typography/svg-text/">Typography - SVG Text (New)</a></li>
 </ul>
 <h4 style="margin-top: 1rem;">2. Custom Post Types</h4>
 <ul>
@@ -82,6 +84,15 @@ From wordpress.org
 You can find all instructions about plugin and all shortcodes in website <a href="http://wprealize.com/"><strong>WP Realize - Extensive VC</strong></a>
 
 <h3>Changelog</h3>
+
+<h5>1.6.3</h5>
+- Added Line Graph shortcode <br />
+- Added SVG Text shortcode <br />
+- Added Custom Link option for Icon List Item shortcode <br />
+- Added Custom Link option for Icon With Text shortcode <br />
+- Updated Lightbox 3rd party library to 2.10.0 <br />
+- Updated Owl Carousel 3rd party library to 2.3.4 <br />
+- Updated language pot file <br />
 
 <h5>1.6.2</h5>
 - Added WooCommerce compatibility <br />

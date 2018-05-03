@@ -850,6 +850,7 @@ body.rtl {
   top: 50%;
   z-index: 3;
   color: #303030;
+  outline: none;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   transform: translateY(-50%);
@@ -906,6 +907,7 @@ body.rtl {
 .evc-owl-carousel .owl-dots .owl-dot {
   display: inline-block;
   vertical-align: middle;
+  outline: none;
 }
 
 .evc-owl-carousel .owl-dots .owl-dot span {
@@ -2381,7 +2383,7 @@ html.fp-enabled,
   padding: 0;
   overflow: hidden;
   /*Avoid flicker on slides transitions for mobile phones #336 */
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 #superContainer {
@@ -2657,7 +2659,13 @@ html.fp-enabled,
   margin-bottom: 0;
 }
 
-.evc-icon-list .evc-il-item > * {
+.evc-icon-list .evc-ili-inner {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.evc-icon-list .evc-ili-inner > * {
   display: table-cell;
   vertical-align: top;
 }
@@ -2680,6 +2688,16 @@ html.fp-enabled,
 
 .evc-icon-list .evc-ili-text {
   margin: 0;
+}
+
+.evc-icon-list .evc-ili-link {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 /* ==========================================================================
@@ -2758,6 +2776,11 @@ html.fp-enabled,
 
 .evc-icon-with-text .evc-iwt-title {
   margin: 0;
+}
+
+.evc-icon-with-text .evc-iwt-title a {
+  position: relative;
+  display: block;
 }
 
 .evc-icon-with-text .evc-iwt-text {
@@ -3230,6 +3253,35 @@ html.fp-enabled,
 
 /* ==========================================================================
    Interactive Banner shortcode style - end
+   ========================================================================== */
+
+/* ==========================================================================
+   Line Graph shortcode style - begin
+   ========================================================================== */
+
+.evc-line-graph {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.evc-line-graph.evc-lg-appeared {
+  opacity: 1;
+}
+
+.evc-line-graph canvas {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+/* ==========================================================================
+   Line Graph shortcode style - end
    ========================================================================== */
 
 /* ==========================================================================
@@ -3935,6 +3987,57 @@ html.fp-enabled,
    ========================================================================== */
 
 /* ==========================================================================
+   SVG Text shortcode style - begin
+   ========================================================================== */
+
+.evc-svg-text {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+  color: #303030;
+  font-size: 180px;
+  line-height: 1;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.touch .evc-svg-text {
+  cursor: pointer;
+}
+
+.evc-svg-text:hover .evc-st-svg {
+  fill: currentColor;
+}
+
+.evc-svg-text .evc-st-svg {
+  position: relative;
+  width: 100%;
+  height: auto;
+  fill: transparent;
+  stroke: currentColor;
+  stroke-width: 1px;
+  overflow: visible;
+  -webkit-transition: fill 0.3s ease-in-out;
+  -moz-transition: fill 0.3s ease-in-out;
+  transition: fill 0.3s ease-in-out;
+}
+
+.evc-svg-text .evc-st-link {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   SVG Text shortcode style - end
+   ========================================================================== */
+
+/* ==========================================================================
    Tabs shortcode style - begin
    ========================================================================== */
 
@@ -4583,6 +4686,44 @@ html.fp-enabled,
 
 /* ==========================================================================
    Process shortcode responsive style - end
+   ========================================================================== */
+
+/* ==========================================================================
+   SVG Text shortcode responsive style - begin
+   ========================================================================== */
+
+@media only screen and (max-width: 1366px) {
+  .evc-svg-text {
+    font-size: 140px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .evc-svg-text {
+    font-size: 120px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .evc-svg-text {
+    font-size: 100px;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .evc-svg-text {
+    font-size: 70px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .evc-svg-text {
+    font-size: 60px;
+  }
+}
+
+/* ==========================================================================
+   SVG Text shortcode responsive style - end
    ========================================================================== */
 
 /* ==========================================================================

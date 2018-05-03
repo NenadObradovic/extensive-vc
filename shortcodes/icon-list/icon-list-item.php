@@ -91,6 +91,11 @@ if ( ! class_exists( 'EVCIconListItem' ) ) {
 						'group'      => esc_html__( 'Text Options', 'extensive-vc' )
 					),
 					array(
+						'type'       => 'vc_link',
+						'param_name' => 'custom_link',
+						'heading'    => esc_html__( 'Custom Link', 'extensive-vc' )
+					),
+					array(
 						'type'        => 'textfield',
 						'param_name'  => 'space_between_items',
 						'heading'     => esc_html__( 'Space Between Items (px)', 'extensive-vc' ),
@@ -126,6 +131,7 @@ if ( ! class_exists( 'EVCIconListItem' ) ) {
 				'icon_color'          => '',
 				'text'                => '',
 				'text_color'          => '',
+				'custom_link'         => '',
 				'space_between_items' => ''
 			);
 			$params = shortcode_atts( $args, $atts );

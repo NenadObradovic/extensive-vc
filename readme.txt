@@ -4,7 +4,7 @@ Tags: visual composer, visual composer addons, wpbakery page builder, wpbakery a
 Donate link: http://wprealize.com/donate/
 Requires at least: 4.6
 Tested up to: 4.9.5
-Stable tag: 1.6.2
+Stable tag: 1.6.3
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -26,7 +26,7 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
 	<li><a href="http://wprealize.com/classic/clients/">Classic - Clients</a></li>
 	<li><a href="http://wprealize.com/classic/icon-with-text/">Classic - Icon With Text</a></li>
 	<li><a href="http://wprealize.com/classic/image-with-text/">Classic - Image With Text</a></li>
-	<li><a href="http://wprealize.com/classic/pricing-table/">Classic - Pricing Table (New)</a></li>
+	<li><a href="http://wprealize.com/classic/pricing-table/">Classic - Pricing Table</a></li>
 	<li><a href="http://wprealize.com/classic/separator/">Classic - Separator</a></li>
 	<li><a href="http://wprealize.com/classic/single-image/">Classic - Single Image</a></li>
 	<li><a href="http://wprealize.com/classic/tabs/">Classic - Tabs</a></li>
@@ -42,6 +42,7 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
 	<li><a href="http://wprealize.com/infographic/counter/">Infographic - Counter</a></li>
 	<li><a href="http://wprealize.com/infographic/doughnut-chart/">Infographic - Doughnut Chart</a></li>
 	<li><a href="http://wprealize.com/infographic/icon-progress-bar/">Infographic - Icon Progress Bar</a></li>
+	<li><a href="http://wprealize.com/infographic/line-graph/">Infographic - Line Graph (New)</a></li>
 	<li><a href="http://wprealize.com/infographic/pie-chart/">Infographic - Pie Chart</a></li>
 	<li><a href="http://wprealize.com/infographic/progress-bar/">Infographic - Progress Bar</a></li>
 	<li><a href="http://wprealize.com/infographic/text-marquee/">Infographic - Text Marquee</a></li>
@@ -50,6 +51,7 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
 	<li><a href="http://wprealize.com/typography/dropcaps/">Typography - Dropcaps</a></li>
 	<li><a href="http://wprealize.com/typography/icon-list/">Typography - Icon List</a></li>
 	<li><a href="http://wprealize.com/typography/section-title/">Typography - Section Title</a></li>
+	<li><a href="http://wprealize.com/typography/svg-text/">Typography - SVG Text (New)</a></li>
 </ul>
 <h4 style="margin-top: 1rem;">2. Custom Post Types</h4>
 <ul>
@@ -107,6 +109,15 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 5. Blockquote shortcode example.
 
 == Changelog ==
+
+= 1.6.3 =
+- Added Line Graph shortcode
+- Added SVG Text shortcode
+- Added Custom Link option for Icon List Item shortcode
+- Added Custom Link option for Icon With Text shortcode
+- Updated Lightbox 3rd party library to 2.10.0
+- Updated Owl Carousel 3rd party library to 2.3.4
+- Updated language pot file
 
 = 1.6.2 =
 - Added WooCommerce compatibility

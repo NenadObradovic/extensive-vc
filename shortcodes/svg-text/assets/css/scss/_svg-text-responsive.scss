@@ -1,0 +1,42 @@
+/* ==========================================================================
+   SVG Text shortcode responsive style - begin
+   ========================================================================== */
+
+@include laptop-small-screen {
+	
+	.evc-svg-text {
+		font-size: 140px;
+	}
+}
+
+@include ipad-landscape-screen {
+	
+	.evc-svg-text {
+		font-size: 120px;
+	}
+}
+
+@include ipad-portrait-screen {
+	
+	.evc-svg-text {
+		font-size: 100px;
+	}
+}
+
+@include phone-landscape-screen {
+	
+	.evc-svg-text {
+		font-size: 70px;
+	}
+}
+
+@include phone-portrait-screen {
+	
+	.evc-svg-text {
+		font-size: 60px;
+	}
+}
+
+/* ==========================================================================
+   SVG Text shortcode responsive style - end
+   ========================================================================== */

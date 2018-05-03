@@ -124,6 +124,11 @@ if ( ! class_exists( 'EVCIconWithText' ) ) {
 						'heading'    => esc_html__( 'Text Top Margin (px)', 'extensive-vc' ),
 						'dependency' => array( 'element' => 'text', 'not_empty' => true ),
 						'group'      => esc_html__( 'Text Options', 'extensive-vc' )
+					),
+					array(
+						'type'       => 'vc_link',
+						'param_name' => 'custom_link',
+						'heading'    => esc_html__( 'Custom Link', 'extensive-vc' )
 					)
 				)
 			);
@@ -160,7 +165,8 @@ if ( ! class_exists( 'EVCIconWithText' ) ) {
 				'text'             => '',
 				'text_color'       => '',
 				'text_top_margin'  => '',
-				'text_padding'     => ''
+				'text_padding'     => '',
+				'custom_link'      => ''
 			);
 			$params = shortcode_atts( $args, $atts );
 			
@@ -171,6 +177,8 @@ if ( ! class_exists( 'EVCIconWithText' ) ) {
 			$params['title_tag']    = ! empty( $params['title_tag'] ) ? $params['title_tag'] : $args['title_tag'];
 			$params['title_styles'] = $this->getTitleStyles( $params );
 			$params['text_styles']  = $this->getTextStyles( $params );
+			
+			$params['link_attributes'] = extensive_vc_get_custom_link_attributes( $params['custom_link'], 'evc-iwt-link' );
 			
 			$html = extensive_vc_get_module_template_part( 'shortcodes', 'icon-with-text', 'templates/icon-with-text', '', $params );
 			

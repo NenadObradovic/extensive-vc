@@ -1,0 +1,43 @@
+/* ==========================================================================
+   SVG Text shortcode style - begin
+   ========================================================================== */
+
+.evc-svg-text {
+	@include evcRelativeLayout();
+	color: $dark-color;
+	font-size: 180px;
+	line-height: 1;
+	font-weight: 700;
+	text-transform: uppercase;
+	
+	.touch & {
+		cursor: pointer;
+	}
+	
+	&:hover {
+		
+		.evc-st-svg {
+			fill: currentColor;
+		}
+	}
+	
+	.evc-st-svg {
+		position: relative;
+		width: 100%;
+		height: auto;
+		fill: transparent;
+		stroke: currentColor;
+		stroke-width: 1px;
+		overflow: visible;
+		@include evcTransition(fill .3s ease-in-out);
+	}
+	
+	.evc-st-link {
+		@include evcAbsoluteLayout();
+		z-index: 1;
+	}
+}
+
+/* ==========================================================================
+   SVG Text shortcode style - end
+   ========================================================================== */

@@ -1,24 +1,23 @@
 /* ==========================================================================
-   Pie Chart shortcode style - begin
+   Line Graph shortcode style - begin
    ========================================================================== */
 
-.evc-pie-chart {
-	position: relative;
-	display: inline-block;
-	vertical-align: top;
+.evc-line-graph {
+	@include evcRelativeLayout();
 	opacity: 0;
 	@include evcTransition(opacity .3s ease-in-out);
 	
-	&.evc-pc-appeared {
+	&.evc-lg-appeared {
 		opacity: 1;
 	}
 	
 	canvas {
 		position: relative;
 		display: block;
+		width: 100%;
 	}
 }
 
 /* ==========================================================================
-   Pie Chart shortcode style - end
+   Line Graph shortcode style - end
    ========================================================================== */

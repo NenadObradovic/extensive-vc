@@ -6,7 +6,7 @@
 	});
 	
 	/**
-	 * Inti pie shortcode functionality on appear
+	 * Init pie chart shortcode
 	 */
 	function evcInitPieChart() {
 		var holder = $('.evc-pie-chart');

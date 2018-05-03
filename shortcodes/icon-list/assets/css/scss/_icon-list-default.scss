@@ -12,7 +12,13 @@
 		&:last-child {
 			margin-bottom: 0;
 		}
-
+	}
+	
+	.evc-ili-inner {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		
 		> * {
 			display: table-cell;
 			vertical-align: top;
@@ -37,6 +43,11 @@
 
 	.evc-ili-text {
 		margin: 0;
+	}
+	
+	.evc-ili-link {
+		@include evcAbsoluteLayout();
+		z-index: 1;
 	}
 }
 

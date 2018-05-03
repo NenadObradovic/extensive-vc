@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Extensive VC package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Extensive VC 1.6.2\n"
+"Project-Id-Version: Extensive VC 1.6.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/extensive-vc\n"
-"POT-Creation-Date: 2018-04-10 17:28:50+00:00\n"
+"POT-Creation-Date: 2018-05-03 10:46:16+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -463,6 +463,7 @@ msgstr ""
 #: shortcodes/image-gallery/image-gallery.php:68
 #: shortcodes/image-with-text/image-with-text.php:52
 #: shortcodes/interactive-banner/interactive-banner.php:53
+#: shortcodes/line-graph/line-graph.php:77
 #: shortcodes/pie-chart/pie-chart.php:77
 #: shortcodes/pricing-table/pricing-table-item.php:53
 #: shortcodes/pricing-table/pricing-table.php:69
@@ -473,7 +474,8 @@ msgstr ""
 #: shortcodes/section-title/section-title.php:52
 #: shortcodes/separator/separator.php:52
 #: shortcodes/separator/widgets/separator-widget.php:31
-#: shortcodes/single-image/single-image.php:52 shortcodes/tabs/tabs-item.php:53
+#: shortcodes/single-image/single-image.php:52
+#: shortcodes/svg-text/svg-text.php:52 shortcodes/tabs/tabs-item.php:53
 #: shortcodes/tabs/tabs.php:77 shortcodes/text-marquee/text-marquee.php:52
 #: shortcodes/text-marquee/widgets/text-marquee-widget.php:31
 msgid "Custom CSS Class"
@@ -499,6 +501,7 @@ msgstr ""
 #: shortcodes/image-gallery/image-gallery.php:69
 #: shortcodes/image-with-text/image-with-text.php:53
 #: shortcodes/interactive-banner/interactive-banner.php:54
+#: shortcodes/line-graph/line-graph.php:78
 #: shortcodes/pie-chart/pie-chart.php:78
 #: shortcodes/pricing-table/pricing-table-item.php:54
 #: shortcodes/pricing-table/pricing-table.php:70
@@ -509,7 +512,8 @@ msgstr ""
 #: shortcodes/section-title/section-title.php:53
 #: shortcodes/separator/separator.php:53
 #: shortcodes/separator/widgets/separator-widget.php:32
-#: shortcodes/single-image/single-image.php:53 shortcodes/tabs/tabs-item.php:54
+#: shortcodes/single-image/single-image.php:53
+#: shortcodes/svg-text/svg-text.php:53 shortcodes/tabs/tabs-item.php:54
 #: shortcodes/tabs/tabs.php:78 shortcodes/text-marquee/text-marquee.php:53
 #: shortcodes/text-marquee/widgets/text-marquee-widget.php:32
 msgid "Style particular content element differently - add a class name and refer to it in custom CSS"
@@ -1012,6 +1016,7 @@ msgstr ""
 #: shortcodes/process/process-item.php:79
 #: shortcodes/process-2/process-2-item.php:97
 #: shortcodes/section-title/section-title.php:123
+#: shortcodes/svg-text/svg-text.php:58
 #: shortcodes/text-marquee/text-marquee.php:58
 #: shortcodes/text-marquee/widgets/text-marquee-widget.php:42
 msgid "Text"
@@ -1143,6 +1148,8 @@ msgstr ""
 #: shortcodes/custom-font/custom-font.php:120
 #: shortcodes/custom-font/custom-font.php:127
 #: shortcodes/custom-font/custom-font.php:140
+#: shortcodes/svg-text/svg-text.php:69 shortcodes/svg-text/svg-text.php:75
+#: shortcodes/svg-text/svg-text.php:82 shortcodes/svg-text/svg-text.php:89
 #: shortcodes/text-marquee/text-marquee.php:70
 #: shortcodes/text-marquee/text-marquee.php:76
 #: shortcodes/text-marquee/text-marquee.php:83
@@ -1255,10 +1262,13 @@ msgstr ""
 #: shortcodes/button/widgets/button-widget.php:76
 #: shortcodes/flip-image/flip-image.php:80
 #: shortcodes/full-screen-sections/full-screen-sections-item.php:109
+#: shortcodes/icon-list/icon-list-item.php:96
+#: shortcodes/icon-with-text/icon-with-text.php:131
 #: shortcodes/image-with-text/image-with-text.php:76
 #: shortcodes/interactive-banner/interactive-banner.php:145
 #: shortcodes/process-2/process-2-item.php:65
 #: shortcodes/single-image/single-image.php:76
+#: shortcodes/svg-text/svg-text.php:63
 msgid "Custom Link"
 msgstr ""
 
@@ -1273,6 +1283,7 @@ msgstr ""
 #: shortcodes/button/widgets/button-widget.php:102
 #: shortcodes/custom-font/custom-font.php:98
 #: shortcodes/custom-font/widgets/custom-font-widget.php:79
+#: shortcodes/svg-text/svg-text.php:80
 #: shortcodes/text-marquee/text-marquee.php:81
 #: shortcodes/text-marquee/widgets/text-marquee-widget.php:62
 msgid "Font Weight"
@@ -1300,6 +1311,7 @@ msgstr ""
 #: shortcodes/button/widgets/button-widget.php:119
 #: shortcodes/custom-font/custom-font.php:118
 #: shortcodes/custom-font/widgets/custom-font-widget.php:96
+#: shortcodes/svg-text/svg-text.php:87
 #: shortcodes/text-marquee/text-marquee.php:101
 #: shortcodes/text-marquee/widgets/text-marquee-widget.php:79
 msgid "Text Transform"
@@ -1315,6 +1327,7 @@ msgstr ""
 #: shortcodes/section-title/section-title.php:200
 #: shortcodes/separator/separator.php:101
 #: shortcodes/separator/widgets/separator-widget.php:80
+#: shortcodes/svg-text/svg-text.php:68
 #: shortcodes/text-marquee/text-marquee.php:64
 #: shortcodes/text-marquee/widgets/text-marquee-widget.php:47
 msgid "Color"
@@ -1527,6 +1540,7 @@ msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:146
 #: shortcodes/custom-font/widgets/custom-font-widget.php:122
+#: shortcodes/svg-text/svg-text.php:95
 msgid "Set font size for 1440px screen size"
 msgstr ""
 
@@ -1542,6 +1556,9 @@ msgstr ""
 #: shortcodes/custom-font/custom-font.php:210
 #: shortcodes/custom-font/custom-font.php:217
 #: shortcodes/custom-font/custom-font.php:224
+#: shortcodes/svg-text/svg-text.php:96 shortcodes/svg-text/svg-text.php:103
+#: shortcodes/svg-text/svg-text.php:110 shortcodes/svg-text/svg-text.php:117
+#: shortcodes/svg-text/svg-text.php:124 shortcodes/svg-text/svg-text.php:131
 msgid "Responsive Options"
 msgstr ""
 
@@ -1552,6 +1569,7 @@ msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:160
 #: shortcodes/custom-font/widgets/custom-font-widget.php:134
+#: shortcodes/svg-text/svg-text.php:102
 msgid "Set font size for 1366px screen size"
 msgstr ""
 
@@ -1562,6 +1580,7 @@ msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:174
 #: shortcodes/custom-font/widgets/custom-font-widget.php:146
+#: shortcodes/svg-text/svg-text.php:109
 msgid "Set font size for 1280px screen size"
 msgstr ""
 
@@ -1572,6 +1591,7 @@ msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:188
 #: shortcodes/custom-font/widgets/custom-font-widget.php:158
+#: shortcodes/svg-text/svg-text.php:116
 msgid "Set font size for tablet landscape screen size"
 msgstr ""
 
@@ -1582,6 +1602,7 @@ msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:202
 #: shortcodes/custom-font/widgets/custom-font-widget.php:170
+#: shortcodes/svg-text/svg-text.php:123
 msgid "Set font size for tablet portrait screen size"
 msgstr ""
 
@@ -1592,6 +1613,7 @@ msgstr ""
 
 #: shortcodes/custom-font/custom-font.php:216
 #: shortcodes/custom-font/widgets/custom-font-widget.php:182
+#: shortcodes/svg-text/svg-text.php:130
 msgid "Set font size for mobiles screen size"
 msgstr ""
 
@@ -1613,11 +1635,13 @@ msgid "Doughnut Chart Item"
 msgstr ""
 
 #: shortcodes/doughnut-chart/doughnut-chart-item.php:53
+#: shortcodes/line-graph/line-graph-item.php:53
 #: shortcodes/pie-chart/pie-chart-item.php:53
 msgid "Label"
 msgstr ""
 
 #: shortcodes/doughnut-chart/doughnut-chart-item.php:58
+#: shortcodes/line-graph/line-graph-item.php:58
 #: shortcodes/pie-chart/pie-chart-item.php:58
 msgid "Value"
 msgstr ""
@@ -1908,11 +1932,11 @@ msgstr ""
 msgid "Icon Right Padding (px)"
 msgstr ""
 
-#: shortcodes/icon-list/icon-list-item.php:96
+#: shortcodes/icon-list/icon-list-item.php:101
 msgid "Space Between Items (px)"
 msgstr ""
 
-#: shortcodes/icon-list/icon-list-item.php:97
+#: shortcodes/icon-list/icon-list-item.php:102
 msgid "Fill space between items in your list. Default value is 8"
 msgstr ""
 
@@ -2005,6 +2029,22 @@ msgstr ""
 
 #: shortcodes/interactive-banner/interactive-banner.php:78
 msgid "Overlay Color"
+msgstr ""
+
+#: shortcodes/line-graph/line-graph-item.php:25
+msgid "Line Graph Item"
+msgstr ""
+
+#: shortcodes/line-graph/line-graph.php:25
+msgid "Line Graph"
+msgstr ""
+
+#: shortcodes/line-graph/line-graph.php:83
+msgid "Legend Text"
+msgstr ""
+
+#: shortcodes/line-graph/line-graph.php:101
+msgid "Legned"
 msgstr ""
 
 #: shortcodes/pie-chart/pie-chart-item.php:25
@@ -2307,6 +2347,17 @@ msgstr ""
 
 #: shortcodes/single-image/single-image.php:24
 msgid "Single Image"
+msgstr ""
+
+#: shortcodes/svg-text/svg-text.php:24
+msgid "SVG Text"
+msgstr ""
+
+#: shortcodes/svg-text/svg-text.php:74 shortcodes/svg-text/svg-text.php:94
+#: shortcodes/svg-text/svg-text.php:101 shortcodes/svg-text/svg-text.php:108
+#: shortcodes/svg-text/svg-text.php:115 shortcodes/svg-text/svg-text.php:122
+#: shortcodes/svg-text/svg-text.php:129
+msgid "Font Size (px)"
 msgstr ""
 
 #: shortcodes/tabs/tabs-item.php:25

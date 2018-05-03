@@ -6,7 +6,7 @@
 	});
 
 	/**
-	 * Inti doughnut shortcode functionality on appear
+	 * Init doughnut chart shortcode
 	 */
 	function evcInitDoughnutChart() {
 		var holder = $('.evc-doughnut-chart');
