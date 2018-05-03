@@ -158,6 +158,7 @@ if ( ! class_exists( 'EVCIconListItem' ) ) {
 			$holderClasses = array();
 			
 			$holderClasses[] = ! empty( $params['custom_class'] ) ? esc_attr( $params['custom_class'] ) : '';
+			$holderClasses[] = ! empty( $params['custom_link'] ) ? 'evc-ili-has-link' : '';
 			
 			return implode( ' ', $holderClasses );
 		}

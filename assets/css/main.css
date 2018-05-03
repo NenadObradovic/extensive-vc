@@ -2659,6 +2659,16 @@ html.fp-enabled,
   margin-bottom: 0;
 }
 
+.touch .evc-icon-list .evc-il-item.evc-ili-has-link {
+  cursor: pointer;
+}
+
+.evc-icon-list .evc-il-item.evc-ili-has-link:hover .evc-ili-text {
+  -webkit-transform: translateX(8px);
+  -moz-transform: translateX(8px);
+  transform: translateX(8px);
+}
+
 .evc-icon-list .evc-ili-inner {
   position: relative;
   display: inline-block;
@@ -2687,7 +2697,14 @@ html.fp-enabled,
 }
 
 .evc-icon-list .evc-ili-text {
+  position: relative;
   margin: 0;
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  transform: translateX(0);
+  -webkit-transition: -webkit-transform 0.3s ease;
+  -moz-transition: -moz-transform 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .evc-icon-list .evc-ili-link {
@@ -3995,11 +4012,12 @@ html.fp-enabled,
   display: inline-block;
   width: 100%;
   vertical-align: top;
-  color: #303030;
+  height: 180px;
   font-size: 180px;
   line-height: 1;
   font-weight: 700;
   text-transform: uppercase;
+  color: #303030;
 }
 
 .touch .evc-svg-text {
@@ -4012,8 +4030,9 @@ html.fp-enabled,
 
 .evc-svg-text .evc-st-svg {
   position: relative;
+  display: block;
   width: 100%;
-  height: auto;
+  height: inherit;
   fill: transparent;
   stroke: currentColor;
   stroke-width: 1px;
@@ -4695,30 +4714,35 @@ html.fp-enabled,
 @media only screen and (max-width: 1366px) {
   .evc-svg-text {
     font-size: 140px;
+    height: 140px;
   }
 }
 
 @media only screen and (max-width: 1024px) {
   .evc-svg-text {
     font-size: 120px;
+    height: 120px;
   }
 }
 
 @media only screen and (max-width: 768px) {
   .evc-svg-text {
     font-size: 100px;
+    height: 100px;
   }
 }
 
 @media only screen and (max-width: 680px) {
   .evc-svg-text {
     font-size: 70px;
+    height: 70px;
   }
 }
 
 @media only screen and (max-width: 480px) {
   .evc-svg-text {
     font-size: 60px;
+    height: 60px;
   }
 }
 

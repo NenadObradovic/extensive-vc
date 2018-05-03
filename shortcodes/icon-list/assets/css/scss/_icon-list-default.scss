@@ -12,6 +12,20 @@
 		&:last-child {
 			margin-bottom: 0;
 		}
+		
+		&.evc-ili-has-link {
+			
+			.touch & {
+				cursor: pointer;
+			}
+			
+			&:hover {
+				
+				.evc-ili-text {
+					@include evcTransform(translateX(8px));
+				}
+			}
+		}
 	}
 	
 	.evc-ili-inner {
@@ -42,7 +56,10 @@
 	}
 
 	.evc-ili-text {
+		position: relative;
 		margin: 0;
+		@include evcTransform(translateX(0));
+		@include evcTransitionTransform(.3s ease);
 	}
 	
 	.evc-ili-link {

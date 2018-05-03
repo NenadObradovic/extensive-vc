@@ -88,7 +88,7 @@ You can find all instructions about plugin and all shortcodes in website <a href
 <h5>1.6.3</h5>
 - Added Line Graph shortcode <br />
 - Added SVG Text shortcode <br />
-- Added Custom Link option for Icon List Item shortcode <br />
+- Added Custom Link option for Icon List shortcode <br />
 - Added Custom Link option for Icon With Text shortcode <br />
 - Updated Lightbox 3rd party library to 2.10.0 <br />
 - Updated Owl Carousel 3rd party library to 2.3.4 <br />

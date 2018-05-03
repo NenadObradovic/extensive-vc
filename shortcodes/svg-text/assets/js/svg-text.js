@@ -37,21 +37,27 @@
 				
 				if (typeof laptopFSData !== 'undefined' && laptopFSData !== false) {
 					laptopStyle += 'font-size: ' + laptopFSData + ' !important;';
+					laptopStyle += 'height: ' + laptopFSData + ' !important;';
 				}
 				if (typeof smallLaptopFSData !== 'undefined' && smallLaptopFSData !== false) {
 					smallLaptopStyle += 'font-size: ' + smallLaptopFSData + ' !important;';
+					smallLaptopStyle += 'height: ' + smallLaptopFSData + ' !important;';
 				}
 				if (typeof macLaptopFSData !== 'undefined' && macLaptopFSData !== false) {
 					macLaptopStyle += 'font-size: ' + macLaptopFSData + ' !important;';
+					macLaptopStyle += 'height: ' + macLaptopFSData + ' !important;';
 				}
 				if (typeof ipadLandscapeFSData !== 'undefined' && ipadLandscapeFSData !== false) {
 					ipadLandscapeStyle += 'font-size: ' + ipadLandscapeFSData + ' !important;';
+					ipadLandscapeStyle += 'height: ' + ipadLandscapeFSData + ' !important;';
 				}
 				if (typeof ipadPortraitFSData !== 'undefined' && ipadPortraitFSData !== false) {
 					ipadPortraitStyle += 'font-size: ' + ipadPortraitFSData + ' !important;';
+					ipadPortraitStyle += 'height: ' + ipadPortraitFSData + ' !important;';
 				}
 				if (typeof mobileFSData !== 'undefined' && mobileFSData !== false) {
 					mobileLandscapeStyle += 'font-size: ' + mobileFSData + ' !important;';
+					mobileLandscapeStyle += 'height: ' + mobileFSData + ' !important;';
 				}
 				
 				if (laptopStyle.length || smallLaptopStyle.length || macLaptopStyle.length || ipadLandscapeStyle.length || ipadPortraitStyle.length || mobileLandscapeStyle.length) {

@@ -205,6 +205,7 @@ if ( ! class_exists( 'EVCSVGText' ) ) {
 			
 			if ( ! empty( $params['font_size'] ) ) {
 				$styles[] = 'font-size: ' . extensive_vc_filter_px( $params['font_size'] ) . 'px';
+				$styles[] = 'height: ' . extensive_vc_filter_px( $params['font_size'] ) . 'px';
 			}
 			
 			if ( ! empty( $params['font_weight'] ) ) {

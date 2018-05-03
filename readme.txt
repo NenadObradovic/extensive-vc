@@ -113,7 +113,7 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 = 1.6.3 =
 - Added Line Graph shortcode
 - Added SVG Text shortcode
-- Added Custom Link option for Icon List Item shortcode
+- Added Custom Link option for Icon List shortcode
 - Added Custom Link option for Icon With Text shortcode
 - Updated Lightbox 3rd party library to 2.10.0
 - Updated Owl Carousel 3rd party library to 2.3.4
