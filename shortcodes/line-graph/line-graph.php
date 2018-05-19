@@ -81,6 +81,34 @@ if ( ! class_exists( 'EVCLineGraph' ) ) {
 					'type'       => 'textfield',
 					'param_name' => 'legend_text',
 					'heading'    => esc_html__( 'Legend Text', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'colorpicker',
+					'param_name' => 'line_color',
+					'heading'    => esc_html__( 'Line Color', 'extensive-vc' ),
+					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'textfield',
+					'param_name' => 'line_thickness',
+					'heading'    => esc_html__( 'Line Thickness (px)', 'extensive-vc' ),
+					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+				),
+				array(
+					'type'        => 'dropdown',
+					'param_name'  => 'disable_line',
+					'heading'     => esc_html__( 'Disable Line', 'extensive-vc' ),
+					'description' => esc_html__( 'Enabling this option will hide line on graph', 'extensive-vc' ),
+					'value'       => array_flip( extensive_vc_get_yes_no_select_array( false ) ),
+					'group'       => esc_html__( 'Design Options', 'extensive-vc' )
+				),
+				array(
+					'type'        => 'colorpicker',
+					'param_name'  => 'fill_background_color',
+					'heading'     => esc_html__( 'Fill Background Color', 'extensive-vc' ),
+					'description' => esc_html__( 'Set background color under the line', 'extensive-vc' ),
+					'dependency'  => array( 'element' => 'disable_line', 'value' => array( 'no' ) ),
+					'group'       => esc_html__( 'Design Options', 'extensive-vc' )
 				)
 			);
 			
@@ -97,8 +125,12 @@ if ( ! class_exists( 'EVCLineGraph' ) ) {
 		 */
 		function render( $atts, $content = null ) {
 			$args   = array(
-				'custom_class' => '',
-				'legend_text'  => esc_html__( 'Legned', 'extensive-vc' )
+				'custom_class'          => '',
+				'legend_text'           => esc_html__( 'Legend', 'extensive-vc' ),
+				'line_color'            => '',
+				'line_thickness'        => '',
+				'disable_line'          => 'no',
+				'fill_background_color' => ''
 			);
 			$params = shortcode_atts( $args, $atts );
 			
@@ -138,6 +170,20 @@ if ( ! class_exists( 'EVCLineGraph' ) ) {
 			$data = array();
 			
 			$data['data-legend-text'] = ! empty( $params['legend_text'] ) ? esc_attr( $params['legend_text'] ) : $args['legend_text'];
+			
+			if ( ! empty( $params['line_color'] ) ) {
+				$data['data-border-color'] = esc_attr( $params['line_color'] );
+			}
+			
+			if ( $params['line_thickness'] !== '' ) {
+				$data['data-border-width'] = esc_attr( extensive_vc_filter_px( $params['line_thickness'] ) );
+			}
+			
+			$data['data-disable-line'] = ! empty( $params['disable_line'] ) ? esc_attr( $params['disable_line'] ) : $args['disable_line'];
+			
+			if ( ! empty( $params['fill_background_color'] ) ) {
+				$data['data-background-color'] = esc_attr( $params['fill_background_color'] );
+			}
 			
 			return $data;
 		}

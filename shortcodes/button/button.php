@@ -209,6 +209,18 @@ if ( ! class_exists( 'EVCButton' ) ) {
 						'heading'     => esc_html__( 'Margin', 'extensive-vc' ),
 						'description' => esc_html__( 'Insert margin in format: top right bottom left (e.g. 10px 5px 10px 5px)', 'extensive-vc' ),
 						'group'       => esc_html__( 'Design Options', 'extensive-vc' )
+					),
+					array(
+						'type'       => 'dropdown',
+						'param_name' => 'button_alignment',
+						'heading'    => esc_html__( 'Button Alignment', 'extensive-vc' ),
+						'value'      => array(
+							esc_html__( 'Default', 'extensive-vc' ) => '',
+							esc_html__( 'Left', 'extensive-vc' )    => 'left',
+							esc_html__( 'Right', 'extensive-vc' )   => 'right',
+							esc_html__( 'Center', 'extensive-vc' )  => 'center'
+						),
+						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
 					)
 				)
 			);
@@ -255,9 +267,12 @@ if ( ! class_exists( 'EVCButton' ) ) {
 				'border_width'       => '',
 				'line_color'         => '',
 				'switch_line_color'  => '',
-				'margin'             => ''
+				'margin'             => '',
+				'button_alignment'   => ''
 			);
 			$params = shortcode_atts( $args, $atts );
+			
+			$params['button_has_alignment'] = isset( $params['button_alignment'] ) && ! empty( $params['button_alignment'] );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params );
 			$params['holder_styles']  = $this->getHolderStyles( $params );

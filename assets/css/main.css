@@ -1826,6 +1826,25 @@ body.rtl {
    Button shortcode style - begin
    ========================================================================== */
 
+.evc-button-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+}
+
+.evc-button-wrapper.evc-btn-left {
+  text-align: left;
+}
+
+.evc-button-wrapper.evc-btn-right {
+  text-align: right;
+}
+
+.evc-button-wrapper.evc-btn-center {
+  text-align: center;
+}
+
 .evc-button {
   position: relative;
   display: inline-block;

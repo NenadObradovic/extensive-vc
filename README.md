@@ -85,6 +85,20 @@ You can find all instructions about plugin and all shortcodes in website <a href
 
 <h3>Changelog</h3>
 
+<h5>1.6.4</h5>
+- Added Button Alignment option for Button shortcode <br />
+- Added Button Alignment option for Button widget <br />
+- Added Price Size option for Pricing Table shortcode <br />
+- Added Currency Size option for Pricing Table shortcode <br />
+- Added Price Period Size option for Pricing Table shortcode <br />
+- Added Line Color option for Line Graph shortcode <br />
+- Added Line Thickness option for Line Graph shortcode <br />
+- Added Disable Line option for Line Graph shortcode <br />
+- Added Fill Background Color option for Line Graph shortcode <br />
+- Updated language pot file <br />
+- Fixed button link for Pricing Table shortcode <br />
+- Fixed duplicated ids for pot file <br />
+
 <h5>1.6.3</h5>
 - Added Line Graph shortcode <br />
 - Added SVG Text shortcode <br />

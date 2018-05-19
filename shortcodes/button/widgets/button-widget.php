@@ -176,6 +176,18 @@ if ( ! class_exists( 'EVCButtonWidget' ) ) {
 					'param_name'  => 'margin',
 					'heading'     => esc_html__( 'Margin', 'extensive-vc' ),
 					'description' => esc_html__( 'Insert margin in format: top right bottom left (e.g. 10px 5px 10px 5px)', 'extensive-vc' )
+				),
+				array(
+					'type'          => 'dropdown',
+					'param_name'    => 'button_alignment',
+					'heading'       => esc_html__( 'Button Alignment', 'extensive-vc' ),
+					'value'         => array(
+						esc_html__( 'Default', 'extensive-vc' ) => '',
+						esc_html__( 'Left', 'extensive-vc' )    => 'left',
+						esc_html__( 'Right', 'extensive-vc' )   => 'right',
+						esc_html__( 'Center', 'extensive-vc' )  => 'center'
+					),
+					'inverse_value' => true
 				)
 			);
 		}

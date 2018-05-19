@@ -100,6 +100,13 @@ if ( ! class_exists( 'EVCPricingTableItem' ) ) {
 					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
 				),
 				array(
+					'type'       => 'textfield',
+					'param_name' => 'price_size',
+					'heading'    => esc_html__( 'Price Size (px)', 'extensive-vc' ),
+					'dependency' => array( 'element' => 'price', 'not_empty' => true ),
+					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+				),
+				array(
 					'type'        => 'textfield',
 					'param_name'  => 'currency',
 					'heading'     => esc_html__( 'Currency', 'extensive-vc' ),
@@ -113,6 +120,13 @@ if ( ! class_exists( 'EVCPricingTableItem' ) ) {
 					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
 				),
 				array(
+					'type'       => 'textfield',
+					'param_name' => 'currency_size',
+					'heading'    => esc_html__( 'Currency Size (px)', 'extensive-vc' ),
+					'dependency' => array( 'element' => 'currency', 'not_empty' => true ),
+					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+				),
+				array(
 					'type'        => 'textfield',
 					'param_name'  => 'price_period',
 					'heading'     => esc_html__( 'Price Period', 'extensive-vc' ),
@@ -122,6 +136,13 @@ if ( ! class_exists( 'EVCPricingTableItem' ) ) {
 					'type'       => 'colorpicker',
 					'param_name' => 'price_period_color',
 					'heading'    => esc_html__( 'Price Period Color', 'extensive-vc' ),
+					'dependency' => array( 'element' => 'price_period', 'not_empty' => true ),
+					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'textfield',
+					'param_name' => 'price_period_size',
+					'heading'    => esc_html__( 'Price Period Size (px)', 'extensive-vc' ),
 					'dependency' => array( 'element' => 'price_period', 'not_empty' => true ),
 					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
 				),
@@ -267,10 +288,13 @@ if ( ! class_exists( 'EVCPricingTableItem' ) ) {
 				'price_bg_color'            => '',
 				'price_bg_image'	        => '',
 				'price_color'               => '',
+				'price_size'                => '',
 				'currency'                  => '$',
 				'currency_color'            => '',
+				'currency_size'             => '',
 				'price_period'              => 'monthly',
 				'price_period_color'        => '',
+				'price_period_size'         => '',
 				'button_text'               => '',
 				'button_custom_link'        => '',
 				'button_type'               => '',
@@ -294,8 +318,8 @@ if ( ! class_exists( 'EVCPricingTableItem' ) ) {
 			$params['title_styles']        = $this->getTitleStyles( $params );
 			$params['price_styles']        = $this->getPriceStyles( $params );
 			$params['price_holder_styles'] = $this->getPriceHolderStyles( $params );
-			$params['price_period_styles'] = $this->getPricePeriodStyles( $params );
 			$params['currency_styles']     = $this->getCurrencyStyles( $params );
+			$params['price_period_styles'] = $this->getPricePeriodStyles( $params );
 			$params['button_params']       = $this->getButtonParameters( $params );
 			
 			$params['content'] = $content;
@@ -352,6 +376,10 @@ if ( ! class_exists( 'EVCPricingTableItem' ) ) {
 				$styles[] = 'color: ' . $params['price_color'];
 			}
 			
+			if ( ! empty( $params['price_size'] ) ) {
+				$styles[] = 'font-size: ' . extensive_vc_filter_px( $params['price_size'] ) . 'px';
+			}
+			
 			return implode( ';', $styles );
 		}
 		
@@ -377,6 +405,27 @@ if ( ! class_exists( 'EVCPricingTableItem' ) ) {
 		}
 		
 		/**
+		 * Get currency styles
+		 *
+		 * @param $params array - shortcode parameters value
+		 *
+		 * @return string
+		 */
+		private function getCurrencyStyles( $params ) {
+			$styles = array();
+			
+			if ( ! empty( $params['currency_color'] ) ) {
+				$styles[] = 'color: ' . $params['currency_color'];
+			}
+			
+			if ( ! empty( $params['currency_size'] ) ) {
+				$styles[] = 'font-size: ' . extensive_vc_filter_px( $params['currency_size'] ) . 'px';
+			}
+			
+			return implode( ';', $styles );
+		}
+		
+		/**
 		 * Get price period styles
 		 *
 		 * @param $params array - shortcode parameters value
@@ -390,21 +439,8 @@ if ( ! class_exists( 'EVCPricingTableItem' ) ) {
 				$styles[] = 'color: ' . $params['price_period_color'];
 			}
 			
-			return implode( ';', $styles );
-		}
-		
-		/**
-		 * Get currency styles
-		 *
-		 * @param $params array - shortcode parameters value
-		 *
-		 * @return string
-		 */
-		private function getCurrencyStyles( $params ) {
-			$styles = array();
-			
-			if ( ! empty( $params['currency_color'] ) ) {
-				$styles[] = 'color: ' . $params['currency_color'];
+			if ( ! empty( $params['price_period_size'] ) ) {
+				$styles[] = 'font-size: ' . extensive_vc_filter_px( $params['price_period_size'] ) . 'px';
 			}
 			
 			return implode( ';', $styles );
@@ -423,8 +459,8 @@ if ( ! class_exists( 'EVCPricingTableItem' ) ) {
 			$button_link = $params['button_custom_link'];
 			
 			if ( ! empty( $button_text ) && ! empty( $button_link ) ) {
-				$item_params['text'] = esc_attr( $button_text );
-				$item_params['link'] = esc_attr( $button_link );
+				$item_params['text']        = esc_attr( $button_text );
+				$item_params['custom_link'] = $button_link;
 				
 				if ( ! empty( $params['button_type'] ) ) {
 					$item_params['type'] = esc_attr( $params['button_type'] );

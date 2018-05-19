@@ -2,6 +2,22 @@
    Button shortcode style - begin
    ========================================================================== */
 
+.evc-button-wrapper {
+	@include evcRelativeLayout();
+	
+	&.evc-btn-left {
+		text-align: left;
+	}
+	
+	&.evc-btn-right {
+		text-align: right;
+	}
+	
+	&.evc-btn-center {
+		text-align: center;
+	}
+}
+
 .evc-button {
 	position: relative;
 	display: inline-block;

@@ -307,81 +307,6 @@
 })(jQuery);
 (function ($) {
 	'use strict';
-
-	$(document).ready(function () {
-		evcInitDoughnutChart();
-	});
-
-	/**
-	 * Init doughnut chart shortcode
-	 */
-	function evcInitDoughnutChart() {
-		var holder = $('.evc-doughnut-chart');
-
-		if (holder.length) {
-			holder.each(function () {
-				var thisHolder = $(this),
-					holderBorderColor = thisHolder.data('border-color'),
-					borderColor = holderBorderColor !== undefined && holderBorderColor !== '' ? holderBorderColor : '#fff',
-					holderBorderHoverColor = thisHolder.data('border-hover-color'),
-					hoverBorderColor = holderBorderHoverColor !== undefined && holderBorderHoverColor !== '' ? holderBorderHoverColor : '#efefef',
-					holderBorderWidth = thisHolder.data('border-width'),
-					borderWidth = holderBorderWidth !== undefined && holderBorderWidth !== '' ? parseInt( holderBorderWidth, 10 ) : 2,
-					enableLegend = thisHolder.data('enable-legend'),
-					legendPosition = thisHolder.data('legend-position'),
-					doughnutChartItem = thisHolder.children('.evc-doughnut-chart-item'),
-					canvas = thisHolder.children('canvas'),
-					labels = [],
-					values = [],
-					colors = [];
-
-				doughnutChartItem.each(function(){
-					var thisItem = $(this),
-						label = thisItem.data('label'),
-						value = thisItem.data('value'),
-						color = thisItem.data('color');
-
-					if ( label !== undefined && label !== '' ) {
-						labels.push(label);
-					}
-
-					if ( value !== undefined && value !== '' && color !== undefined && color !== '' ) {
-						values.push(value);
-						colors.push(color);
-					}
-				});
-
-				thisHolder.appear(function () {
-					thisHolder.addClass('evc-dc-appeared');
-
-					new Chart(canvas, {
-						type: 'doughnut',
-						data: {
-							labels: labels,
-							datasets: [{
-								data: values,
-								backgroundColor: colors,
-								borderColor: borderColor,
-								hoverBorderColor: hoverBorderColor,
-								borderWidth: borderWidth
-							}]
-						},
-						options: {
-							responsive: true,
-							legend: {
-								display: enableLegend,
-								position: legendPosition
-							}
-						}
-					});
-				}, {accX: 0, accY: -80});
-			});
-		}
-	}
-	
-})(jQuery);
-(function ($) {
-	'use strict';
 	
 	$(document).ready(function () {
 		evcInitFullScreenSections();
@@ -498,6 +423,13 @@
 			holder.each(function () {
 				var thisHolder = $(this),
 					legendText = thisHolder.data('legend-text'),
+					holderBorderColor = thisHolder.data('border-color'),
+					borderColor = holderBorderColor !== undefined && holderBorderColor !== '' ? holderBorderColor : '',
+					holderBorderWidth = thisHolder.data('border-width'),
+					borderWidth = holderBorderWidth !== undefined && holderBorderWidth !== '' ? holderBorderWidth : '',
+					showLine = thisHolder.data('disable-line') !== 'yes',
+					holderBackgroundColor = thisHolder.data('background-color'),
+					backgroundColor = holderBackgroundColor !== undefined && holderBackgroundColor !== '' ? holderBackgroundColor : '',
 					pieChartItem = thisHolder.children('.evc-line-graph-item'),
 					canvas = thisHolder.children('canvas'),
 					labels = [],
@@ -526,7 +458,11 @@
 							labels: labels,
 							datasets: [{
 								label: legendText,
-								data: values
+								data: values,
+								backgroundColor: backgroundColor,
+								borderColor: borderColor,
+								borderWidth: borderWidth,
+								showLine: showLine
 							}]
 						}
 					});
@@ -719,6 +655,81 @@
 })(jQuery);
 (function ($) {
 	'use strict';
+
+	$(document).ready(function () {
+		evcInitDoughnutChart();
+	});
+
+	/**
+	 * Init doughnut chart shortcode
+	 */
+	function evcInitDoughnutChart() {
+		var holder = $('.evc-doughnut-chart');
+
+		if (holder.length) {
+			holder.each(function () {
+				var thisHolder = $(this),
+					holderBorderColor = thisHolder.data('border-color'),
+					borderColor = holderBorderColor !== undefined && holderBorderColor !== '' ? holderBorderColor : '#fff',
+					holderBorderHoverColor = thisHolder.data('border-hover-color'),
+					hoverBorderColor = holderBorderHoverColor !== undefined && holderBorderHoverColor !== '' ? holderBorderHoverColor : '#efefef',
+					holderBorderWidth = thisHolder.data('border-width'),
+					borderWidth = holderBorderWidth !== undefined && holderBorderWidth !== '' ? parseInt( holderBorderWidth, 10 ) : 2,
+					enableLegend = thisHolder.data('enable-legend'),
+					legendPosition = thisHolder.data('legend-position'),
+					doughnutChartItem = thisHolder.children('.evc-doughnut-chart-item'),
+					canvas = thisHolder.children('canvas'),
+					labels = [],
+					values = [],
+					colors = [];
+
+				doughnutChartItem.each(function(){
+					var thisItem = $(this),
+						label = thisItem.data('label'),
+						value = thisItem.data('value'),
+						color = thisItem.data('color');
+
+					if ( label !== undefined && label !== '' ) {
+						labels.push(label);
+					}
+
+					if ( value !== undefined && value !== '' && color !== undefined && color !== '' ) {
+						values.push(value);
+						colors.push(color);
+					}
+				});
+
+				thisHolder.appear(function () {
+					thisHolder.addClass('evc-dc-appeared');
+
+					new Chart(canvas, {
+						type: 'doughnut',
+						data: {
+							labels: labels,
+							datasets: [{
+								data: values,
+								backgroundColor: colors,
+								borderColor: borderColor,
+								hoverBorderColor: hoverBorderColor,
+								borderWidth: borderWidth
+							}]
+						},
+						options: {
+							responsive: true,
+							legend: {
+								display: enableLegend,
+								position: legendPosition
+							}
+						}
+					});
+				}, {accX: 0, accY: -80});
+			});
+		}
+	}
+	
+})(jQuery);
+(function ($) {
+	'use strict';
 	
 	$(document).ready(function () {
 		evcSVGTextResizeStyle();
@@ -807,70 +818,6 @@
 				
 				if (style.length) {
 					$('head').append(style);
-				}
-			});
-		}
-	}
-	
-})(jQuery);
-(function ($) {
-	'use strict';
-	
-	$(document).ready(function () {
-		evcInitTabs();
-	});
-	
-	/*
-	 **	Init tabs shortcode
-	 */
-	function evcInitTabs() {
-		var tabs = $('.evc-tabs');
-		
-		if (tabs.length) {
-			tabs.each(function () {
-				var thisTabs = $(this),
-					tabContent = thisTabs.find('.evc-tabs-item');
-				
-				tabContent.each(function (index) {
-					index = index + 1;
-					
-					var that = $(this),
-						link = that.attr('id'),
-						navItem = that.parent().find('.evc-tabs-nav li:nth-child(' + index + ') a'),
-						navLink = navItem.attr('href');
-					
-					link = '#' + link;
-					
-					if (link.indexOf(navLink) > -1) {
-						navItem.attr('href', link);
-					}
-				});
-				
-				thisTabs.tabs();
-				
-				thisTabs.appear(function () {
-					thisTabs.css({'visibility': 'visible'});
-					showTabContent(tabContent);
-				});
-				
-				thisTabs.find('.evc-tabs-nav li').each(function () {
-					$(this).children().on('click', function () {
-						setTimeout(function () {
-							showTabContent(tabContent);
-						}, 50);
-					});
-				});
-			});
-		}
-		
-		function showTabContent(tabContent) {
-			tabContent.each(function () {
-				var thisTabContent = $(this);
-				
-				if (thisTabContent.is(':visible')) {
-					thisTabContent.addClass('evc-active');
-				} else {
-					thisTabContent.removeClass('evc-active');
 				}
 			});
 		}
@@ -1036,4 +983,68 @@
 			)();
 	}
 
+})(jQuery);
+(function ($) {
+	'use strict';
+	
+	$(document).ready(function () {
+		evcInitTabs();
+	});
+	
+	/*
+	 **	Init tabs shortcode
+	 */
+	function evcInitTabs() {
+		var tabs = $('.evc-tabs');
+		
+		if (tabs.length) {
+			tabs.each(function () {
+				var thisTabs = $(this),
+					tabContent = thisTabs.find('.evc-tabs-item');
+				
+				tabContent.each(function (index) {
+					index = index + 1;
+					
+					var that = $(this),
+						link = that.attr('id'),
+						navItem = that.parent().find('.evc-tabs-nav li:nth-child(' + index + ') a'),
+						navLink = navItem.attr('href');
+					
+					link = '#' + link;
+					
+					if (link.indexOf(navLink) > -1) {
+						navItem.attr('href', link);
+					}
+				});
+				
+				thisTabs.tabs();
+				
+				thisTabs.appear(function () {
+					thisTabs.css({'visibility': 'visible'});
+					showTabContent(tabContent);
+				});
+				
+				thisTabs.find('.evc-tabs-nav li').each(function () {
+					$(this).children().on('click', function () {
+						setTimeout(function () {
+							showTabContent(tabContent);
+						}, 50);
+					});
+				});
+			});
+		}
+		
+		function showTabContent(tabContent) {
+			tabContent.each(function () {
+				var thisTabContent = $(this);
+				
+				if (thisTabContent.is(':visible')) {
+					thisTabContent.addClass('evc-active');
+				} else {
+					thisTabContent.removeClass('evc-active');
+				}
+			});
+		}
+	}
+	
 })(jQuery);

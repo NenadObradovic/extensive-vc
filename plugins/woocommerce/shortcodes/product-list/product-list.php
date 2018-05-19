@@ -238,7 +238,7 @@ if ( ! class_exists( 'EVCProductList' ) ) {
 				'order'               => $params['order']
 			);
 			
-			if ( $params['orderby'] === 'on-sale' ) {
+			if ( $params['orderby'] === 'on-sale' && function_exists( 'wc_get_product_ids_on_sale' ) ) {
 				$args['no_found_rows'] = 1;
 				$args['post__in']      = array_merge( array( 0 ), wc_get_product_ids_on_sale() );
 			}

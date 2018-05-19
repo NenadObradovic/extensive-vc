@@ -15,6 +15,13 @@
 			holder.each(function () {
 				var thisHolder = $(this),
 					legendText = thisHolder.data('legend-text'),
+					holderBorderColor = thisHolder.data('border-color'),
+					borderColor = holderBorderColor !== undefined && holderBorderColor !== '' ? holderBorderColor : '',
+					holderBorderWidth = thisHolder.data('border-width'),
+					borderWidth = holderBorderWidth !== undefined && holderBorderWidth !== '' ? holderBorderWidth : '',
+					showLine = thisHolder.data('disable-line') !== 'yes',
+					holderBackgroundColor = thisHolder.data('background-color'),
+					backgroundColor = holderBackgroundColor !== undefined && holderBackgroundColor !== '' ? holderBackgroundColor : '',
 					pieChartItem = thisHolder.children('.evc-line-graph-item'),
 					canvas = thisHolder.children('canvas'),
 					labels = [],
@@ -43,7 +50,11 @@
 							labels: labels,
 							datasets: [{
 								label: legendText,
-								data: values
+								data: values,
+								backgroundColor: backgroundColor,
+								borderColor: borderColor,
+								borderWidth: borderWidth,
+								showLine: showLine
 							}]
 						}
 					});
