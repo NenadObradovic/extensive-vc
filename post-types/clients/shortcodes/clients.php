@@ -94,6 +94,18 @@ if ( ! class_exists( 'EVCClients' ) ) {
 					'description' => esc_html__( 'Enter one category slug or leave empty for showing all categories', 'extensive-vc' )
 				),
 				array(
+					'type'        => 'dropdown',
+					'param_name'  => 'orderby',
+					'heading'     => esc_html__( 'Order By', 'extensive-vc' ),
+					'value'       => array_flip( extensive_vc_get_query_order_by_array() )
+				),
+				array(
+					'type'        => 'dropdown',
+					'param_name'  => 'order',
+					'heading'     => esc_html__( 'Order', 'extensive-vc' ),
+					'value'       => array_flip( extensive_vc_get_query_order_array() )
+				),
+				array(
 					'type'       => 'dropdown',
 					'param_name' => 'custom_link_target',
 					'heading'    => esc_html__( 'Custom Link Target', 'extensive-vc' ),
@@ -191,6 +203,14 @@ if ( ! class_exists( 'EVCClients' ) ) {
 					'group'      => esc_html__( 'Slider Options', 'extensive-vc' )
 				),
 				array(
+					'type'       => 'dropdown',
+					'param_name' => 'carousel_autoplay_pause',
+					'heading'    => esc_html__( 'Enable Slider Autoplay Hover Pause', 'extensive-vc' ),
+					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false ) ),
+					'dependency' => array( 'element' => 'type', 'value' => array( 'slider' ) ),
+					'group'      => esc_html__( 'Slider Options', 'extensive-vc' )
+				),
+				array(
 					'type'        => 'textfield',
 					'param_name'  => 'carousel_speed',
 					'heading'     => esc_html__( 'Slide Duration (ms)', 'extensive-vc' ),
@@ -203,6 +223,14 @@ if ( ! class_exists( 'EVCClients' ) ) {
 					'param_name'  => 'carousel_speed_animation',
 					'heading'     => esc_html__( 'Slide Animation Duration (ms)', 'extensive-vc' ),
 					'description' => esc_html__( 'Speed of slide animation in milliseconds. Default value is 600', 'extensive-vc' ),
+					'dependency'  => array( 'element' => 'type', 'value' => array( 'slider' ) ),
+					'group'       => esc_html__( 'Slider Options', 'extensive-vc' )
+				),
+				array(
+					'type'        => 'textfield',
+					'param_name'  => 'carousel_margin',
+					'heading'     => esc_html__( 'Slide Margin (px)', 'extensive-vc' ),
+					'description' => esc_html__( 'Define right margin for slide items. Default value is 0', 'extensive-vc' ),
 					'dependency'  => array( 'element' => 'type', 'value' => array( 'slider' ) ),
 					'group'       => esc_html__( 'Slider Options', 'extensive-vc' )
 				),
@@ -252,6 +280,8 @@ if ( ! class_exists( 'EVCClients' ) ) {
 				'type'                     => 'slider',
 				'number'                   => '-1',
 				'category'                 => '',
+				'orderby'                  => 'date',
+				'order'                    => 'ASC',
 				'custom_link_target'       => '_self',
 				'items_hover_animation'    => 'switch-images',
 				'enable_title'             => 'no',
@@ -264,15 +294,17 @@ if ( ! class_exists( 'EVCClients' ) ) {
 				'number_of_visible_items'  => '4',
 				'carousel_loop'            => 'yes',
 				'carousel_autoplay'        => 'yes',
+				'carousel_autoplay_pause'  => 'no',
 				'carousel_speed'           => '5000',
 				'carousel_speed_animation' => '600',
+				'carousel_margin'          => '',
 				'carousel_navigation'      => 'yes',
 				'carousel_pagination'      => 'yes',
 				'carousel_navigation_skin' => ''
 			);
 			$params = shortcode_atts( $args, $atts );
 			
-			$params['query_results']  = new \WP_Query( $this->getQueryParams( $params ) );
+			$params['query_results']  = new \WP_Query( $this->getQueryParams( $params, $args ) );
 			
 			$params['type'] = ! empty( $params['type'] ) ? $params['type'] : $args['type'];
 			
@@ -312,16 +344,17 @@ if ( ! class_exists( 'EVCClients' ) ) {
 		 * Get shortcode query parameters
 		 *
 		 * @param $params array - shortcode parameters value
+		 * @param $args array - default shortcode parameters value
 		 *
 		 * @return array
 		 */
-		private function getQueryParams( $params ) {
+		private function getQueryParams( $params, $args ) {
 			$args = array(
 				'post_status'    => 'publish',
 				'post_type'      => 'clients',
 				'posts_per_page' => $params['number'],
-				'orderby'        => 'date',
-				'order'          => 'ASC'
+				'orderby'        => ! empty( $params['orderby'] ) ? $params['orderby'] : $args['orderby'],
+				'order'          => ! empty( $params['order'] ) ? $params['order'] : $args['order']
 			);
 			
 			if ( $params['category'] != '' ) {
@@ -345,9 +378,10 @@ if ( ! class_exists( 'EVCClients' ) ) {
 			$data['data-number-of-items']             = ! empty( $params['number_of_visible_items'] ) ? $params['number_of_visible_items'] : $args['number_of_visible_items'];
 			$data['data-enable-loop']                 = ! empty( $params['carousel_loop'] ) ? $params['carousel_loop'] : $args['carousel_loop'];
 			$data['data-enable-autoplay']             = ! empty( $params['carousel_autoplay'] ) ? $params['carousel_autoplay'] : $args['carousel_autoplay'];
-			$data['data-enable-autoplay-hover-pause'] = 'no';
+			$data['data-enable-autoplay-hover-pause'] = ! empty( $params['carousel_autoplay_pause'] ) ? $params['carousel_autoplay_pause'] : $args['carousel_autoplay_pause'];
 			$data['data-carousel-speed']              = ! empty( $params['carousel_speed'] ) ? $params['carousel_speed'] : $args['carousel_speed'];
 			$data['data-carousel-speed-animation']    = ! empty( $params['carousel_speed_animation'] ) ? $params['carousel_speed_animation'] : $args['carousel_speed_animation'];
+			$data['data-carousel-margin']             = ! empty( $params['carousel_margin'] ) ? $params['carousel_margin'] : $args['carousel_margin'];
 			$data['data-enable-navigation']           = ! empty( $params['carousel_navigation'] ) ? $params['carousel_navigation'] : $args['carousel_navigation'];
 			$data['data-enable-pagination']           = ! empty( $params['carousel_pagination'] ) ? $params['carousel_pagination'] : $args['carousel_pagination'];
 			

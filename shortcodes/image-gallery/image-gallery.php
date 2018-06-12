@@ -159,6 +159,14 @@ if ( ! class_exists( 'EVCImageGallery' ) ) {
 					'group'      => esc_html__( 'Slider Options', 'extensive-vc' )
 				),
 				array(
+					'type'       => 'dropdown',
+					'param_name' => 'carousel_autoplay_pause',
+					'heading'    => esc_html__( 'Enable Slider Autoplay Hover Pause', 'extensive-vc' ),
+					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false ) ),
+					'dependency' => array( 'element' => 'type', 'value' => array( 'slider', 'carousel' ) ),
+					'group'      => esc_html__( 'Slider Options', 'extensive-vc' )
+				),
+				array(
 					'type'        => 'textfield',
 					'param_name'  => 'carousel_speed',
 					'heading'     => esc_html__( 'Slide Duration (ms)', 'extensive-vc' ),
@@ -171,6 +179,14 @@ if ( ! class_exists( 'EVCImageGallery' ) ) {
 					'param_name'  => 'carousel_speed_animation',
 					'heading'     => esc_html__( 'Slide Animation Duration (ms)', 'extensive-vc' ),
 					'description' => esc_html__( 'Speed of slide animation in milliseconds. Default value is 600', 'extensive-vc' ),
+					'dependency'  => array( 'element' => 'type', 'value' => array( 'slider', 'carousel' ) ),
+					'group'       => esc_html__( 'Slider Options', 'extensive-vc' )
+				),
+				array(
+					'type'        => 'textfield',
+					'param_name'  => 'carousel_margin',
+					'heading'     => esc_html__( 'Slide Margin (px)', 'extensive-vc' ),
+					'description' => esc_html__( 'Define right margin for slide items. Default value is 0', 'extensive-vc' ),
 					'dependency'  => array( 'element' => 'type', 'value' => array( 'slider', 'carousel' ) ),
 					'group'       => esc_html__( 'Slider Options', 'extensive-vc' )
 				),
@@ -228,8 +244,10 @@ if ( ! class_exists( 'EVCImageGallery' ) ) {
 				'number_of_visible_items'  => '1',
 				'carousel_loop'            => 'yes',
 				'carousel_autoplay'        => 'yes',
+				'carousel_autoplay_pause'  => 'no',
 				'carousel_speed'           => '5000',
 				'carousel_speed_animation' => '600',
+				'carousel_margin'          => '',
 				'carousel_navigation'      => 'yes',
 				'carousel_pagination'      => 'yes',
 				'carousel_navigation_skin' => ''
@@ -283,14 +301,19 @@ if ( ! class_exists( 'EVCImageGallery' ) ) {
 		private function getSliderData( $params, $args ) {
 			$data = array();
 			
-			$data['data-number-of-items']          = $params['number_of_visible_items'] !== '' && $params['type'] === 'carousel' ? $params['number_of_visible_items'] : $args['number_of_visible_items'];
-			$data['data-enable-loop']              = ! empty( $params['carousel_loop'] ) ? $params['carousel_loop'] : $args['carousel_loop'];
-			$data['data-enable-autoplay']          = ! empty( $params['carousel_autoplay'] ) ? $params['carousel_autoplay'] : $args['carousel_autoplay'];
-			$data['data-carousel-speed']           = ! empty( $params['carousel_speed'] ) ? $params['carousel_speed'] : $args['carousel_speed'];
-			$data['data-carousel-speed-animation'] = ! empty( $params['carousel_speed_animation'] ) ? $params['carousel_speed_animation'] : $args['carousel_speed_animation'];
-			$data['data-carousel-margin']          = $params['type'] === 'carousel' ? '30' : '0';
-			$data['data-enable-navigation']        = ! empty( $params['carousel_navigation'] ) ? $params['carousel_navigation'] : $args['carousel_navigation'];
-			$data['data-enable-pagination']        = ! empty( $params['carousel_pagination'] ) ? $params['carousel_pagination'] : $args['carousel_pagination'];
+			$data['data-number-of-items']             = $params['number_of_visible_items'] !== '' && $params['type'] === 'carousel' ? $params['number_of_visible_items'] : $args['number_of_visible_items'];
+			$data['data-enable-loop']                 = ! empty( $params['carousel_loop'] ) ? $params['carousel_loop'] : $args['carousel_loop'];
+			$data['data-enable-autoplay']             = ! empty( $params['carousel_autoplay'] ) ? $params['carousel_autoplay'] : $args['carousel_autoplay'];
+			$data['data-enable-autoplay-hover-pause'] = ! empty( $params['carousel_autoplay_pause'] ) ? $params['carousel_autoplay_pause'] : $args['carousel_autoplay_pause'];
+			$data['data-carousel-speed']              = ! empty( $params['carousel_speed'] ) ? $params['carousel_speed'] : $args['carousel_speed'];
+			$data['data-carousel-speed-animation']    = ! empty( $params['carousel_speed_animation'] ) ? $params['carousel_speed_animation'] : $args['carousel_speed_animation'];
+			if ( $params['type'] === 'carousel' && empty( $params['carousel_margin'] ) ) {
+				$data['data-carousel-margin'] = '30';
+			} else {
+				$data['data-carousel-margin'] = ! empty( $params['carousel_margin'] ) ? $params['carousel_margin'] : $args['carousel_margin'];
+			}
+			$data['data-enable-navigation'] = ! empty( $params['carousel_navigation'] ) ? $params['carousel_navigation'] : $args['carousel_navigation'];
+			$data['data-enable-pagination'] = ! empty( $params['carousel_pagination'] ) ? $params['carousel_pagination'] : $args['carousel_pagination'];
 			
 			return $data;
 		}

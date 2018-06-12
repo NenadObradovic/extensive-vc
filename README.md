@@ -85,6 +85,19 @@ You can find all instructions about plugin and all shortcodes in website <a href
 
 <h3>Changelog</h3>
 
+<h5>1.6.5</h5>
+- Added Order By option for Clients shortcode <br />
+- Added Order option for Clients shortcode <br />
+- Added Enable Slider Autoplay Hover Pause option for Clients shortcode <br />
+- Added Slide Margin (px) option for Clients shortcode <br />
+- Added Order By option for Testimonials shortcode <br />
+- Added Order option for Testimonials shortcode <br />
+- Added Enable Slider Autoplay Hover Pause option for Testimonials shortcode <br />
+- Added Slide Margin (px) option for Testimonials shortcode <br />
+- Added Enable Slider Autoplay Hover Pause option for Image Gallery shortcode <br />
+- Added Slide Margin (px) option for Image Gallery shortcode <br />
+- Updated language pot file <br />
+
 <h5>1.6.4</h5>
 - Added Button Alignment option for Button shortcode <br />
 - Added Button Alignment option for Button widget <br />

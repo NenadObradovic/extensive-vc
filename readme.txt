@@ -3,8 +3,8 @@ Contributors: nenad-obradovic
 Tags: visual composer, visual composer addons, wpbakery page builder, wpbakery addons, wpbakery shortcodes
 Donate link: http://wprealize.com/donate/
 Requires at least: 4.6
-Tested up to: 4.9.5
-Stable tag: 1.6.4
+Tested up to: 4.9.6
+Stable tag: 1.6.5
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -109,6 +109,19 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 5. Blockquote shortcode example.
 
 == Changelog ==
+
+= 1.6.5 =
+- Added Order By option for Clients shortcode
+- Added Order option for Clients shortcode
+- Added Enable Slider Autoplay Hover Pause option for Clients shortcode
+- Added Slide Margin (px) option for Clients shortcode
+- Added Order By option for Testimonials shortcode
+- Added Order option for Testimonials shortcode
+- Added Enable Slider Autoplay Hover Pause option for Testimonials shortcode
+- Added Slide Margin (px) option for Testimonials shortcode
+- Added Enable Slider Autoplay Hover Pause option for Image Gallery shortcode
+- Added Slide Margin (px) option for Image Gallery shortcode
+- Updated language pot file
 
 = 1.6.4 =
 - Added Button Alignment option for Button shortcode

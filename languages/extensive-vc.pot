@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Extensive VC Pack package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Extensive VC Pack 1.6.4\n"
+"Project-Id-Version: Extensive VC Pack 1.6.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/extensive-vc\n"
-"POT-Creation-Date: 2018-05-19 10:29:25+00:00\n"
+"POT-Creation-Date: 2018-06-12 19:57:36+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -118,32 +118,32 @@ msgstr ""
 msgid "Disable widgets you don't use on your site to increase admin performance"
 msgstr ""
 
-#: lib/helpers-functions.php:439 post-types/clients/shortcodes/clients.php:167
+#: lib/helpers-functions.php:439 post-types/clients/shortcodes/clients.php:179
 #: shortcodes/image-gallery/image-gallery.php:135
 msgid "One"
 msgstr ""
 
-#: lib/helpers-functions.php:440 post-types/clients/shortcodes/clients.php:168
+#: lib/helpers-functions.php:440 post-types/clients/shortcodes/clients.php:180
 #: shortcodes/image-gallery/image-gallery.php:136
 msgid "Two"
 msgstr ""
 
-#: lib/helpers-functions.php:441 post-types/clients/shortcodes/clients.php:169
+#: lib/helpers-functions.php:441 post-types/clients/shortcodes/clients.php:181
 #: shortcodes/image-gallery/image-gallery.php:137
 msgid "Three"
 msgstr ""
 
-#: lib/helpers-functions.php:442 post-types/clients/shortcodes/clients.php:170
+#: lib/helpers-functions.php:442 post-types/clients/shortcodes/clients.php:182
 #: shortcodes/image-gallery/image-gallery.php:138
 msgid "Four"
 msgstr ""
 
-#: lib/helpers-functions.php:443 post-types/clients/shortcodes/clients.php:171
+#: lib/helpers-functions.php:443 post-types/clients/shortcodes/clients.php:183
 #: shortcodes/image-gallery/image-gallery.php:139
 msgid "Five"
 msgstr ""
 
-#: lib/helpers-functions.php:444 post-types/clients/shortcodes/clients.php:172
+#: lib/helpers-functions.php:444 post-types/clients/shortcodes/clients.php:184
 #: shortcodes/image-gallery/image-gallery.php:140
 msgid "Six"
 msgstr ""
@@ -156,15 +156,15 @@ msgstr ""
 #: lib/helpers-functions.php:757 plugins/contact-form-7/cf7-functions.php:31
 #: plugins/woocommerce/shortcodes/product-list/product-list.php:100
 #: plugins/woocommerce/shortcodes/product-list/product-list.php:118
-#: post-types/clients/shortcodes/clients.php:230
-#: post-types/testimonials/shortcodes/testimonials.php:133
+#: post-types/clients/shortcodes/clients.php:258
+#: post-types/testimonials/shortcodes/testimonials.php:159
 #: shortcodes/button/button.php:218
 #: shortcodes/button/widgets/button-widget.php:185
 #: shortcodes/custom-font/custom-font.php:134
 #: shortcodes/custom-font/widgets/custom-font-widget.php:110
 #: shortcodes/full-screen-sections/full-screen-sections-item.php:89
 #: shortcodes/full-screen-sections/full-screen-sections-item.php:100
-#: shortcodes/image-gallery/image-gallery.php:198
+#: shortcodes/image-gallery/image-gallery.php:214
 #: shortcodes/section-title/section-title.php:60
 #: shortcodes/separator/separator.php:80
 #: shortcodes/separator/widgets/separator-widget.php:60
@@ -559,7 +559,7 @@ msgid "Number of Products"
 msgstr ""
 
 #: plugins/woocommerce/shortcodes/product-list/product-list.php:74
-#: post-types/clients/shortcodes/clients.php:149
+#: post-types/clients/shortcodes/clients.php:161
 #: shortcodes/image-gallery/image-gallery.php:117
 #: shortcodes/pricing-table/pricing-table.php:75
 #: shortcodes/process/process.php:75 shortcodes/process-2/process-2.php:75
@@ -567,7 +567,7 @@ msgid "Number of Columns"
 msgstr ""
 
 #: plugins/woocommerce/shortcodes/product-list/product-list.php:80
-#: post-types/clients/shortcodes/clients.php:157
+#: post-types/clients/shortcodes/clients.php:169
 #: shortcodes/gallery-block/gallery-block.php:68
 #: shortcodes/image-gallery/image-gallery.php:125
 #: shortcodes/pricing-table/pricing-table.php:81
@@ -575,6 +575,8 @@ msgid "Space Between Items"
 msgstr ""
 
 #: plugins/woocommerce/shortcodes/product-list/product-list.php:86
+#: post-types/clients/shortcodes/clients.php:99
+#: post-types/testimonials/shortcodes/testimonials.php:89
 msgid "Order By"
 msgstr ""
 
@@ -583,6 +585,8 @@ msgid "On Sale"
 msgstr ""
 
 #: plugins/woocommerce/shortcodes/product-list/product-list.php:92
+#: post-types/clients/shortcodes/clients.php:105
+#: post-types/testimonials/shortcodes/testimonials.php:95
 msgid "Order"
 msgstr ""
 
@@ -592,11 +596,11 @@ msgstr ""
 
 #: plugins/woocommerce/shortcodes/product-list/product-list.php:101
 #: post-types/clients/shortcodes/clients.php:93
-#: post-types/clients/shortcodes/clients.php:403
-#: post-types/clients/shortcodes/clients.php:433
+#: post-types/clients/shortcodes/clients.php:437
+#: post-types/clients/shortcodes/clients.php:467
 #: post-types/testimonials/shortcodes/testimonials.php:83
-#: post-types/testimonials/shortcodes/testimonials.php:256
-#: post-types/testimonials/shortcodes/testimonials.php:286
+#: post-types/testimonials/shortcodes/testimonials.php:289
+#: post-types/testimonials/shortcodes/testimonials.php:319
 msgid "Category"
 msgstr ""
 
@@ -699,7 +703,7 @@ msgid "Design Options"
 msgstr ""
 
 #: plugins/woocommerce/shortcodes/product-list/product-list.php:136
-#: post-types/clients/shortcodes/clients.php:120
+#: post-types/clients/shortcodes/clients.php:132
 #: shortcodes/counter/counter.php:110 shortcodes/custom-font/custom-font.php:63
 #: shortcodes/custom-font/widgets/custom-font-widget.php:47
 #: shortcodes/flip-image/flip-image.php:96
@@ -842,33 +846,33 @@ msgstr ""
 msgid "Enter one category slug or leave empty for showing all categories"
 msgstr ""
 
-#: post-types/clients/shortcodes/clients.php:99
+#: post-types/clients/shortcodes/clients.php:111
 #: shortcodes/button/widgets/button-widget.php:81
 #: shortcodes/gallery-block/gallery-block.php:104
 #: shortcodes/image-gallery/image-gallery.php:110
 msgid "Custom Link Target"
 msgstr ""
 
-#: post-types/clients/shortcodes/clients.php:105
+#: post-types/clients/shortcodes/clients.php:117
 msgid "Items Hover Animation"
 msgstr ""
 
-#: post-types/clients/shortcodes/clients.php:107
+#: post-types/clients/shortcodes/clients.php:119
 msgid "Switch Images"
 msgstr ""
 
-#: post-types/clients/shortcodes/clients.php:108
+#: post-types/clients/shortcodes/clients.php:120
 msgid "Roll Over"
 msgstr ""
 
-#: post-types/clients/shortcodes/clients.php:114
+#: post-types/clients/shortcodes/clients.php:126
 msgid "Enable Title Text"
 msgstr ""
 
-#: post-types/clients/shortcodes/clients.php:123
-#: post-types/clients/shortcodes/clients.php:130
-#: post-types/clients/shortcodes/clients.php:137
-#: post-types/clients/shortcodes/clients.php:144
+#: post-types/clients/shortcodes/clients.php:135
+#: post-types/clients/shortcodes/clients.php:142
+#: post-types/clients/shortcodes/clients.php:149
+#: post-types/clients/shortcodes/clients.php:156
 #: shortcodes/counter/counter.php:113 shortcodes/counter/counter.php:120
 #: shortcodes/counter/counter.php:127
 #: shortcodes/icon-with-text/icon-with-text.php:100
@@ -883,7 +887,7 @@ msgstr ""
 msgid "Title Options"
 msgstr ""
 
-#: post-types/clients/shortcodes/clients.php:128
+#: post-types/clients/shortcodes/clients.php:140
 #: shortcodes/counter/counter.php:118 shortcodes/flip-image/flip-image.php:104
 #: shortcodes/icon-with-text/icon-with-text.php:105
 #: shortcodes/image-with-text/image-with-text.php:94
@@ -896,43 +900,47 @@ msgstr ""
 msgid "Title Color"
 msgstr ""
 
-#: post-types/clients/shortcodes/clients.php:135
+#: post-types/clients/shortcodes/clients.php:147
 #: shortcodes/counter/counter.php:125
 #: shortcodes/image-with-text/image-with-text.php:101
 #: shortcodes/process-2/process-2-item.php:90
 msgid "Title Top Margin (px)"
 msgstr ""
 
-#: post-types/clients/shortcodes/clients.php:142
+#: post-types/clients/shortcodes/clients.php:154
 #: shortcodes/progress-bar/progress-bar.php:114
 msgid "Title Bottom Margin (px)"
 msgstr ""
 
-#: post-types/clients/shortcodes/clients.php:152
-#: post-types/clients/shortcodes/clients.php:160
+#: post-types/clients/shortcodes/clients.php:164
+#: post-types/clients/shortcodes/clients.php:172
 msgid "Gallery Options"
 msgstr ""
 
-#: post-types/clients/shortcodes/clients.php:165
+#: post-types/clients/shortcodes/clients.php:177
 #: shortcodes/image-gallery/image-gallery.php:133
 msgid "Number of Visible Items"
 msgstr ""
 
-#: post-types/clients/shortcodes/clients.php:175
-#: post-types/clients/shortcodes/clients.php:183
-#: post-types/clients/shortcodes/clients.php:191
-#: post-types/clients/shortcodes/clients.php:199
-#: post-types/clients/shortcodes/clients.php:207
-#: post-types/clients/shortcodes/clients.php:215
-#: post-types/clients/shortcodes/clients.php:223
-#: post-types/clients/shortcodes/clients.php:234
-#: post-types/testimonials/shortcodes/testimonials.php:91
-#: post-types/testimonials/shortcodes/testimonials.php:98
-#: post-types/testimonials/shortcodes/testimonials.php:105
-#: post-types/testimonials/shortcodes/testimonials.php:112
-#: post-types/testimonials/shortcodes/testimonials.php:119
-#: post-types/testimonials/shortcodes/testimonials.php:126
-#: post-types/testimonials/shortcodes/testimonials.php:136
+#: post-types/clients/shortcodes/clients.php:187
+#: post-types/clients/shortcodes/clients.php:195
+#: post-types/clients/shortcodes/clients.php:203
+#: post-types/clients/shortcodes/clients.php:211
+#: post-types/clients/shortcodes/clients.php:219
+#: post-types/clients/shortcodes/clients.php:227
+#: post-types/clients/shortcodes/clients.php:235
+#: post-types/clients/shortcodes/clients.php:243
+#: post-types/clients/shortcodes/clients.php:251
+#: post-types/clients/shortcodes/clients.php:262
+#: post-types/testimonials/shortcodes/testimonials.php:103
+#: post-types/testimonials/shortcodes/testimonials.php:110
+#: post-types/testimonials/shortcodes/testimonials.php:117
+#: post-types/testimonials/shortcodes/testimonials.php:124
+#: post-types/testimonials/shortcodes/testimonials.php:131
+#: post-types/testimonials/shortcodes/testimonials.php:138
+#: post-types/testimonials/shortcodes/testimonials.php:145
+#: post-types/testimonials/shortcodes/testimonials.php:152
+#: post-types/testimonials/shortcodes/testimonials.php:162
 #: shortcodes/image-gallery/image-gallery.php:143
 #: shortcodes/image-gallery/image-gallery.php:151
 #: shortcodes/image-gallery/image-gallery.php:159
@@ -940,67 +948,87 @@ msgstr ""
 #: shortcodes/image-gallery/image-gallery.php:175
 #: shortcodes/image-gallery/image-gallery.php:183
 #: shortcodes/image-gallery/image-gallery.php:191
-#: shortcodes/image-gallery/image-gallery.php:202
+#: shortcodes/image-gallery/image-gallery.php:199
+#: shortcodes/image-gallery/image-gallery.php:207
+#: shortcodes/image-gallery/image-gallery.php:218
 msgid "Slider Options"
 msgstr ""
 
-#: post-types/clients/shortcodes/clients.php:180
-#: post-types/testimonials/shortcodes/testimonials.php:89
+#: post-types/clients/shortcodes/clients.php:192
+#: post-types/testimonials/shortcodes/testimonials.php:101
 #: shortcodes/image-gallery/image-gallery.php:148
 msgid "Enable Slider Loop"
 msgstr ""
 
-#: post-types/clients/shortcodes/clients.php:188
-#: post-types/testimonials/shortcodes/testimonials.php:96
+#: post-types/clients/shortcodes/clients.php:200
+#: post-types/testimonials/shortcodes/testimonials.php:108
 #: shortcodes/image-gallery/image-gallery.php:156
 msgid "Enable Slider Autoplay"
 msgstr ""
 
-#: post-types/clients/shortcodes/clients.php:196
-#: post-types/testimonials/shortcodes/testimonials.php:103
+#: post-types/clients/shortcodes/clients.php:208
+#: post-types/testimonials/shortcodes/testimonials.php:115
 #: shortcodes/image-gallery/image-gallery.php:164
+msgid "Enable Slider Autoplay Hover Pause"
+msgstr ""
+
+#: post-types/clients/shortcodes/clients.php:216
+#: post-types/testimonials/shortcodes/testimonials.php:122
+#: shortcodes/image-gallery/image-gallery.php:172
 msgid "Slide Duration (ms)"
 msgstr ""
 
-#: post-types/clients/shortcodes/clients.php:197
-#: post-types/testimonials/shortcodes/testimonials.php:104
-#: shortcodes/image-gallery/image-gallery.php:165
+#: post-types/clients/shortcodes/clients.php:217
+#: post-types/testimonials/shortcodes/testimonials.php:123
+#: shortcodes/image-gallery/image-gallery.php:173
 msgid "Speed of slide in milliseconds. Default value is 5000"
 msgstr ""
 
-#: post-types/clients/shortcodes/clients.php:204
-#: post-types/testimonials/shortcodes/testimonials.php:110
-#: shortcodes/image-gallery/image-gallery.php:172
+#: post-types/clients/shortcodes/clients.php:224
+#: post-types/testimonials/shortcodes/testimonials.php:129
+#: shortcodes/image-gallery/image-gallery.php:180
 msgid "Slide Animation Duration (ms)"
 msgstr ""
 
-#: post-types/clients/shortcodes/clients.php:205
-#: post-types/testimonials/shortcodes/testimonials.php:111
-#: shortcodes/image-gallery/image-gallery.php:173
+#: post-types/clients/shortcodes/clients.php:225
+#: post-types/testimonials/shortcodes/testimonials.php:130
+#: shortcodes/image-gallery/image-gallery.php:181
 msgid "Speed of slide animation in milliseconds. Default value is 600"
 msgstr ""
 
-#: post-types/clients/shortcodes/clients.php:212
-#: post-types/testimonials/shortcodes/testimonials.php:117
-#: shortcodes/image-gallery/image-gallery.php:180
+#: post-types/clients/shortcodes/clients.php:232
+#: post-types/testimonials/shortcodes/testimonials.php:136
+#: shortcodes/image-gallery/image-gallery.php:188
+msgid "Slide Margin (px)"
+msgstr ""
+
+#: post-types/clients/shortcodes/clients.php:233
+#: post-types/testimonials/shortcodes/testimonials.php:137
+#: shortcodes/image-gallery/image-gallery.php:189
+msgid "Define right margin for slide items. Default value is 0"
+msgstr ""
+
+#: post-types/clients/shortcodes/clients.php:240
+#: post-types/testimonials/shortcodes/testimonials.php:143
+#: shortcodes/image-gallery/image-gallery.php:196
 msgid "Enable Slider Navigation"
 msgstr ""
 
-#: post-types/clients/shortcodes/clients.php:220
-#: post-types/testimonials/shortcodes/testimonials.php:124
-#: shortcodes/image-gallery/image-gallery.php:188
+#: post-types/clients/shortcodes/clients.php:248
+#: post-types/testimonials/shortcodes/testimonials.php:150
+#: shortcodes/image-gallery/image-gallery.php:204
 msgid "Enable Slider Pagination"
 msgstr ""
 
-#: post-types/clients/shortcodes/clients.php:228
-#: post-types/testimonials/shortcodes/testimonials.php:131
-#: shortcodes/image-gallery/image-gallery.php:196
+#: post-types/clients/shortcodes/clients.php:256
+#: post-types/testimonials/shortcodes/testimonials.php:157
+#: shortcodes/image-gallery/image-gallery.php:212
 msgid "Slider Navigation Skin"
 msgstr ""
 
-#: post-types/clients/shortcodes/clients.php:231
-#: post-types/testimonials/shortcodes/testimonials.php:134
-#: shortcodes/image-gallery/image-gallery.php:199 shortcodes/tabs/tabs.php:110
+#: post-types/clients/shortcodes/clients.php:259
+#: post-types/testimonials/shortcodes/testimonials.php:160
+#: shortcodes/image-gallery/image-gallery.php:215 shortcodes/tabs/tabs.php:110
 msgid "Light"
 msgstr ""
 
