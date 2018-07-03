@@ -252,7 +252,7 @@ if ( ! class_exists( 'EVCImageGallery' ) ) {
 				'carousel_pagination'      => 'yes',
 				'carousel_navigation_skin' => ''
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params, $args );
 			$params['slider_data']    = $this->getSliderData( $params, $args );

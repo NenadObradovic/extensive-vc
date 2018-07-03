@@ -86,9 +86,10 @@ if ( ! class_exists( 'EVCIconWithText' ) ) {
 						'group'      => esc_html__( 'Icon Options', 'extensive-vc' )
 					),
 					array(
-						'type'       => 'textfield',
-						'param_name' => 'title',
-						'heading'    => esc_html__( 'Title', 'extensive-vc' )
+						'type'        => 'textfield',
+						'param_name'  => 'title',
+						'heading'     => esc_html__( 'Title', 'extensive-vc' ),
+						'admin_label' => true
 					),
 					array(
 						'type'        => 'dropdown',
@@ -168,7 +169,7 @@ if ( ! class_exists( 'EVCIconWithText' ) ) {
 				'text_padding'     => '',
 				'custom_link'      => ''
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params, $args );
 			

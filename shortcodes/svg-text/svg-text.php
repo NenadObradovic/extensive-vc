@@ -159,7 +159,7 @@ if ( ! class_exists( 'EVCSVGText' ) ) {
 				'font_size_768'    => '',
 				'font_size_680'    => ''
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['holder_rand_class'] = 'evc-st-' . mt_rand( 500, 10000 );
 			$params['holder_classes']    = $this->getHolderClasses( $params );

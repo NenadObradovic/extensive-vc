@@ -122,7 +122,7 @@ if ( ! class_exists( 'EVCIconProgressBar' ) ) {
 				'icon_active_color'      => '',
 				'space_between_icons'    => ''
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params, $args );
 			$params['holder_data']    = $this->getHolderData( $params );

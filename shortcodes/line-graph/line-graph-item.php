@@ -75,7 +75,7 @@ if ( ! class_exists( 'EVCLineGraphItem' ) ) {
 				'label' => '',
 				'value' => ''
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['holder_data']    = $this->getHolderData( $params );
 			

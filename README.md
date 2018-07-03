@@ -85,6 +85,19 @@ You can find all instructions about plugin and all shortcodes in website <a href
 
 <h3>Changelog</h3>
 
+<h5>1.6.6</h5>
+- Added extensive_vc_filter_shortcode_params hook <br />
+- Added hooks to change default value for shortcode parameters <br />
+- Added VC admin digit label for Counter shortcode <br />
+- Added VC admin text label for Custom Font shortcode <br />
+- Added VC admin letter label for Dropcaps shortcode <br />
+- Added VC admin text label for Icon List shortcode <br />
+- Added VC admin title label for Icon With Text shortcode <br />
+- Added VC admin title label for Image With Text shortcode <br />
+- Added VC admin title label for Interactive Banner shortcode <br />
+- Added VC admin title label for Section Title shortcode <br />
+- Fixed template overriding inside themes folder <br />
+
 <h5>1.6.5</h5>
 - Added Order By option for Clients shortcode <br />
 - Added Order option for Clients shortcode <br />

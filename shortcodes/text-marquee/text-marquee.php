@@ -127,7 +127,7 @@ if ( ! class_exists( 'EVCTextMarquee' ) ) {
 				'letter_spacing' => '',
 				'text_transform' => ''
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params );
 			

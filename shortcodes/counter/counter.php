@@ -65,9 +65,10 @@ if ( ! class_exists( 'EVCCounter' ) ) {
 					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
 				),
 				array(
-					'type'       => 'textfield',
-					'param_name' => 'digit',
-					'heading'    => esc_html__( 'Digit', 'extensive-vc' )
+					'type'        => 'textfield',
+					'param_name'  => 'digit',
+					'heading'     => esc_html__( 'Digit', 'extensive-vc' ),
+					'admin_label' => true
 				),
 				array(
 					'type'       => 'colorpicker',
@@ -174,7 +175,7 @@ if ( ! class_exists( 'EVCCounter' ) ) {
 				'text_color'        => '',
 				'text_top_margin'   => ''
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params );
 			

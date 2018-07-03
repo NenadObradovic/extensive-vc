@@ -310,7 +310,7 @@ if ( ! class_exists( 'EVCPricingTableItem' ) ) {
 				'button_line_color'         => '',
 				'button_switch_line_color'  => ''
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params );
 			

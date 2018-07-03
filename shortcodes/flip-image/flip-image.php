@@ -152,7 +152,7 @@ if ( ! class_exists( 'EVCFlipImage' ) ) {
 				'text_color'       => '',
 				'text_top_margin'  => ''
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params, $args );
 			

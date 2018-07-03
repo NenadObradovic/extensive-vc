@@ -96,7 +96,7 @@ if ( ! class_exists( 'EVCSingleImage' ) ) {
 				'image_behavior' => '',
 				'custom_link'    => ''
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params );
 			

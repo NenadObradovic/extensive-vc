@@ -190,7 +190,7 @@ if ( ! class_exists( 'EVCProductList' ) ) {
 				'enable_price'        => 'yes',
 				'enable_category'     => 'no'
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['query_results']  = new \WP_Query( $this->getQueryParams( $params ) );
 			$params['holder_classes'] = $this->getHolderClasses( $params, $args );

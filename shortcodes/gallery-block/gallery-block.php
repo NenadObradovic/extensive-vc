@@ -130,7 +130,7 @@ if ( ! class_exists( 'EVCGalleryBlock' ) ) {
 				'custom_link_target'  => '_self',
 				'space_between_items' => 'normal'
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params, $args );
 			

@@ -64,9 +64,10 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 					)
 				),
 				array(
-					'type'       => 'textfield',
-					'param_name' => 'title',
-					'heading'    => esc_html__( 'Title', 'extensive-vc' )
+					'type'        => 'textfield',
+					'param_name'  => 'title',
+					'heading'     => esc_html__( 'Title', 'extensive-vc' ),
+					'admin_label' => true
 				),
 				array(
 					'type'       => 'dropdown',
@@ -310,7 +311,7 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 				'button_switch_line_color'  => '',
 				'button_margin'             => ''
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params );
 			$params['holder_styles']  = $this->getHolderStyles( $params );

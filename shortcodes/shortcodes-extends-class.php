@@ -316,7 +316,7 @@ if ( ! class_exists( 'EVCShortcode' ) ) {
 							'base'     => $this->getBase(),
 							'category' => esc_html__( 'Extensive VC', 'extensive-vc' ),
 							'icon'     => 'evc-vc-custom-icon ' . $this->getIconClass(),
-							'params'   => $this->getShortcodeParameters()
+							'params'   => apply_filters( 'extensive_vc_filter_shortcode_params', $this->getShortcodeParameters(), $this->getBase() )
 						),
 						$parentSettings,
 						$childSettings

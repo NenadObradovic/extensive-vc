@@ -125,7 +125,7 @@ if ( ! class_exists( 'EVCSeparator' ) ) {
 				'bottom_margin' => '',
 				'color'         => ''
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params );
 			$params['holder_styles']  = $this->getHolderStyles( $params );

@@ -100,7 +100,7 @@ if ( ! class_exists( 'EVCPricingTable' ) ) {
 				'number_of_columns'   => 'three',
 				'space_between_items' => 'normal'
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params, $args );
 			

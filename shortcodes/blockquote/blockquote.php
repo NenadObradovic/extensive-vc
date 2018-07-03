@@ -109,9 +109,9 @@ if ( ! class_exists( 'EVCBlockquote' ) ) {
 				'text'         => '',
 				'text_color'   => '',
 				'font_size'    => '',
-				'line_height'  => '',
+				'line_height'  => ''
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params );
 			$params['holder_styles']  = $this->getHolderStyles( $params );

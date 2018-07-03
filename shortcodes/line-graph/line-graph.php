@@ -132,7 +132,7 @@ if ( ! class_exists( 'EVCLineGraph' ) ) {
 				'disable_line'          => 'no',
 				'fill_background_color' => ''
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params );
 			$params['holder_data']    = $this->getHolderData( $params, $args );

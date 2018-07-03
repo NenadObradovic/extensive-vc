@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'EXTENSIVE_VC_VERSION' ) ) {
-	define( 'EXTENSIVE_VC_VERSION', '1.6.5' );
+	define( 'EXTENSIVE_VC_VERSION', '1.6.6' );
 }
 
 if ( ! defined( 'EXTENSIVE_VC_ABS_PATH' ) ) {
@@ -53,5 +53,5 @@ if ( ! defined( 'EXTENSIVE_VC_PLUGINS_URL_PATH' ) ) {
 }
 
 if ( ! defined( 'EXTENSIVE_VC_THEME_ROOT_PATH' ) ) {
-	define( 'EXTENSIVE_VC_THEME_ROOT_PATH', get_template_directory() );
+	define( 'EXTENSIVE_VC_THEME_ROOT_PATH', get_stylesheet_directory() );
 }

@@ -130,7 +130,7 @@ if ( ! class_exists( 'EVCProcess' ) ) {
 				'circle_background_color' => '',
 				'line_color'              => ''
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params, $args );
 			

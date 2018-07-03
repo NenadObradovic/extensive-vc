@@ -76,7 +76,7 @@ if ( ! class_exists( 'EVCTabsItem' ) ) {
 				'custom_class'     => '',
 				'tab_title'        => esc_html__( 'Tab Title', 'extensive-vc' )
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$rand_number = rand( 0, 2000 );
 			

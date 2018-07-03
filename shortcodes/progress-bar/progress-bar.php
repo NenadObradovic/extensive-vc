@@ -160,7 +160,7 @@ if ( ! class_exists( 'EVCProgressBar' ) ) {
 				'inactive_bar_color'  => '',
 				'bar_height'          => ''
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['holder_classes']    = $this->getHolderClasses( $params, $args );
 			$params['progress_bar_data'] = $this->getProgressBarData( $params );

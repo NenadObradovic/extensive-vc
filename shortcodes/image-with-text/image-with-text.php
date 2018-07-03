@@ -76,9 +76,10 @@ if ( ! class_exists( 'EVCImageWithText' ) ) {
 					'heading'    => esc_html__( 'Custom Link', 'extensive-vc' )
 				),
 				array(
-					'type'       => 'textfield',
-					'param_name' => 'title',
-					'heading'    => esc_html__( 'Title', 'extensive-vc' )
+					'type'        => 'textfield',
+					'param_name'  => 'title',
+					'heading'     => esc_html__( 'Title', 'extensive-vc' ),
+					'admin_label' => true
 				),
 				array(
 					'type'       => 'dropdown',
@@ -149,7 +150,7 @@ if ( ! class_exists( 'EVCImageWithText' ) ) {
 				'text_color'       => '',
 				'text_top_margin'  => ''
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params );
 			

@@ -151,7 +151,7 @@ if ( ! class_exists( 'EVCDoughnutChart' ) ) {
 				'enable_legend'     => 'yes',
 				'legend_position'   => 'top'
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params );
 			$params['holder_data']    = $this->getHolderData( $params, $args );

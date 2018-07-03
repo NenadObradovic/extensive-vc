@@ -130,7 +130,7 @@ if ( ! class_exists( 'EVCTabs' ) ) {
 				'animation_type' => '',
 				'skin'           => ''
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params, $args );
 			$params['tab_titles']     = $this->getTabTitles( $content );

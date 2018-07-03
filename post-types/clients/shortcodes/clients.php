@@ -302,7 +302,7 @@ if ( ! class_exists( 'EVCClients' ) ) {
 				'carousel_pagination'      => 'yes',
 				'carousel_navigation_skin' => ''
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['query_results']  = new \WP_Query( $this->getQueryParams( $params, $args ) );
 			

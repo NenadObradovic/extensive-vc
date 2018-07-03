@@ -108,7 +108,7 @@ if ( ! class_exists( 'EVCFullScreenSections' ) ) {
 				'enable_navigation' => 'yes',
 				'top_margin_offset' => ''
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params );
 			$params['holder_styles']  = $this->getHolderStyles( $params );

@@ -88,7 +88,7 @@ if ( ! class_exists( 'EVCIconList' ) ) {
 			$args   = array(
 				'custom_class' => ''
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params );
 			

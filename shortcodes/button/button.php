@@ -270,7 +270,7 @@ if ( ! class_exists( 'EVCButton' ) ) {
 				'margin'             => '',
 				'button_alignment'   => ''
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['button_has_alignment'] = isset( $params['button_alignment'] ) && ! empty( $params['button_alignment'] );
 			

@@ -79,9 +79,10 @@ if ( ! class_exists( 'EVCIconListItem' ) ) {
 						'group'      => esc_html__( 'Icon Options', 'extensive-vc' )
 					),
 					array(
-						'type'       => 'textfield',
-						'param_name' => 'text',
-						'heading'    => esc_html__( 'Text', 'extensive-vc' )
+						'type'        => 'textfield',
+						'param_name'  => 'text',
+						'heading'     => esc_html__( 'Text', 'extensive-vc' ),
+						'admin_label' => true
 					),
 					array(
 						'type'       => 'colorpicker',
@@ -134,7 +135,7 @@ if ( ! class_exists( 'EVCIconListItem' ) ) {
 				'custom_link'         => '',
 				'space_between_items' => ''
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params );
 			$params['holder_styles']  = $this->getHolderStyles( $params );

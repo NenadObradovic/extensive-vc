@@ -116,7 +116,7 @@ if ( ! class_exists( 'EVCProcess2' ) ) {
 				'switch_to_one_column'   => '',
 				'background_cover_image' => ''
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['holder_classes']  = $this->getHolderClasses( $params, $args );
 			$params['bg_cover_styles'] = $this->getBgCoverStyles( $params['background_cover_image'] );

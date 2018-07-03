@@ -265,7 +265,7 @@ if ( ! class_exists( 'EVCCustomFont' ) ) {
 				'font_size_680'    => '',
 				'line_height_680'  => ''
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['holder_rand_class'] = 'evc-cf-' . mt_rand( 500, 10000 );
 			$params['holder_classes']    = $this->getHolderClasses( $params );

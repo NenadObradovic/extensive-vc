@@ -4,7 +4,7 @@ Tags: visual composer, visual composer addons, wpbakery page builder, wpbakery a
 Donate link: http://wprealize.com/donate/
 Requires at least: 4.6
 Tested up to: 4.9.6
-Stable tag: 1.6.5
+Stable tag: 1.6.6
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -109,6 +109,19 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 5. Blockquote shortcode example.
 
 == Changelog ==
+
+1.6.6
+- Added extensive_vc_filter_shortcode_params hook
+- Added hooks to change default value for shortcode parameters
+- Added VC admin digit label for Counter shortcode
+- Added VC admin text label for Custom Font shortcode
+- Added VC admin letter label for Dropcaps shortcode
+- Added VC admin text label for Icon List shortcode
+- Added VC admin title label for Icon With Text shortcode
+- Added VC admin title label for Image With Text shortcode
+- Added VC admin title label for Interactive Banner shortcode
+- Added VC admin title label for Section Title shortcode
+- Fixed template overriding inside themes folder
 
 = 1.6.5 =
 - Added Order By option for Clients shortcode

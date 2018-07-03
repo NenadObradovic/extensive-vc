@@ -64,9 +64,10 @@ if ( ! class_exists( 'EVCDropcaps' ) ) {
 					'admin_label' => true
 				),
 				array(
-					'type'       => 'textfield',
-					'param_name' => 'letter',
-					'heading'    => esc_html__( 'Letter', 'extensive-vc' )
+					'type'        => 'textfield',
+					'param_name'  => 'letter',
+					'heading'     => esc_html__( 'Letter', 'extensive-vc' ),
+					'admin_label' => true
 				),
 				array(
 					'type'       => 'colorpicker',
@@ -145,7 +146,7 @@ if ( ! class_exists( 'EVCDropcaps' ) ) {
 				'text'               => '',
 				'text_color'         => ''
 			);
-			$params = shortcode_atts( $args, $atts );
+			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params );
 			$params['holder_styles']  = $this->getHolderStyles( $params );
