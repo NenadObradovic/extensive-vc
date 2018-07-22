@@ -26,7 +26,7 @@ if ( ! function_exists( 'extensive_vc_load_shortcodes' ) ) {
 	 * Register/load all shortcodes
 	 */
 	function extensive_vc_load_shortcodes() {
-		include_once EXTENSIVE_VC_SHORTCODES_ABS_PATH . '/shortcodes-class.php';
+		include_once 'shortcodes-class.php';
 		
 		ExtensiveVC\Shortcodes\ShortcodesClass::getInstance()->load();
 	}

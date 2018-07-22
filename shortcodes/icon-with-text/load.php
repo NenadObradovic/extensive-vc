@@ -4,4 +4,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-include_once EXTENSIVE_VC_SHORTCODES_ABS_PATH . '/icon-with-text/icon-with-text.php';
+include_once 'icon-with-text.php';

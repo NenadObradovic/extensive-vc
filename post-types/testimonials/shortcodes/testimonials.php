@@ -31,10 +31,10 @@ if ( ! class_exists( 'EVCTestimonials' ) ) {
 			if ( $this->getIsShortcodeEnabled() ) {
 				add_action( 'extensive_vc_enqueue_additional_scripts_before_main_js', array( $this, 'enqueueShortcodeAdditionalScripts' ) );
 				
-				//Testimonials category filter
+				// Category filter
 				add_filter( 'vc_autocomplete_evc_testimonials_category_callback', array( $this, 'testimonialsCategoryAutocompleteSuggester' ), 10, 1 ); // Get suggestion(find). Must return an array
 				
-				//Testimonials category render
+				// Category render
 				add_filter( 'vc_autocomplete_evc_testimonials_category_render', array( $this, 'testimonialsCategoryAutocompleteRender' ), 10, 1 ); // Get suggestion(find). Must return an array
 			}
 		}
@@ -203,22 +203,6 @@ if ( ! class_exists( 'EVCTestimonials' ) ) {
 		}
 		
 		/**
-		 * Get shortcode holder classes
-		 *
-		 * @param $params array - shortcode parameters value
-		 *
-		 * @return string
-		 */
-		private function getHolderClasses( $params ) {
-			$holderClasses = array();
-			
-			$holderClasses[] = ! empty( $params['custom_class'] ) ? esc_attr( $params['custom_class'] ) : '';
-			$holderClasses[] = ! empty( $params['carousel_navigation_skin'] ) ? 'evc-carousel-skin-' . esc_attr( $params['carousel_navigation_skin'] ) : '';
-			
-			return implode( ' ', $holderClasses );
-		}
-		
-		/**
 		 * Get shortcode query parameters
 		 *
 		 * @param $params array - shortcode parameters value
@@ -235,11 +219,27 @@ if ( ! class_exists( 'EVCTestimonials' ) ) {
 				'order'          => ! empty( $params['order'] ) ? $params['order'] : $args['order']
 			);
 			
-			if ( $params['category'] != '' ) {
+			if ( ! empty( $params['category'] ) ) {
 				$args['testimonials-category'] = $params['category'];
 			}
 			
 			return $args;
+		}
+		
+		/**
+		 * Get shortcode holder classes
+		 *
+		 * @param $params array - shortcode parameters value
+		 *
+		 * @return string
+		 */
+		private function getHolderClasses( $params ) {
+			$holderClasses = array();
+			
+			$holderClasses[] = ! empty( $params['custom_class'] ) ? esc_attr( $params['custom_class'] ) : '';
+			$holderClasses[] = ! empty( $params['carousel_navigation_skin'] ) ? 'evc-carousel-skin-' . esc_attr( $params['carousel_navigation_skin'] ) : '';
+			
+			return implode( ' ', $holderClasses );
 		}
 		
 		/**

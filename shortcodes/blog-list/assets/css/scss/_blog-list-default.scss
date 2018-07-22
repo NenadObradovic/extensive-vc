@@ -1,0 +1,214 @@
+/* ==========================================================================
+   Blog List shortcode style - begin
+   ========================================================================== */
+
+.evc-blog-list {
+	@include evcRelativeLayout();
+	
+	/***** Type styles - begin *****/
+	
+	&.evc-bl-standard {
+		
+		.evc-bli-image {
+			width: 100%;
+			margin-bottom: 34px;
+			
+			a, img {
+				width: 100%;
+			}
+		}
+	}
+	
+	&.evc-bl-layout-date-on-image {
+		
+		.evc-bli-date {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			padding: 8px 13px 13px;
+			text-align: center;
+			color: #fff;
+			background-color: $main-color;
+			z-index: 2;
+			box-sizing: border-box;
+			@include evcTransform(translateZ(0));
+			
+			> * {
+				display: block;
+				line-height: 1;
+			}
+			
+			.evc-bli-date-day {
+				font-size: 26px;
+				font-weight: 700;
+			}
+			
+			.evc-bli-date-month {
+				margin-top: 2px;
+				font-size: 13px;
+			}
+		}
+	}
+	
+	&.evc-bl-layout-boxed {
+		
+		.evc-bli-image {
+			margin-bottom: 0;
+		}
+		
+		.evc-bli-content {
+			@include evcRelativeLayout();
+			padding: 24px 30px 30px;
+			background-color: #fff;
+			border: 1px solid $border-color;
+			border-top-width: 0;
+			box-shadow: $box-shadow;
+			box-sizing: border-box;
+		}
+	}
+	
+	&.evc-bl-simple {
+	
+		.evc-bli-inner {
+			@include evcTableLayout();
+			
+			> * {
+				display: table-cell;
+				vertical-align: middle;
+			}
+		}
+		
+		.evc-bli-image {
+			width: 84px;
+			padding-right: 20px;
+			
+			a, img {
+				width: 100%;
+			}
+		}
+		
+		.evc-bli-post-info {
+			margin-top: 4px;
+		}
+	}
+	
+	&.evc-bl-minimal {
+		
+		.evc-bli-post-info {
+			margin-top: 4px;
+		}
+	}
+	
+	/***** Type styles - end *****/
+	
+	/***** Skin styles - begin *****/
+	
+	&.evc-bl-skin-light {
+		
+		&.evc-bl-layout-boxed {
+			
+			.evc-bli-content {
+				background-color: $dark-color;
+				border-color: $additional-text-color;
+				box-shadow: $box-shadow-light;
+			}
+		}
+		
+		.evc-bli-title {
+			color: #fff;
+			
+			a {
+				
+				&:hover {
+					color: rgba(#fff, .8);
+				}
+			}
+		}
+		
+		.evc-bli-excerpt {
+			color: #fff;
+		}
+		
+		.evc-bli-post-info {
+			color: $additional-text-color;
+			border-color: $additional-text-color;
+			
+			a {
+				
+				&:hover {
+					color: #fff;
+				}
+			}
+		}
+	}
+	
+	/***** Skin styles - end *****/
+	
+	.evc-bli-image {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		
+		a {
+			position: relative;
+			display: inline-block;
+			vertical-align: top;
+		}
+		
+		img {
+			display: block;
+		}
+	}
+	
+	.evc-bli-title {
+		margin: 0;
+	}
+	
+	.evc-bli-excerpt {
+		margin: 14px 0 0;
+	}
+	
+	.evc-bli-post-info {
+		@include evcFlexBoxLayout(relative, flex-start);
+		clear: both;
+		
+		> * {
+			position: relative;
+			display: inline-block;
+			vertical-align: top;
+			float: left;
+			margin-right: 16px;
+			padding-right: 15px;
+			font-size: 13px;
+			line-height: 18px;
+			color: currentColor;
+			border-right: 1px solid $border-color;
+			
+			&:last-child {
+				margin-right: 0;
+				padding-right: 0;
+				border-right: 0;
+			}
+			
+			a {
+				color: inherit;
+				
+				&:hover {
+					color: $main-color;
+				}
+			}
+		}
+	}
+	
+	.evc-bli-post-info-top {
+		margin-bottom: 5px;
+	}
+	
+	.evc-bli-post-info-bottom {
+		margin-top: 16px;
+	}
+}
+
+/* ==========================================================================
+   Blog List shortcode style - end
+   ========================================================================== */

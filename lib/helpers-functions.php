@@ -430,11 +430,16 @@ if ( ! function_exists( 'extensive_vc_get_number_of_columns_array' ) ) {
 	 * Returns array of number of columns options
 	 *
 	 * @param $disable_by_keys array
+	 * @param $first_empty boolean
 	 *
 	 * @return array
 	 */
-	function extensive_vc_get_number_of_columns_array( $disable_by_keys = array() ) {
+	function extensive_vc_get_number_of_columns_array( $disable_by_keys = array(), $first_empty = true ) {
 		$options = array();
+		
+		if ( $first_empty ) {
+			$options[''] = esc_html__( 'Default', 'extensive-vc' );
+		}
 		
 		$options['one']   = esc_html__( 'One', 'extensive-vc' );
 		$options['two']   = esc_html__( 'Two', 'extensive-vc' );
@@ -470,11 +475,11 @@ if ( ! function_exists( 'extensive_vc_get_space_between_items_array' ) ) {
 			$options[''] = esc_html__( 'Default', 'extensive-vc' );
 		}
 		
-		$options['large']  = esc_html__( 'Large', 'extensive-vc' );
-		$options['medium'] = esc_html__( 'Medium', 'extensive-vc' );
-		$options['normal'] = esc_html__( 'Normal', 'extensive-vc' );
-		$options['small']  = esc_html__( 'Small', 'extensive-vc' );
-		$options['tiny']   = esc_html__( 'Tiny', 'extensive-vc' );
+		$options['large']  = esc_html__( 'Large (50px)', 'extensive-vc' );
+		$options['medium'] = esc_html__( 'Medium (40px)', 'extensive-vc' );
+		$options['normal'] = esc_html__( 'Normal (30px)', 'extensive-vc' );
+		$options['small']  = esc_html__( 'Small (20px)', 'extensive-vc' );
+		$options['tiny']   = esc_html__( 'Tiny (10px)', 'extensive-vc' );
 		$options['no']     = esc_html__( 'No', 'extensive-vc' );
 		
 		return $options;

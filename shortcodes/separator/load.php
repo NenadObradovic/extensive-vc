@@ -4,4 +4,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-include_once EXTENSIVE_VC_SHORTCODES_ABS_PATH . '/separator/separator.php';
+include_once 'separator.php';

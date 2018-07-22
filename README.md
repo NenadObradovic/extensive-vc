@@ -11,6 +11,7 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
 <h3>Features</h3>
 <h4 style="margin-top: 1rem;">1. Shortcodes</h4>
 <ul>
+	<li><a href="http://wprealize.com/classic/blog-list/">Classic - Blog List (New)</a></li>
 	<li><a href="http://wprealize.com/classic/button/">Classic - Button</a></li>
 	<li><a href="http://wprealize.com/classic/clients/">Classic - Clients</a></li>
 	<li><a href="http://wprealize.com/classic/icon-with-text/">Classic - Icon With Text</a></li>
@@ -49,6 +50,7 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
 </ul>
 <h4 style="margin-top: 1rem;">3. Widgets</h4>
 <ul>
+    <li>Blog List Widget</li>
     <li>Button Widget</li>
     <li>Contact Form 7 Widget</li>
     <li>Custom Font Widget</li>
@@ -86,6 +88,12 @@ From wordpress.org
 You can find all instructions about plugin and all shortcodes in website <a href="http://wprealize.com/"><strong>WP Realize - Extensive VC</strong></a>
 
 <h3>Changelog</h3>
+
+<h5>1.7</h5>
+- Added Blog List shortcode (5 layouts) <br />
+- Added Blog List widget <br />
+- Improved framework functions <br />
+- Updated language pot file <br />
 
 <h5>1.6.6</h5>
 - Added extensive_vc_filter_shortcode_params hook <br />

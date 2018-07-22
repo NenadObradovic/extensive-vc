@@ -3,8 +3,8 @@ Contributors: nenad-obradovic
 Tags: visual composer, visual composer addons, wpbakery page builder, wpbakery addons, wpbakery shortcodes
 Donate link: http://wprealize.com/donate/
 Requires at least: 4.6
-Tested up to: 4.9.6
-Stable tag: 1.6.6
+Tested up to: 4.9.7
+Stable tag: 1.7
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -22,6 +22,7 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
 <h3>Features</h3>
 <h4 style="margin-top: 1rem;">1. Shortcodes</h4>
 <ul>
+	<li><a href="http://wprealize.com/classic/blog-list/">Classic - Blog List (New)</a></li>
 	<li><a href="http://wprealize.com/classic/button/">Classic - Button</a></li>
 	<li><a href="http://wprealize.com/classic/clients/">Classic - Clients</a></li>
 	<li><a href="http://wprealize.com/classic/icon-with-text/">Classic - Icon With Text</a></li>
@@ -60,6 +61,7 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
 </ul>
 <h4 style="margin-top: 1rem;">3. Widgets</h4>
 <ul>
+    <li>Blog List Widget</li>
     <li>Button Widget</li>
     <li>Contact Form 7 Widget</li>
     <li>Custom Font Widget</li>
@@ -109,6 +111,12 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 5. Blockquote shortcode example.
 
 == Changelog ==
+
+1.7
+- Added Blog List shortcode (5 layouts)
+- Added Blog List widget
+- Improved framework functions
+- Updated language pot file
 
 1.6.6
 - Added extensive_vc_filter_shortcode_params hook

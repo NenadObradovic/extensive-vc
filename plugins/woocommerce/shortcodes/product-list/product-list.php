@@ -128,7 +128,7 @@ if ( ! class_exists( 'EVCProductList' ) ) {
 					'param_name' => 'enable_title',
 					'heading'    => esc_html__( 'Enable Title', 'extensive-vc' ),
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
-					'group'      => esc_html__( 'Design Options', 'themenametd' )
+					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'dropdown',
@@ -136,28 +136,28 @@ if ( ! class_exists( 'EVCProductList' ) ) {
 					'heading'    => esc_html__( 'Title Tag', 'extensive-vc' ),
 					'value'      => array_flip( extensive_vc_get_title_tag_array( true, array( 'p' => 'p' ) ) ),
 					'dependency' => array( 'element' => 'enable_title', 'value' => array( 'yes' ) ),
-					'group'      => esc_html__( 'Design Options', 'themenametd' )
+					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'enable_ratings',
 					'heading'    => esc_html__( 'Enable Ratings', 'extensive-vc' ),
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
-					'group'      => esc_html__( 'Design Options', 'themenametd' )
+					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'enable_price',
 					'heading'    => esc_html__( 'Enable Price', 'extensive-vc' ),
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
-					'group'      => esc_html__( 'Design Options', 'themenametd' )
+					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'enable_category',
 					'heading'    => esc_html__( 'Enable Category', 'extensive-vc' ),
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false ) ),
-					'group'      => esc_html__( 'Design Options', 'themenametd' )
+					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
 				)
 			);
 			
@@ -200,25 +200,6 @@ if ( ! class_exists( 'EVCProductList' ) ) {
 			$html = extensive_vc_get_module_template_part( 'woocommerce', 'product-list', 'templates/product-list', '', $params );
 			
 			return $html;
-		}
-		
-		/**
-		 * Get shortcode holder classes
-		 *
-		 * @param $params array - shortcode parameters value
-		 * @param $args array - default shortcode parameters value
-		 *
-		 * @return string
-		 */
-		private function getHolderClasses( $params, $args ) {
-			$holderClasses = array();
-			
-			$holderClasses[] = ! empty( $params['custom_class'] ) ? esc_attr( $params['custom_class'] ) : '';
-			$holderClasses[] = ! empty( $params['number_of_columns'] ) ? 'evc-' . $params['number_of_columns'] . '-columns' : 'evc-' . $args['number_of_columns'] . '-columns';
-			$holderClasses[] = ! empty( $params['space_between_items'] ) ? 'evc-' . $params['space_between_items'] . '-space' : 'evc-' . $args['space_between_items'] . '-space';
-			$holderClasses[] = ! empty( $params['layout_collections'] ) ? 'evc-layout-' . $params['layout_collections'] : 'evc-layout-' . $args['layout_collections'];
-			
-			return implode( ' ', $holderClasses );
 		}
 		
 		/**
@@ -265,6 +246,25 @@ if ( ! class_exists( 'EVCProductList' ) ) {
 			}
 			
 			return $args;
+		}
+		
+		/**
+		 * Get shortcode holder classes
+		 *
+		 * @param $params array - shortcode parameters value
+		 * @param $args array - default shortcode parameters value
+		 *
+		 * @return string
+		 */
+		private function getHolderClasses( $params, $args ) {
+			$holderClasses = array();
+			
+			$holderClasses[] = ! empty( $params['custom_class'] ) ? esc_attr( $params['custom_class'] ) : '';
+			$holderClasses[] = ! empty( $params['number_of_columns'] ) ? 'evc-' . $params['number_of_columns'] . '-columns' : 'evc-' . $args['number_of_columns'] . '-columns';
+			$holderClasses[] = ! empty( $params['space_between_items'] ) ? 'evc-' . $params['space_between_items'] . '-space' : 'evc-' . $args['space_between_items'] . '-space';
+			$holderClasses[] = ! empty( $params['layout_collections'] ) ? 'evc-layout-' . $params['layout_collections'] : 'evc-layout-' . $args['layout_collections'];
+			
+			return implode( ' ', $holderClasses );
 		}
 	}
 }

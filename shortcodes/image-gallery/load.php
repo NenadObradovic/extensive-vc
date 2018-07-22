@@ -4,4 +4,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-include_once EXTENSIVE_VC_SHORTCODES_ABS_PATH . '/image-gallery/image-gallery.php';
+include_once 'image-gallery.php';

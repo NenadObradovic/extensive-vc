@@ -25,7 +25,7 @@ if ( ! function_exists( 'extensive_vc_load_custom_post_types' ) ) {
 	 * Register/load all custom post types
 	 */
 	function extensive_vc_load_custom_post_types() {
-		include_once EXTENSIVE_VC_CPT_ABS_PATH . '/post-types-class.php';
+		include_once 'post-types-class.php';
 		
 		ExtensiveVC\CPT\PostTypesClass::getInstance()->register();
 	}

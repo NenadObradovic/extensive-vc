@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					echo extensive_vc_get_module_template_part( 'cpt', 'clients', 'templates/clients-item', '', $params );
 				endwhile;
 			else:
-				echo extensive_vc_get_module_template_part( 'cpt', 'clients', 'templates/clients-not-found' );
+				echo extensive_vc_get_module_template_part( 'cpt', 'clients', 'templates/parts/not-found' );
 			endif;
 			
 			wp_reset_postdata();

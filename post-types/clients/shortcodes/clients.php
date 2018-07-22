@@ -31,10 +31,10 @@ if ( ! class_exists( 'EVCClients' ) ) {
 			if ( $this->getIsShortcodeEnabled() ) {
 				add_action( 'extensive_vc_enqueue_additional_scripts_before_main_js', array( $this, 'enqueueShortcodeAdditionalScripts' ) );
 				
-				//Clients category filter
+				// Category filter
 				add_filter( 'vc_autocomplete_evc_clients_category_callback', array( $this, 'clientsCategoryAutocompleteSuggester' ), 10, 1 ); // Get suggestion(find). Must return an array
 				
-				//Clients category render
+				// Category render
 				add_filter( 'vc_autocomplete_evc_clients_category_render', array( $this, 'clientsCategoryAutocompleteRender' ), 10, 1 ); // Get suggestion(find). Must return an array
 			}
 		}
@@ -305,12 +305,10 @@ if ( ! class_exists( 'EVCClients' ) ) {
 			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['query_results']  = new \WP_Query( $this->getQueryParams( $params, $args ) );
-			
-			$params['type'] = ! empty( $params['type'] ) ? $params['type'] : $args['type'];
-			
 			$params['holder_classes'] = $this->getHolderClasses( $params, $args );
 			$params['slider_data']    = $this->getSliderData( $params, $args );
 			
+			$params['type']               = ! empty( $params['type'] ) ? $params['type'] : $args['type'];
 			$params['title_tag']          = ! empty( $params['title_tag'] ) ? $params['title_tag'] : $args['title_tag'];
 			$params['title_styles']       = $this->getTitleStyles( $params );
 			$params['custom_link_target'] = ! empty( $params['custom_link_target'] ) ? $params['custom_link_target'] : $args['custom_link_target'];
@@ -318,6 +316,30 @@ if ( ! class_exists( 'EVCClients' ) ) {
 			$html = extensive_vc_get_module_template_part( 'cpt', 'clients', 'templates/clients-holder', $params['type'], $params );
 			
 			return $html;
+		}
+		
+		/**
+		 * Get shortcode query parameters
+		 *
+		 * @param $params array - shortcode parameters value
+		 * @param $args array - default shortcode parameters value
+		 *
+		 * @return array
+		 */
+		private function getQueryParams( $params, $args ) {
+			$args = array(
+				'post_status'    => 'publish',
+				'post_type'      => 'clients',
+				'posts_per_page' => $params['number'],
+				'orderby'        => ! empty( $params['orderby'] ) ? $params['orderby'] : $args['orderby'],
+				'order'          => ! empty( $params['order'] ) ? $params['order'] : $args['order']
+			);
+			
+			if ( ! empty( $params['category'] ) ) {
+				$args['clients-category'] = $params['category'];
+			}
+			
+			return $args;
 		}
 		
 		/**
@@ -338,30 +360,6 @@ if ( ! class_exists( 'EVCClients' ) ) {
 			$holderClasses[] = ! empty( $params['carousel_navigation_skin'] ) ? 'evc-carousel-skin-' . esc_attr( $params['carousel_navigation_skin'] ) : '';
 			
 			return implode( ' ', $holderClasses );
-		}
-		
-		/**
-		 * Get shortcode query parameters
-		 *
-		 * @param $params array - shortcode parameters value
-		 * @param $args array - default shortcode parameters value
-		 *
-		 * @return array
-		 */
-		private function getQueryParams( $params, $args ) {
-			$args = array(
-				'post_status'    => 'publish',
-				'post_type'      => 'clients',
-				'posts_per_page' => $params['number'],
-				'orderby'        => ! empty( $params['orderby'] ) ? $params['orderby'] : $args['orderby'],
-				'order'          => ! empty( $params['order'] ) ? $params['order'] : $args['order']
-			);
-			
-			if ( $params['category'] != '' ) {
-				$args['clients-category'] = $params['category'];
-			}
-			
-			return $args;
 		}
 		
 		/**

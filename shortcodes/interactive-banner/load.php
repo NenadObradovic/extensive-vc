@@ -4,4 +4,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-include_once EXTENSIVE_VC_SHORTCODES_ABS_PATH . '/interactive-banner/interactive-banner.php';
+include_once 'interactive-banner.php';

@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					echo extensive_vc_get_module_template_part( 'cpt', 'testimonials', 'templates/testimonials-item', '', $params );
 				endwhile;
 			else:
-				echo extensive_vc_get_module_template_part( 'cpt', 'testimonials', 'templates/testimonials-not-found' );
+				echo extensive_vc_get_module_template_part( 'cpt', 'testimonials', 'templates/parts/not-found' );
 			endif;
 			
 			wp_reset_postdata();

@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				echo extensive_vc_get_module_template_part( 'woocommerce', 'product-list', 'templates/product-list-item', '', $params );
 			endwhile;
 		else:
-			echo extensive_vc_get_module_template_part( 'woocommerce-part', 'templates', 'products-not-found', '', $params );
+			echo extensive_vc_get_module_template_part( 'woocommerce-part', 'templates', 'not-found' );
 		endif;
 		
 		wp_reset_postdata();
