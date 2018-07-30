@@ -4,7 +4,7 @@ Tags: visual composer, visual composer addons, wpbakery page builder, wpbakery a
 Donate link: http://wprealize.com/donate/
 Requires at least: 4.6
 Tested up to: 4.9.7
-Stable tag: 1.7
+Stable tag: 1.7.1
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -111,6 +111,12 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 5. Blockquote shortcode example.
 
 == Changelog ==
+
+1.7.1
+- Added Legend Text Size option for Doughnut Chart shortcode
+- Added Legend Color option for Doughnut Chart shortcode
+- Added Legend Text Size option for Pie Chart shortcode
+- Added Legend Color option for Pie Chart shortcode
 
 1.7
 - Added Blog List shortcode (5 layouts)

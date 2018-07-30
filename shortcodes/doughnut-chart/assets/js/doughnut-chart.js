@@ -22,6 +22,10 @@
 					borderWidth = holderBorderWidth !== undefined && holderBorderWidth !== '' ? parseInt( holderBorderWidth, 10 ) : 2,
 					enableLegend = thisHolder.data('enable-legend'),
 					legendPosition = thisHolder.data('legend-position'),
+					holderLegendTextSize = thisHolder.data('legend-text-size'),
+					legendTextSize = holderLegendTextSize !== undefined && holderLegendTextSize !== '' ? parseInt( holderLegendTextSize, 10 ) : 12,
+					holderLegendColor = thisHolder.data('legend-color'),
+					legendColor = holderLegendColor !== undefined && holderLegendColor !== '' ? holderLegendColor : '#666',
 					doughnutChartItem = thisHolder.children('.evc-doughnut-chart-item'),
 					canvas = thisHolder.children('canvas'),
 					labels = [],
@@ -63,7 +67,11 @@
 							responsive: true,
 							legend: {
 								display: enableLegend,
-								position: legendPosition
+								position: legendPosition,
+								labels: {
+									fontSize: legendTextSize,
+									fontColor: legendColor
+								}
 							}
 						}
 					});

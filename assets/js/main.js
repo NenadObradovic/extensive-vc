@@ -61,7 +61,8 @@
 					],
 					responsive: {
 						0: {
-							items: responsiveNumberOfItems1
+							items: responsiveNumberOfItems1,
+							margin: 0
 						},
 						681: {
 							items: responsiveNumberOfItems2
@@ -307,6 +308,89 @@
 })(jQuery);
 (function ($) {
 	'use strict';
+
+	$(document).ready(function () {
+		evcInitDoughnutChart();
+	});
+
+	/**
+	 * Init doughnut chart shortcode
+	 */
+	function evcInitDoughnutChart() {
+		var holder = $('.evc-doughnut-chart');
+
+		if (holder.length) {
+			holder.each(function () {
+				var thisHolder = $(this),
+					holderBorderColor = thisHolder.data('border-color'),
+					borderColor = holderBorderColor !== undefined && holderBorderColor !== '' ? holderBorderColor : '#fff',
+					holderBorderHoverColor = thisHolder.data('border-hover-color'),
+					hoverBorderColor = holderBorderHoverColor !== undefined && holderBorderHoverColor !== '' ? holderBorderHoverColor : '#efefef',
+					holderBorderWidth = thisHolder.data('border-width'),
+					borderWidth = holderBorderWidth !== undefined && holderBorderWidth !== '' ? parseInt( holderBorderWidth, 10 ) : 2,
+					enableLegend = thisHolder.data('enable-legend'),
+					legendPosition = thisHolder.data('legend-position'),
+					holderLegendTextSize = thisHolder.data('legend-text-size'),
+					legendTextSize = holderLegendTextSize !== undefined && holderLegendTextSize !== '' ? parseInt( holderLegendTextSize, 10 ) : 12,
+					holderLegendColor = thisHolder.data('legend-color'),
+					legendColor = holderLegendColor !== undefined && holderLegendColor !== '' ? holderLegendColor : '#666',
+					doughnutChartItem = thisHolder.children('.evc-doughnut-chart-item'),
+					canvas = thisHolder.children('canvas'),
+					labels = [],
+					values = [],
+					colors = [];
+
+				doughnutChartItem.each(function(){
+					var thisItem = $(this),
+						label = thisItem.data('label'),
+						value = thisItem.data('value'),
+						color = thisItem.data('color');
+
+					if ( label !== undefined && label !== '' ) {
+						labels.push(label);
+					}
+
+					if ( value !== undefined && value !== '' && color !== undefined && color !== '' ) {
+						values.push(value);
+						colors.push(color);
+					}
+				});
+
+				thisHolder.appear(function () {
+					thisHolder.addClass('evc-dc-appeared');
+
+					new Chart(canvas, {
+						type: 'doughnut',
+						data: {
+							labels: labels,
+							datasets: [{
+								data: values,
+								backgroundColor: colors,
+								borderColor: borderColor,
+								hoverBorderColor: hoverBorderColor,
+								borderWidth: borderWidth
+							}]
+						},
+						options: {
+							responsive: true,
+							legend: {
+								display: enableLegend,
+								position: legendPosition,
+								labels: {
+									fontSize: legendTextSize,
+									fontColor: legendColor
+								}
+							}
+						}
+					});
+				}, {accX: 0, accY: -80});
+			});
+		}
+	}
+	
+})(jQuery);
+(function ($) {
+	'use strict';
 	
 	$(document).ready(function () {
 		evcInitFullScreenSections();
@@ -362,49 +446,6 @@
 		}
 	}
 	
-})(jQuery);
-(function ($) {
-	'use strict';
-
-	$(document).ready(function () {
-		evcInitIconProgressBar();
-	});
-
-	/*
-	 **	Init icon progress bar shortcode functionality
-	 */
-	function evcInitIconProgressBar() {
-		var iconProgressBar = $('.evc-icon-progress-bar');
-
-		if (iconProgressBar.length) {
-			iconProgressBar.each(function () {
-				var thisBar = $(this),
-					barIcons = thisBar.find('.evc-ipb-icon'),
-					numberOfActiveIcons = thisBar.data('number-of-active-icons'),
-					activeItemsColor = thisBar.data('icon-active-color'),
-					timeouts = [];
-
-				if (barIcons.length && typeof numberOfActiveIcons !== 'undefined' && numberOfActiveIcons !== false) {
-					thisBar.appear(function () {
-						barIcons.each(function (i) {
-							if (i < numberOfActiveIcons) {
-								var time = (i + 1) * 150;
-
-								timeouts[i] = setTimeout(function () {
-									$(barIcons[i]).addClass('evc-active');
-
-									if (typeof numberOfActiveIcons !== 'undefined' && numberOfActiveIcons !== false) {
-										$(barIcons[i]).css('color', activeItemsColor);
-									}
-								}, time);
-							}
-						});
-					}, {accX: 0, accY: -80});
-				}
-			});
-		}
-	}
-
 })(jQuery);
 (function ($) {
 	'use strict';
@@ -496,6 +537,10 @@
 					borderWidth = holderBorderWidth !== undefined && holderBorderWidth !== '' ? parseInt(holderBorderWidth, 10) : 2,
 					enableLegend = thisHolder.data('enable-legend'),
 					legendPosition = thisHolder.data('legend-position'),
+					holderLegendTextSize = thisHolder.data('legend-text-size'),
+					legendTextSize = holderLegendTextSize !== undefined && holderLegendTextSize !== '' ? parseInt( holderLegendTextSize, 10 ) : 12,
+					holderLegendColor = thisHolder.data('legend-color'),
+					legendColor = holderLegendColor !== undefined && holderLegendColor !== '' ? holderLegendColor : '#666',
 					pieChartItem = thisHolder.children('.evc-pie-chart-item'),
 					canvas = thisHolder.children('canvas'),
 					labels = [],
@@ -537,7 +582,11 @@
 							responsive: true,
 							legend: {
 								display: enableLegend,
-								position: legendPosition
+								position: legendPosition,
+								labels: {
+									fontSize: legendTextSize,
+									fontColor: legendColor
+								}
 							}
 						}
 					});
@@ -657,76 +706,44 @@
 	'use strict';
 
 	$(document).ready(function () {
-		evcInitDoughnutChart();
+		evcInitIconProgressBar();
 	});
 
-	/**
-	 * Init doughnut chart shortcode
+	/*
+	 **	Init icon progress bar shortcode functionality
 	 */
-	function evcInitDoughnutChart() {
-		var holder = $('.evc-doughnut-chart');
+	function evcInitIconProgressBar() {
+		var iconProgressBar = $('.evc-icon-progress-bar');
 
-		if (holder.length) {
-			holder.each(function () {
-				var thisHolder = $(this),
-					holderBorderColor = thisHolder.data('border-color'),
-					borderColor = holderBorderColor !== undefined && holderBorderColor !== '' ? holderBorderColor : '#fff',
-					holderBorderHoverColor = thisHolder.data('border-hover-color'),
-					hoverBorderColor = holderBorderHoverColor !== undefined && holderBorderHoverColor !== '' ? holderBorderHoverColor : '#efefef',
-					holderBorderWidth = thisHolder.data('border-width'),
-					borderWidth = holderBorderWidth !== undefined && holderBorderWidth !== '' ? parseInt( holderBorderWidth, 10 ) : 2,
-					enableLegend = thisHolder.data('enable-legend'),
-					legendPosition = thisHolder.data('legend-position'),
-					doughnutChartItem = thisHolder.children('.evc-doughnut-chart-item'),
-					canvas = thisHolder.children('canvas'),
-					labels = [],
-					values = [],
-					colors = [];
+		if (iconProgressBar.length) {
+			iconProgressBar.each(function () {
+				var thisBar = $(this),
+					barIcons = thisBar.find('.evc-ipb-icon'),
+					numberOfActiveIcons = thisBar.data('number-of-active-icons'),
+					activeItemsColor = thisBar.data('icon-active-color'),
+					timeouts = [];
 
-				doughnutChartItem.each(function(){
-					var thisItem = $(this),
-						label = thisItem.data('label'),
-						value = thisItem.data('value'),
-						color = thisItem.data('color');
+				if (barIcons.length && typeof numberOfActiveIcons !== 'undefined' && numberOfActiveIcons !== false) {
+					thisBar.appear(function () {
+						barIcons.each(function (i) {
+							if (i < numberOfActiveIcons) {
+								var time = (i + 1) * 150;
 
-					if ( label !== undefined && label !== '' ) {
-						labels.push(label);
-					}
+								timeouts[i] = setTimeout(function () {
+									$(barIcons[i]).addClass('evc-active');
 
-					if ( value !== undefined && value !== '' && color !== undefined && color !== '' ) {
-						values.push(value);
-						colors.push(color);
-					}
-				});
-
-				thisHolder.appear(function () {
-					thisHolder.addClass('evc-dc-appeared');
-
-					new Chart(canvas, {
-						type: 'doughnut',
-						data: {
-							labels: labels,
-							datasets: [{
-								data: values,
-								backgroundColor: colors,
-								borderColor: borderColor,
-								hoverBorderColor: hoverBorderColor,
-								borderWidth: borderWidth
-							}]
-						},
-						options: {
-							responsive: true,
-							legend: {
-								display: enableLegend,
-								position: legendPosition
+									if (typeof numberOfActiveIcons !== 'undefined' && numberOfActiveIcons !== false) {
+										$(barIcons[i]).css('color', activeItemsColor);
+									}
+								}, time);
 							}
-						}
-					});
-				}, {accX: 0, accY: -80});
+						});
+					}, {accX: 0, accY: -80});
+				}
 			});
 		}
 	}
-	
+
 })(jQuery);
 (function ($) {
 	'use strict';
@@ -818,6 +835,70 @@
 				
 				if (style.length) {
 					$('head').append(style);
+				}
+			});
+		}
+	}
+	
+})(jQuery);
+(function ($) {
+	'use strict';
+	
+	$(document).ready(function () {
+		evcInitTabs();
+	});
+	
+	/*
+	 **	Init tabs shortcode
+	 */
+	function evcInitTabs() {
+		var tabs = $('.evc-tabs');
+		
+		if (tabs.length) {
+			tabs.each(function () {
+				var thisTabs = $(this),
+					tabContent = thisTabs.find('.evc-tabs-item');
+				
+				tabContent.each(function (index) {
+					index = index + 1;
+					
+					var that = $(this),
+						link = that.attr('id'),
+						navItem = that.parent().find('.evc-tabs-nav li:nth-child(' + index + ') a'),
+						navLink = navItem.attr('href');
+					
+					link = '#' + link;
+					
+					if (link.indexOf(navLink) > -1) {
+						navItem.attr('href', link);
+					}
+				});
+				
+				thisTabs.tabs();
+				
+				thisTabs.appear(function () {
+					thisTabs.css({'visibility': 'visible'});
+					showTabContent(tabContent);
+				});
+				
+				thisTabs.find('.evc-tabs-nav li').each(function () {
+					$(this).children().on('click', function () {
+						setTimeout(function () {
+							showTabContent(tabContent);
+						}, 50);
+					});
+				});
+			});
+		}
+		
+		function showTabContent(tabContent) {
+			tabContent.each(function () {
+				var thisTabContent = $(this);
+				
+				if (thisTabContent.is(':visible')) {
+					thisTabContent.addClass('evc-active');
+				} else {
+					thisTabContent.removeClass('evc-active');
 				}
 			});
 		}
@@ -983,68 +1064,4 @@
 			)();
 	}
 
-})(jQuery);
-(function ($) {
-	'use strict';
-	
-	$(document).ready(function () {
-		evcInitTabs();
-	});
-	
-	/*
-	 **	Init tabs shortcode
-	 */
-	function evcInitTabs() {
-		var tabs = $('.evc-tabs');
-		
-		if (tabs.length) {
-			tabs.each(function () {
-				var thisTabs = $(this),
-					tabContent = thisTabs.find('.evc-tabs-item');
-				
-				tabContent.each(function (index) {
-					index = index + 1;
-					
-					var that = $(this),
-						link = that.attr('id'),
-						navItem = that.parent().find('.evc-tabs-nav li:nth-child(' + index + ') a'),
-						navLink = navItem.attr('href');
-					
-					link = '#' + link;
-					
-					if (link.indexOf(navLink) > -1) {
-						navItem.attr('href', link);
-					}
-				});
-				
-				thisTabs.tabs();
-				
-				thisTabs.appear(function () {
-					thisTabs.css({'visibility': 'visible'});
-					showTabContent(tabContent);
-				});
-				
-				thisTabs.find('.evc-tabs-nav li').each(function () {
-					$(this).children().on('click', function () {
-						setTimeout(function () {
-							showTabContent(tabContent);
-						}, 50);
-					});
-				});
-			});
-		}
-		
-		function showTabContent(tabContent) {
-			tabContent.each(function () {
-				var thisTabContent = $(this);
-				
-				if (thisTabContent.is(':visible')) {
-					thisTabContent.addClass('evc-active');
-				} else {
-					thisTabContent.removeClass('evc-active');
-				}
-			});
-		}
-	}
-	
 })(jQuery);

@@ -89,6 +89,12 @@ You can find all instructions about plugin and all shortcodes in website <a href
 
 <h3>Changelog</h3>
 
+<h5>1.7.1</h5>
+- Added Legend Text Size option for Doughnut Chart shortcode <br />
+- Added Legend Color option for Doughnut Chart shortcode <br />
+- Added Legend Text Size option for Pie Chart shortcode <br />
+- Added Legend Color option for Pie Chart shortcode <br />
+
 <h5>1.7</h5>
 - Added Blog List shortcode (5 layouts) <br />
 - Added Blog List widget <br />

@@ -126,6 +126,21 @@ if ( ! class_exists( 'EVCPieChart' ) ) {
 					),
 					'dependency' => array( 'element' => 'enable_legend', 'value' => array( 'yes' ) ),
 					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+				),
+				array(
+					'type'        => 'textfield',
+					'param_name'  => 'legend_text_size',
+					'heading'     => esc_html__( 'Legend Text Size (px)', 'extensive-vc' ),
+					'description' => esc_html__( 'Fill legend text font size, default value is 12', 'extensive-vc' ),
+					'dependency'  => array( 'element' => 'enable_legend', 'value' => array( 'yes' ) ),
+					'group'       => esc_html__( 'Design Options', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'colorpicker',
+					'param_name' => 'legend_color',
+					'heading'    => esc_html__( 'Legend Color', 'extensive-vc' ),
+					'dependency' => array( 'element' => 'enable_legend', 'value' => array( 'yes' ) ),
+					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
 				)
 			);
 			
@@ -149,7 +164,9 @@ if ( ! class_exists( 'EVCPieChart' ) ) {
 				'space_color'       => '',
 				'space_hover_color' => '',
 				'enable_legend'     => 'yes',
-				'legend_position'   => 'top'
+				'legend_position'   => 'top',
+				'legend_text_size'  => '',
+				'legend_color'      => ''
 			);
 			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
@@ -202,8 +219,16 @@ if ( ! class_exists( 'EVCPieChart' ) ) {
 				$data['data-border-hover-color'] = esc_attr( $params['space_hover_color'] );
 			}
 			
-			$data['data-enable-legend']   = $params['enable_legend'] === 'no' ? 'false' : 'true';
+			$data['data-enable-legend']   = $params['enable_legend'] !== 'no';
 			$data['data-legend-position'] = ! empty( $params['legend_position'] ) ? esc_attr( $params['legend_position'] ) : $args['legend_position'];
+			
+			if ( $params['legend_text_size'] !== '' ) {
+				$data['data-legend-text-size'] = esc_attr( $params['legend_text_size'] );
+			}
+			
+			if ( ! empty( $params['legend_color'] ) ) {
+				$data['data-legend-color'] = esc_attr( $params['legend_color'] );
+			}
 			
 			return $data;
 		}
