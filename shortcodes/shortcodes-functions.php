@@ -83,7 +83,7 @@ if ( ! function_exists( 'extensive_vc_add_admin_shortcodes_icon_styles' ) ) {
 		}
 		
 		if ( ! empty( $style ) ) {
-			wp_add_inline_style( 'extensive_vc_main_admin_style', $style );
+			wp_add_inline_style( 'extensive-vc-main-admin-style', $style );
 		}
 	}
 	

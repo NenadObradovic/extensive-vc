@@ -117,6 +117,11 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 - Added Legend Color option for Doughnut Chart shortcode
 - Added Legend Text Size option for Pie Chart shortcode
 - Added Legend Color option for Pie Chart shortcode
+- Added Disable Ionicons Font option in general plugin settings panel
+- Changed all core plugin scripts/styles id to be with dash instead of underscore
+- Extend main plugin script with wp_localize_script and added possibilities to change slider navigation arrows with filter hook
+- Renamed options description in general plugin settings panel
+- Updated language pot file
 
 1.7
 - Added Blog List shortcode (5 layouts)

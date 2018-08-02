@@ -95,7 +95,7 @@ if ( ! class_exists( 'ExtensiveVCPredefinedStyle' ) ) {
 			$protocol   = is_ssl() ? 'https:' : 'http:';
 			$googleFont = add_query_arg( $defaultFontArgs, $protocol . '//fonts.googleapis.com/css' );
 			
-			wp_enqueue_style( 'extensive_vc_google_fonts', esc_url_raw( $googleFont ), array(), '1.0' );
+			wp_enqueue_style( 'extensive-vc-google-fonts', esc_url_raw( $googleFont ), array(), '1.0' );
 		}
 	}
 }

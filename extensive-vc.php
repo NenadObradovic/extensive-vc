@@ -109,15 +109,20 @@ if ( ! class_exists( 'Extensive_VC_Addon' ) ) {
 		 * Enqueue plugin scripts
 		 */
 		function enqueueStyles() {
+			global $evc_options;
 			
 			// Hook to enqueue additional scripts before main css
 			do_action( 'extensive_vc_enqueue_additional_scripts_before_main_css' );
 			
 			// Enqueue main plugin css
-			wp_enqueue_style( 'extensive_vc_main_style', EXTENSIVE_VC_ASSETS_URL_PATH . '/css/main.min.css' );
+			wp_enqueue_style( 'extensive-vc-main-style', EXTENSIVE_VC_ASSETS_URL_PATH . '/css/main.min.css' );
 			
 			// Enqueue ion icons font pack css
-			wp_enqueue_style( 'ionicons', EXTENSIVE_VC_ASSETS_URL_PATH . '/css/ion-icons/css/ionicons.min.css' );
+			$is_icon_font_disabled = $evc_options->options->getOptionValueById( 'evc_disable_ionicons_font' );
+			
+			if ( $is_icon_font_disabled !== 'yes' ) {
+				wp_enqueue_style( 'ionicons', EXTENSIVE_VC_ASSETS_URL_PATH . '/css/ion-icons/css/ionicons.min.css' );
+			}
 			
 			// Enqueue core jquery script and 3rd part libraries
 			wp_enqueue_script( 'jquery-ui-core' );
@@ -127,7 +132,19 @@ if ( ! class_exists( 'Extensive_VC_Addon' ) ) {
 			do_action( 'extensive_vc_enqueue_additional_scripts_before_main_js' );
 			
 			// Enqueue main plugin js
-			wp_enqueue_script( 'extensive_vc_main_script', EXTENSIVE_VC_ASSETS_URL_PATH . '/js/main.min.js', array( 'jquery' ), false, true );
+			wp_enqueue_script( 'extensive-vc-main-script', EXTENSIVE_VC_ASSETS_URL_PATH . '/js/main.min.js', array( 'jquery' ), false, true );
+			
+			// Extend main plugin js with additional variables
+			$evc_global_variables = array(
+				'sliderNavPrevArrow' => 'ion-ios-arrow-left',
+				'sliderNavNextArrow' => 'ion-ios-arrow-right'
+			);
+			
+			$evc_global_variables = apply_filters( 'extensive_vc_filter_main_js_global_variables', $evc_global_variables );
+			
+			wp_localize_script( 'extensive-vc-main-script', 'evcVars', array(
+				'global' => $evc_global_variables
+			) );
 			
 			// Hook to enqueue additional scripts
 			do_action( 'extensive_vc_enqueue_additional_scripts' );
@@ -142,7 +159,7 @@ if ( ! class_exists( 'Extensive_VC_Addon' ) ) {
 			$style = apply_filters( 'extensive_vc_filter_main_custom_style', $style = '' );
 			
 			if ( ! empty( $style ) ) {
-				wp_add_inline_style( 'extensive_vc_main_style', $style );
+				wp_add_inline_style( 'extensive-vc-main-style', $style );
 			}
 		}
 		
@@ -156,10 +173,10 @@ if ( ! class_exists( 'Extensive_VC_Addon' ) ) {
 			wp_enqueue_script( 'wp-color-picker' );
 			
 			// Enqueue main plugin admin css
-			wp_enqueue_style( 'extensive_vc_main_admin_style', EXTENSIVE_VC_ASSETS_URL_PATH . '/css/admin/main-admin.min.css' );
+			wp_enqueue_style( 'extensive-vc-main-admin-style', EXTENSIVE_VC_ASSETS_URL_PATH . '/css/admin/main-admin.min.css' );
 			
 			// Enqueue main plugin admin js
-			wp_enqueue_script( 'extensive_vc_main_admin_script', EXTENSIVE_VC_ASSETS_URL_PATH . '/js/admin/main-admin.js', array( 'jquery' ), false, true );
+			wp_enqueue_script( 'extensive-vc-main-admin-script', EXTENSIVE_VC_ASSETS_URL_PATH . '/js/admin/main-admin.js', array( 'jquery' ), false, true );
 			
 			// Hook to enqueue additional scripts for admin panel
 			do_action( 'extensive_vc_enqueue_additional_admin_scripts' );

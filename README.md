@@ -94,6 +94,11 @@ You can find all instructions about plugin and all shortcodes in website <a href
 - Added Legend Color option for Doughnut Chart shortcode <br />
 - Added Legend Text Size option for Pie Chart shortcode <br />
 - Added Legend Color option for Pie Chart shortcode <br />
+- Added Disable Ionicons Font option in general plugin settings panel <br />
+- Changed all core plugin scripts/styles id to be with dash instead of underscore <br />
+- Extend main plugin script with wp_localize_script and added possibilities to change slider navigation arrows with filter hook <br />
+- Renamed options description in general plugin settings panel <br />
+- Updated language pot file <br />
 
 <h5>1.7</h5>
 - Added Blog List shortcode (5 layouts) <br />
