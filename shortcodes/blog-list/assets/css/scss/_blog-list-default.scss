@@ -19,37 +19,6 @@
 		}
 	}
 	
-	&.evc-bl-layout-date-on-image {
-		
-		.evc-bli-date {
-			position: absolute;
-			top: 10px;
-			left: 10px;
-			padding: 8px 13px 13px;
-			text-align: center;
-			color: #fff;
-			background-color: $main-color;
-			z-index: 2;
-			box-sizing: border-box;
-			@include evcTransform(translateZ(0));
-			
-			> * {
-				display: block;
-				line-height: 1;
-			}
-			
-			.evc-bli-date-day {
-				font-size: 26px;
-				font-weight: 700;
-			}
-			
-			.evc-bli-date-month {
-				margin-top: 2px;
-				font-size: 13px;
-			}
-		}
-	}
-	
 	&.evc-bl-layout-boxed {
 		
 		.evc-bli-image {
@@ -64,6 +33,55 @@
 			border-top-width: 0;
 			box-shadow: $box-shadow;
 			box-sizing: border-box;
+		}
+	}
+	
+	&.evc-bl-gallery {
+		
+		.evc-bli-inner {
+			@include evcRelativeLayout();
+			
+			&:hover {
+				
+				.evc-bli-excerpt {
+					opacity: 1;
+					max-height: calc(4em);
+					@include evcTransition(opacity .2s ease, max-height .3s ease);
+				}
+			}
+			
+			.touch & {
+				cursor: pointer;
+			}
+		}
+		
+		.evc-bli-image {
+			margin-bottom: 0;
+		}
+		
+		.evc-bli-content {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: auto;
+			padding: 15% 30px 22px;
+			background: rgba(#fff, .6);
+			background: -webkit-linear-gradient(to top, rgba(#fff, .6), rgba(#fff, 0));  /* Chrome 10-25, Safari 5.1-6 */
+			background: linear-gradient(to top, rgba(#fff, .6), rgba(#fff, 0)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+			box-sizing: border-box;
+			
+			a {
+				position: relative;
+				z-index: 2;
+			}
+		}
+		
+		.evc-bli-excerpt {
+			opacity: 0;
+			max-height: 0px;
+			overflow: hidden;
+			@include evcTransition(opacity .2s ease, max-height .3s ease);
 		}
 	}
 	
@@ -114,6 +132,15 @@
 			}
 		}
 		
+		&.evc-bl-gallery {
+			
+			.evc-bli-content {
+				background: rgba(#000, .6);
+				background: -webkit-linear-gradient(to top, rgba(#000, .6), rgba(#000, 0));  /* Chrome 10-25, Safari 5.1-6 */
+				background: linear-gradient(to top, rgba(#000, .6), rgba(#000, 0)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+			}
+		}
+		
 		.evc-bli-title {
 			color: #fff;
 			
@@ -157,6 +184,34 @@
 		
 		img {
 			display: block;
+		}
+	}
+	
+	.evc-bli-date-on-image {
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		padding: 8px 13px 13px;
+		text-align: center;
+		color: #fff;
+		background-color: $main-color;
+		z-index: 2;
+		box-sizing: border-box;
+		@include evcTransform(translateZ(0));
+		
+		> * {
+			display: block;
+			line-height: 1;
+		}
+		
+		.evc-bli-date-day {
+			font-size: 26px;
+			font-weight: 700;
+		}
+		
+		.evc-bli-date-month {
+			margin-top: 2px;
+			font-size: 13px;
 		}
 	}
 	
@@ -206,6 +261,10 @@
 	
 	.evc-bli-post-info-bottom {
 		margin-top: 16px;
+	}
+	
+	.evc-bli-link {
+		@include evcAbsoluteLayout();
 	}
 }
 

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Extensive VC Pack 1.7.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/extensive-vc\n"
-"POT-Creation-Date: 2018-08-02 19:11:18+00:00\n"
+"POT-Creation-Date: 2018-08-04 14:57:40+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -137,9 +137,9 @@ msgstr ""
 #: plugins/woocommerce/shortcodes/product-list/product-list.php:118
 #: post-types/clients/shortcodes/clients.php:258
 #: post-types/testimonials/shortcodes/testimonials.php:159
-#: shortcodes/blog-list/blog-list.php:81 shortcodes/blog-list/blog-list.php:128
-#: shortcodes/blog-list/widgets/blog-list-widget.php:62
-#: shortcodes/blog-list/widgets/blog-list-widget.php:108
+#: shortcodes/blog-list/blog-list.php:82 shortcodes/blog-list/blog-list.php:129
+#: shortcodes/blog-list/widgets/blog-list-widget.php:63
+#: shortcodes/blog-list/widgets/blog-list-widget.php:109
 #: shortcodes/button/button.php:218
 #: shortcodes/button/widgets/button-widget.php:185
 #: shortcodes/custom-font/custom-font.php:134
@@ -545,8 +545,8 @@ msgid "Product List"
 msgstr ""
 
 #: plugins/woocommerce/shortcodes/product-list/product-list.php:58
-#: shortcodes/blog-list/blog-list.php:79
-#: shortcodes/blog-list/widgets/blog-list-widget.php:59
+#: shortcodes/blog-list/blog-list.php:80
+#: shortcodes/blog-list/widgets/blog-list-widget.php:60
 msgid "Layout Collections"
 msgstr ""
 
@@ -563,6 +563,8 @@ msgstr ""
 
 #: plugins/woocommerce/shortcodes/product-list/product-list.php:62
 #: post-types/clients/shortcodes/clients.php:80
+#: shortcodes/blog-list/blog-list.php:71
+#: shortcodes/blog-list/widgets/blog-list-widget.php:51
 msgid "Gallery"
 msgstr ""
 
@@ -572,8 +574,8 @@ msgstr ""
 
 #: plugins/woocommerce/shortcodes/product-list/product-list.php:74
 #: post-types/clients/shortcodes/clients.php:161
-#: shortcodes/blog-list/blog-list.php:96
-#: shortcodes/blog-list/widgets/blog-list-widget.php:76
+#: shortcodes/blog-list/blog-list.php:97
+#: shortcodes/blog-list/widgets/blog-list-widget.php:77
 #: shortcodes/image-gallery/image-gallery.php:117
 #: shortcodes/pricing-table/pricing-table.php:75
 #: shortcodes/process/process.php:75 shortcodes/process-2/process-2.php:75
@@ -582,8 +584,8 @@ msgstr ""
 
 #: plugins/woocommerce/shortcodes/product-list/product-list.php:80
 #: post-types/clients/shortcodes/clients.php:169
-#: shortcodes/blog-list/blog-list.php:102
-#: shortcodes/blog-list/widgets/blog-list-widget.php:82
+#: shortcodes/blog-list/blog-list.php:103
+#: shortcodes/blog-list/widgets/blog-list-widget.php:83
 #: shortcodes/gallery-block/gallery-block.php:68
 #: shortcodes/image-gallery/image-gallery.php:125
 #: shortcodes/pricing-table/pricing-table.php:81
@@ -593,8 +595,8 @@ msgstr ""
 #: plugins/woocommerce/shortcodes/product-list/product-list.php:86
 #: post-types/clients/shortcodes/clients.php:99
 #: post-types/testimonials/shortcodes/testimonials.php:89
-#: shortcodes/blog-list/blog-list.php:114
-#: shortcodes/blog-list/widgets/blog-list-widget.php:94
+#: shortcodes/blog-list/blog-list.php:115
+#: shortcodes/blog-list/widgets/blog-list-widget.php:95
 msgid "Order By"
 msgstr ""
 
@@ -605,8 +607,8 @@ msgstr ""
 #: plugins/woocommerce/shortcodes/product-list/product-list.php:92
 #: post-types/clients/shortcodes/clients.php:105
 #: post-types/testimonials/shortcodes/testimonials.php:95
-#: shortcodes/blog-list/blog-list.php:120
-#: shortcodes/blog-list/widgets/blog-list-widget.php:100
+#: shortcodes/blog-list/blog-list.php:121
+#: shortcodes/blog-list/widgets/blog-list-widget.php:101
 msgid "Order"
 msgstr ""
 
@@ -621,10 +623,10 @@ msgstr ""
 #: post-types/testimonials/shortcodes/testimonials.php:83
 #: post-types/testimonials/shortcodes/testimonials.php:289
 #: post-types/testimonials/shortcodes/testimonials.php:319
-#: shortcodes/blog-list/blog-list.php:108
-#: shortcodes/blog-list/blog-list.php:301
-#: shortcodes/blog-list/blog-list.php:329
-#: shortcodes/blog-list/widgets/blog-list-widget.php:88
+#: shortcodes/blog-list/blog-list.php:109
+#: shortcodes/blog-list/blog-list.php:302
+#: shortcodes/blog-list/blog-list.php:330
+#: shortcodes/blog-list/widgets/blog-list-widget.php:89
 msgid "Category"
 msgstr ""
 
@@ -645,20 +647,20 @@ msgid "Separate values (category slugs, tags, or post IDs) with a comma"
 msgstr ""
 
 #: plugins/woocommerce/shortcodes/product-list/product-list.php:116
-#: shortcodes/blog-list/blog-list.php:136
-#: shortcodes/blog-list/widgets/blog-list-widget.php:116
+#: shortcodes/blog-list/blog-list.php:137
+#: shortcodes/blog-list/widgets/blog-list-widget.php:117
 msgid "Image Proportions"
 msgstr ""
 
 #: plugins/woocommerce/shortcodes/product-list/product-list.php:119
-#: shortcodes/blog-list/blog-list.php:138
-#: shortcodes/blog-list/widgets/blog-list-widget.php:119
+#: shortcodes/blog-list/blog-list.php:139
+#: shortcodes/blog-list/widgets/blog-list-widget.php:120
 msgid "Original"
 msgstr ""
 
 #: plugins/woocommerce/shortcodes/product-list/product-list.php:120
-#: shortcodes/blog-list/blog-list.php:140
-#: shortcodes/blog-list/widgets/blog-list-widget.php:121
+#: shortcodes/blog-list/blog-list.php:141
+#: shortcodes/blog-list/widgets/blog-list-widget.php:122
 #: shortcodes/button/button.php:78
 #: shortcodes/button/widgets/button-widget.php:61
 #: shortcodes/pricing-table/pricing-table-item.php:183
@@ -667,8 +669,8 @@ msgid "Medium"
 msgstr ""
 
 #: plugins/woocommerce/shortcodes/product-list/product-list.php:121
-#: shortcodes/blog-list/blog-list.php:139
-#: shortcodes/blog-list/widgets/blog-list-widget.php:120
+#: shortcodes/blog-list/blog-list.php:140
+#: shortcodes/blog-list/widgets/blog-list-widget.php:121
 #: shortcodes/button/button.php:77
 #: shortcodes/button/widgets/button-widget.php:60
 #: shortcodes/pricing-table/pricing-table-item.php:182
@@ -693,14 +695,14 @@ msgstr ""
 #: plugins/woocommerce/shortcodes/product-list/product-list.php:146
 #: plugins/woocommerce/shortcodes/product-list/product-list.php:153
 #: plugins/woocommerce/shortcodes/product-list/product-list.php:160
-#: shortcodes/blog-list/blog-list.php:131
-#: shortcodes/blog-list/blog-list.php:144
-#: shortcodes/blog-list/blog-list.php:151
-#: shortcodes/blog-list/blog-list.php:159
-#: shortcodes/blog-list/blog-list.php:167
-#: shortcodes/blog-list/blog-list.php:175
-#: shortcodes/blog-list/blog-list.php:183
-#: shortcodes/blog-list/blog-list.php:190 shortcodes/button/button.php:149
+#: shortcodes/blog-list/blog-list.php:132
+#: shortcodes/blog-list/blog-list.php:145
+#: shortcodes/blog-list/blog-list.php:152
+#: shortcodes/blog-list/blog-list.php:160
+#: shortcodes/blog-list/blog-list.php:168
+#: shortcodes/blog-list/blog-list.php:176
+#: shortcodes/blog-list/blog-list.php:184
+#: shortcodes/blog-list/blog-list.php:191 shortcodes/button/button.php:149
 #: shortcodes/button/button.php:155 shortcodes/button/button.php:162
 #: shortcodes/button/button.php:169 shortcodes/button/button.php:176
 #: shortcodes/button/button.php:183 shortcodes/button/button.php:190
@@ -763,8 +765,8 @@ msgstr ""
 
 #: plugins/woocommerce/shortcodes/product-list/product-list.php:136
 #: post-types/clients/shortcodes/clients.php:132
-#: shortcodes/blog-list/blog-list.php:149
-#: shortcodes/blog-list/widgets/blog-list-widget.php:129
+#: shortcodes/blog-list/blog-list.php:150
+#: shortcodes/blog-list/widgets/blog-list-widget.php:130
 #: shortcodes/counter/counter.php:111 shortcodes/custom-font/custom-font.php:63
 #: shortcodes/custom-font/widgets/custom-font-widget.php:47
 #: shortcodes/flip-image/flip-image.php:96
@@ -788,8 +790,8 @@ msgid "Enable Price"
 msgstr ""
 
 #: plugins/woocommerce/shortcodes/product-list/product-list.php:158
-#: shortcodes/blog-list/blog-list.php:172
-#: shortcodes/blog-list/widgets/blog-list-widget.php:148
+#: shortcodes/blog-list/blog-list.php:173
+#: shortcodes/blog-list/widgets/blog-list-widget.php:149
 msgid "Enable Category"
 msgstr ""
 
@@ -909,8 +911,8 @@ msgstr ""
 
 #: post-types/clients/shortcodes/clients.php:94
 #: post-types/testimonials/shortcodes/testimonials.php:84
-#: shortcodes/blog-list/blog-list.php:109
-#: shortcodes/blog-list/widgets/blog-list-widget.php:89
+#: shortcodes/blog-list/blog-list.php:110
+#: shortcodes/blog-list/widgets/blog-list-widget.php:90
 msgid "Enter one category slug or leave empty for showing all categories"
 msgstr ""
 
@@ -1096,8 +1098,8 @@ msgstr ""
 
 #: post-types/clients/shortcodes/clients.php:259
 #: post-types/testimonials/shortcodes/testimonials.php:160
-#: shortcodes/blog-list/blog-list.php:129
-#: shortcodes/blog-list/widgets/blog-list-widget.php:109
+#: shortcodes/blog-list/blog-list.php:130
+#: shortcodes/blog-list/widgets/blog-list-widget.php:110
 #: shortcodes/image-gallery/image-gallery.php:215 shortcodes/tabs/tabs.php:110
 msgid "Light"
 msgstr ""
@@ -1214,8 +1216,8 @@ msgid "Blockquote"
 msgstr ""
 
 #: shortcodes/blockquote/blockquote.php:60
-#: shortcodes/blog-list/blog-list.php:71
-#: shortcodes/blog-list/widgets/blog-list-widget.php:51
+#: shortcodes/blog-list/blog-list.php:72
+#: shortcodes/blog-list/widgets/blog-list-widget.php:52
 #: shortcodes/button/button.php:63
 #: shortcodes/button/widgets/button-widget.php:46
 #: shortcodes/dropcaps/dropcaps.php:60
@@ -1319,59 +1321,59 @@ msgstr ""
 msgid "Blog List"
 msgstr ""
 
-#: shortcodes/blog-list/blog-list.php:72
-#: shortcodes/blog-list/widgets/blog-list-widget.php:52
+#: shortcodes/blog-list/blog-list.php:73
+#: shortcodes/blog-list/widgets/blog-list-widget.php:53
 msgid "Minimal"
-msgstr ""
-
-#: shortcodes/blog-list/blog-list.php:82
-#: shortcodes/blog-list/widgets/blog-list-widget.php:63
-msgid "Date On Image"
 msgstr ""
 
 #: shortcodes/blog-list/blog-list.php:83
 #: shortcodes/blog-list/widgets/blog-list-widget.php:64
+msgid "Date On Image"
+msgstr ""
+
+#: shortcodes/blog-list/blog-list.php:84
+#: shortcodes/blog-list/widgets/blog-list-widget.php:65
 msgid "Boxed Layout"
 msgstr ""
 
-#: shortcodes/blog-list/blog-list.php:91
-#: shortcodes/blog-list/widgets/blog-list-widget.php:71
+#: shortcodes/blog-list/blog-list.php:92
+#: shortcodes/blog-list/widgets/blog-list-widget.php:72
 msgid "Number of Posts"
 msgstr ""
 
-#: shortcodes/blog-list/blog-list.php:126
-#: shortcodes/blog-list/widgets/blog-list-widget.php:106
+#: shortcodes/blog-list/blog-list.php:127
+#: shortcodes/blog-list/widgets/blog-list-widget.php:107
 #: shortcodes/tabs/tabs.php:107
 msgid "Skin"
 msgstr ""
 
-#: shortcodes/blog-list/blog-list.php:141
-#: shortcodes/blog-list/widgets/blog-list-widget.php:122
+#: shortcodes/blog-list/blog-list.php:142
+#: shortcodes/blog-list/widgets/blog-list-widget.php:123
 msgid "Thumbnail"
 msgstr ""
 
-#: shortcodes/blog-list/blog-list.php:156
-#: shortcodes/blog-list/widgets/blog-list-widget.php:135
+#: shortcodes/blog-list/blog-list.php:157
+#: shortcodes/blog-list/widgets/blog-list-widget.php:136
 msgid "Enable Excerpt"
-msgstr ""
-
-#: shortcodes/blog-list/blog-list.php:164
-#: shortcodes/blog-list/widgets/blog-list-widget.php:142
-msgid "Excerpt Length"
 msgstr ""
 
 #: shortcodes/blog-list/blog-list.php:165
 #: shortcodes/blog-list/widgets/blog-list-widget.php:143
+msgid "Excerpt Length"
+msgstr ""
+
+#: shortcodes/blog-list/blog-list.php:166
+#: shortcodes/blog-list/widgets/blog-list-widget.php:144
 msgid "Set number of characters"
 msgstr ""
 
-#: shortcodes/blog-list/blog-list.php:180
-#: shortcodes/blog-list/widgets/blog-list-widget.php:155
+#: shortcodes/blog-list/blog-list.php:181
+#: shortcodes/blog-list/widgets/blog-list-widget.php:156
 msgid "Enable Author"
 msgstr ""
 
-#: shortcodes/blog-list/blog-list.php:188
-#: shortcodes/blog-list/widgets/blog-list-widget.php:162
+#: shortcodes/blog-list/blog-list.php:189
+#: shortcodes/blog-list/widgets/blog-list-widget.php:163
 msgid "Enable Date"
 msgstr ""
 
@@ -1387,12 +1389,15 @@ msgstr ""
 msgid "Add blog list element to widget areas"
 msgstr ""
 
-#: shortcodes/blog-list/widgets/blog-list-widget.php:60
-#: shortcodes/blog-list/widgets/blog-list-widget.php:117
-#: shortcodes/blog-list/widgets/blog-list-widget.php:136
-#: shortcodes/blog-list/widgets/blog-list-widget.php:149
-#: shortcodes/blog-list/widgets/blog-list-widget.php:156
+#: shortcodes/blog-list/widgets/blog-list-widget.php:61
+#: shortcodes/blog-list/widgets/blog-list-widget.php:150
+#: shortcodes/blog-list/widgets/blog-list-widget.php:157
 msgid "Only for standard layout"
+msgstr ""
+
+#: shortcodes/blog-list/widgets/blog-list-widget.php:118
+#: shortcodes/blog-list/widgets/blog-list-widget.php:137
+msgid "Only for standard and gallery layout"
 msgstr ""
 
 #: shortcodes/button/button.php:24

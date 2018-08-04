@@ -68,6 +68,7 @@ if ( ! class_exists( 'EVCBlogList' ) ) {
 					'heading'     => esc_html__( 'Type', 'extensive-vc' ),
 					'value'       => array(
 						esc_html__( 'Standard', 'extensive-vc' ) => 'standard',
+						esc_html__( 'Gallery', 'extensive-vc' )  => 'gallery',
 						esc_html__( 'Simple', 'extensive-vc' )   => 'simple',
 						esc_html__( 'Minimal', 'extensive-vc' )  => 'minimal'
 					),
@@ -140,7 +141,7 @@ if ( ! class_exists( 'EVCBlogList' ) ) {
 						esc_html__( 'Medium', 'extensive-vc' )    => 'medium',
 						esc_html__( 'Thumbnail', 'extensive-vc' ) => 'thumbnail',
 					),
-					'dependency' => array( 'element' => 'type', 'value' => array( 'standard' ) ),
+					'dependency' => array( 'element' => 'type', 'value' => array( 'standard', 'gallery' ) ),
 					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
 				),
 				array(
@@ -155,7 +156,7 @@ if ( ! class_exists( 'EVCBlogList' ) ) {
 					'param_name' => 'enable_excerpt',
 					'heading'    => esc_html__( 'Enable Excerpt', 'extensive-vc' ),
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
-					'dependency' => array( 'element' => 'type', 'value' => array( 'standard' ) ),
+					'dependency' => array( 'element' => 'type', 'value' => array( 'standard', 'gallery' ) ),
 					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
 				),
 				array(

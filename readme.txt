@@ -3,7 +3,7 @@ Contributors: nenad-obradovic
 Tags: visual composer, visual composer addons, wpbakery page builder, wpbakery addons, wpbakery shortcodes
 Donate link: http://wprealize.com/donate/
 Requires at least: 4.6
-Tested up to: 4.9.7
+Tested up to: 4.9.8
 Stable tag: 1.7.1
 Requires PHP: 5.3
 License: GPLv2 or later
@@ -118,9 +118,12 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 - Added Legend Text Size option for Pie Chart shortcode
 - Added Legend Color option for Pie Chart shortcode
 - Added Disable Ionicons Font option in general plugin settings panel
+- Added Gallery Type option for Blog List shortcode
+- Added Gallery Type option for Blog List widget
 - Changed all core plugin scripts/styles id to be with dash instead of underscore
 - Extend main plugin script with wp_localize_script and added possibilities to change slider navigation arrows with filter hook
 - Renamed options description in general plugin settings panel
+- Updated fullPage 3rd party library to 2.9.7
 - Updated language pot file
 
 1.7

@@ -48,6 +48,7 @@ if ( ! class_exists( 'EVCBlogListWidget' ) ) {
 					'heading'       => esc_html__( 'Type', 'extensive-vc' ),
 					'value'         => array(
 						esc_html__( 'Standard', 'extensive-vc' ) => 'standard',
+						esc_html__( 'Gallery', 'extensive-vc' )  => 'gallery',
 						esc_html__( 'Simple', 'extensive-vc' )   => 'simple',
 						esc_html__( 'Minimal', 'extensive-vc' )  => 'minimal'
 					),
@@ -114,7 +115,7 @@ if ( ! class_exists( 'EVCBlogListWidget' ) ) {
 					'type'          => 'dropdown',
 					'param_name'    => 'image_proportions',
 					'heading'       => esc_html__( 'Image Proportions', 'extensive-vc' ),
-					'description'   => esc_html__( 'Only for standard layout', 'extensive-vc' ),
+					'description'   => esc_html__( 'Only for standard and gallery layout', 'extensive-vc' ),
 					'value'         => array(
 						esc_html__( 'Original', 'extensive-vc' )  => 'full',
 						esc_html__( 'Large', 'extensive-vc' )     => 'large',
@@ -133,7 +134,7 @@ if ( ! class_exists( 'EVCBlogListWidget' ) ) {
 					'type'        => 'dropdown',
 					'param_name'  => 'enable_excerpt',
 					'heading'     => esc_html__( 'Enable Excerpt', 'extensive-vc' ),
-					'description' => esc_html__( 'Only for standard layout', 'extensive-vc' ),
+					'description' => esc_html__( 'Only for standard and gallery layout', 'extensive-vc' ),
 					'value'       => extensive_vc_get_yes_no_select_array( false, true )
 				),
 				array(
