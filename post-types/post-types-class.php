@@ -55,7 +55,7 @@ if ( ! class_exists( 'PostTypesClass' ) ) {
 		/**
 		 * Adds custom post type
 		 *
-		 * @param PostTypesInterface $postType
+		 * @param $postType PostTypesInterface
 		 */
 		private function addPostType( PostTypesInterface $postType ) {
 			if ( ! array_key_exists( $postType->getBase(), $this->postTypes ) ) {

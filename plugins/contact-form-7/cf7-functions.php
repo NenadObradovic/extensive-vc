@@ -8,7 +8,7 @@ if ( ! function_exists( 'extensive_vc_contact_form_7_installed' ) ) {
 	/**
 	 * Checks if Contact Form 7 plugin installed
 	 *
-	 * @return bool
+	 * @return boolean
 	 */
 	function extensive_vc_contact_form_7_installed() {
 		return defined( 'WPCF7_VERSION' );

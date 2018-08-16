@@ -60,10 +60,10 @@ if ( ! class_exists( 'EVCFullScreenSections' ) ) {
 		}
 		
 		/**
-		 * Include necessary 3rd party scripts for this shortcode
+		 * Register necessary 3rd party scripts for this shortcode and include it on render
 		 */
 		function enqueueShortcodeAdditionalScripts() {
-			wp_enqueue_script( 'fullPage', EXTENSIVE_VC_SHORTCODES_URL_PATH . '/full-screen-sections/assets/js/plugins/jquery.fullPage.min.js', array( 'jquery' ), false, true );
+			wp_register_script( 'fullPage', EXTENSIVE_VC_SHORTCODES_URL_PATH . '/full-screen-sections/assets/js/plugins/jquery.fullPage.min.js', array( 'jquery' ), false, true );
 		}
 		
 		/**

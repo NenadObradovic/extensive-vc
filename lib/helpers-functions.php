@@ -88,6 +88,29 @@ if ( ! function_exists( 'extensive_vc_get_module_template_part' ) ) {
 	}
 }
 
+if ( ! function_exists( 'extensive_vc_get_ajax_status' ) ) {
+	/**
+	 * Return response status from ajax functions
+	 *
+	 * @param $status string - success or error
+	 * @param $message string - ajax response message
+	 * @param $data string|html - response data
+	 *
+	 * @return void
+	 */
+	function extensive_vc_get_ajax_status( $status, $message, $data = null ) {
+		$response = array(
+			'status'   => $status,
+			'message'  => $message,
+			'data'     => $data
+		);
+		
+		$output = json_encode( $response );
+		
+		exit( $output );
+	}
+}
+
 if ( ! function_exists( 'extensive_vc_generate_dynamic_css' ) ) {
 	/**
 	 * Generates css output based on selector and css rules that are provided
@@ -226,12 +249,12 @@ if ( ! function_exists( 'extensive_vc_print_inline_attrs' ) ) {
 
 if ( ! function_exists( 'extensive_vc_string_ends_with' ) ) {
 	/**
-	 * Checks if $haystack ends with $needle and returns proper bool value
+	 * Checks if $haystack ends with $needle and returns proper boolean value
 	 *
 	 * @param $haystack string - to check
 	 * @param $needle string - with which $haystack needs to end
 	 *
-	 * @return bool
+	 * @return boolean
 	 */
 	function extensive_vc_string_ends_with( $haystack, $needle ) {
 		if ( $haystack !== '' && $needle !== '' ) {
@@ -268,7 +291,7 @@ if ( ! function_exists( 'extensive_vc_resize_image' ) ) {
 	 * @param $attach_id null - id of attachment
 	 * @param $width int - desired height of custom thumbnail
 	 * @param $height int - desired width of custom thumbnail
-	 * @param $crop bool - whether to crop image or not
+	 * @param $crop boolean - whether to crop image or not
 	 *
 	 * @return array returns array containing img_url, width and height
 	 *
@@ -333,7 +356,7 @@ if ( ! function_exists( 'extensive_vc_generate_thumbnail' ) ) {
 	 * @param $attach_id null - attachment id
 	 * @param $width int - width of thumbnail
 	 * @param $height int - height of thumbnail
-	 * @param $crop bool - whether to crop thumbnail or not
+	 * @param $crop boolean - whether to crop thumbnail or not
 	 *
 	 * @return string generated img tag
 	 *
@@ -490,8 +513,8 @@ if ( ! function_exists( 'extensive_vc_get_query_order_by_array' ) ) {
 	/**
 	 * Returns array of query order by
 	 *
-	 * @param bool $first_empty
-	 * @param array $additional_options
+	 * @param $first_empty boolean
+	 * @param $additional_options array
 	 *
 	 * @return array
 	 */

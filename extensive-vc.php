@@ -4,7 +4,7 @@ Plugin Name: Extensive VC Pack
 Plugin URI: http://wprealize.com/
 Author: Nenad Obradovic
 Author URI: http://wprealize.com/introduced/
-Version: 1.7.1
+Version: 1.7.2
 Description: WordPress plugin which allows you to add unique, flexible and fully responsive shortcodes. It is an addon for premium plugin WPBakery page builder Visual Composer.
 Text Domain: extensive-vc
 License: GPLv2 or later
@@ -125,7 +125,6 @@ if ( ! class_exists( 'Extensive_VC_Addon' ) ) {
 			}
 			
 			// Enqueue core jquery script and 3rd part libraries
-			wp_enqueue_script( 'jquery-ui-core' );
 			wp_enqueue_script( 'appear', EXTENSIVE_VC_ASSETS_URL_PATH . '/plugins/appear/jquery.appear.js', array( 'jquery' ), false, true );
 			
 			// Hook to enqueue additional scripts before main js
@@ -136,6 +135,7 @@ if ( ! class_exists( 'Extensive_VC_Addon' ) ) {
 			
 			// Extend main plugin js with additional variables
 			$evc_global_variables = array(
+				'adminAjaxUrl'       => esc_url( admin_url( 'admin-ajax.php' ) ),
 				'sliderNavPrevArrow' => 'ion-ios-arrow-left',
 				'sliderNavNextArrow' => 'ion-ios-arrow-right'
 			);
@@ -241,7 +241,7 @@ if ( ! function_exists( 'extensive_vc_is_visual_composer_installed' ) ) {
 	/**
 	 * Checks if WPBakery page builder plugin installed
 	 *
-	 * @return bool
+	 * @return boolean
 	 */
 	function extensive_vc_is_visual_composer_installed() {
 		return class_exists( 'WPBakeryVisualComposerAbstract' );
@@ -252,7 +252,7 @@ if ( ! function_exists( 'extensive_vc_is_evc_installed' ) ) {
 	/**
 	 * Checks if our plugin installed
 	 *
-	 * @return bool
+	 * @return boolean
 	 */
 	function extensive_vc_is_evc_installed() {
 		return class_exists( 'Extensive_VC_Addon' );

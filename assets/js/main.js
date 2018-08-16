@@ -3,6 +3,7 @@
 	
 	$(document).ready(function () {
 		evcInitOWLCarousel();
+		evcInitPagination();
 	});
 	
 	/**
@@ -26,6 +27,8 @@
 					speedAnimation = typeof speedAnimationData !== 'undefined' && speedAnimationData !== false ? parseInt(speedAnimationData, 10) : 600,
 					marginData = thisCarousel.data('carousel-margin'),
 					margin = typeof marginData !== 'undefined' && marginData !== false ? parseInt(marginData, 10) : 0,
+					centerData = thisCarousel.data('enable-center'),
+					center = centerData === 'yes',
 					navigation = thisCarousel.data('enable-navigation') === 'yes',
 					pagination = thisCarousel.data('enable-pagination') === 'yes';
 				
@@ -38,6 +41,10 @@
 					autoplay = false;
 					navigation = false;
 					pagination = false;
+				}
+
+				if(center && numberOfItems < 3) {
+					numberOfItems = 3;
 				}
 				
 				var responsiveNumberOfItems1 = 1,
@@ -53,6 +60,7 @@
 					autoplayTimeout: speed,
 					smartSpeed: speedAnimation,
 					margin: margin,
+					center: center,
 					dots: pagination,
 					nav: navigation,
 					navText: [
@@ -84,6 +92,56 @@
 			});
 		}
 	}
+	
+	/*
+	 **	Init shortcodes pagination functionality
+	 */
+	function evcInitPagination() {
+		var holder = $('.evc-has-pagination');
+		
+		if (holder.length) {
+			holder.each(function () {
+				var thisHolder = $(this),
+					itemsHolder = thisHolder.children('.evc-element-wrapper'),
+					loadMoreButton = thisHolder.find('.evc-load-more-button');
+				
+				loadMoreButton.on('click', function (e) {
+					e.preventDefault();
+					
+					var shortcodeOptions = thisHolder.data('options');
+					
+					$.ajax({
+						type: 'POST',
+						data: {
+							action: 'extensive_vc_init_shortcode_pagination',
+							options: shortcodeOptions
+						},
+						url: evcVars.global.adminAjaxUrl,
+						success: function (data) {
+							var response = JSON.parse(data);
+							
+							shortcodeOptions['next_page'] = parseInt(shortcodeOptions['next_page'], 10) + 1;
+							
+							itemsHolder.append(response.data);
+							
+							if (shortcodeOptions['next_page'] > shortcodeOptions['max_pages_num']) {
+								loadMoreButton.hide();
+							}
+						}
+					});
+				});
+			});
+		}
+	}
+	
+})(jQuery);
+(function ($) {
+	'use strict';
+	
+	$(document).ready(function () {
+	});
+	
+	
 	
 })(jQuery);
 (function ($) {

@@ -1,0 +1,199 @@
+/* ==========================================================================
+   Post Carousel shortcode style - begin
+   ========================================================================== */
+
+.evc-post-carousel {
+	@include evcRelativeLayout();
+	
+	/***** Type styles - begin *****/
+	
+	&.evc-pc-centered {
+		
+		.owl-item {
+			
+			&.center {
+				
+				.evc-pci-content {
+					opacity: 1;
+					
+					> * {
+						@include evcTransform(translate3d(0, 0, 0));
+					}
+				}
+			}
+		}
+		
+		.evc-pci-content {
+			@include evcFlexContainer(center, center, column);
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			padding: 30px;
+			text-align: center;
+			opacity: 0;
+			@include evcTransition(opacity .35s);
+			
+			> * {
+				@include evcTransform(translate3d(0,40px,0));
+				@include evcTransitionTransform(.35s);
+				
+				@for $i from 1 to 3 {
+					
+					&:nth-child(#{$i}) {
+						$delay: #{.05 * $i}s;
+						@include evcTransitionDelay($delay);
+					}
+				}
+			}
+		}
+	}
+	
+	&.evc-pc-sliding-excerpt {
+		
+		.evc-pci-inner {
+			
+			&:hover {
+				
+				.evc-pci-excerpt {
+					opacity: 1;
+					max-height: calc(4em);
+					@include evcTransition(opacity .2s, max-height .3s);
+				}
+			}
+		}
+		
+		.evc-pci-content {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: auto;
+			padding: 15% 30px 22px;
+		}
+		
+		.evc-pci-excerpt {
+			opacity: 0;
+			max-height: 0px;
+			overflow: hidden;
+			@include evcTransition(opacity .2s, max-height .3s);
+		}
+	}
+	
+	/***** Type styles - end *****/
+	
+	/***** Skin styles - begin *****/
+	
+	&.evc-pc-skin-light {
+		
+		.evc-pci-content {
+			background: rgba(#000, .6);
+			background: -webkit-linear-gradient(to top, rgba(#000, .6), rgba(#000, 0)); /* Chrome 10-25, Safari 5.1-6 */
+			background: linear-gradient(to top, rgba(#000, .6), rgba(#000, 0)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		}
+		
+		.evc-pci-title {
+			color: #fff;
+			
+			a {
+				
+				&:hover {
+					color: rgba(#fff, .8);
+				}
+			}
+		}
+		
+		.evc-pci-excerpt {
+			color: #fff;
+		}
+	}
+	
+	/***** Skin styles - end *****/
+	
+	.evc-pci-inner {
+		@include evcRelativeLayout();
+		
+		.touch & {
+			cursor: pointer;
+		}
+	}
+	
+	.evc-pci-image {
+		@include evcRelativeLayout();
+		
+		a {
+			display: block;
+		}
+	}
+	
+	.evc-pci-date-on-image {
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		padding: 8px 13px 13px;
+		text-align: center;
+		color: #fff;
+		background-color: $main-color;
+		z-index: 2;
+		box-sizing: border-box;
+		@include evcTransform(translateZ(0));
+		
+		> * {
+			display: block;
+			line-height: 1;
+		}
+		
+		.evc-pci-date-day {
+			font-size: 26px;
+			font-weight: 700;
+		}
+		
+		.evc-pci-date-month {
+			margin-top: 2px;
+			font-size: 13px;
+		}
+	}
+	
+	.evc-pci-content {
+		background: rgba(#fff, .6);
+		background: -webkit-linear-gradient(to top, rgba(#fff, .6), rgba(#fff, 0));  /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to top, rgba(#fff, .6), rgba(#fff, 0)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		box-sizing: border-box;
+		
+		a {
+			position: relative;
+			z-index: 2;
+		}
+	}
+	
+	.evc-pci-title {
+		margin: 0;
+	}
+	
+	.evc-pci-excerpt {
+		margin: 9px 0 0;
+	}
+	
+	.evc-pci-link {
+		@include evcAbsoluteLayout();
+	}
+	
+	.evc-owl-carousel {
+		
+		.owl-nav {
+			
+			.owl-prev {
+				left: -40px;
+			}
+			
+			.owl-next {
+				right: -40px;
+			}
+		}
+	}
+}
+
+/* ==========================================================================
+   Post Carousel shortcode style - end
+   ========================================================================== */

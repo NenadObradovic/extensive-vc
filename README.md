@@ -32,8 +32,9 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
 	<li><a href="http://wprealize.com/infographic/counter/">Infographic - Counter</a></li>
 	<li><a href="http://wprealize.com/infographic/doughnut-chart/">Infographic - Doughnut Chart</a></li>
 	<li><a href="http://wprealize.com/infographic/icon-progress-bar/">Infographic - Icon Progress Bar</a></li>
-	<li><a href="http://wprealize.com/infographic/line-graph/">Infographic - Line Graph (New)</a></li>
+	<li><a href="http://wprealize.com/infographic/line-graph/">Infographic - Line Graph</a></li>
 	<li><a href="http://wprealize.com/infographic/pie-chart/">Infographic - Pie Chart</a></li>
+	<li><a href="http://wprealize.com/infographic/post-carousel/">Infographic - Post Carousel (New)</a></li>
 	<li><a href="http://wprealize.com/infographic/progress-bar/">Infographic - Progress Bar</a></li>
 	<li><a href="http://wprealize.com/infographic/text-marquee/">Infographic - Text Marquee</a></li>
 	<li><a href="http://wprealize.com/typography/blockquote/">Typography - Blockquote</a></li>
@@ -41,7 +42,7 @@ See the all of addon elements in action here - <a href="http://wprealize.com/" t
 	<li><a href="http://wprealize.com/typography/dropcaps/">Typography - Dropcaps</a></li>
 	<li><a href="http://wprealize.com/typography/icon-list/">Typography - Icon List</a></li>
 	<li><a href="http://wprealize.com/typography/section-title/">Typography - Section Title</a></li>
-	<li><a href="http://wprealize.com/typography/svg-text/">Typography - SVG Text (New)</a></li>
+	<li><a href="http://wprealize.com/typography/svg-text/">Typography - SVG Text</a></li>
 </ul>
 <h4 style="margin-top: 1rem;">2. Custom Post Types</h4>
 <ul>
@@ -88,6 +89,14 @@ From wordpress.org
 You can find all instructions about plugin and all shortcodes in website <a href="http://wprealize.com/"><strong>WP Realize - Extensive VC</strong></a>
 
 <h3>Changelog</h3>
+
+<h5>1.7.2</h5>
+- Added Post Carousel shortcode <br />
+- Added shortcode pagination functionality <br />
+- Added Pagination options for Blog List shortcode <br />
+- Improved framework functions <br /> 
+- Improved shortcode performance, shortcodes 3rd party scripts are loading only if shortcode exist on page <br /> 
+- Updated language pot file <br />
 
 <h5>1.7.1</h5>
 - Added Legend Text Size option for Doughnut Chart shortcode <br />

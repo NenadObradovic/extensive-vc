@@ -60,10 +60,10 @@ if ( ! class_exists( 'EVCDoughnutChart' ) ) {
 		}
 		
 		/**
-		 * Include necessary 3rd party scripts for this shortcode
+		 * Register necessary 3rd party scripts for this shortcode and include it on render
 		 */
 		function enqueueShortcodeAdditionalScripts() {
-			wp_enqueue_script( 'Chart', EXTENSIVE_VC_SHORTCODES_URL_PATH . '/doughnut-chart/assets/js/plugins/Chart.min.js', array( 'jquery' ), false, true );
+			wp_register_script( 'Chart', EXTENSIVE_VC_SHORTCODES_URL_PATH . '/doughnut-chart/assets/js/plugins/Chart.min.js', array( 'jquery' ), false, true );
 		}
 		
 		/**

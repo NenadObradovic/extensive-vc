@@ -8,7 +8,7 @@ if ( ! function_exists( 'extensive_vc_woocommerce_installed' ) ) {
 	/**
 	 * Checks if WooCommerce plugin installed
 	 *
-	 * @return bool
+	 * @return boolean
 	 */
 	function extensive_vc_woocommerce_installed() {
 		return class_exists( 'WooCommerce' );
@@ -19,9 +19,9 @@ if ( ! function_exists( 'extensive_vc_check_product_mark_visibility' ) ) {
 	/**
 	 * Checks if product mark exist for the current product
 	 *
-	 * @param bool $itemEnabled - check item visibility throw shortcode option
+	 * @param $itemEnabled boolean - check item visibility throw shortcode option
 	 *
-	 * @return bool
+	 * @return boolean
 	 */
 	function extensive_vc_check_product_mark_visibility( $itemEnabled = true ) {
 		global $product;
@@ -38,9 +38,9 @@ if ( ! function_exists( 'extensive_vc_check_product_rating_visibility' ) ) {
 	/**
 	 * Checks if product rating exist for the current product
 	 *
-	 * @param bool $itemEnabled - check item visibility throw shortcode option
+	 * @param $itemEnabled boolean - check item visibility throw shortcode option
 	 *
-	 * @return bool
+	 * @return boolean
 	 */
 	function extensive_vc_check_product_rating_visibility( $itemEnabled = true ) {
 		global $product;
@@ -57,9 +57,9 @@ if ( ! function_exists( 'extensive_vc_check_product_price_visibility' ) ) {
 	/**
 	 * Checks if product price exist for the current product
 	 *
-	 * @param bool $itemEnabled - check item visibility throw shortcode option
+	 * @param $itemEnabled boolean - check item visibility throw shortcode option
 	 *
-	 * @return bool
+	 * @return boolean
 	 */
 	function extensive_vc_check_product_price_visibility( $itemEnabled = true ) {
 		global $product;
@@ -76,9 +76,9 @@ if ( ! function_exists( 'extensive_vc_check_product_category_visibility' ) ) {
 	/**
 	 * Checks if product category exist for the current product
 	 *
-	 * @param bool $itemEnabled - check item visibility throw shortcode option
+	 * @param $itemEnabled boolean - check item visibility throw shortcode option
 	 *
-	 * @return bool
+	 * @return boolean
 	 */
 	function extensive_vc_check_product_category_visibility( $itemEnabled = true ) {
 		global $product;

@@ -4,6 +4,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
+wp_enqueue_script( 'jquery-ui-tabs' );
+
 ?>
 <div class="evc-tabs <?php echo esc_attr( $holder_classes ); ?>">
 	<ul class="evc-tabs-nav">

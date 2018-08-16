@@ -53,11 +53,11 @@ if ( ! class_exists( 'EVCClients' ) ) {
 		}
 		
 		/**
-		 * Include necessary 3rd party scripts for this shortcode
+		 * Register necessary 3rd party scripts for this shortcode and include it on render
 		 */
 		function enqueueShortcodeAdditionalScripts() {
-			wp_enqueue_style( 'owl-carousel', EXTENSIVE_VC_ASSETS_URL_PATH . '/plugins/owl-carousel/owl.carousel.min.css' );
-			wp_enqueue_script( 'owl-carousel', EXTENSIVE_VC_ASSETS_URL_PATH . '/plugins/owl-carousel/owl.carousel.min.js', array( 'jquery' ), false, true );
+			wp_register_style( 'owl-carousel', EXTENSIVE_VC_ASSETS_URL_PATH . '/plugins/owl-carousel/owl.carousel.min.css' );
+			wp_register_script( 'owl-carousel', EXTENSIVE_VC_ASSETS_URL_PATH . '/plugins/owl-carousel/owl.carousel.min.js', array( 'jquery' ), false, true );
 		}
 		
 		/**
@@ -304,7 +304,7 @@ if ( ! class_exists( 'EVCClients' ) ) {
 			);
 			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
-			$params['query_results']  = new \WP_Query( $this->getQueryParams( $params, $args ) );
+			$params['query_results']  = new \WP_Query( extensive_vc_get_shortcode_query_params( $params, 'clients' ) );
 			$params['holder_classes'] = $this->getHolderClasses( $params, $args );
 			$params['slider_data']    = $this->getSliderData( $params, $args );
 			
@@ -316,30 +316,6 @@ if ( ! class_exists( 'EVCClients' ) ) {
 			$html = extensive_vc_get_module_template_part( 'cpt', 'clients', 'templates/clients-holder', $params['type'], $params );
 			
 			return $html;
-		}
-		
-		/**
-		 * Get shortcode query parameters
-		 *
-		 * @param $params array - shortcode parameters value
-		 * @param $args array - default shortcode parameters value
-		 *
-		 * @return array
-		 */
-		private function getQueryParams( $params, $args ) {
-			$args = array(
-				'post_status'    => 'publish',
-				'post_type'      => 'clients',
-				'posts_per_page' => $params['number'],
-				'orderby'        => ! empty( $params['orderby'] ) ? $params['orderby'] : $args['orderby'],
-				'order'          => ! empty( $params['order'] ) ? $params['order'] : $args['order']
-			);
-			
-			if ( ! empty( $params['category'] ) ) {
-				$args['clients-category'] = $params['category'];
-			}
-			
-			return $args;
 		}
 		
 		/**
@@ -446,7 +422,7 @@ if ( ! class_exists( 'EVCClients' ) ) {
 		 *
 		 * @param $query
 		 *
-		 * @return bool|array
+		 * @return boolean|array
 		 */
 		function clientsCategoryAutocompleteRender( $query ) {
 			$query = trim( $query['value'] ); // get value from requested

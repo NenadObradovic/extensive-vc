@@ -46,7 +46,7 @@
 				.evc-bli-excerpt {
 					opacity: 1;
 					max-height: calc(4em);
-					@include evcTransition(opacity .2s ease, max-height .3s ease);
+					@include evcTransition(opacity .2s, max-height .3s);
 				}
 			}
 			
@@ -81,7 +81,7 @@
 			opacity: 0;
 			max-height: 0px;
 			overflow: hidden;
-			@include evcTransition(opacity .2s ease, max-height .3s ease);
+			@include evcTransition(opacity .2s, max-height .3s);
 		}
 	}
 	

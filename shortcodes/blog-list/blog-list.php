@@ -225,38 +225,15 @@ if ( ! class_exists( 'EVCBlogList' ) ) {
 			);
 			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
-			$params['query_results']  = new \WP_Query( $this->getQueryParams( $params, $args ) );
-			$params['holder_classes'] = $this->getHolderClasses( $params, $args );
+			$params['query_results']   = new \WP_Query( extensive_vc_get_shortcode_query_params( $params ) );
+			$params['pagination_data'] = extensive_vc_get_shortcode_pagination_data( $this->getShortcodeName() , 'post', $params );
+			$params['holder_classes']  = $this->getHolderClasses( $params, $args );
 			
 			$params['title_tag'] = ! empty( $params['title_tag'] ) ? $params['title_tag'] : $args['title_tag'];
 			
 			$html = extensive_vc_get_module_template_part( 'shortcodes', 'blog-list', 'templates/blog-list', '', $params );
 			
 			return $html;
-		}
-		
-		/**
-		 * Get shortcode query parameters
-		 *
-		 * @param $params array - shortcode parameters value
-		 * @param $args array - default shortcode parameters value
-		 *
-		 * @return array
-		 */
-		private function getQueryParams( $params, $args ) {
-			$args = array(
-				'post_status'    => 'publish',
-				'post_type'      => 'post',
-				'posts_per_page' => $params['number_of_posts'],
-				'orderby'        => ! empty( $params['orderby'] ) ? $params['orderby'] : $args['orderby'],
-				'order'          => ! empty( $params['order'] ) ? $params['order'] : $args['order']
-			);
-			
-			if ( ! empty( $params['category'] ) ) {
-				$args['category'] = $params['category'];
-			}
-			
-			return $args;
 		}
 		
 		/**
@@ -313,7 +290,7 @@ if ( ! class_exists( 'EVCBlogList' ) ) {
 		 *
 		 * @param $query
 		 *
-		 * @return bool|array
+		 * @return boolean|array
 		 */
 		public function categoryAutocompleteRender( $query ) {
 			$query = trim( $query['value'] ); // get value from requested

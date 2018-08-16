@@ -193,9 +193,9 @@ if ( ! function_exists( 'extensive_vc_is_forwarded_admin_page_active' ) ) {
 	/**
 	 * Checks if forwarded page in active
 	 *
-	 * @param string $page
+	 * @param $page string
 	 *
-	 * @return bool
+	 * @return boolean
 	 */
 	function extensive_vc_is_forwarded_admin_page_active( $page ) {
 		$current_screen = function_exists( 'get_current_screen' ) ? get_current_screen() : '';

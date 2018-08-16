@@ -169,8 +169,8 @@ if ( ! class_exists( 'EVCBlogListWidget' ) ) {
 		/**
 		 * Generates widget's HTML
 		 *
-		 * @param array $args args from widget area
-		 * @param array $instance widget's options
+		 * @param $args array - args from widget area
+		 * @param $instance array - widget's options
 		 */
 		public function widget( $args, $instance ) {
 			if ( ! is_array( $instance ) ) {

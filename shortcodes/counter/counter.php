@@ -47,10 +47,10 @@ if ( ! class_exists( 'EVCCounter' ) ) {
 		}
 		
 		/**
-		 * Include necessary 3rd party scripts for this shortcode
+		 * Register necessary 3rd party scripts for this shortcode and include it on render
 		 */
 		function enqueueShortcodeAdditionalScripts() {
-			wp_enqueue_script( 'counter', EXTENSIVE_VC_SHORTCODES_URL_PATH . '/counter/assets/js/plugins/counter.js', array( 'jquery' ), false, true );
+			wp_register_script( 'counter', EXTENSIVE_VC_SHORTCODES_URL_PATH . '/counter/assets/js/plugins/counter.js', array( 'jquery' ), false, true );
 		}
 		
 		/**

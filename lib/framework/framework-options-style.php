@@ -8,7 +8,7 @@ if ( ! function_exists( 'extensive_vc_init_admin_options_style' ) ) {
 	/**
 	 * Generate admin options style
 	 *
-	 * @param $style - current custom inline style
+	 * @param $style string - current custom inline style
 	 *
 	 * @return string
 	 */

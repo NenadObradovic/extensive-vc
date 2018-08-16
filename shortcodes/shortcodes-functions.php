@@ -103,3 +103,105 @@ if ( ! function_exists( 'extensive_vc_return_shortcodes_label_array' ) ) {
 		return $shortcodes;
 	}
 }
+
+if ( ! function_exists( 'extensive_vc_init_shortcode_pagination' ) ) {
+	/**
+	 * Init shortcode pagination ajax functionality
+	 *
+	 * @return void
+	 */
+	function extensive_vc_init_shortcode_pagination() {
+		
+		if ( ! isset( $_POST ) || empty( $_POST ) ) {
+			extensive_vc_get_ajax_status( 'error', esc_html__( 'Options are invalid', 'extensive-vc' ) );
+		} else {
+			$shortcodeOptions = $_POST['options'];
+			$shortcodeName    = $shortcodeOptions['shortcode_name'];
+			$query_args       = extensive_vc_get_shortcode_query_params( $shortcodeOptions );
+			
+			$shortcodeOptions['query_results'] = new \WP_Query( $query_args );
+			
+			ob_start();
+			
+			echo extensive_vc_get_module_template_part( 'shortcodes', $shortcodeName, 'templates/' . $shortcodeName . '-item', '', $shortcodeOptions );
+			
+			$html = ob_get_contents();
+			
+			ob_end_clean();
+			
+			extensive_vc_get_ajax_status( 'success', esc_html__( 'Items are loaded', 'extensive-vc' ), $html );
+		}
+	}
+	
+	add_action( 'wp_ajax_nopriv_extensive_vc_init_shortcode_pagination', 'extensive_vc_init_shortcode_pagination' );
+	add_action( 'wp_ajax_extensive_vc_init_shortcode_pagination', 'extensive_vc_init_shortcode_pagination' );
+}
+
+if ( ! function_exists( 'extensive_vc_get_shortcode_pagination_data' ) ) {
+	/**
+	 * Return array of shortcode pagination data
+	 *
+	 * @param $shortcode_name string - shortcode name
+	 * @param $post_type string - post type value
+	 * @param $params array - shortcode params
+	 *
+	 * @return void
+	 */
+	function extensive_vc_get_shortcode_pagination_data( $shortcode_name, $post_type, $params ) {
+		$data = array();
+		
+		if ( ! empty( $post_type ) && ! empty( $params ) ) {
+			$additional_params = array(
+				'shortcode_name' => strtolower( str_replace( ' ', '-', esc_attr( $shortcode_name ) ) ),
+				'post_type'      => esc_attr( $post_type ),
+				'next_page'      => '2',
+				'max_pages_num'  => $params['query_results']->max_num_pages
+			);
+			
+			unset( $params['query_results'] );
+			
+			$data = json_encode( array_filter( array_merge( $additional_params, $params ) ) );
+		}
+		
+		return $data;
+	}
+}
+
+if ( ! function_exists( 'extensive_vc_get_shortcode_query_params' ) ) {
+	/**
+	 * Get shortcode query parameters
+	 *
+	 * @param $params array - shortcode parameters value
+	 * @param $default_post_type string - post type name
+	 *
+	 * @return array
+	 */
+	function extensive_vc_get_shortcode_query_params( $params, $default_post_type = 'post' ) {
+		$post_type = isset( $params['post_type'] ) && ! empty( $params['post_type'] ) ? $params['post_type'] : $default_post_type;
+		
+		$args = array(
+			'post_status'         => 'publish',
+			'post_type'           => esc_attr( $post_type ),
+			'posts_per_page'      => $default_post_type === 'post' ? $params['number_of_posts'] : $params['number'],
+			'ignore_sticky_posts' => 1,
+			'orderby'             => $params['orderby'],
+			'order'               => $params['order']
+		);
+		
+		if ( ! empty( $params['category'] ) ) {
+			if ( $default_post_type === 'post' ) {
+				$args['category'] = $params['category'];
+			} else {
+				$args[ $default_post_type . '-category' ] = $params['category'];
+			}
+		}
+		
+		if ( ! empty( $params['next_page'] ) ) {
+			$args['paged'] = $params['next_page'];
+		} else {
+			$args['paged'] = 1;
+		}
+		
+		return $args;
+	}
+}

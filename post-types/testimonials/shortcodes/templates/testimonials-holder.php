@@ -4,6 +4,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
+wp_enqueue_style( 'owl-carousel' );
+wp_enqueue_script( 'owl-carousel' );
+
 ?>
 <div class="evc-testimonials evc-shortcode <?php echo esc_attr( $holder_classes ); ?>">
 	<div class="evc-t-inner evc-owl-carousel clearfix" <?php extensive_vc_print_inline_attrs( $slider_data, true ); ?>>
