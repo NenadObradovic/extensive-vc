@@ -4,8 +4,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-wp_enqueue_script( 'counter' );
-
 ?>
 <div class="evc-progress-bar evc-shortcode <?php echo esc_attr( $holder_classes ); ?>">
 	<div class="evc-pb-inactive-bar" <?php extensive_vc_print_inline_style( $inactive_bar_styles ); ?>>

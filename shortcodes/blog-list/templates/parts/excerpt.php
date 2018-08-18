@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) || exit;
 $excerpt = get_the_excerpt();
 
 if ( ! isset( $excerpt_length ) || ( isset( $excerpt_length ) && $excerpt_length === '' ) ) {
-	$excerpt_length = 44;
+	$excerpt_length = 100;
 }
 
 if ( $enable_excerpt !== 'no' && ! empty( $excerpt ) && ! empty( $excerpt_length ) ) {

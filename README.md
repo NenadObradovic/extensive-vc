@@ -93,9 +93,9 @@ You can find all instructions about plugin and all shortcodes in website <a href
 <h5>1.7.2</h5>
 - Added Post Carousel shortcode <br />
 - Added shortcode pagination functionality <br />
-- Added Pagination options for Blog List shortcode <br />
-- Improved framework functions <br /> 
-- Improved shortcode performance, shortcodes 3rd party scripts are loading only if shortcode exist on page <br /> 
+- Added Pagination Type option for Blog List shortcode <br />
+- Added Button Options Group for Blog List shortcode to style pagination button <br />
+- Added Button Margin option for Pricing Table shortcode <br />
 - Updated language pot file <br />
 
 <h5>1.7.1</h5>

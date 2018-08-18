@@ -54,11 +54,11 @@ if ( ! class_exists( 'EVCPostCarousel' ) ) {
 		}
 		
 		/**
-		 * Register necessary 3rd party scripts for this shortcode and include it on render
+		 * Enqueue necessary 3rd party scripts for this shortcode
 		 */
 		function enqueueShortcodeAdditionalScripts() {
-			wp_register_style( 'owl-carousel', EXTENSIVE_VC_ASSETS_URL_PATH . '/plugins/owl-carousel/owl.carousel.min.css' );
-			wp_register_script( 'owl-carousel', EXTENSIVE_VC_ASSETS_URL_PATH . '/plugins/owl-carousel/owl.carousel.min.js', array( 'jquery' ), false, true );
+			wp_enqueue_style( 'owl-carousel', EXTENSIVE_VC_ASSETS_URL_PATH . '/plugins/owl-carousel/owl.carousel.min.css' );
+			wp_enqueue_script( 'owl-carousel', EXTENSIVE_VC_ASSETS_URL_PATH . '/plugins/owl-carousel/owl.carousel.min.js', array( 'jquery' ), false, true );
 		}
 		
 		/**

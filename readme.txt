@@ -116,8 +116,9 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 1.7.2
 - Added Post Carousel shortcode
 - Added shortcode pagination functionality
-- Added Pagination options for Blog List shortcode
-- Improved shortcode performance, shortcodes 3rd party scripts are loading only if shortcode exist on page
+- Added Pagination Type option for Blog List shortcode
+- Added Button Options Group for Blog List shortcode to style pagination button
+- Added Button Margin option for Pricing Table shortcode
 - Updated language pot file
 
 1.7.1

@@ -103,10 +103,14 @@
 			holder.each(function () {
 				var thisHolder = $(this),
 					itemsHolder = thisHolder.children('.evc-element-wrapper'),
-					loadMoreButton = thisHolder.find('.evc-load-more-button');
+					loadMoreButton = thisHolder.find('.evc-load-more-button'),
+					loadingSpinner = thisHolder.find('.evc-pagination-spinner');
 				
 				loadMoreButton.on('click', function (e) {
 					e.preventDefault();
+					
+					loadMoreButton.addClass('evc-loading');
+					loadingSpinner.addClass('evc-loading');
 					
 					var shortcodeOptions = thisHolder.data('options');
 					
@@ -124,6 +128,9 @@
 							
 							itemsHolder.append(response.data);
 							
+							loadMoreButton.removeClass('evc-loading');
+							loadingSpinner.removeClass('evc-loading');
+							
 							if (shortcodeOptions['next_page'] > shortcodeOptions['max_pages_num']) {
 								loadMoreButton.hide();
 							}
@@ -133,15 +140,6 @@
 			});
 		}
 	}
-	
-})(jQuery);
-(function ($) {
-	'use strict';
-	
-	$(document).ready(function () {
-	});
-	
-	
 	
 })(jQuery);
 (function ($) {

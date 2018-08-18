@@ -47,10 +47,10 @@ if ( ! class_exists( 'EVCProgressBar' ) ) {
 		}
 		
 		/**
-		 * Register necessary 3rd party scripts for this shortcode and include it on render
+		 * Enqueue necessary 3rd party scripts for this shortcode
 		 */
 		function enqueueShortcodeAdditionalScripts() {
-			wp_register_script( 'counter', EXTENSIVE_VC_SHORTCODES_URL_PATH . '/progress-bar/assets/js/plugins/counter.js', array( 'jquery' ), false, true );
+			wp_enqueue_script( 'counter', EXTENSIVE_VC_SHORTCODES_URL_PATH . '/progress-bar/assets/js/plugins/counter.js', array( 'jquery' ), false, true );
 		}
 		
 		/**

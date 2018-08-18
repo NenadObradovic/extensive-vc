@@ -902,3 +902,215 @@ if ( ! function_exists( 'extensive_vc_get_vc_icon_options_array' ) ) {
 		return $options;
 	}
 }
+
+if ( ! function_exists( 'extensive_vc_get_button_shortcode_options_array' ) ) {
+	/**
+	 * Returns array of button shortcode options for shortcodes panel
+	 *
+	 * @param $without_link boolean - unset link option
+	 *
+	 * @return array
+	 */
+	function extensive_vc_get_button_shortcode_options_array( $without_link = false ) {
+		
+		$options = array(
+			array(
+				'type'       => 'vc_link',
+				'param_name' => 'button_custom_link',
+				'heading'    => esc_html__( 'Button Custom Link', 'extensive-vc' ),
+				'dependency' => array( 'element' => 'button_text', 'not_empty' => true )
+			),
+			array(
+				'type'        => 'dropdown',
+				'param_name'  => 'button_type',
+				'heading'     => esc_html__( 'Type', 'extensive-vc' ),
+				'value'       => array(
+					esc_html__( 'Solid', 'extensive-vc' )                       => 'solid',
+					esc_html__( 'Outline', 'extensive-vc' )                     => 'outline',
+					esc_html__( 'Simple', 'extensive-vc' )                      => 'simple',
+					esc_html__( 'Simple Fill Line On Hover', 'extensive-vc' )   => 'fill-line',
+					esc_html__( 'Simple Fill Text On Hover', 'extensive-vc' )   => 'fill-text',
+					esc_html__( 'Simple Strike Line On Hover', 'extensive-vc' ) => 'strike-line',
+					esc_html__( 'Simple Switch Line On Hover', 'extensive-vc' ) => 'switch-line'
+				),
+				'save_always' => true,
+				'dependency'  => array( 'element' => 'button_text', 'not_empty' => true ),
+				'group'       => esc_html__( 'Button Options', 'extensive-vc' )
+			),
+			array(
+				'type'        => 'dropdown',
+				'param_name'  => 'button_size',
+				'heading'     => esc_html__( 'Size', 'extensive-vc' ),
+				'value'       => array(
+					esc_html__( 'Large', 'extensive-vc' )  => 'large',
+					esc_html__( 'Medium', 'extensive-vc' ) => 'medium',
+					esc_html__( 'Normal', 'extensive-vc' ) => 'normal',
+					esc_html__( 'Small', 'extensive-vc' )  => 'small',
+					esc_html__( 'Tiny', 'extensive-vc' )   => 'tiny'
+				),
+				'save_always' => true,
+				'dependency'  => array( 'element' => 'button_type', 'value' => array( 'solid', 'outline' ) ),
+				'group'       => esc_html__( 'Button Options', 'extensive-vc' )
+			),
+			array(
+				'type'       => 'textfield',
+				'param_name' => 'button_font_size',
+				'heading'    => esc_html__( 'Font Size (px or em)', 'extensive-vc' ),
+				'dependency' => array( 'element' => 'button_text', 'not_empty' => true ),
+				'group'      => esc_html__( 'Button Options', 'extensive-vc' )
+			),
+			array(
+				'type'       => 'colorpicker',
+				'param_name' => 'button_color',
+				'heading'    => esc_html__( 'Color', 'extensive-vc' ),
+				'dependency' => array( 'element' => 'button_text', 'not_empty' => true ),
+				'group'      => esc_html__( 'Button Options', 'extensive-vc' )
+			),
+			array(
+				'type'       => 'colorpicker',
+				'param_name' => 'button_hover_color',
+				'heading'    => esc_html__( 'Hover Color', 'extensive-vc' ),
+				'dependency' => array( 'element' => 'button_text', 'not_empty' => true ),
+				'group'      => esc_html__( 'Button Options', 'extensive-vc' )
+			),
+			array(
+				'type'       => 'colorpicker',
+				'param_name' => 'button_bg_color',
+				'heading'    => esc_html__( 'Background Color', 'extensive-vc' ),
+				'dependency' => array( 'element' => 'button_type', 'value' => array( 'solid' ) ),
+				'group'      => esc_html__( 'Button Options', 'extensive-vc' )
+			),
+			array(
+				'type'       => 'colorpicker',
+				'param_name' => 'button_hover_bg_color',
+				'heading'    => esc_html__( 'Hover Background Color', 'extensive-vc' ),
+				'dependency' => array( 'element' => 'button_type', 'value' => array( 'solid', 'outline' ) ),
+				'group'      => esc_html__( 'Button Options', 'extensive-vc' )
+			),
+			array(
+				'type'       => 'colorpicker',
+				'param_name' => 'button_border_color',
+				'heading'    => esc_html__( 'Border Color', 'extensive-vc' ),
+				'dependency' => array( 'element' => 'button_type', 'value' => array( 'solid', 'outline' ) ),
+				'group'      => esc_html__( 'Button Options', 'extensive-vc' )
+			),
+			array(
+				'type'       => 'colorpicker',
+				'param_name' => 'button_hover_border_color',
+				'heading'    => esc_html__( 'Hover Border Color', 'extensive-vc' ),
+				'dependency' => array( 'element' => 'button_type', 'value' => array( 'solid', 'outline' ) ),
+				'group'      => esc_html__( 'Button Options', 'extensive-vc' )
+			),
+			array(
+				'type'       => 'textfield',
+				'param_name' => 'button_border_width',
+				'heading'    => esc_html__( 'Border Width (px)', 'extensive-vc' ),
+				'dependency' => array( 'element' => 'button_type', 'value' => array( 'solid', 'outline' ) ),
+				'group'      => esc_html__( 'Button Options', 'extensive-vc' )
+			),
+			array(
+				'type'       => 'colorpicker',
+				'param_name' => 'button_line_color',
+				'heading'    => esc_html__( 'Line Color', 'extensive-vc' ),
+				'dependency' => array( 'element' => 'button_type', 'value'   => array( 'fill-line', 'strike-line', 'switch-line' ) ),
+				'group'      => esc_html__( 'Button Options', 'extensive-vc' )
+			),
+			array(
+				'type'       => 'colorpicker',
+				'param_name' => 'button_switch_line_color',
+				'heading'    => esc_html__( 'Switch Line Color', 'extensive-vc' ),
+				'dependency' => array( 'element' => 'button_type', 'value' => array( 'switch-line' ) ),
+				'group'      => esc_html__( 'Button Options', 'extensive-vc' )
+			),
+			array(
+				'type'        => 'textfield',
+				'param_name'  => 'button_margin',
+				'heading'     => esc_html__( 'Margin', 'extensive-vc' ),
+				'description' => esc_html__( 'Insert margin in format: top right bottom left (e.g. 10px 5px 10px 5px)', 'extensive-vc' ),
+				'dependency'  => array( 'element' => 'button_text', 'not_empty' => true ),
+				'group'       => esc_html__( 'Button Options', 'extensive-vc' )
+			)
+		);
+		
+		if ( $without_link ) {
+			unset( $options[0] );
+		}
+		
+		return $options;
+	}
+}
+
+if ( ! function_exists( 'extensive_vc_get_button_shortcode_params' ) ) {
+	/**
+	 * Get button shortcode params
+	 *
+	 * @param $params array - shortcode parameters value
+	 *
+	 * @return array
+	 */
+	function extensive_vc_get_button_shortcode_params( $params ) {
+		$options = array();
+		$button_text = $params['button_text'];
+		$button_link = isset( $params['button_custom_link'] ) ? $params['button_custom_link'] : '';
+		
+		if ( ! empty( $button_text ) ) {
+			$options['custom_class'] = ! empty( $params['button_custom_class'] ) ? esc_attr( $params['button_custom_class'] ) : '';
+			$options['text']         = esc_attr( $button_text );
+			$options['custom_link']  = ! empty( $button_link ) ? esc_url( $button_link ) : '#';
+			
+			if ( ! empty( $params['button_type'] ) ) {
+				$options['type'] = esc_attr( $params['button_type'] );
+			}
+			
+			if ( ! empty( $params['button_size'] ) ) {
+				$options['size'] = esc_attr( $params['button_size'] );
+			}
+			
+			if ( ! empty( $params['button_font_size'] ) ) {
+				$options['font_size'] = esc_attr( $params['button_font_size'] );
+			}
+			
+			if ( ! empty( $params['button_color'] ) ) {
+				$options['color'] = esc_attr( $params['button_color'] );
+			}
+			
+			if ( ! empty( $params['button_hover_color'] ) ) {
+				$options['hover_color'] = esc_attr( $params['button_hover_color'] );
+			}
+			
+			if ( ! empty( $params['button_bg_color'] ) ) {
+				$options['bg_color'] = esc_attr( $params['button_bg_color'] );
+			}
+			
+			if ( ! empty( $params['button_hover_bg_color'] ) ) {
+				$options['hover_bg_color'] = esc_attr( $params['button_hover_bg_color'] );
+			}
+			
+			if ( ! empty( $params['button_border_color'] ) ) {
+				$options['border_color'] = esc_attr( $params['button_border_color'] );
+			}
+			
+			if ( ! empty( $params['button_hover_border_color'] ) ) {
+				$options['hover_border_color'] = esc_attr( $params['button_hover_border_color'] );
+			}
+			
+			if ( ! empty( $params['button_border_width'] ) ) {
+				$options['border_width'] = esc_attr( $params['button_border_width'] );
+			}
+			
+			if ( ! empty( $params['button_line_color'] ) ) {
+				$options['line_color'] = esc_attr( $params['button_line_color'] );
+			}
+			
+			if ( ! empty( $params['button_switch_line_color'] ) ) {
+				$options['switch_line_color'] = esc_attr( $params['button_switch_line_color'] );
+			}
+			
+			if ( ! empty( $params['button_margin'] ) ) {
+				$options['margin'] = esc_attr( $params['button_margin'] );
+			}
+		}
+		
+		return $options;
+	}
+}

@@ -4,9 +4,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-wp_enqueue_style( 'lightbox' );
-wp_enqueue_script( 'lightbox' );
-
 $i  = 0;
 $id = rand( 1000, 9999 );
 ?>

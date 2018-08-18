@@ -113,23 +113,29 @@ if ( ! function_exists( 'extensive_vc_init_shortcode_pagination' ) ) {
 	function extensive_vc_init_shortcode_pagination() {
 		
 		if ( ! isset( $_POST ) || empty( $_POST ) ) {
-			extensive_vc_get_ajax_status( 'error', esc_html__( 'Options are invalid', 'extensive-vc' ) );
+			extensive_vc_get_ajax_status( 'error', esc_html__( 'Post is invalid', 'extensive-vc' ) );
 		} else {
-			$shortcodeOptions = $_POST['options'];
-			$shortcodeName    = $shortcodeOptions['shortcode_name'];
-			$query_args       = extensive_vc_get_shortcode_query_params( $shortcodeOptions );
+			$shortcodeOptions = isset( $_POST['options'] ) ? $_POST['options'] : '';
 			
-			$shortcodeOptions['query_results'] = new \WP_Query( $query_args );
-			
-			ob_start();
-			
-			echo extensive_vc_get_module_template_part( 'shortcodes', $shortcodeName, 'templates/' . $shortcodeName . '-item', '', $shortcodeOptions );
-			
-			$html = ob_get_contents();
-			
-			ob_end_clean();
-			
-			extensive_vc_get_ajax_status( 'success', esc_html__( 'Items are loaded', 'extensive-vc' ), $html );
+			if ( ! empty( $shortcodeOptions ) ) {
+				$moduleName    = $shortcodeOptions['module'];
+				$shortcodeName = $shortcodeOptions['shortcode_name'];
+				$query_args    = extensive_vc_get_shortcode_query_params( $shortcodeOptions );
+				
+				$shortcodeOptions['query_results'] = new \WP_Query( $query_args );
+				
+				ob_start();
+				
+				echo extensive_vc_get_module_template_part( $moduleName, $shortcodeName, 'templates/' . $shortcodeName . '-query', '', $shortcodeOptions );
+				
+				$html = ob_get_contents();
+				
+				ob_end_clean();
+				
+				extensive_vc_get_ajax_status( 'success', esc_html__( 'Items are loaded', 'extensive-vc' ), $html );
+			} else {
+				extensive_vc_get_ajax_status( 'error', esc_html__( 'Options are invalid', 'extensive-vc' ) );
+			}
 		}
 	}
 	
@@ -141,17 +147,19 @@ if ( ! function_exists( 'extensive_vc_get_shortcode_pagination_data' ) ) {
 	/**
 	 * Return array of shortcode pagination data
 	 *
+	 * @param $module string - name of the module to load
 	 * @param $shortcode_name string - shortcode name
 	 * @param $post_type string - post type value
 	 * @param $params array - shortcode params
 	 *
 	 * @return void
 	 */
-	function extensive_vc_get_shortcode_pagination_data( $shortcode_name, $post_type, $params ) {
+	function extensive_vc_get_shortcode_pagination_data( $module, $shortcode_name, $post_type, $params ) {
 		$data = array();
 		
 		if ( ! empty( $post_type ) && ! empty( $params ) ) {
 			$additional_params = array(
+				'module'         => esc_attr( $module ),
 				'shortcode_name' => strtolower( str_replace( ' ', '-', esc_attr( $shortcode_name ) ) ),
 				'post_type'      => esc_attr( $post_type ),
 				'next_page'      => '2',

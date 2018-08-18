@@ -5,10 +5,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<div class="evc-blog-list evc-shortcode evc-element-has-columns evc-has-pagination <?php echo esc_attr( $holder_classes ); ?>" data-options="<?php echo esc_attr( $pagination_data ); ?>">
+<div class="evc-blog-list evc-shortcode evc-element-has-columns <?php echo esc_attr( $holder_classes ); ?>" data-options="<?php echo esc_attr( $pagination_data ); ?>">
 	<div class="evc-bl-wrapper evc-element-wrapper">
-		<?php echo extensive_vc_get_module_template_part( 'shortcodes', 'blog-list', 'templates/blog-list-item', '', $params ); ?>
+		<?php echo extensive_vc_get_module_template_part( 'shortcodes', 'blog-list', 'templates/blog-list-query', '', $params ); ?>
 	</div>
-	<!-- Temporary code -->
-	<a href="#" class="evc-load-more-button evc-button evc-btn-normal evc-btn-solid">Load More</a>
+	<?php echo extensive_vc_get_module_template_part( 'shortcodes', 'blog-list', 'templates/pagination/pagination', '', $params ); ?>
 </div>
