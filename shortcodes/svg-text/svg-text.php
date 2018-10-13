@@ -204,8 +204,8 @@ if ( ! class_exists( 'EVCSVGText' ) ) {
 			}
 			
 			if ( ! empty( $params['font_size'] ) ) {
-				$styles[] = 'font-size: ' . extensive_vc_filter_px( $params['font_size'] ) . 'px';
-				$styles[] = 'height: ' . extensive_vc_filter_px( $params['font_size'] ) . 'px';
+				$styles[] = 'font-size: ' . intval( $params['font_size'] ) . 'px';
+				$styles[] = 'height: ' . intval( $params['font_size'] ) . 'px';
 			}
 			
 			if ( ! empty( $params['font_weight'] ) ) {
@@ -232,32 +232,32 @@ if ( ! class_exists( 'EVCSVGText' ) ) {
 			
 			$laptopLargeFS = $params['font_size_1440'];
 			if ( $laptopLargeFS !== '' ) {
-				$data['data-font-size-1440'] = extensive_vc_filter_px( $laptopLargeFS ) . 'px';
+				$data['data-font-size-1440'] = intval( $laptopLargeFS ) . 'px';
 			}
 			
 			$laptopSmallFS = $params['font_size_1366'];
 			if ( $laptopSmallFS !== '' ) {
-				$data['data-font-size-1366'] = extensive_vc_filter_px( $laptopSmallFS ) . 'px';
+				$data['data-font-size-1366'] = intval( $laptopSmallFS ) . 'px';
 			}
 			
 			$laptopMacFS = $params['font_size_1280'];
 			if ( $laptopMacFS !== '' ) {
-				$data['data-font-size-1280'] = extensive_vc_filter_px( $laptopMacFS ) . 'px';
+				$data['data-font-size-1280'] = intval( $laptopMacFS ) . 'px';
 			}
 			
 			$tabletLandscapeFS = $params['font_size_1024'];
 			if ( $tabletLandscapeFS !== '' ) {
-				$data['data-font-size-1024'] = extensive_vc_filter_px( $tabletLandscapeFS ) . 'px';
+				$data['data-font-size-1024'] = intval( $tabletLandscapeFS ) . 'px';
 			}
 			
 			$tabletPortraitFS = $params['font_size_768'];
 			if ( $tabletPortraitFS !== '' ) {
-				$data['data-font-size-768'] = extensive_vc_filter_px( $tabletPortraitFS ) . 'px';
+				$data['data-font-size-768'] = intval( $tabletPortraitFS ) . 'px';
 			}
 			
 			$mobilesFS = $params['font_size_680'];
 			if ( $mobilesFS !== '' ) {
-				$data['data-font-size-680'] = extensive_vc_filter_px( $mobilesFS ) . 'px';
+				$data['data-font-size-680'] = intval( $mobilesFS ) . 'px';
 			}
 			
 			return $data;

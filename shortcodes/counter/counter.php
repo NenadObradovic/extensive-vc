@@ -50,7 +50,7 @@ if ( ! class_exists( 'EVCCounter' ) ) {
 		 * Enqueue necessary 3rd party scripts for this shortcode
 		 */
 		function enqueueShortcodeAdditionalScripts() {
-			wp_enqueue_script( 'counter', EXTENSIVE_VC_SHORTCODES_URL_PATH . '/counter/assets/js/plugins/counter.js', array( 'jquery' ), false, true );
+			wp_register_script( 'counter', EXTENSIVE_VC_SHORTCODES_URL_PATH . '/counter/assets/js/plugins/counter.js', array( 'jquery' ), false, true );
 		}
 		
 		/**
@@ -256,7 +256,7 @@ if ( ! class_exists( 'EVCCounter' ) ) {
 			}
 			
 			if ( $params['title_top_margin'] !== '' ) {
-				$styles[] = 'margin-top: ' . extensive_vc_filter_px( $params['title_top_margin'] ) . 'px';
+				$styles[] = 'margin-top: ' . intval( $params['title_top_margin'] ) . 'px';
 			}
 			
 			return implode( ';', $styles );
@@ -277,7 +277,7 @@ if ( ! class_exists( 'EVCCounter' ) ) {
 			}
 			
 			if ( $params['text_top_margin'] !== '' ) {
-				$styles[] = 'margin-top: ' . extensive_vc_filter_px( $params['text_top_margin'] ) . 'px';
+				$styles[] = 'margin-top: ' . intval( $params['text_top_margin'] ) . 'px';
 			}
 			
 			return implode( ';', $styles );

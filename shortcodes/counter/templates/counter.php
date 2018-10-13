@@ -4,6 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
+wp_enqueue_script( 'counter' );
 ?>
 <div class="evc-counter evc-shortcode <?php echo esc_attr( $holder_classes ); ?>">
 	<div class="evc-c-inner">

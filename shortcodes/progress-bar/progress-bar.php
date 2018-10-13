@@ -50,7 +50,7 @@ if ( ! class_exists( 'EVCProgressBar' ) ) {
 		 * Enqueue necessary 3rd party scripts for this shortcode
 		 */
 		function enqueueShortcodeAdditionalScripts() {
-			wp_enqueue_script( 'counter', EXTENSIVE_VC_SHORTCODES_URL_PATH . '/progress-bar/assets/js/plugins/counter.js', array( 'jquery' ), false, true );
+			wp_register_script( 'counter', EXTENSIVE_VC_SHORTCODES_URL_PATH . '/progress-bar/assets/js/plugins/counter.js', array( 'jquery' ), false, true );
 		}
 		
 		/**
@@ -241,7 +241,7 @@ if ( ! class_exists( 'EVCProgressBar' ) ) {
 			}
 			
 			if ( $params['title_bottom_margin'] !== '' ) {
-				$styles[] = 'margin-bottom: ' . extensive_vc_filter_px( $params['title_bottom_margin'] ) . 'px';
+				$styles[] = 'margin-bottom: ' . intval( $params['title_bottom_margin'] ) . 'px';
 			}
 			
 			return implode( ';', $styles );
@@ -279,7 +279,7 @@ if ( ! class_exists( 'EVCProgressBar' ) ) {
 			}
 			
 			if ( ! empty( $params['bar_height'] ) ) {
-				$styles[] = 'height: ' . extensive_vc_filter_px( $params['bar_height'] ) . 'px';
+				$styles[] = 'height: ' . intval( $params['bar_height'] ) . 'px';
 			}
 			
 			return implode( ';', $styles );

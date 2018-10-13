@@ -63,7 +63,7 @@ if ( ! class_exists( 'EVCPieChart' ) ) {
 		 * Enqueue necessary 3rd party scripts for this shortcode
 		 */
 		function enqueueShortcodeAdditionalScripts() {
-			wp_enqueue_script( 'Chart', EXTENSIVE_VC_SHORTCODES_URL_PATH . '/pie-chart/assets/js/plugins/Chart.min.js', array( 'jquery' ), false, true );
+			wp_register_script( 'Chart', EXTENSIVE_VC_SHORTCODES_URL_PATH . '/pie-chart/assets/js/plugins/Chart.min.js', array( 'jquery' ), false, true );
 		}
 		
 		/**
@@ -244,11 +244,11 @@ if ( ! class_exists( 'EVCPieChart' ) ) {
 			$styles = array();
 			
 			if ( ! empty( $params['canvas_width'] ) ) {
-				$styles[] = 'width: ' . extensive_vc_filter_px( $params['canvas_width'] ) . 'px';
+				$styles[] = 'width: ' . intval( $params['canvas_width'] ) . 'px';
 			}
 			
 			if ( ! empty( $params['canvas_height'] ) ) {
-				$styles[] = 'height: ' . extensive_vc_filter_px( $params['canvas_height'] ) . 'px';
+				$styles[] = 'height: ' . intval( $params['canvas_height'] ) . 'px';
 			}
 			
 			return implode( ';', $styles );

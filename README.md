@@ -90,6 +90,10 @@ You can find all instructions about plugin and all shortcodes in website <a href
 
 <h3>Changelog</h3>
 
+<h5>1.7.4</h5>
+- Improved plugin optimization <br />
+- Improved framework functions <br />
+
 <h5>1.7.3</h5>
 - Fixed category query for Blog List shortcode <br />
 - Fixed category query for Post Carousel shortcode <br />

@@ -63,7 +63,7 @@ if ( ! class_exists( 'EVCFullScreenSections' ) ) {
 		 * Enqueue necessary 3rd party scripts for this shortcode
 		 */
 		function enqueueShortcodeAdditionalScripts() {
-			wp_enqueue_script( 'fullPage', EXTENSIVE_VC_SHORTCODES_URL_PATH . '/full-screen-sections/assets/js/plugins/jquery.fullPage.min.js', array( 'jquery' ), false, true );
+			wp_register_script( 'fullPage', EXTENSIVE_VC_SHORTCODES_URL_PATH . '/full-screen-sections/assets/js/plugins/jquery.fullPage.min.js', array( 'jquery' ), false, true );
 		}
 		
 		/**
@@ -147,7 +147,7 @@ if ( ! class_exists( 'EVCFullScreenSections' ) ) {
 			$styles = array();
 			
 			if ( $params['top_margin_offset'] !== '' ) {
-				$styles[] = 'margin-top: ' . extensive_vc_filter_px( $params['top_margin_offset'] ) . 'px';
+				$styles[] = 'margin-top: ' . intval( $params['top_margin_offset'] ) . 'px';
 			}
 			
 			return implode( ';', $styles );

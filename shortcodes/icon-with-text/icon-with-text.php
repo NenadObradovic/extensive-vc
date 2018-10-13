@@ -214,7 +214,7 @@ if ( ! class_exists( 'EVCIconWithText' ) ) {
 			$styles = array();
 			
 			if ( ! empty( $params['icon_size'] ) ) {
-				$styles[] = 'font-size: ' . extensive_vc_filter_px( $params['icon_size'] ) . 'px';
+				$styles[] = 'font-size: ' . intval( $params['icon_size'] ) . 'px';
 			}
 			
 			if ( ! empty( $params['icon_color'] ) ) {
@@ -256,7 +256,7 @@ if ( ! class_exists( 'EVCIconWithText' ) ) {
 			}
 			
 			if ( $params['text_top_margin'] !== '' ) {
-				$styles[] = 'margin-top: ' . extensive_vc_filter_px( $params['text_top_margin'] ) . 'px';
+				$styles[] = 'margin-top: ' . intval( $params['text_top_margin'] ) . 'px';
 			}
 			
 			return implode( ';', $styles );

@@ -56,8 +56,8 @@ if ( ! class_exists( 'EVCClients' ) ) {
 		 * Enqueue necessary 3rd party scripts for this shortcode
 		 */
 		function enqueueShortcodeAdditionalScripts() {
-			wp_enqueue_style( 'owl-carousel', EXTENSIVE_VC_ASSETS_URL_PATH . '/plugins/owl-carousel/owl.carousel.min.css' );
-			wp_enqueue_script( 'owl-carousel', EXTENSIVE_VC_ASSETS_URL_PATH . '/plugins/owl-carousel/owl.carousel.min.js', array( 'jquery' ), false, true );
+			wp_register_style( 'owl-carousel', EXTENSIVE_VC_ASSETS_URL_PATH . '/plugins/owl-carousel/owl.carousel.min.css' );
+			wp_register_script( 'owl-carousel', EXTENSIVE_VC_ASSETS_URL_PATH . '/plugins/owl-carousel/owl.carousel.min.js', array( 'jquery' ), false, true );
 		}
 		
 		/**
@@ -377,11 +377,11 @@ if ( ! class_exists( 'EVCClients' ) ) {
 			}
 			
 			if ( $params['title_top_margin'] !== '' ) {
-				$styles[] = 'margin-top: ' . extensive_vc_filter_px( $params['title_top_margin'] ) . 'px';
+				$styles[] = 'margin-top: ' . intval( $params['title_top_margin'] ) . 'px';
 			}
 			
 			if ( $params['title_bottom_margin'] !== '' ) {
-				$styles[] = 'margin-bottom: ' . extensive_vc_filter_px( $params['title_bottom_margin'] ) . 'px';
+				$styles[] = 'margin-bottom: ' . intval( $params['title_bottom_margin'] ) . 'px';
 			}
 			
 			return implode( ';', $styles );

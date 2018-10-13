@@ -175,7 +175,7 @@ if ( ! class_exists( 'EVCIconListItem' ) ) {
 			$styles = array();
 			
 			if ( $params['space_between_items'] !== '' ) {
-				$styles[] = 'margin-bottom: ' . extensive_vc_filter_px( $params['space_between_items'] ) . 'px';
+				$styles[] = 'margin-bottom: ' . intval( $params['space_between_items'] ) . 'px';
 			}
 			
 			return implode( ';', $styles );
@@ -192,7 +192,7 @@ if ( ! class_exists( 'EVCIconListItem' ) ) {
 			$styles = array();
 			
 			if ( ! empty( $params['icon_size'] ) ) {
-				$styles[] = 'font-size: ' . extensive_vc_filter_px( $params['icon_size'] ) . 'px';
+				$styles[] = 'font-size: ' . intval( $params['icon_size'] ) . 'px';
 			}
 			
 			if ( ! empty( $params['icon_color'] ) ) {
@@ -200,7 +200,7 @@ if ( ! class_exists( 'EVCIconListItem' ) ) {
 			}
 			
 			if ( $params['icon_right_padding'] !== '' ) {
-				$styles[] = 'padding-right: ' . extensive_vc_filter_px( $params['icon_right_padding'] ) . 'px';
+				$styles[] = 'padding-right: ' . intval( $params['icon_right_padding'] ) . 'px';
 			}
 			
 			return implode( ';', $styles );

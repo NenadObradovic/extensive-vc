@@ -265,25 +265,6 @@ if ( ! function_exists( 'extensive_vc_string_ends_with' ) ) {
 	}
 }
 
-if ( ! function_exists( 'extensive_vc_filter_px' ) ) {
-	/**
-	 * Removes px in provided value if value ends with px
-	 *
-	 * @param $value string
-	 *
-	 * @return string
-	 */
-	function extensive_vc_filter_px( $value ) {
-		$suffix = 'px';
-		
-		if ( $value !== '' && extensive_vc_string_ends_with( $value, $suffix ) ) {
-			$value = substr( $value, 0, strpos( $value, $suffix ) );
-		}
-		
-		return $value;
-	}
-}
-
 if ( ! function_exists( 'extensive_vc_resize_image' ) ) {
 	/**
 	 * Generates custom thumbnail for given attachment

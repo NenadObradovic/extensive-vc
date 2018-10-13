@@ -63,7 +63,7 @@ if ( ! class_exists( 'EVCLineGraph' ) ) {
 		 * Enqueue necessary 3rd party scripts for this shortcode
 		 */
 		function enqueueShortcodeAdditionalScripts() {
-			wp_enqueue_script( 'Chart', EXTENSIVE_VC_SHORTCODES_URL_PATH . '/line-graph/assets/js/plugins/Chart.min.js', array( 'jquery' ), false, true );
+			wp_register_script( 'Chart', EXTENSIVE_VC_SHORTCODES_URL_PATH . '/line-graph/assets/js/plugins/Chart.min.js', array( 'jquery' ), false, true );
 		}
 		
 		/**
@@ -176,7 +176,7 @@ if ( ! class_exists( 'EVCLineGraph' ) ) {
 			}
 			
 			if ( $params['line_thickness'] !== '' ) {
-				$data['data-border-width'] = esc_attr( extensive_vc_filter_px( $params['line_thickness'] ) );
+				$data['data-border-width'] = esc_attr( intval( $params['line_thickness'] ) );
 			}
 			
 			$data['data-disable-line'] = ! empty( $params['disable_line'] ) ? esc_attr( $params['disable_line'] ) : $args['disable_line'];

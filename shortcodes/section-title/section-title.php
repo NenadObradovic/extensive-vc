@@ -282,16 +282,16 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 				if ( extensive_vc_string_ends_with( $params['separator_width'], '%' ) || extensive_vc_string_ends_with( $params['separator_width'], 'px' ) ) {
 					$styles[] = 'width: ' . $params['separator_width'];
 				} else {
-					$styles[] = 'width: ' . extensive_vc_filter_px( $params['separator_width'] ) . 'px';
+					$styles[] = 'width: ' . intval( $params['separator_width'] ) . 'px';
 				}
 			}
 			
 			if ( $params['separator_thickness'] !== '' ) {
-				$styles[] = 'height: ' . extensive_vc_filter_px( $params['separator_thickness'] ) . 'px';
+				$styles[] = 'height: ' . intval( $params['separator_thickness'] ) . 'px';
 			}
 			
 			if ( $params['separator_top_margin'] !== '' ) {
-				$styles[] = 'margin-top: ' . extensive_vc_filter_px( $params['separator_top_margin'] ) . 'px';
+				$styles[] = 'margin-top: ' . intval( $params['separator_top_margin'] ) . 'px';
 			}
 			
 			return implode( ';', $styles );
@@ -312,7 +312,7 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 			}
 			
 			if ( $params['text_top_margin'] !== '' ) {
-				$styles[] = 'margin-top: ' . extensive_vc_filter_px( $params['text_top_margin'] ) . 'px';
+				$styles[] = 'margin-top: ' . intval( $params['text_top_margin'] ) . 'px';
 			}
 			
 			return implode( ';', $styles );

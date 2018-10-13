@@ -373,7 +373,7 @@ if ( ! class_exists( 'EVCButton' ) ) {
 			}
 			
 			if ( ! empty( $params['border_width'] ) ) {
-				$styles[] = 'border-width: ' . extensive_vc_filter_px( $params['border_width'] ) . 'px';
+				$styles[] = 'border-width: ' . intval( $params['border_width'] ) . 'px';
 			}
 			
 			if ( $params['margin'] !== '' ) {

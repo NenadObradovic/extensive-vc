@@ -165,12 +165,12 @@ if ( ! class_exists( 'EVCSeparator' ) ) {
 				if ( extensive_vc_string_ends_with( $params['width'], '%' ) || extensive_vc_string_ends_with( $params['width'], 'px' ) ) {
 					$styles[] = 'width: ' . $params['width'];
 				} else {
-					$styles[] = 'width: ' . extensive_vc_filter_px( $params['width'] ) . 'px';
+					$styles[] = 'width: ' . intval( $params['width'] ) . 'px';
 				}
 			}
 			
 			if ( $params['thickness'] !== '' ) {
-				$styles[] = 'border-bottom-width: ' . extensive_vc_filter_px( $params['thickness'] ) . 'px';
+				$styles[] = 'border-bottom-width: ' . intval( $params['thickness'] ) . 'px';
 			}
 			
 			if ( $params['style'] !== '' ) {
@@ -181,7 +181,7 @@ if ( ! class_exists( 'EVCSeparator' ) ) {
 				if ( extensive_vc_string_ends_with( $params['top_margin'], '%' ) || extensive_vc_string_ends_with( $params['top_margin'], 'px' ) ) {
 					$styles[] = 'margin-top: ' . $params['top_margin'];
 				} else {
-					$styles[] = 'margin-top: ' . extensive_vc_filter_px( $params['top_margin'] ) . 'px';
+					$styles[] = 'margin-top: ' . intval( $params['top_margin'] ) . 'px';
 				}
 			}
 			
@@ -189,7 +189,7 @@ if ( ! class_exists( 'EVCSeparator' ) ) {
 				if ( extensive_vc_string_ends_with( $params['bottom_margin'], '%' ) || extensive_vc_string_ends_with( $params['bottom_margin'], 'px' ) ) {
 					$styles[] = 'margin-bottom: ' . $params['bottom_margin'];
 				} else {
-					$styles[] = 'margin-bottom: ' . extensive_vc_filter_px( $params['bottom_margin'] ) . 'px';
+					$styles[] = 'margin-bottom: ' . intval( $params['bottom_margin'] ) . 'px';
 				}
 			}
 			

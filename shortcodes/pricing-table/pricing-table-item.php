@@ -275,7 +275,7 @@ if ( ! class_exists( 'EVCPricingTableItem' ) ) {
 			}
 			
 			if ( ! empty( $params['price_size'] ) ) {
-				$styles[] = 'font-size: ' . extensive_vc_filter_px( $params['price_size'] ) . 'px';
+				$styles[] = 'font-size: ' . intval( $params['price_size'] ) . 'px';
 			}
 			
 			return implode( ';', $styles );
@@ -317,7 +317,7 @@ if ( ! class_exists( 'EVCPricingTableItem' ) ) {
 			}
 			
 			if ( ! empty( $params['currency_size'] ) ) {
-				$styles[] = 'font-size: ' . extensive_vc_filter_px( $params['currency_size'] ) . 'px';
+				$styles[] = 'font-size: ' . intval( $params['currency_size'] ) . 'px';
 			}
 			
 			return implode( ';', $styles );
@@ -338,7 +338,7 @@ if ( ! class_exists( 'EVCPricingTableItem' ) ) {
 			}
 			
 			if ( ! empty( $params['price_period_size'] ) ) {
-				$styles[] = 'font-size: ' . extensive_vc_filter_px( $params['price_period_size'] ) . 'px';
+				$styles[] = 'font-size: ' . intval( $params['price_period_size'] ) . 'px';
 			}
 			
 			return implode( ';', $styles );

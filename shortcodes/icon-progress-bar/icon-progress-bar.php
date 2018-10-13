@@ -177,7 +177,7 @@ if ( ! class_exists( 'EVCIconProgressBar' ) ) {
 			$styles = array();
 			
 			if ( ! empty( $params['icon_size'] ) ) {
-				$styles[] = 'font-size: ' . extensive_vc_filter_px( $params['icon_size'] ) . 'px';
+				$styles[] = 'font-size: ' . intval( $params['icon_size'] ) . 'px';
 			}
 			
 			if ( ! empty( $params['icon_color'] ) ) {
@@ -185,8 +185,8 @@ if ( ! class_exists( 'EVCIconProgressBar' ) ) {
 			}
 			
 			if ( ! empty( $params['space_between_icons'] ) ) {
-				$styles[] = 'margin-right: ' . extensive_vc_filter_px( $params['space_between_icons'] ) . 'px';
-				$styles[] = 'margin-bottom: ' . extensive_vc_filter_px( $params['space_between_icons'] ) . 'px';
+				$styles[] = 'margin-right: ' . intval( $params['space_between_icons'] ) . 'px';
+				$styles[] = 'margin-bottom: ' . intval( $params['space_between_icons'] ) . 'px';
 			}
 			
 			return implode( ';', $styles );

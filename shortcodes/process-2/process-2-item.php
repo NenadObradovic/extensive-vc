@@ -180,7 +180,7 @@ if ( ! class_exists( 'EVCProcess2Item' ) ) {
 			}
 			
 			if ( $params['title_top_margin'] !== '' ) {
-				$styles[] = 'margin-top: ' . extensive_vc_filter_px( $params['title_top_margin'] ) . 'px';
+				$styles[] = 'margin-top: ' . intval( $params['title_top_margin'] ) . 'px';
 			}
 			
 			return implode( ';', $styles );
@@ -201,7 +201,7 @@ if ( ! class_exists( 'EVCProcess2Item' ) ) {
 			}
 			
 			if ( $params['text_top_margin'] !== '' ) {
-				$styles[] = 'margin-top: ' . extensive_vc_filter_px( $params['text_top_margin'] ) . 'px';
+				$styles[] = 'margin-top: ' . intval( $params['text_top_margin'] ) . 'px';
 			}
 			
 			return implode( ';', $styles );

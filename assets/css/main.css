@@ -1994,7 +1994,7 @@ body.rtl {
 
 .evc-blog-list.evc-bl-gallery .evc-bli-inner:hover .evc-bli-excerpt {
   opacity: 1;
-  max-height: calc(4em);
+  max-height: 3.9em;
   -webkit-transition: opacity 0.2s, max-height 0.3s;
   -moz-transition: opacity 0.2s, max-height 0.3s;
   transition: opacity 0.2s, max-height 0.3s;

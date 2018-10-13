@@ -31,7 +31,6 @@ if ( ! class_exists( 'EVCTabs' ) ) {
 			// Additional methods need to be loaded after parent constructor loaded if we used methods from the parent class
 			if ( $this->getIsShortcodeEnabled() ) {
 				add_filter( 'extensive_vc_filter_add_vc_shortcodes_custom_style', array( $this, 'addShortcodeIconCustomStyle' ) );
-				add_action( 'extensive_vc_enqueue_additional_scripts_before_main_js', array( $this, 'enqueueShortcodeAdditionalScripts' ) );
 			}
 		}
 		
@@ -57,13 +56,6 @@ if ( ! class_exists( 'EVCTabs' ) ) {
 			$style .= $current_style;
 			
 			return $style;
-		}
-		
-		/**
-		 * Enqueue necessary 3rd party scripts for this shortcode
-		 */
-		function enqueueShortcodeAdditionalScripts() {
-			wp_enqueue_script( 'jquery-ui-tabs' );
 		}
 		
 		/**

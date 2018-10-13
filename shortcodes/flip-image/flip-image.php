@@ -259,7 +259,7 @@ if ( ! class_exists( 'EVCFlipImage' ) ) {
 			}
 			
 			if ( $params['text_top_margin'] !== '' ) {
-				$styles[] = 'margin-top: ' . extensive_vc_filter_px( $params['text_top_margin'] ) . 'px';
+				$styles[] = 'margin-top: ' . intval( $params['text_top_margin'] ) . 'px';
 			}
 			
 			return implode( ';', $styles );
