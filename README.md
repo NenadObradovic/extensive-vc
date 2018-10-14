@@ -91,7 +91,9 @@ You can find all instructions about plugin and all shortcodes in website <a href
 <h3>Changelog</h3>
 
 <h5>1.7.4</h5>
-- Improved plugin optimization <br />
+- Extended global window js object with evc object <br />
+- Improved Pie Chart js <br />
+- Improved plugin optimization and performance <br />
 - Improved framework functions <br />
 
 <h5>1.7.3</h5>
