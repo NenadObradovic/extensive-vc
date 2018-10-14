@@ -117,7 +117,7 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 
 1.7.4
 - Extended global window js object with evc object
-- Improved Pie Chart js
+- Improved Pie Chart shortcode js
 - Improved plugin optimization and performance
 - Improved framework functions
 

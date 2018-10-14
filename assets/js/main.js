@@ -635,6 +635,8 @@
 				this.holder.each(function () {
 					evcPieChart.createChart($(this));
 				});
+				
+				evc.pieChart.push(this);
 			}
 		},
 		createChart: function (holder) {
@@ -648,8 +650,6 @@
 				});
 				
 				evcPieChart.charts.push(chart);
-				
-				evc.pieChart.push(evcPieChart);
 			}, {accX: 0, accY: -80});
 		},
 		getChartData: function (holder) {

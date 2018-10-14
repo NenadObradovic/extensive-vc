@@ -92,7 +92,7 @@ You can find all instructions about plugin and all shortcodes in website <a href
 
 <h5>1.7.4</h5>
 - Extended global window js object with evc object <br />
-- Improved Pie Chart js <br />
+- Improved Pie Chart shortcode js <br />
 - Improved plugin optimization and performance <br />
 - Improved framework functions <br />
 
