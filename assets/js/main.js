@@ -366,85 +366,104 @@
 })(jQuery);
 (function ($) {
 	'use strict';
-
+	
+	evc.doughnutChart = [];
+	
 	$(document).ready(function () {
-		evcInitDoughnutChart();
+		evcDoughnutChart.init();
 	});
-
-	/**
-	 * Init doughnut chart shortcode
-	 */
-	function evcInitDoughnutChart() {
-		var holder = $('.evc-doughnut-chart');
-
-		if (holder.length) {
-			holder.each(function () {
-				var thisHolder = $(this),
-					holderBorderColor = thisHolder.data('border-color'),
-					borderColor = holderBorderColor !== undefined && holderBorderColor !== '' ? holderBorderColor : '#fff',
-					holderBorderHoverColor = thisHolder.data('border-hover-color'),
-					hoverBorderColor = holderBorderHoverColor !== undefined && holderBorderHoverColor !== '' ? holderBorderHoverColor : '#efefef',
-					holderBorderWidth = thisHolder.data('border-width'),
-					borderWidth = holderBorderWidth !== undefined && holderBorderWidth !== '' ? parseInt( holderBorderWidth, 10 ) : 2,
-					enableLegend = thisHolder.data('enable-legend'),
-					legendPosition = thisHolder.data('legend-position'),
-					holderLegendTextSize = thisHolder.data('legend-text-size'),
-					legendTextSize = holderLegendTextSize !== undefined && holderLegendTextSize !== '' ? parseInt( holderLegendTextSize, 10 ) : 12,
-					holderLegendColor = thisHolder.data('legend-color'),
-					legendColor = holderLegendColor !== undefined && holderLegendColor !== '' ? holderLegendColor : '#666',
-					doughnutChartItem = thisHolder.children('.evc-doughnut-chart-item'),
-					canvas = thisHolder.children('canvas'),
-					labels = [],
-					values = [],
-					colors = [];
-
-				doughnutChartItem.each(function(){
-					var thisItem = $(this),
-						label = thisItem.data('label'),
-						value = thisItem.data('value'),
-						color = thisItem.data('color');
-
-					if ( label !== undefined && label !== '' ) {
-						labels.push(label);
-					}
-
-					if ( value !== undefined && value !== '' && color !== undefined && color !== '' ) {
-						values.push(value);
-						colors.push(color);
-					}
+	
+	var evcDoughnutChart = {
+		charts: [],
+		init: function (settings) {
+			this.holder = $('.evc-doughnut-chart');
+			
+			// Allow overriding the default config
+			$.extend(this.holder, settings);
+			
+			if (this.holder.length) {
+				this.holder.each(function () {
+					evcDoughnutChart.createChart($(this));
 				});
-
-				thisHolder.appear(function () {
-					thisHolder.addClass('evc-dc-appeared');
-
-					new Chart(canvas, {
-						type: 'doughnut',
-						data: {
-							labels: labels,
-							datasets: [{
-								data: values,
-								backgroundColor: colors,
-								borderColor: borderColor,
-								hoverBorderColor: hoverBorderColor,
-								borderWidth: borderWidth
-							}]
-						},
-						options: {
-							responsive: true,
-							legend: {
-								display: enableLegend,
-								position: legendPosition,
-								labels: {
-									fontSize: legendTextSize,
-									fontColor: legendColor
-								}
-							}
-						}
-					});
-				}, {accX: 0, accY: -80});
+				
+				evc.doughnutChart.push(this);
+			}
+		},
+		createChart: function (holder) {
+			holder.appear(function () {
+				holder.addClass('evc-dc-appeared');
+				
+				var chart = new Chart(holder.children('canvas'), {
+					type: 'doughnut',
+					data: evcDoughnutChart.getChartData(holder),
+					options: evcDoughnutChart.getChartOptions(holder)
+				});
+				
+				evcDoughnutChart.charts.push(chart);
+			}, {accX: 0, accY: -80});
+		},
+		getChartData: function (holder) {
+			var chartItem = holder.children('.evc-doughnut-chart-item'),
+				borderColorData = holder.data('border-color'),
+				borderColor = borderColorData !== undefined && borderColorData !== '' ? borderColorData : '#fff',
+				borderHoverColorData = holder.data('border-hover-color'),
+				hoverBorderColor = borderHoverColorData !== undefined && borderHoverColorData !== '' ? borderHoverColorData : '#efefef',
+				borderWidthData = holder.data('border-width'),
+				borderWidth = borderWidthData !== undefined && borderWidthData !== '' ? parseInt(borderWidthData, 10) : 2,
+				labels = [],
+				values = [],
+				colors = [],
+				data = {};
+			
+			chartItem.each(function () {
+				var thisItem = $(this),
+					label = thisItem.data('label'),
+					value = thisItem.data('value'),
+					color = thisItem.data('color');
+				
+				if (label !== undefined && label !== '') {
+					labels.push(label);
+				}
+				
+				if (value !== undefined && value !== '' && color !== undefined && color !== '') {
+					values.push(value);
+					colors.push(color);
+				}
 			});
+			
+			data['labels'] = labels;
+			data['datasets'] = [{
+				data: values,
+				backgroundColor: colors,
+				borderColor: borderColor,
+				hoverBorderColor: hoverBorderColor,
+				borderWidth: borderWidth
+			}];
+			
+			return data;
+		},
+		getChartOptions: function (holder) {
+			var enableLegend = holder.data('enable-legend'),
+				legendPosition = holder.data('legend-position'),
+				legendTextSizeData = holder.data('legend-text-size'),
+				legendTextSize = legendTextSizeData !== undefined && legendTextSizeData !== '' ? parseInt(legendTextSizeData, 10) : 12,
+				legendColorData = holder.data('legend-color'),
+				legendColor = legendColorData !== undefined && legendColorData !== '' ? legendColorData : '#666',
+				options = {};
+			
+			options['responsive'] = true;
+			options['legend'] = {
+				display: enableLegend,
+				position: legendPosition,
+				labels: {
+					fontSize: legendTextSize,
+					fontColor: legendColor
+				}
+			};
+			
+			return options;
 		}
-	}
+	};
 	
 })(jQuery);
 (function ($) {
@@ -714,31 +733,6 @@
 			return options;
 		}
 	};
-	
-})(jQuery);
-(function ($) {
-	'use strict';
-	
-	$(document).ready(function () {
-		evcInitProcess();
-	});
-	
-	/**
-	 * Inti process shortcode functionality on appear
-	 */
-	function evcInitProcess() {
-		var holder = $('.evc-process');
-		
-		if (holder.length) {
-			holder.each(function () {
-				var thisHolder = $(this);
-				
-				thisHolder.appear(function () {
-					thisHolder.addClass('evc-process-appeared');
-				}, {accX: 0, accY: -80});
-			});
-		}
-	}
 	
 })(jQuery);
 (function ($) {
@@ -1141,4 +1135,29 @@
 			)();
 	}
 
+})(jQuery);
+(function ($) {
+	'use strict';
+	
+	$(document).ready(function () {
+		evcInitProcess();
+	});
+	
+	/**
+	 * Inti process shortcode functionality on appear
+	 */
+	function evcInitProcess() {
+		var holder = $('.evc-process');
+		
+		if (holder.length) {
+			holder.each(function () {
+				var thisHolder = $(this);
+				
+				thisHolder.appear(function () {
+					thisHolder.addClass('evc-process-appeared');
+				}, {accX: 0, accY: -80});
+			});
+		}
+	}
+	
 })(jQuery);
