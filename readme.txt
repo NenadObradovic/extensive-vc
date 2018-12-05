@@ -4,7 +4,7 @@ Tags: visual composer, visual composer addons, wpbakery page builder, wpbakery a
 Donate link: http://wprealize.com/donate/
 Requires at least: 4.6
 Tested up to: 4.9.8
-Stable tag: 1.7.4
+Stable tag: 1.7.5
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -114,6 +114,14 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 5. Blockquote shortcode example.
 
 == Changelog ==
+
+1.7.5
+- Added Simple Strike Line On Hover 2 type value for Button shortcode and widget
+- Added Image Size option for Testimonials shortcode
+- Added Image Size option for Interactive Banner shortcode
+- Added Content Background Color for Pricing Table Item shortcode
+- Added Content Border Color for Pricing Table Item shortcode
+- Updated language pot file
 
 1.7.4
 - Extended global window js object with evc object

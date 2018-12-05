@@ -221,6 +221,52 @@
 		}
 	}
 	
+	&.evc-btn-strike-line-2 {
+		padding: 0;
+		color: $dark-color;
+		background: none;
+		border: 0;
+		overflow: hidden;
+		
+		&:hover {
+			color: $dark-color;
+			
+			.evc-btn-strike-line {
+				@include evcAnimation(strikeline-2 .7s cubic-bezier(.55,0,.1,1) 0s 1);
+			}
+		}
+		
+		.evc-btn-strike-line {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 2px;
+			background-color: $main-color;
+		}
+		
+		@keyframes strikeline-2 {
+			0% {
+				left: 0;
+			}
+			40% {
+				left: 130%;
+			}
+			45% {
+				width: 0;
+			}
+			50% {
+				left: -130%;
+			}
+			60% {
+				width: 100%;
+			}
+			100% {
+				left: 0;
+			}
+		}
+	}
+	
 	&.evc-btn-switch-line {
 		padding: 0 0 2px;
 		color: $dark-color;

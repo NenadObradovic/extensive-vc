@@ -73,6 +73,13 @@ if ( ! class_exists( 'EVCInteractiveBanner' ) ) {
 						'description' => esc_html__( 'Select image from media library', 'extensive-vc' )
 					),
 					array(
+						'type'        => 'textfield',
+						'param_name'  => 'image_size',
+						'heading'     => esc_html__( 'Image Size', 'extensive-vc' ),
+						'description' => esc_html__( 'Fill your image size (thumbnail, medium, large or full) or enter image size in pixels: 200x100 (width x height). Leave empty to use original image size', 'extensive-vc' ),
+						'dependency'  => array( 'element' => 'image', 'not_empty' => true )
+					),
+					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'overlay_color',
 						'heading'    => esc_html__( 'Overlay Color', 'extensive-vc' ),
@@ -164,6 +171,7 @@ if ( ! class_exists( 'EVCInteractiveBanner' ) ) {
 				'custom_class'     => '',
 				'type'             => 'classic',
 				'image'            => '',
+				'image_size'       => 'full',
 				'overlay_color'    => '',
 				'icon_library'     => '',
 				'icon_fontawesome' => '',
@@ -189,6 +197,7 @@ if ( ! class_exists( 'EVCInteractiveBanner' ) ) {
 			$params['holder_classes'] = $this->getHolderClasses( $params, $args );
 			$params['content_styles'] = $this->getContentStyles( $params );
 			
+			$params['image_size']   = $this->getImageSize( $params['image_size'] );
 			$params['icon_styles']  = $this->getIconStyles( $params );
 			$params['title_tag']    = ! empty( $params['title_tag'] ) ? $params['title_tag'] : $args['title_tag'];
 			$params['title_styles'] = $this->getTitleStyles( $params );
@@ -213,6 +222,7 @@ if ( ! class_exists( 'EVCInteractiveBanner' ) ) {
 			
 			$holderClasses[] = ! empty( $params['custom_class'] ) ? esc_attr( $params['custom_class'] ) : '';
 			$holderClasses[] = ! empty( $params['type'] ) ? 'evc-ib-' . esc_attr( $params['type'] ) : 'evc-ib-' . esc_attr( $args['type'] );
+			$holderClasses[] = isset( $params['image_size'] ) && $params['image_size'] !== 'full' ? 'evc-ib-custom-image-size' : '';
 			
 			return implode( ' ', $holderClasses );
 		}
@@ -237,6 +247,30 @@ if ( ! class_exists( 'EVCInteractiveBanner' ) ) {
 			}
 			
 			return implode( ';', $styles );
+		}
+		
+		/**
+		 * Get image size
+		 *
+		 * @param $imageSize string/array - image size value
+		 *
+		 * @return string/array
+		 */
+		private function getImageSize( $imageSize ) {
+			$imageSize = trim( $imageSize );
+			//Find digits
+			preg_match_all( '/\d+/', $imageSize, $matches );
+			
+			if ( in_array( $imageSize, array( 'thumbnail', 'medium', 'large', 'full' ) ) ) {
+				return $imageSize;
+			} elseif ( ! empty( $matches[0] ) ) {
+				return array(
+					$matches[0][0],
+					$matches[0][1]
+				);
+			} else {
+				return 'full';
+			}
 		}
 		
 		/**

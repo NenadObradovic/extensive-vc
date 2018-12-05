@@ -160,6 +160,18 @@ if ( ! class_exists( 'EVCPricingTableItem' ) ) {
 						'param_name' => 'content',
 						'heading'    => esc_html__( 'Content', 'extensive-vc' ),
 						'value'      => '<li>' . esc_html__( 'This is pricing table item content', 'extensive-vc' ) . '</li><li>' . esc_html__( 'This is pricing table item content', 'extensive-vc' ) . '</li><li>' . esc_html__( 'This is pricing table item content', 'extensive-vc' ) . '</li>'
+					),
+					array(
+						'type'       => 'colorpicker',
+						'param_name' => 'content_bg_color',
+						'heading'    => esc_html__( 'Background Color', 'extensive-vc' ),
+						'group'      => esc_html__( 'Content Options', 'extensive-vc' )
+					),
+					array(
+						'type'       => 'colorpicker',
+						'param_name' => 'content_border_color',
+						'heading'    => esc_html__( 'Border Color', 'extensive-vc' ),
+						'group'      => esc_html__( 'Content Options', 'extensive-vc' )
 					)
 				)
 			);
@@ -206,11 +218,14 @@ if ( ! class_exists( 'EVCPricingTableItem' ) ) {
 				'button_border_width'       => '',
 				'button_line_color'         => '',
 				'button_switch_line_color'  => '',
-				'button_margin'             => ''
+				'button_margin'             => '',
+				'content_bg_color'          => '',
+				'content_border_color'      => ''
 			);
 			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params );
+			$params['holder_styles']  = $this->getHolderStyles( $params );
 			
 			$params['title_tag']           = ! empty( $params['title_tag'] ) ? $params['title_tag'] : $args['title_tag'];
 			$params['title_styles']        = $this->getTitleStyles( $params );
@@ -241,6 +256,27 @@ if ( ! class_exists( 'EVCPricingTableItem' ) ) {
 			$holderClasses[] = ! empty( $params['price_bg_image'] ) ? 'evc-pti-has-image' : '';
 			
 			return implode( ' ', $holderClasses );
+		}
+		
+		/**
+		 * Get shortcode holder styles
+		 *
+		 * @param $params array - shortcode parameters value
+		 *
+		 * @return string
+		 */
+		private function getHolderStyles( $params ) {
+			$styles = array();
+			
+			if ( ! empty( $params['content_bg_color'] ) ) {
+				$styles[] = 'background-color: ' . $params['content_bg_color'];
+			}
+			
+			if ( ! empty( $params['content_border_color'] ) ) {
+				$styles[] = 'border-color: ' . $params['content_border_color'];
+			}
+			
+			return implode( ';', $styles );
 		}
 		
 		/**

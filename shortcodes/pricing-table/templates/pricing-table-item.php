@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 <div class="evc-pt-item evc-element-item <?php echo esc_attr( $holder_classes ); ?>">
-	<div class="evc-pti-inner">
+	<div class="evc-pti-inner" <?php extensive_vc_print_inline_style( $holder_styles ); ?>>
 		<ul>
 			<li class="evc-pti-prices" <?php extensive_vc_print_inline_style( $price_holder_styles ); ?>>
 				<span class="evc-pti-value" <?php extensive_vc_print_inline_style( $currency_styles ); ?>><?php echo esc_html( $currency ); ?></span>

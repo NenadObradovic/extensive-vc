@@ -96,6 +96,12 @@ if ( ! class_exists( 'EVCTestimonials' ) ) {
 					'value'       => array_flip( extensive_vc_get_query_order_array() )
 				),
 				array(
+					'type'        => 'textfield',
+					'param_name'  => 'image_size',
+					'heading'     => esc_html__( 'Image Size', 'extensive-vc' ),
+					'description' => esc_html__( 'Fill your image size (thumbnail, medium, large or full) or enter image size in pixels: 200x100 (width x height). Leave empty to use original image size', 'extensive-vc' )
+				),
+				array(
 					'type'       => 'dropdown',
 					'param_name' => 'carousel_loop',
 					'heading'    => esc_html__( 'Enable Slider Loop', 'extensive-vc' ),
@@ -181,6 +187,7 @@ if ( ! class_exists( 'EVCTestimonials' ) ) {
 				'category'                 => '',
 				'orderby'                  => 'date',
 				'order'                    => 'ASC',
+				'image_size'               => '66x66',
 				'carousel_loop'            => 'yes',
 				'carousel_autoplay'        => 'yes',
 				'carousel_autoplay_pause'  => 'no',
@@ -196,6 +203,7 @@ if ( ! class_exists( 'EVCTestimonials' ) ) {
 			$params['query_results']  = new \WP_Query( extensive_vc_get_shortcode_query_params( $params, 'testimonials' ) );
 			$params['holder_classes'] = $this->getHolderClasses( $params );
 			$params['slider_data']    = $this->getSliderData( $params, $args );
+			$params['image_size']     = $this->getImageSize( $params['image_size'] );
 			
 			$html = extensive_vc_get_module_template_part( 'cpt', 'testimonials', 'templates/testimonials-holder', '', $params );
 			
@@ -239,6 +247,30 @@ if ( ! class_exists( 'EVCTestimonials' ) ) {
 			$data['data-enable-pagination']           = ! empty( $params['carousel_pagination'] ) ? $params['carousel_pagination'] : $args['carousel_pagination'];
 			
 			return $data;
+		}
+		
+		/**
+		 * Get image size
+		 *
+		 * @param $imageSize string/array - image size value
+		 *
+		 * @return string/array
+		 */
+		private function getImageSize( $imageSize ) {
+			$imageSize = trim( $imageSize );
+			//Find digits
+			preg_match_all( '/\d+/', $imageSize, $matches );
+			
+			if ( in_array( $imageSize, array( 'thumbnail', 'medium', 'large', 'full' ) ) ) {
+				return $imageSize;
+			} elseif ( ! empty( $matches[0] ) ) {
+				return array(
+					$matches[0][0],
+					$matches[0][1]
+				);
+			} else {
+				return 'full';
+			}
 		}
 		
 		/**

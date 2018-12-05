@@ -67,6 +67,21 @@
 		@include evcAbsoluteLayout();
 	}
 	
+	/***** Predefined styles - begin *****/
+	
+	&.evc-ib-custom-image-size {
+		width: auto;
+		
+		.evc-ib-image {
+			
+			img {
+				width: auto;
+			}
+		}
+	}
+	
+	/***** Predefined styles - end *****/
+	
 	/***** Types styles - begin *****/
 	
 	&.evc-ib-classic {

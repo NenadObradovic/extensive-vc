@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="evc-t-item">
 	<?php if ( has_post_thumbnail() ) { ?>
 		<div class="evc-t-image">
-			<?php echo get_the_post_thumbnail( $current_id, array( 66, 66 ) ); ?>
+			<?php echo get_the_post_thumbnail( $current_id, $image_size ); ?>
 		</div>
 	<?php } ?>
 	<div class="evc-t-content">

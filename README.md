@@ -90,6 +90,14 @@ You can find all instructions about plugin and all shortcodes in website <a href
 
 <h3>Changelog</h3>
 
+<h5>1.7.5</h5>
+- Added Simple Strike Line On Hover 2 type value for Button shortcode and widget <br />
+- Added Image Size option for Testimonials shortcode <br />
+- Added Image Size option for Interactive Banner shortcode <br />
+- Added Content Background Color for Pricing Table Item shortcode <br />
+- Added Content Border Color for Pricing Table Item shortcode <br />
+- Updated language pot file <br />
+
 <h5>1.7.4</h5>
 - Extended global window js object with evc object <br />
 - Improved Doughnut Chart shortcode js <br />

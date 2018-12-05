@@ -7,7 +7,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <div class="evc-interactive-banner evc-shortcode <?php echo esc_attr( $holder_classes ); ?>">
 	<div class="evc-ib-image">
-		<?php echo wp_get_attachment_image( $image, 'full' ); ?>
+		<?php if ( is_array( $image_size ) ) {
+			echo extensive_vc_generate_thumbnail( $image, $image_size[0], $image_size[1] );
+		} else {
+			echo wp_get_attachment_image( $image, $image_size );
+		} ?>
 	</div>
 	<div class="evc-ib-content-wrapper" <?php extensive_vc_print_inline_style( $content_styles ); ?>>
 		<div class="evc-ib-content-inner">

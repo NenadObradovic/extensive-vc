@@ -41,13 +41,14 @@ if ( ! class_exists( 'EVCButtonWidget' ) ) {
 					'param_name'    => 'type',
 					'heading'       => esc_html__( 'Type', 'extensive-vc' ),
 					'value'         => array(
-						esc_html__( 'Solid', 'extensive-vc' )                       => 'solid',
-						esc_html__( 'Outline', 'extensive-vc' )                     => 'outline',
-						esc_html__( 'Simple', 'extensive-vc' )                      => 'simple',
-						esc_html__( 'Simple Fill Line On Hover', 'extensive-vc' )   => 'fill-line',
-						esc_html__( 'Simple Fill Text On Hover', 'extensive-vc' )   => 'fill-text',
-						esc_html__( 'Simple Strike Line On Hover', 'extensive-vc' ) => 'strike-line',
-						esc_html__( 'Simple Switch Line On Hover', 'extensive-vc' ) => 'switch-line'
+						esc_html__( 'Solid', 'extensive-vc' )                         => 'solid',
+						esc_html__( 'Outline', 'extensive-vc' )                       => 'outline',
+						esc_html__( 'Simple', 'extensive-vc' )                        => 'simple',
+						esc_html__( 'Simple Fill Line On Hover', 'extensive-vc' )     => 'fill-line',
+						esc_html__( 'Simple Fill Text On Hover', 'extensive-vc' )     => 'fill-text',
+						esc_html__( 'Simple Strike Line On Hover', 'extensive-vc' )   => 'strike-line',
+						esc_html__( 'Simple Strike Line On Hover 2', 'extensive-vc' ) => 'strike-line-2',
+						esc_html__( 'Simple Switch Line On Hover', 'extensive-vc' )   => 'switch-line'
 					),
 					'inverse_value' => true
 				),
