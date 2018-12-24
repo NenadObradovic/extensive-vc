@@ -90,6 +90,9 @@ You can find all instructions about plugin and all shortcodes in website <a href
 
 <h3>Changelog</h3>
 
+<h5>1.7.5.1</h5>
+- Updated WordPress compatibility to 5.x <br />
+
 <h5>1.7.5</h5>
 - Added Simple Strike Line On Hover 2 type value for Button shortcode and widget <br />
 - Added Image Size option for Testimonials shortcode <br />
