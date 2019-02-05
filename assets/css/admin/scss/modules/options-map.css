@@ -57,6 +57,7 @@
   top: 0;
   right: 0;
   display: block;
+  width: auto;
 }
 
 .evc-admin-about .evc-admin-image {

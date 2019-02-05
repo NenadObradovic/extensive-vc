@@ -3199,6 +3199,11 @@ html.fp-enabled,
   vertical-align: top;
 }
 
+.evc-icon-progress-bar .evc-ipb-title {
+  display: block;
+  margin: 0 0 14px;
+}
+
 .evc-icon-progress-bar .evc-ipb-icon {
   position: relative;
   display: inline-block;

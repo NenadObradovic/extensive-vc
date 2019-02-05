@@ -5,6 +5,11 @@
 .evc-icon-progress-bar {
 	@include evcRelativeLayout();
 	
+	.evc-ipb-title {
+		display: block;
+		margin: 0 0 14px;
+	}
+	
 	.evc-ipb-icon {
 		position: relative;
 		display: inline-block;

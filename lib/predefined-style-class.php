@@ -17,7 +17,7 @@ if ( ! class_exists( 'ExtensiveVCPredefinedStyle' ) ) {
 		 * Constructor
 		 */
 		private function __construct() {
-			global $evc_options;
+			$evc_options = extensive_vc_get_global_options();
 			
 			$this->setPredefinedStyle( $evc_options->options->getOptionValueById( 'evc_predefined_style' ) );
 			

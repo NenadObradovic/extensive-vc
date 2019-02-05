@@ -71,7 +71,7 @@ if ( ! function_exists( 'extensive_vc_add_testimonials_meta_boxes' ) ) {
 	 * @param $just_render_fields boolean - use to store fields into local storage or to display fields html
 	 */
 	function extensive_vc_add_testimonials_meta_boxes( $just_render_fields = false ) {
-		global $evc_options;
+		$evc_options = extensive_vc_get_global_options();
 		
 		$evc_options->metaBoxes->renderField(
 			array(

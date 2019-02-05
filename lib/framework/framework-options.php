@@ -9,7 +9,7 @@ if ( ! function_exists( 'extensive_vc_render_admin_options_fields' ) ) {
 	 * Renders admin options fields
 	 */
 	function extensive_vc_render_admin_options_fields() {
-		global $evc_options;
+		$evc_options = extensive_vc_get_global_options();
 		
 		$evc_options->options->addSection(
 			array(

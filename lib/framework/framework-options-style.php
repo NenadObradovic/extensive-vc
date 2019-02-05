@@ -13,7 +13,7 @@ if ( ! function_exists( 'extensive_vc_init_admin_options_style' ) ) {
 	 * @return string
 	 */
 	function extensive_vc_init_admin_options_style( $style ) {
-		global $evc_options;
+		$evc_options = extensive_vc_get_global_options();
 		
 		$current_styles = '';
 		

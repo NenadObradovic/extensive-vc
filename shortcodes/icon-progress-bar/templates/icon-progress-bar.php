@@ -6,6 +6,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 <div class="evc-icon-progress-bar evc-shortcode <?php echo esc_attr( $holder_classes ); ?>" <?php extensive_vc_print_inline_attrs( $holder_data ); ?>>
+	<?php if ( ! empty( $title ) ) { ?>
+		<<?php echo esc_attr( $title_tag ); ?> class="evc-ipb-title" <?php extensive_vc_print_inline_style( $title_styles ); ?>>
+			<?php echo esc_html( $title ); ?>
+		</<?php echo esc_attr( $title_tag ); ?>>
+	<?php } ?>
 	<?php if ( function_exists( 'vc_icon_element_fonts_enqueue' ) && ! empty( $icon_library ) ) {
 		vc_icon_element_fonts_enqueue( $icon_library );
 		

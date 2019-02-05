@@ -90,6 +90,12 @@ You can find all instructions about plugin and all shortcodes in website <a href
 
 <h3>Changelog</h3>
 
+<h5>1.7.6</h5>
+- Added Title options for Icon Progress Bar shortcode <br />
+- Improved plugin admin styles for Multisite <br />
+- Improved framework functions <br />
+- Updated language pot file <br />
+
 <h5>1.7.5.1</h5>
 - Updated WordPress compatibility to 5.x <br />
 

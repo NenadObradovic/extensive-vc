@@ -5,6 +5,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! class_exists( 'ExtensiveVCFramework' ) ) {
+	/*
+	 * Initialize class object
+	 *
+	 * @return ExtensiveVCFramework object
+	 */
 	class ExtensiveVCFramework {
 		
 		/**
@@ -25,7 +30,7 @@ if ( ! class_exists( 'ExtensiveVCFramework' ) ) {
 		/**
 		 * Get the instance of ExtensiveVCFramework
 		 *
-		 * @return self
+		 * @return ExtensiveVCFramework object
 		 */
 		public static function getInstance() {
 			if ( self::$instance == null ) {
@@ -50,7 +55,25 @@ if ( ! function_exists( 'extensive_vc_framework_instance' ) ) {
 	add_action( 'init', 'extensive_vc_framework_instance' );
 }
 
+if ( ! function_exists( 'extensive_vc_get_global_options' ) ) {
+	/**
+	 * Returns global options variable
+	 *
+	 * @return ExtensiveVCFramework object
+	 */
+	function extensive_vc_get_global_options() {
+		global $evc_options;
+		
+		return $evc_options;
+	}
+}
+
 if ( ! class_exists( 'ExtensiveVCOptions' ) ) {
+	/*
+	 * Initialize class object
+	 *
+	 * @return ExtensiveVCOptions object
+	 */
 	class ExtensiveVCOptions {
 		
 		/**
@@ -68,7 +91,7 @@ if ( ! class_exists( 'ExtensiveVCOptions' ) ) {
 		/**
 		 * Get the instance of ExtensiveVCOptions
 		 *
-		 * @return self
+		 * @return ExtensiveVCOptions object
 		 */
 		public static function getInstance() {
 			if ( self::$instance == null ) {
@@ -155,7 +178,7 @@ if ( ! class_exists( 'ExtensiveVCOptions' ) ) {
 		 *
 		 * @param $option array - array of current option parameters
 		 *
-		 * @return html
+		 * @return string|html
 		 */
 		function renderField( $option ) {
 			$evc_options  = get_option( 'evc_options' );
@@ -211,6 +234,11 @@ if ( ! class_exists( 'ExtensiveVCOptions' ) ) {
 }
 
 if ( ! class_exists( 'ExtensiveVCMetaBoxes' ) ) {
+	/*
+	 * Initialize class object
+	 *
+	 * @return ExtensiveVCMetaBoxes object
+	 */
 	class ExtensiveVCMetaBoxes {
 		
 		/**
@@ -229,7 +257,7 @@ if ( ! class_exists( 'ExtensiveVCMetaBoxes' ) ) {
 		/**
 		 * Get the instance of ExtensiveVCMetaBoxes
 		 *
-		 * @return self
+		 * @return ExtensiveVCMetaBoxes object
 		 */
 		public static function getInstance() {
 			if ( self::$instance == null ) {
@@ -289,7 +317,7 @@ if ( ! class_exists( 'ExtensiveVCMetaBoxes' ) ) {
 		 *
 		 * @param $option array - array of current option parameters
 		 *
-		 * @return html
+		 * @return string|html
 		 */
 		function renderField( $option ) {
 			$option_type        = $option['type'];
