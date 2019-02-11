@@ -119,6 +119,7 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 - Added Title options for Icon Progress Bar shortcode
 - Improved plugin admin styles for Multisite
 - Improved framework functions
+- Removed unnecessary files
 - Updated language pot file
 
 1.7.5.1

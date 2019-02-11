@@ -94,6 +94,7 @@ You can find all instructions about plugin and all shortcodes in website <a href
 - Added Title options for Icon Progress Bar shortcode <br />
 - Improved plugin admin styles for Multisite <br />
 - Improved framework functions <br />
+- Removed unnecessary files <br />
 - Updated language pot file <br />
 
 <h5>1.7.5.1</h5>
