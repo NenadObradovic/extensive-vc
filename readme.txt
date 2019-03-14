@@ -3,7 +3,7 @@ Contributors: nenad-obradovic
 Tags: visual composer, visual composer addons, wpbakery page builder, wpbakery addons, wpbakery shortcodes
 Donate link: http://wprealize.com/donate/
 Requires at least: 4.6
-Tested up to: 5.0.3
+Tested up to: 5.1.1
 Stable tag: 1.7.6
 Requires PHP: 5.3
 License: GPLv2 or later
