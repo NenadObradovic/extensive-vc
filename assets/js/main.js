@@ -146,6 +146,78 @@
 })(jQuery);
 (function ($) {
 	'use strict';
+	
+	$(document).ready(function () {
+		evcButton().init();
+	});
+	
+	/*
+	 **	Init button shortcode functionality for hover colors
+	 */
+	var evcButton = function () {
+		var buttons = $('.evc-button');
+		
+		var buttonHoverColor = function (button) {
+			if (typeof button.data('hover-color') !== 'undefined') {
+				var changeButtonColor = function (event) {
+					event.data.button.css('color', event.data.color);
+				};
+				
+				var originalColor = button.css('color'),
+					hoverColor = button.data('hover-color');
+				
+				button.on('mouseenter', {button: button, color: hoverColor}, changeButtonColor);
+				button.on('mouseleave', {button: button, color: originalColor}, changeButtonColor);
+			}
+		};
+		
+		var buttonHoverBackgroundColor = function (button) {
+			if (typeof button.data('hover-background-color') !== 'undefined') {
+				var changeButtonBg = function (event) {
+					event.data.button.css('background-color', event.data.color);
+				};
+				
+				var originalBackgroundColor = button.css('background-color'),
+					hoverBackgroundColor = button.data('hover-background-color');
+				
+				button.on('mouseenter', {button: button, color: hoverBackgroundColor}, changeButtonBg);
+				button.on('mouseleave', {button: button, color: originalBackgroundColor}, changeButtonBg);
+			}
+		};
+		
+		var buttonHoverBorderColor = function (button) {
+			if (typeof button.data('hover-border-color') !== 'undefined') {
+				var changeBorderColor = function (event) {
+					event.data.button.css('border-color', event.data.color);
+				};
+				
+				// take one color of the four sides because in otherwise script will messed up
+				var originalBorderColor = button.css('borderTopColor'),
+					hoverBorderColor = button.data('hover-border-color');
+				
+				button.on('mouseenter', {button: button, color: hoverBorderColor}, changeBorderColor);
+				button.on('mouseleave', {button: button, color: originalBorderColor}, changeBorderColor);
+			}
+		};
+		
+		return {
+			init: function () {
+				if (buttons.length) {
+					buttons.each(function () {
+						var thisButton = $(this);
+						
+						buttonHoverColor(thisButton);
+						buttonHoverBackgroundColor(thisButton);
+						buttonHoverBorderColor(thisButton);
+					});
+				}
+			}
+		};
+	};
+	
+})(jQuery);
+(function ($) {
+	'use strict';
 
 	$(document).ready(function () {
 		evcInitCounter();
@@ -498,6 +570,72 @@
 (function ($) {
 	'use strict';
 	
+	$(document).ready(function () {
+		evcInitLineGraph();
+	});
+	
+	/**
+	 * Init line graph shortcode
+	 */
+	function evcInitLineGraph() {
+		var holder = $('.evc-line-graph');
+		
+		if (holder.length) {
+			holder.each(function () {
+				var thisHolder = $(this),
+					legendText = thisHolder.data('legend-text'),
+					holderBorderColor = thisHolder.data('border-color'),
+					borderColor = holderBorderColor !== undefined && holderBorderColor !== '' ? holderBorderColor : '',
+					holderBorderWidth = thisHolder.data('border-width'),
+					borderWidth = holderBorderWidth !== undefined && holderBorderWidth !== '' ? holderBorderWidth : '',
+					showLine = thisHolder.data('disable-line') !== 'yes',
+					holderBackgroundColor = thisHolder.data('background-color'),
+					backgroundColor = holderBackgroundColor !== undefined && holderBackgroundColor !== '' ? holderBackgroundColor : '',
+					pieChartItem = thisHolder.children('.evc-line-graph-item'),
+					canvas = thisHolder.children('canvas'),
+					labels = [],
+					values = [];
+				
+				pieChartItem.each(function () {
+					var thisItem = $(this),
+						label = thisItem.data('label'),
+						value = thisItem.data('value');
+					
+					if (label !== undefined && label !== '') {
+						labels.push(label);
+					}
+					
+					if (value !== undefined && value !== '' ) {
+						values.push(value);
+					}
+				});
+				
+				thisHolder.appear(function () {
+					thisHolder.addClass('evc-lg-appeared');
+					
+					new Chart(canvas, {
+						type: 'line',
+						data: {
+							labels: labels,
+							datasets: [{
+								label: legendText,
+								data: values,
+								backgroundColor: backgroundColor,
+								borderColor: borderColor,
+								borderWidth: borderWidth,
+								showLine: showLine
+							}]
+						}
+					});
+				}, {accX: 0, accY: -80});
+			});
+		}
+	}
+	
+})(jQuery);
+(function ($) {
+	'use strict';
+	
 	evc.pieChart = [];
 	
 	$(document).ready(function () {
@@ -601,72 +739,6 @@
 	'use strict';
 	
 	$(document).ready(function () {
-		evcInitLineGraph();
-	});
-	
-	/**
-	 * Init line graph shortcode
-	 */
-	function evcInitLineGraph() {
-		var holder = $('.evc-line-graph');
-		
-		if (holder.length) {
-			holder.each(function () {
-				var thisHolder = $(this),
-					legendText = thisHolder.data('legend-text'),
-					holderBorderColor = thisHolder.data('border-color'),
-					borderColor = holderBorderColor !== undefined && holderBorderColor !== '' ? holderBorderColor : '',
-					holderBorderWidth = thisHolder.data('border-width'),
-					borderWidth = holderBorderWidth !== undefined && holderBorderWidth !== '' ? holderBorderWidth : '',
-					showLine = thisHolder.data('disable-line') !== 'yes',
-					holderBackgroundColor = thisHolder.data('background-color'),
-					backgroundColor = holderBackgroundColor !== undefined && holderBackgroundColor !== '' ? holderBackgroundColor : '',
-					pieChartItem = thisHolder.children('.evc-line-graph-item'),
-					canvas = thisHolder.children('canvas'),
-					labels = [],
-					values = [];
-				
-				pieChartItem.each(function () {
-					var thisItem = $(this),
-						label = thisItem.data('label'),
-						value = thisItem.data('value');
-					
-					if (label !== undefined && label !== '') {
-						labels.push(label);
-					}
-					
-					if (value !== undefined && value !== '' ) {
-						values.push(value);
-					}
-				});
-				
-				thisHolder.appear(function () {
-					thisHolder.addClass('evc-lg-appeared');
-					
-					new Chart(canvas, {
-						type: 'line',
-						data: {
-							labels: labels,
-							datasets: [{
-								label: legendText,
-								data: values,
-								backgroundColor: backgroundColor,
-								borderColor: borderColor,
-								borderWidth: borderWidth,
-								showLine: showLine
-							}]
-						}
-					});
-				}, {accX: 0, accY: -80});
-			});
-		}
-	}
-	
-})(jQuery);
-(function ($) {
-	'use strict';
-	
-	$(document).ready(function () {
 		evcInitProcess();
 	});
 	
@@ -708,6 +780,158 @@
 				thisHolder.appear(function () {
 					thisHolder.addClass('evc-process-appeared');
 				}, {accX: 0, accY: -80});
+			});
+		}
+	}
+	
+})(jQuery);
+(function ($) {
+	'use strict';
+	
+	$(document).ready(function () {
+		evcInitProgressBar();
+	});
+	
+	/*
+	 **	Init progress bar shortcode functionality
+	 */
+	function evcInitProgressBar() {
+		var progressBar = $('.evc-progress-bar');
+		
+		if (progressBar.length) {
+			progressBar.each(function () {
+				var thisBar = $(this),
+					isVerticalType = thisBar.hasClass('evc-pb-vertical'),
+					percent = thisBar.find('.evc-pb-percent'),
+					barContent = thisBar.find('.evc-pb-active-bar'),
+					percentValue = parseFloat(barContent.data('percentage'));
+				
+				if (typeof percentValue !== 'undefined' && percentValue !== false) {
+					thisBar.appear(function () {
+						evcInitProgressBarCounter(percent, percentValue);
+						
+						if(isVerticalType) {
+							barContent.stop().animate({'height': percentValue + '%'}, 1500);
+						} else {
+							barContent.stop().animate({'width': percentValue + '%'}, 1500);
+						}
+					}, {accX: 0, accY: -80});
+				}
+			});
+		}
+	}
+	
+	/*
+	 **	Init progress bar shortcode counter to count percent from zero to defined percent value
+	 */
+	function evcInitProgressBarCounter(percent, percentValue) {
+		
+		if (percent.length) {
+			percent.each(function () {
+				var thisPercent = $(this);
+				
+				thisPercent.css({'opacity': '1'}).countTo({
+					from: 0,
+					to: percentValue,
+					speed: 1500,
+					refreshInterval: 50
+				});
+			});
+		}
+	}
+	
+})(jQuery);
+(function ($) {
+	'use strict';
+	
+	$(document).ready(function () {
+		evcSVGTextResizeStyle();
+	});
+	
+	/*
+	 **	Init SVG Text shortcode resizing style for text
+	 */
+	function evcSVGTextResizeStyle() {
+		var holder = $('.evc-svg-text');
+		
+		if (holder.length) {
+			holder.each(function () {
+				var thisItem = $(this),
+					itemClass = '',
+					itemClassData = thisItem.data('item-class'),
+					laptopFSData = thisItem.data('font-size-1440'),
+					smallLaptopFSData = thisItem.data('font-size-1366'),
+					macLaptopFSData = thisItem.data('font-size-1280'),
+					ipadLandscapeFSData = thisItem.data('font-size-1024'),
+					ipadPortraitFSData = thisItem.data('font-size-768'),
+					mobileFSData = thisItem.data('font-size-680'),
+					laptopStyle = '',
+					smallLaptopStyle = '',
+					macLaptopStyle = '',
+					ipadLandscapeStyle = '',
+					ipadPortraitStyle = '',
+					mobileLandscapeStyle = '',
+					style = '',
+					responsiveStyle = '';
+				
+				if (typeof itemClassData !== 'undefined' && itemClassData !== false) {
+					itemClass = itemClassData;
+				}
+				
+				if (typeof laptopFSData !== 'undefined' && laptopFSData !== false) {
+					laptopStyle += 'font-size: ' + laptopFSData + ' !important;';
+					laptopStyle += 'height: ' + laptopFSData + ' !important;';
+				}
+				if (typeof smallLaptopFSData !== 'undefined' && smallLaptopFSData !== false) {
+					smallLaptopStyle += 'font-size: ' + smallLaptopFSData + ' !important;';
+					smallLaptopStyle += 'height: ' + smallLaptopFSData + ' !important;';
+				}
+				if (typeof macLaptopFSData !== 'undefined' && macLaptopFSData !== false) {
+					macLaptopStyle += 'font-size: ' + macLaptopFSData + ' !important;';
+					macLaptopStyle += 'height: ' + macLaptopFSData + ' !important;';
+				}
+				if (typeof ipadLandscapeFSData !== 'undefined' && ipadLandscapeFSData !== false) {
+					ipadLandscapeStyle += 'font-size: ' + ipadLandscapeFSData + ' !important;';
+					ipadLandscapeStyle += 'height: ' + ipadLandscapeFSData + ' !important;';
+				}
+				if (typeof ipadPortraitFSData !== 'undefined' && ipadPortraitFSData !== false) {
+					ipadPortraitStyle += 'font-size: ' + ipadPortraitFSData + ' !important;';
+					ipadPortraitStyle += 'height: ' + ipadPortraitFSData + ' !important;';
+				}
+				if (typeof mobileFSData !== 'undefined' && mobileFSData !== false) {
+					mobileLandscapeStyle += 'font-size: ' + mobileFSData + ' !important;';
+					mobileLandscapeStyle += 'height: ' + mobileFSData + ' !important;';
+				}
+				
+				if (laptopStyle.length || smallLaptopStyle.length || macLaptopStyle.length || ipadLandscapeStyle.length || ipadPortraitStyle.length || mobileLandscapeStyle.length) {
+					
+					if (laptopStyle.length) {
+						responsiveStyle += "@media only screen and (max-width: 1440px) {.evc-svg-text." + itemClass + " { " + laptopStyle + " } }";
+					}
+					if (smallLaptopStyle.length) {
+						responsiveStyle += "@media only screen and (max-width: 1366px) {.evc-svg-text." + itemClass + " { " + smallLaptopStyle + " } }";
+					}
+					if (macLaptopStyle.length) {
+						responsiveStyle += "@media only screen and (max-width: 1280px) {.evc-svg-text." + itemClass + " { " + macLaptopStyle + " } }";
+					}
+					if (ipadLandscapeStyle.length) {
+						responsiveStyle += "@media only screen and (max-width: 1024px) {.evc-svg-text." + itemClass + " { " + ipadLandscapeStyle + " } }";
+					}
+					if (ipadPortraitStyle.length) {
+						responsiveStyle += "@media only screen and (max-width: 768px) {.evc-svg-text." + itemClass + " { " + ipadPortraitStyle + " } }";
+					}
+					if (mobileLandscapeStyle.length) {
+						responsiveStyle += "@media only screen and (max-width: 680px) {.evc-svg-text." + itemClass + " { " + mobileLandscapeStyle + " } }";
+					}
+				}
+				
+				if (responsiveStyle.length) {
+					style = '<style type="text/css">' + responsiveStyle + '</style>';
+				}
+				
+				if (style.length) {
+					$('head').append(style);
+				}
 			});
 		}
 	}
@@ -936,228 +1160,4 @@
 			)();
 	}
 
-})(jQuery);
-(function ($) {
-	'use strict';
-	
-	$(document).ready(function () {
-		evcButton().init();
-	});
-	
-	/*
-	 **	Init button shortcode functionality for hover colors
-	 */
-	var evcButton = function () {
-		var buttons = $('.evc-button');
-		
-		var buttonHoverColor = function (button) {
-			if (typeof button.data('hover-color') !== 'undefined') {
-				var changeButtonColor = function (event) {
-					event.data.button.css('color', event.data.color);
-				};
-				
-				var originalColor = button.css('color'),
-					hoverColor = button.data('hover-color');
-				
-				button.on('mouseenter', {button: button, color: hoverColor}, changeButtonColor);
-				button.on('mouseleave', {button: button, color: originalColor}, changeButtonColor);
-			}
-		};
-		
-		var buttonHoverBackgroundColor = function (button) {
-			if (typeof button.data('hover-background-color') !== 'undefined') {
-				var changeButtonBg = function (event) {
-					event.data.button.css('background-color', event.data.color);
-				};
-				
-				var originalBackgroundColor = button.css('background-color'),
-					hoverBackgroundColor = button.data('hover-background-color');
-				
-				button.on('mouseenter', {button: button, color: hoverBackgroundColor}, changeButtonBg);
-				button.on('mouseleave', {button: button, color: originalBackgroundColor}, changeButtonBg);
-			}
-		};
-		
-		var buttonHoverBorderColor = function (button) {
-			if (typeof button.data('hover-border-color') !== 'undefined') {
-				var changeBorderColor = function (event) {
-					event.data.button.css('border-color', event.data.color);
-				};
-				
-				// take one color of the four sides because in otherwise script will messed up
-				var originalBorderColor = button.css('borderTopColor'),
-					hoverBorderColor = button.data('hover-border-color');
-				
-				button.on('mouseenter', {button: button, color: hoverBorderColor}, changeBorderColor);
-				button.on('mouseleave', {button: button, color: originalBorderColor}, changeBorderColor);
-			}
-		};
-		
-		return {
-			init: function () {
-				if (buttons.length) {
-					buttons.each(function () {
-						var thisButton = $(this);
-						
-						buttonHoverColor(thisButton);
-						buttonHoverBackgroundColor(thisButton);
-						buttonHoverBorderColor(thisButton);
-					});
-				}
-			}
-		};
-	};
-	
-})(jQuery);
-(function ($) {
-	'use strict';
-	
-	$(document).ready(function () {
-		evcSVGTextResizeStyle();
-	});
-	
-	/*
-	 **	Init SVG Text shortcode resizing style for text
-	 */
-	function evcSVGTextResizeStyle() {
-		var holder = $('.evc-svg-text');
-		
-		if (holder.length) {
-			holder.each(function () {
-				var thisItem = $(this),
-					itemClass = '',
-					itemClassData = thisItem.data('item-class'),
-					laptopFSData = thisItem.data('font-size-1440'),
-					smallLaptopFSData = thisItem.data('font-size-1366'),
-					macLaptopFSData = thisItem.data('font-size-1280'),
-					ipadLandscapeFSData = thisItem.data('font-size-1024'),
-					ipadPortraitFSData = thisItem.data('font-size-768'),
-					mobileFSData = thisItem.data('font-size-680'),
-					laptopStyle = '',
-					smallLaptopStyle = '',
-					macLaptopStyle = '',
-					ipadLandscapeStyle = '',
-					ipadPortraitStyle = '',
-					mobileLandscapeStyle = '',
-					style = '',
-					responsiveStyle = '';
-				
-				if (typeof itemClassData !== 'undefined' && itemClassData !== false) {
-					itemClass = itemClassData;
-				}
-				
-				if (typeof laptopFSData !== 'undefined' && laptopFSData !== false) {
-					laptopStyle += 'font-size: ' + laptopFSData + ' !important;';
-					laptopStyle += 'height: ' + laptopFSData + ' !important;';
-				}
-				if (typeof smallLaptopFSData !== 'undefined' && smallLaptopFSData !== false) {
-					smallLaptopStyle += 'font-size: ' + smallLaptopFSData + ' !important;';
-					smallLaptopStyle += 'height: ' + smallLaptopFSData + ' !important;';
-				}
-				if (typeof macLaptopFSData !== 'undefined' && macLaptopFSData !== false) {
-					macLaptopStyle += 'font-size: ' + macLaptopFSData + ' !important;';
-					macLaptopStyle += 'height: ' + macLaptopFSData + ' !important;';
-				}
-				if (typeof ipadLandscapeFSData !== 'undefined' && ipadLandscapeFSData !== false) {
-					ipadLandscapeStyle += 'font-size: ' + ipadLandscapeFSData + ' !important;';
-					ipadLandscapeStyle += 'height: ' + ipadLandscapeFSData + ' !important;';
-				}
-				if (typeof ipadPortraitFSData !== 'undefined' && ipadPortraitFSData !== false) {
-					ipadPortraitStyle += 'font-size: ' + ipadPortraitFSData + ' !important;';
-					ipadPortraitStyle += 'height: ' + ipadPortraitFSData + ' !important;';
-				}
-				if (typeof mobileFSData !== 'undefined' && mobileFSData !== false) {
-					mobileLandscapeStyle += 'font-size: ' + mobileFSData + ' !important;';
-					mobileLandscapeStyle += 'height: ' + mobileFSData + ' !important;';
-				}
-				
-				if (laptopStyle.length || smallLaptopStyle.length || macLaptopStyle.length || ipadLandscapeStyle.length || ipadPortraitStyle.length || mobileLandscapeStyle.length) {
-					
-					if (laptopStyle.length) {
-						responsiveStyle += "@media only screen and (max-width: 1440px) {.evc-svg-text." + itemClass + " { " + laptopStyle + " } }";
-					}
-					if (smallLaptopStyle.length) {
-						responsiveStyle += "@media only screen and (max-width: 1366px) {.evc-svg-text." + itemClass + " { " + smallLaptopStyle + " } }";
-					}
-					if (macLaptopStyle.length) {
-						responsiveStyle += "@media only screen and (max-width: 1280px) {.evc-svg-text." + itemClass + " { " + macLaptopStyle + " } }";
-					}
-					if (ipadLandscapeStyle.length) {
-						responsiveStyle += "@media only screen and (max-width: 1024px) {.evc-svg-text." + itemClass + " { " + ipadLandscapeStyle + " } }";
-					}
-					if (ipadPortraitStyle.length) {
-						responsiveStyle += "@media only screen and (max-width: 768px) {.evc-svg-text." + itemClass + " { " + ipadPortraitStyle + " } }";
-					}
-					if (mobileLandscapeStyle.length) {
-						responsiveStyle += "@media only screen and (max-width: 680px) {.evc-svg-text." + itemClass + " { " + mobileLandscapeStyle + " } }";
-					}
-				}
-				
-				if (responsiveStyle.length) {
-					style = '<style type="text/css">' + responsiveStyle + '</style>';
-				}
-				
-				if (style.length) {
-					$('head').append(style);
-				}
-			});
-		}
-	}
-	
-})(jQuery);
-(function ($) {
-	'use strict';
-	
-	$(document).ready(function () {
-		evcInitProgressBar();
-	});
-	
-	/*
-	 **	Init progress bar shortcode functionality
-	 */
-	function evcInitProgressBar() {
-		var progressBar = $('.evc-progress-bar');
-		
-		if (progressBar.length) {
-			progressBar.each(function () {
-				var thisBar = $(this),
-					isVerticalType = thisBar.hasClass('evc-pb-vertical'),
-					percent = thisBar.find('.evc-pb-percent'),
-					barContent = thisBar.find('.evc-pb-active-bar'),
-					percentValue = parseFloat(barContent.data('percentage'));
-				
-				if (typeof percentValue !== 'undefined' && percentValue !== false) {
-					thisBar.appear(function () {
-						evcInitProgressBarCounter(percent, percentValue);
-						
-						if(isVerticalType) {
-							barContent.stop().animate({'height': percentValue + '%'}, 1500);
-						} else {
-							barContent.stop().animate({'width': percentValue + '%'}, 1500);
-						}
-					}, {accX: 0, accY: -80});
-				}
-			});
-		}
-	}
-	
-	/*
-	 **	Init progress bar shortcode counter to count percent from zero to defined percent value
-	 */
-	function evcInitProgressBarCounter(percent, percentValue) {
-		
-		if (percent.length) {
-			percent.each(function () {
-				var thisPercent = $(this);
-				
-				thisPercent.css({'opacity': '1'}).countTo({
-					from: 0,
-					to: percentValue,
-					speed: 1500,
-					refreshInterval: 50
-				});
-			});
-		}
-	}
-	
 })(jQuery);

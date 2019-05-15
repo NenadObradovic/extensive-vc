@@ -88,6 +88,16 @@ if ( ! class_exists( 'EVCFullScreenSections' ) ) {
 					'param_name'  => 'top_margin_offset',
 					'heading'     => esc_html__( 'Top Margin Offset (px)', 'extensive-vc' ),
 					'description' => esc_html__( 'Defines top margin offset to put shortcode behind header if header element is not transparent', 'extensive-vc' )
+				),
+				array(
+					'type'       => 'dropdown',
+					'param_name' => 'slide_animation',
+					'heading'    => esc_html__( 'Choose Slide Animation', 'extensive-vc' ),
+					'value'      => array(
+						esc_html__( 'Predefined', 'extensive-vc' ) => 'predefined',
+						esc_html__( 'Slide', 'extensive-vc' )      => 'slide'
+					
+					)
 				)
 			);
 			
@@ -106,11 +116,12 @@ if ( ! class_exists( 'EVCFullScreenSections' ) ) {
 			$args   = array(
 				'custom_class'      => '',
 				'enable_navigation' => 'yes',
-				'top_margin_offset' => ''
+				'top_margin_offset' => '',
+				'slide_animation'   => 'predefined'
 			);
 			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
-			$params['holder_classes'] = $this->getHolderClasses( $params );
+			$params['holder_classes'] = $this->getHolderClasses( $params, $args );
 			$params['holder_styles']  = $this->getHolderStyles( $params );
 			$params['holder_data']    = $this->getHolderData( $params );
 			
@@ -125,13 +136,15 @@ if ( ! class_exists( 'EVCFullScreenSections' ) ) {
 		 * Get shortcode holder classes
 		 *
 		 * @param $params array - shortcode parameters
+		 * @param $args array - default shortcode parameters
 		 *
 		 * @return string
 		 */
-		private function getHolderClasses( $params ) {
+		private function getHolderClasses( $params, $args ) {
 			$holderClasses = array();
 			
 			$holderClasses[] = ! empty( $params['custom_class'] ) ? esc_attr( $params['custom_class'] ) : '';
+			$holderClasses[] = ! empty( $params['slide_animation'] ) ? 'evc-animation-' . esc_attr( $params['slide_animation'] ) : 'evc-animation-' . esc_attr( $args['slide_animation'] );
 			
 			return implode( ' ', $holderClasses );
 		}

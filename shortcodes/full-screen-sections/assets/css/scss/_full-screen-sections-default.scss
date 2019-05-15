@@ -56,30 +56,9 @@ html.fp-enabled,
 	
 	.evc-fss-wrapper {
 		visibility: hidden;
-		-webkit-transition: -webkit-transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) 1s !important;
-		-moz-transition: -moz-transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) 1s !important;
-		transition: transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) 1s !important;
-		-webkit-transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
-		-moz-transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
-		transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
 		
 		&.evc-fss-is-loaded {
 			visibility: visible;
-		}
-		
-		&.evc-fss-first-init {
-			
-			.evc-fss-item {
-				
-				&.active {
-					
-					.evc-fssi-bg {
-						-webkit-transition: none !important;
-						-moz-transition: none !important;
-						transition: none !important;
-					}
-				}
-			}
 		}
 	}
 	
@@ -89,27 +68,10 @@ html.fp-enabled,
 		padding: 5%;
 		box-sizing: border-box;
 		
-		&.active {
-			
-			.evc-fssi-bg {
-				-webkit-transition-delay: 2s !important;
-				-moz-transition-delay: 2s !important;
-				transition-delay: 2s !important;
-				@include evcTransform(scale(1));
-			}
-		}
-		
 		.evc-fssi-bg {
 			@include evcAbsoluteLayout();
 			background-position: center;
 			background-size: cover;
-			-webkit-transition: -webkit-transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) !important;
-			-moz-transition: -moz-transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) !important;
-			transition: transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) !important;
-			-webkit-transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
-			-moz-transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
-			transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
-			@include evcTransform(scale(0.6));
 		}
 		
 		.fp-scroller {
@@ -209,6 +171,60 @@ html.fp-enabled,
 			}
 		}
 	}
+	
+	/***** Slide Animation styles - begin *****/
+	
+	&.evc-animation-predefined {
+		
+		.evc-fss-wrapper {
+			-webkit-transition: -webkit-transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) 1s !important;
+			-moz-transition: -moz-transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) 1s !important;
+			transition: transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) 1s !important;
+			-webkit-transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+			-moz-transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+			transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+			
+			&.evc-fss-first-init {
+				
+				.evc-fss-item {
+					
+					&.active {
+						
+						.evc-fssi-bg {
+							-webkit-transition: none !important;
+							-moz-transition: none !important;
+							transition: none !important;
+						}
+					}
+				}
+			}
+		}
+		
+		.evc-fss-item {
+			
+			.evc-fssi-bg {
+				-webkit-transition: -webkit-transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+				-moz-transition: -moz-transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+				transition: transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+				-webkit-transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+				-moz-transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+				transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+				@include evcTransform(scale(0.6));
+			}
+			
+			&.active {
+				
+				.evc-fssi-bg {
+					-webkit-transition-delay: 2s !important;
+					-moz-transition-delay: 2s !important;
+					transition-delay: 2s !important;
+					@include evcTransform(scale(1));
+				}
+			}
+		}
+	}
+	
+	/***** Slide Animation styles - end *****/
 }
 
 /* ==========================================================================

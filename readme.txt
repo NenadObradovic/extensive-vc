@@ -3,8 +3,8 @@ Contributors: nenad-obradovic
 Tags: visual composer, visual composer addons, wpbakery page builder, wpbakery addons, wpbakery shortcodes
 Donate link: http://wprealize.com/donate/
 Requires at least: 4.6
-Tested up to: 5.1.1
-Stable tag: 1.7.6
+Tested up to: 5.2
+Stable tag: 1.7.7
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -114,6 +114,10 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 5. Blockquote shortcode example.
 
 == Changelog ==
+
+1.7.7
+- Added Choose Slide Animation option for Full Screen Sections shortcode
+- Fixed Custom CSS Class option for Tabs Item shortcode
 
 1.7.6
 - Added Title options for Icon Progress Bar shortcode

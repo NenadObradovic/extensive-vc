@@ -2895,26 +2895,16 @@ html.fp-enabled,
   display: inline-block;
   width: 100%;
   vertical-align: top;
+  /***** Slide Animation styles - begin *****/
+  /***** Slide Animation styles - end *****/
 }
 
 .evc-full-screen-sections .evc-fss-wrapper {
   visibility: hidden;
-  -webkit-transition: -webkit-transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) 1s !important;
-  -moz-transition: -moz-transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) 1s !important;
-  transition: transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) 1s !important;
-  -webkit-transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
-  -moz-transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
-  transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
 }
 
 .evc-full-screen-sections .evc-fss-wrapper.evc-fss-is-loaded {
   visibility: visible;
-}
-
-.evc-full-screen-sections .evc-fss-wrapper.evc-fss-first-init .evc-fss-item.active .evc-fssi-bg {
-  -webkit-transition: none !important;
-  -moz-transition: none !important;
-  transition: none !important;
 }
 
 .evc-full-screen-sections .evc-fss-item {
@@ -2927,15 +2917,6 @@ html.fp-enabled,
   box-sizing: border-box;
 }
 
-.evc-full-screen-sections .evc-fss-item.active .evc-fssi-bg {
-  -webkit-transition-delay: 2s !important;
-  -moz-transition-delay: 2s !important;
-  transition-delay: 2s !important;
-  -webkit-transform: scale(1);
-  -moz-transform: scale(1);
-  transform: scale(1);
-}
-
 .evc-full-screen-sections .evc-fss-item .evc-fssi-bg {
   position: absolute;
   display: block;
@@ -2945,15 +2926,6 @@ html.fp-enabled,
   left: 0;
   background-position: center;
   background-size: cover;
-  -webkit-transition: -webkit-transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) !important;
-  -moz-transition: -moz-transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) !important;
-  transition: transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) !important;
-  -webkit-transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
-  -moz-transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
-  transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
-  -webkit-transform: scale(0.6);
-  -moz-transform: scale(0.6);
-  transform: scale(0.6);
 }
 
 .evc-full-screen-sections .evc-fss-item .fp-scroller > .vc_column_container {
@@ -3043,6 +3015,42 @@ html.fp-enabled,
 .evc-full-screen-sections .evc-fss-nav-holder a span:before {
   display: block;
   line-height: inherit;
+}
+
+.evc-full-screen-sections.evc-animation-predefined .evc-fss-wrapper {
+  -webkit-transition: -webkit-transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) 1s !important;
+  -moz-transition: -moz-transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) 1s !important;
+  transition: transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) 1s !important;
+  -webkit-transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+  -moz-transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+  transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+}
+
+.evc-full-screen-sections.evc-animation-predefined .evc-fss-wrapper.evc-fss-first-init .evc-fss-item.active .evc-fssi-bg {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  transition: none !important;
+}
+
+.evc-full-screen-sections.evc-animation-predefined .evc-fss-item .evc-fssi-bg {
+  -webkit-transition: -webkit-transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+  -moz-transition: -moz-transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+  transition: transform 1s cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+  -webkit-transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+  -moz-transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+  transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99) !important;
+  -webkit-transform: scale(0.6);
+  -moz-transform: scale(0.6);
+  transform: scale(0.6);
+}
+
+.evc-full-screen-sections.evc-animation-predefined .evc-fss-item.active .evc-fssi-bg {
+  -webkit-transition-delay: 2s !important;
+  -moz-transition-delay: 2s !important;
+  transition-delay: 2s !important;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  transform: scale(1);
 }
 
 /* ==========================================================================
