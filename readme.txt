@@ -119,6 +119,7 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 - Added Choose Slide Animation option for Full Screen Sections shortcode
 - Fixed Custom CSS Class option for Tabs Item shortcode
 - Fixed lightbox functionality for Single Image, Image With Text and Gallery Block shortcodes
+- Updated language pot file
 
 1.7.6
 - Added Title options for Icon Progress Bar shortcode

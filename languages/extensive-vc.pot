@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Extensive VC Pack plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Extensive VC Pack 1.7.6\n"
+"Project-Id-Version: Extensive VC Pack 1.7.7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/extensive-vc\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-02-11T19:03:48+01:00\n"
+"POT-Creation-Date: 2019-05-16T18:45:17+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.1.0\n"
 "X-Domain: extensive-vc\n"
@@ -2285,6 +2285,18 @@ msgstr ""
 
 #: shortcodes/full-screen-sections/full-screen-sections.php:90
 msgid "Defines top margin offset to put shortcode behind header if header element is not transparent"
+msgstr ""
+
+#: shortcodes/full-screen-sections/full-screen-sections.php:95
+msgid "Choose Slide Animation"
+msgstr ""
+
+#: shortcodes/full-screen-sections/full-screen-sections.php:97
+msgid "Predefined"
+msgstr ""
+
+#: shortcodes/full-screen-sections/full-screen-sections.php:98
+msgid "Slide"
 msgstr ""
 
 #: shortcodes/gallery-block/gallery-block.php:24
