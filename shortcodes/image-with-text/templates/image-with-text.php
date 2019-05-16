@@ -5,6 +5,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $id = rand( 1000, 9999 );
+
+wp_enqueue_style( 'lightbox' );
+wp_enqueue_script( 'lightbox' );
 ?>
 <div class="evc-image-with-text evc-shortcode <?php echo esc_attr( $holder_classes ); ?>">
 	<div class="evc-iwt-image <?php echo esc_attr( $image_classes ); ?>">

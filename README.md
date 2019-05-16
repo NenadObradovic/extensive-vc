@@ -93,6 +93,7 @@ You can find all instructions about plugin and all shortcodes in website <a href
 <h5>1.7.7</h5>
 - Added Choose Slide Animation option for Full Screen Sections shortcode <br />
 - Fixed Custom CSS Class option for Tabs Item shortcode <br />
+- Fixed lightbox functionality for Single Image, Image With Text and Gallery Block shortcodes <br />
 
 <h5>1.7.6</h5>
 - Added Title options for Icon Progress Bar shortcode <br />
