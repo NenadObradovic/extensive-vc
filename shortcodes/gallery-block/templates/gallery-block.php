@@ -24,8 +24,10 @@ wp_enqueue_script( 'lightbox' );
 			?>
 			<div class="evc-gb-image-wrapper evc-element-item <?php echo esc_attr( $image_wrapper_classes ); ?>">
 				<div class="evc-gb-image <?php echo esc_attr( $image_classes ); ?>">
-					<?php if ( ! empty( $custom_links ) && $image_behavior !== 'lightbox' ) { ?>
-						<a class="evc-gb-custom-link" href="<?php echo esc_url( $custom_links[ $i ] ); ?>" target="<?php echo esc_attr( $custom_link_target ); ?>" title="<?php echo esc_attr( $image['title'] ); ?>">
+					<?php if ( ! empty( $custom_links ) && $image_behavior !== 'lightbox' ) {
+						$custom_link_value = isset( $custom_links[ $i ] ) ? $custom_links[ $i ] : '#';
+						?>
+						<a class="evc-gb-custom-link" href="<?php echo esc_url( $custom_link_value ); ?>" target="<?php echo esc_attr( $custom_link_target ); ?>" title="<?php echo esc_attr( $image['title'] ); ?>">
 					<?php } ?>
 					
 					<?php if ( $image_behavior === 'lightbox' ) { ?>
