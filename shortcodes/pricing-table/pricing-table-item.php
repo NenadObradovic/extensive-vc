@@ -22,7 +22,7 @@ if ( ! class_exists( 'EVCPricingTableItem' ) ) {
 		function __construct() {
 			$this->setBase( 'evc_pricing_table_item' );
 			$this->setParentBase( 'evc_pricing_table' );
-			$this->setShortcodeName( esc_html__( 'Pricing Table Item', 'extensive-vc' ) );
+			$this->setShortcodeName( esc_html__( 'Pricing Table Item', 'extensive-vc-addon' ) );
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
@@ -35,15 +35,15 @@ if ( ! class_exists( 'EVCPricingTableItem' ) ) {
 		 * @return self
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
 		}
 		
 		/**
-		 * Set shortcode parameters for Visual Composer shortcodes options panel
+		 * Set shortcode parameters for WPBakery Page Builder shortcodes options panel
 		 */
 		function shortcodeParameters() {
 			$params = array_merge(
@@ -51,106 +51,106 @@ if ( ! class_exists( 'EVCPricingTableItem' ) ) {
 					array(
 						'type'        => 'textfield',
 						'param_name'  => 'custom_class',
-						'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc' ),
-						'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
+						'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc-addon' ),
+						'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'title',
-						'heading'    => esc_html__( 'Title', 'extensive-vc' )
+						'heading'    => esc_html__( 'Title', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'dropdown',
 						'param_name' => 'title_tag',
-						'heading'    => esc_html__( 'Title Tag', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Title Tag', 'extensive-vc-addon' ),
 						'value'      => array_flip( extensive_vc_get_title_tag_array( true, array( 'p' => 'p' ) ) ),
 						'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'title_color',
-						'heading'    => esc_html__( 'Title Color', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Title Color', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'price',
-						'heading'    => esc_html__( 'Price', 'extensive-vc' )
+						'heading'    => esc_html__( 'Price', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'price_bg_color',
-						'heading'    => esc_html__( 'Price Background Color', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Price Background Color', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'price', 'not_empty' => true ),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'attach_image',
 						'param_name' => 'price_bg_image',
-						'heading'    => esc_html__( 'Price Background Image', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Price Background Image', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'price', 'not_empty' => true ),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'price_color',
-						'heading'    => esc_html__( 'Price Color', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Price Color', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'price', 'not_empty' => true ),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'price_size',
-						'heading'    => esc_html__( 'Price Size (px)', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Price Size (px)', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'price', 'not_empty' => true ),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'        => 'textfield',
 						'param_name'  => 'currency',
-						'heading'     => esc_html__( 'Currency', 'extensive-vc' ),
-						'description' => esc_html__( 'Default mark is $', 'extensive-vc' )
+						'heading'     => esc_html__( 'Currency', 'extensive-vc-addon' ),
+						'description' => esc_html__( 'Default mark is $', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'currency_color',
-						'heading'    => esc_html__( 'Currency Color', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Currency Color', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'currency', 'not_empty' => true ),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'currency_size',
-						'heading'    => esc_html__( 'Currency Size (px)', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Currency Size (px)', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'currency', 'not_empty' => true ),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'        => 'textfield',
 						'param_name'  => 'price_period',
-						'heading'     => esc_html__( 'Price Period', 'extensive-vc' ),
-						'description' => esc_html__( 'Default label is monthly', 'extensive-vc' )
+						'heading'     => esc_html__( 'Price Period', 'extensive-vc-addon' ),
+						'description' => esc_html__( 'Default label is monthly', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'price_period_color',
-						'heading'    => esc_html__( 'Price Period Color', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Price Period Color', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'price_period', 'not_empty' => true ),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'price_period_size',
-						'heading'    => esc_html__( 'Price Period Size (px)', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Price Period Size (px)', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'price_period', 'not_empty' => true ),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'button_text',
-						'heading'    => esc_html__( 'Button Text', 'extensive-vc' )
+						'heading'    => esc_html__( 'Button Text', 'extensive-vc-addon' )
 					)
 				),
 				extensive_vc_get_button_shortcode_options_array(),
@@ -158,20 +158,20 @@ if ( ! class_exists( 'EVCPricingTableItem' ) ) {
 					array(
 						'type'       => 'textarea_html',
 						'param_name' => 'content',
-						'heading'    => esc_html__( 'Content', 'extensive-vc' ),
-						'value'      => '<li>' . esc_html__( 'This is pricing table item content', 'extensive-vc' ) . '</li><li>' . esc_html__( 'This is pricing table item content', 'extensive-vc' ) . '</li><li>' . esc_html__( 'This is pricing table item content', 'extensive-vc' ) . '</li>'
+						'heading'    => esc_html__( 'Content', 'extensive-vc-addon' ),
+						'value'      => '<li>' . esc_html__( 'This is pricing table item content', 'extensive-vc-addon' ) . '</li><li>' . esc_html__( 'This is pricing table item content', 'extensive-vc-addon' ) . '</li><li>' . esc_html__( 'This is pricing table item content', 'extensive-vc-addon' ) . '</li>'
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'content_bg_color',
-						'heading'    => esc_html__( 'Background Color', 'extensive-vc' ),
-						'group'      => esc_html__( 'Content Options', 'extensive-vc' )
+						'heading'    => esc_html__( 'Background Color', 'extensive-vc-addon' ),
+						'group'      => esc_html__( 'Content Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'content_border_color',
-						'heading'    => esc_html__( 'Border Color', 'extensive-vc' ),
-						'group'      => esc_html__( 'Content Options', 'extensive-vc' )
+						'heading'    => esc_html__( 'Border Color', 'extensive-vc-addon' ),
+						'group'      => esc_html__( 'Content Options', 'extensive-vc-addon' )
 					)
 				)
 			);

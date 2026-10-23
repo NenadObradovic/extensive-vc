@@ -21,7 +21,7 @@ if ( ! class_exists( 'EVCDropcaps' ) ) {
 		 */
 		function __construct() {
 			$this->setBase( 'evc_dropcaps' );
-			$this->setShortcodeName( esc_html__( 'Dropcaps', 'extensive-vc' ) );
+			$this->setShortcodeName( esc_html__( 'Dropcaps', 'extensive-vc-addon' ) );
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
@@ -34,90 +34,90 @@ if ( ! class_exists( 'EVCDropcaps' ) ) {
 		 * @return self
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
 		}
 		
 		/**
-		 * Set shortcode parameters for Visual Composer shortcodes options panel
+		 * Set shortcode parameters for WPBakery Page Builder shortcodes options panel
 		 */
 		function shortcodeParameters() {
 			$params = array(
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'custom_class',
-					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc' ),
-					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
+					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'dropdown',
 					'param_name'  => 'type',
-					'heading'     => esc_html__( 'Type', 'extensive-vc' ),
+					'heading'     => esc_html__( 'Type', 'extensive-vc-addon' ),
 					'value'       => array(
-						esc_html__( 'Simple', 'extensive-vc' ) => 'simple',
-						esc_html__( 'Circle', 'extensive-vc' ) => 'circle',
-						esc_html__( 'Square', 'extensive-vc' ) => 'square'
+						esc_html__( 'Simple', 'extensive-vc-addon' ) => 'simple',
+						esc_html__( 'Circle', 'extensive-vc-addon' ) => 'circle',
+						esc_html__( 'Square', 'extensive-vc-addon' ) => 'square'
 					),
 					'admin_label' => true
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'letter',
-					'heading'     => esc_html__( 'Letter', 'extensive-vc' ),
+					'heading'     => esc_html__( 'Letter', 'extensive-vc-addon' ),
 					'admin_label' => true
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'letter_color',
-					'heading'    => esc_html__( 'Letter Color', 'extensive-vc' ),
-					'group'      => esc_html__( 'Letter Options', 'extensive-vc' )
+					'heading'    => esc_html__( 'Letter Color', 'extensive-vc-addon' ),
+					'group'      => esc_html__( 'Letter Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'letter_bg_color',
-					'heading'    => esc_html__( 'Letter Background Color', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Letter Background Color', 'extensive-vc-addon' ),
 					'dependency' => array( 'element' => 'type', 'value' => array( 'circle', 'square' ) ),
-					'group'      => esc_html__( 'Letter Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Letter Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'letter_font_size',
-					'heading'    => esc_html__( 'Letter Font Size (px or em)', 'extensive-vc' ),
-					'group'      => esc_html__( 'Letter Options', 'extensive-vc' )
+					'heading'    => esc_html__( 'Letter Font Size (px or em)', 'extensive-vc-addon' ),
+					'group'      => esc_html__( 'Letter Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'letter_line_height',
-					'heading'    => esc_html__( 'Letter Line Height (px or em)', 'extensive-vc' ),
-					'group'      => esc_html__( 'Letter Options', 'extensive-vc' )
+					'heading'    => esc_html__( 'Letter Line Height (px or em)', 'extensive-vc-addon' ),
+					'group'      => esc_html__( 'Letter Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'letter_font_weight',
-					'heading'    => esc_html__( 'Letter Font Weight', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Letter Font Weight', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_font_weight_array( true ) ),
-					'group'      => esc_html__( 'Letter Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Letter Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'letter_margin',
-					'heading'     => esc_html__( 'Letter Margin', 'extensive-vc' ),
-					'description' => esc_html__( 'Insert margin in format: top right bottom left (e.g. 10px 5px 10px 5px)', 'extensive-vc' ),
-					'group'       => esc_html__( 'Letter Options', 'extensive-vc' )
+					'heading'     => esc_html__( 'Letter Margin', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Insert margin in format: top right bottom left (e.g. 10px 5px 10px 5px)', 'extensive-vc-addon' ),
+					'group'       => esc_html__( 'Letter Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textarea',
 					'param_name' => 'text',
-					'heading'    => esc_html__( 'Text', 'extensive-vc' )
+					'heading'    => esc_html__( 'Text', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'text_color',
-					'heading'    => esc_html__( 'Text Color', 'extensive-vc' ),
-					'group'      => esc_html__( 'Text Options', 'extensive-vc' )
+					'heading'    => esc_html__( 'Text Color', 'extensive-vc-addon' ),
+					'group'      => esc_html__( 'Text Options', 'extensive-vc-addon' )
 				)
 			);
 			
@@ -210,7 +210,7 @@ if ( ! class_exists( 'EVCDropcaps' ) ) {
 			}
 			
 			if ( ! empty( $params['letter_font_size'] ) ) {
-				if ( extensive_vc_string_ends_with( $params['letter_font_size'], 'px' ) || extensive_vc_string_ends_with( $params['letter_font_size'], 'em' ) ) {
+				if ( extensive_vc_string_ends_with_typography_units( $params['letter_font_size'] ) ) {
 					$styles[] = 'font-size: ' . $params['letter_font_size'];
 				} else {
 					$styles[] = 'font-size: ' . $params['letter_font_size'] . 'px';
@@ -218,7 +218,7 @@ if ( ! class_exists( 'EVCDropcaps' ) ) {
 			}
 			
 			if ( ! empty( $params['letter_line_height'] ) ) {
-				if ( extensive_vc_string_ends_with( $params['letter_line_height'], 'px' ) || extensive_vc_string_ends_with( $params['letter_line_height'], 'em' ) ) {
+				if ( extensive_vc_string_ends_with_typography_units( $params['letter_line_height'] ) ) {
 					$styles[] = 'line-height: ' . $params['letter_line_height'];
 				} else {
 					$styles[] = 'line-height: ' . $params['letter_line_height'] . 'px';

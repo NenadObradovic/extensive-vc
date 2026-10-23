@@ -7,7 +7,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 wp_enqueue_style( 'owl-carousel' );
 wp_enqueue_script( 'owl-carousel' );
 ?>
+<?php do_action( 'extensive_vc_action_before_testimonials', $params ); ?>
 <div class="evc-testimonials evc-shortcode <?php echo esc_attr( $holder_classes ); ?>">
+	<?php do_action( 'extensive_vc_action_testimonials_before_content', $params ); ?>
 	<div class="evc-t-inner evc-owl-carousel clearfix" <?php extensive_vc_print_inline_attrs( $slider_data, true ); ?>>
 		<?php
 			if ( $query_results->have_posts() ):
@@ -20,13 +22,15 @@ wp_enqueue_script( 'owl-carousel' );
 					$params['author']     = get_post_meta( $current_post_id, 'evc_testimonial_author', true );
 					$params['position']   = get_post_meta( $current_post_id, 'evc_testimonial_position', true );
 					
-					echo extensive_vc_get_module_template_part( 'cpt', 'testimonials', 'templates/testimonials-item', '', $params );
+					extensive_vc_template_part( 'cpt', 'testimonials', 'templates/testimonials-item', '', $params );
 				endwhile;
 			else:
-				echo extensive_vc_get_module_template_part( 'cpt', 'testimonials', 'templates/parts/not-found' );
+				extensive_vc_template_part( 'cpt', 'testimonials', 'templates/parts/not-found' );
 			endif;
 			
 			wp_reset_postdata();
 		?>
 	</div>
+	<?php do_action( 'extensive_vc_action_testimonials_after_content', $params ); ?>
 </div>
+<?php do_action( 'extensive_vc_action_after_testimonials', $params ); ?>

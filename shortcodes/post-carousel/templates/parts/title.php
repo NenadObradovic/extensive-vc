@@ -5,4 +5,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<<?php echo esc_attr( $title_tag ); ?> class="evc-pci-title entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></<?php echo esc_attr( $title_tag ); ?>>
+<<?php echo esc_attr( extensive_vc_escape_title_tag( $title_tag ) ); ?> class="evc-pci-title entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></<?php echo esc_attr( extensive_vc_escape_title_tag( $title_tag ) ); ?>>

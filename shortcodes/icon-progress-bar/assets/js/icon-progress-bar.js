@@ -20,7 +20,7 @@
 					timeouts = [];
 
 				if (barIcons.length && typeof numberOfActiveIcons !== 'undefined' && numberOfActiveIcons !== false) {
-					thisBar.appear(function () {
+					evc.evcIsInViewport.check(thisBar, function () {
 						barIcons.each(function (i) {
 							if (i < numberOfActiveIcons) {
 								var time = (i + 1) * 150;
@@ -34,7 +34,7 @@
 								}, time);
 							}
 						});
-					}, {accX: 0, accY: -80});
+					});
 				}
 			});
 		}

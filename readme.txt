@@ -1,23 +1,23 @@
-=== Extensive VC Addons for WPBakery page builder ===
+=== Extensive VC Addons for WPBakery Page Builder ===
 Contributors: nenad-obradovic
-Tags: visual composer, visual composer addons, wpbakery page builder, wpbakery addons, wpbakery shortcodes
+Tags: wpbakery, wpbakery addons, wpbakery page builder, shortcodes
 Donate link: http://wprealize.com/donate/
-Requires at least: 4.6
-Tested up to: 5.2
-Stable tag: 1.7.7
-Requires PHP: 5.3
+Requires at least: 6.0
+Tested up to: 7.1
+Stable tag: 2.0
+Requires PHP: 8.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Extensive addons or extensions for WPBakery page builder ex. Visual Composer, which allows you to add unique, flexible and fully responsive shortcodes
+Extensive addons or extensions for WPBakery page builder, which allows you to add unique, flexible and fully responsive shortcodes
 
 == Description ==
 
-<blockquote>Extensive WordPress Addons Plugin For WPBakery Page Builder (formerly Visual Composer)</blockquote>
+<blockquote>Extensive WordPress Addons Plugin For WPBakery Page Builder</blockquote>
 
-Extensive VC is a powerful WordPress tool which allows you to add unique, flexible and fully responsive shortcode elements on your site. It is an addons for premium plugin <a href="https://codecanyon.net/item/visual-composer-page-builder-for-wordpress/242431?ref=extensive-vc-addon" target="_blank"><strong>WPBakery Page Builder</strong></a> (formerly Visual Composer), so first you need to install/activate this required plugin to be able to use Extensive VC plugin. Plugin contains four packs of shortcode elements (classic, interactive, infographic and typography). All of these shortcode packs you can find in our website in Elements section inside header menu.
+Extensive VC is a powerful WordPress tool which allows you to add unique, flexible and fully responsive shortcode elements on your site. It is an addons for premium plugin <a href="https://codecanyon.net/item/visual-composer-page-builder-for-wordpress/242431?ref=extensive-vc-addon" target="_blank"><strong>WPBakery Page Builder</strong></a>, so first you need to install/activate this required plugin to be able to use Extensive VC plugin. Plugin contains four packs of shortcode elements (classic, interactive, infographic and typography). All of these shortcode packs you can find in our website in Elements section inside header menu.
 
-See the all of addons elements in the action here - <a href="http://wprealize.com/" target="_blank" title="Extensive VC Addons for Visual Composer"><strong>LIVE DEMO</strong></a>
+See the all of addons elements in the action here - <a href="http://wprealize.com/" target="_blank" title="Extensive VC Addons for WPBakery Page Builder"><strong>LIVE DEMO</strong></a>
 
 <a href="https://github.com/NenadObradovic/extensive-vc" target="_blank" title="Extensive VC Addons - GitHub"><strong>GitHub Version</strong></a>
 
@@ -73,7 +73,7 @@ See the all of addons elements in the action here - <a href="http://wprealize.co
 </ul>
 <h4 style="margin-top: 1rem;">4. Plugins Compatibility</h4>
 <ul>
-    <li><a href="https://codecanyon.net/item/visual-composer-page-builder-for-wordpress/242431?ref=extensive-vc-addon" target="_blank">WPBakery Page Builder (formerly Visual Composer)</a></li>
+    <li><a href="https://codecanyon.net/item/visual-composer-page-builder-for-wordpress/242431?ref=extensive-vc-addon" target="_blank">WPBakery Page Builder</a></li>
     <li><a href="https://wordpress.org/plugins/contact-form-7" target="_blank">Contact Form 7</a></li>
     <li><a href="https://wordpress.org/plugins/woocommerce/" target="_blank">WooCommerce</a></li>
 </ul>
@@ -88,7 +88,7 @@ From your WordPress dashboard
 1. Go to your WordPress Dashboard -> Plugins -> Add New
 2. Search for Extensive VC
 3. Activate Extensive VC from your Plugins page. (You'll be greeted with a Welcome page.)
-4. Go to your pages and create some elements with WPBakery page builder (formerly Visual Composer) and inside page builder add element you will see Extensive VC tab with our shortcodes
+4. Go to your pages and create some elements with WPBakery page builder and inside page builder add element you will see Extensive VC tab with our shortcodes
 5. Visit your site and enjoy :)
 
 From wordpress.org
@@ -96,14 +96,14 @@ From wordpress.org
 1. Download Extensive VC.
 2. Upload the extensive-vc directory to your ‘/wp-content/plugins/’ directory, using your favorite method (ftp, sftp, scp, etc…)
 3. Activate Extensive VC from your Plugins page. (You'll be greeted with a Welcome page.)
-4. Go to your pages and create some elements with WPBakery page builder (formerly Visual Composer) and inside page builder add element you will see Extensive VC tab with our shortcodes
+4. Go to your pages and create some elements with WPBakery page builder and inside page builder add element you will see Extensive VC tab with our shortcodes
 5. Visit your site and enjoy :)
 
 == Frequently Asked Questions ==
 
 = I activated the Extensive VC Plugin but I cannot see It In the dashboard panel? =
 
-My plugin it is extension for WPBakery page builder (formerly Visual Composer) so you must first install/activate WPBakery page builder (formerly Visual Composer) plugin. After you activate the required plugin, the elements should be available for use in WPBakery page builder (formerly Visual Composer) shortcode section.
+My plugin it is extension for WPBakery page builder so you must first install/activate WPBakery page builder plugin. After you activate the required plugin, the elements should be available for use in WPBakery page builder shortcode section.
 
 == Screenshots ==
 
@@ -114,6 +114,81 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 5. Blockquote shortcode example.
 
 == Changelog ==
+
+2.0
+- Added PHP 8.4 compatibility
+- Added WordPress 7.1 compatibility
+- Added WooCommerce High-Performance Order Storage and Cart/Checkout blocks compatibility
+- Added Polylang and WPML support for Blog List load more pagination
+- Added before/after action hooks into shortcode templates (e.g. extensive_vc_action_before_button, extensive_vc_action_button_before_content)
+- Added extensive_vc_filter_query_params, extensive_vc_filter_pagination_data_return filters and extensive_vc_trigger_pagination_loaded JS event for pagination customization
+- Added extensive_vc_action_save_post_meta_box hook and array values support for meta box fields
+- Added Image Size option for Icon With Text custom icon and Process 2 item image
+- Added basic inline HTML support (strong, em, a, br...) for Icon List item text
+- Added inline SVG icons instead of Ionicons icon font
+- Added custom viewport check script (IntersectionObserver) instead of jQuery Appear library
+- Added plugin version to enqueued scripts and styles
+- Updated Chart.js script to v4.5.1
+- Updated Lightbox script to v2.12.0
+- Updated minimum requirements to PHP 8.2 and WordPress 6.0
+- Updated text domain to extensive-vc-addon (plugin slug) so translations from translate.wordpress.org are loaded
+- Updated language pot file
+- Improved plugin security, all user inputs are sanitized and all outputs are escaped
+- Improved 3rd party libraries registration, all libraries are registered once with standard handles (owl-carousel, lightbox, chart-js, fullpage, jquery-countto) so the same library is not loaded multiple times
+- Improved helper functions for html attributes, string units, image sizes and ajax response
+- Improved image size option to support all registered image sizes
+- Improved categories autocomplete fields to use WordPress terms API instead of direct database queries
+- Improved Text Marquee animation performance, animation is paused when element is not visible
+- Improved Google Fonts loading with display swap
+- Improved plugin files loading with require_once and absolute paths
+- Fixed Unauthenticated Local File Inclusion via shortcode pagination ajax request (CVE-2025-14475)
+- Fixed template part paths (module, template and slug) sanitization before including files
+- Fixed pagination ajax request to accept only allowed shortcodes and sanitized options
+- Fixed title tag options escaping through list of allowed HTML tags
+- Fixed admin options and meta box fields sanitization before saving, meta box nonce is always verified
+- Fixed escaping of lightbox image titles
+- Fixed fatal error on front-end when WPBakery Page Builder plugin is not active, plugin is not deactivated automatically anymore
+- Fixed PHP 8 fatal error in WooCommerce product checks when product is not available
+- Fixed Undefined index notices on clients/testimonials save
+- Fixed PHP warning when single number is used for image size option
+- Fixed Product List shortcode to exclude products hidden from catalog and out of stock products when WooCommerce option is enabled
+- Fixed Contact Form 7 widget not listing contact forms
+- Fixed widgets select fields markup and textarea fields sanitization
+- Fixed lightbox script not loaded for Gallery Block, Single Image and Image With Text shortcodes when Image Gallery shortcode is disabled
+- Fixed Blog List load more ignoring zero values such as excerpt length 0
+- Fixed Text Marquee overlapping at the loop point and resize event handlers registered on every animation frame
+- Fixed Progress Bar percent value displayed before the animation and counter final value
+- Fixed deprecated jQuery resize event shorthand
+- Fixed activation redirect to plugin About page
+- Removed Ionicons font files and Disable Ionicons Font option
+- Removed jQuery Appear library
+- Removed duplicated Chart.js and counter scripts
+- Removed empty magic methods
+- Removed load_plugin_textdomain function, translations are loaded automatically by WordPress
+
+1.9.1
+- Improved plugins security (WPScan)
+- Updated language pot file
+
+1.9
+- Added WordPress 5.6 compatibility
+- Improved button size option with Full Width value
+- Updated Lightbox script to v2.11.2
+- Updated Chart script to v2.8.0
+- Updated language pot file
+
+1.8.1
+- Improved singleton getInstance method
+- Updated Lightbox script to v2.11.1
+- Fixed meta box save function to check only plugin meta box fields
+
+1.8
+- Renamed extensive_vc_is_visual_composer_installed function to extensive_vc_is_wpbakery_page_builder_installed
+- Renamed Visual Composer labels with WPBakery Page Builder
+- Fixed Custom CSS Class option for Text Marquee shortcode
+- Fixed Custom Link rendering for Interactive Banner shortcode
+- Fixed Extensive VC Settings -> Disable Shortcodes global options
+- Updated language pot file
 
 1.7.7
 - Added Choose Slide Animation option for Full Screen Sections shortcode
@@ -404,3 +479,8 @@ My plugin it is extension for WPBakery page builder (formerly Visual Composer) s
 
 = 1.0 =
 - Initial release.
+
+== Upgrade Notice ==
+
+= 2.0 =
+Important security release. Requires PHP 8.2+ and WordPress 6.0+. Ionicons font is removed and Chart.js is updated to v4, please check your custom code if it uses ion-* icon classes or window.evc chart objects.

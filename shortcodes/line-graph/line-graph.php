@@ -22,7 +22,7 @@ if ( ! class_exists( 'EVCLineGraph' ) ) {
 		function __construct() {
 			$this->setBase( 'evc_line_graph' );
 			$this->setChildBase( 'evc_line_graph_item' );
-			$this->setShortcodeName( esc_html__( 'Line Graph', 'extensive-vc' ) );
+			$this->setShortcodeName( esc_html__( 'Line Graph', 'extensive-vc-addon' ) );
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
@@ -31,7 +31,6 @@ if ( ! class_exists( 'EVCLineGraph' ) ) {
 			// Additional methods need to be loaded after parent constructor loaded if we used methods from the parent class
 			if ( $this->getIsShortcodeEnabled() ) {
 				add_filter( 'extensive_vc_filter_add_vc_shortcodes_custom_style', array( $this, 'addShortcodeIconCustomStyle' ) );
-				add_action( 'extensive_vc_enqueue_additional_scripts_before_main_js', array( $this, 'enqueueShortcodeAdditionalScripts' ) );
 			}
 		}
 		
@@ -41,15 +40,15 @@ if ( ! class_exists( 'EVCLineGraph' ) ) {
 		 * @return self
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
 		}
 		
 		/**
-		 * Add shortcode custom css style for Visual Composer shortcodes panel
+		 * Add shortcode custom css style for WPBakery Page Builder shortcodes panel
 		 */
 		function addShortcodeIconCustomStyle( $style ) {
 			$current_style = '.wpb_content_element.wpb_evc_line_graph_item > .wpb_element_wrapper { background-color: #f5f5f5; }';
@@ -60,55 +59,48 @@ if ( ! class_exists( 'EVCLineGraph' ) ) {
 		}
 		
 		/**
-		 * Enqueue necessary 3rd party scripts for this shortcode
-		 */
-		function enqueueShortcodeAdditionalScripts() {
-			wp_register_script( 'Chart', EXTENSIVE_VC_SHORTCODES_URL_PATH . '/line-graph/assets/js/plugins/Chart.min.js', array( 'jquery' ), false, true );
-		}
-		
-		/**
-		 * Set shortcode parameters for Visual Composer shortcodes options panel
+		 * Set shortcode parameters for WPBakery Page Builder shortcodes options panel
 		 */
 		function shortcodeParameters() {
 			$params = array(
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'custom_class',
-					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc' ),
-					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
+					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'legend_text',
-					'heading'    => esc_html__( 'Legend Text', 'extensive-vc' )
+					'heading'    => esc_html__( 'Legend Text', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'line_color',
-					'heading'    => esc_html__( 'Line Color', 'extensive-vc' ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'heading'    => esc_html__( 'Line Color', 'extensive-vc-addon' ),
+					'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'line_thickness',
-					'heading'    => esc_html__( 'Line Thickness (px)', 'extensive-vc' ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'heading'    => esc_html__( 'Line Thickness (px)', 'extensive-vc-addon' ),
+					'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'dropdown',
 					'param_name'  => 'disable_line',
-					'heading'     => esc_html__( 'Disable Line', 'extensive-vc' ),
-					'description' => esc_html__( 'Enabling this option will hide line on graph', 'extensive-vc' ),
+					'heading'     => esc_html__( 'Disable Line', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Enabling this option will hide line on graph', 'extensive-vc-addon' ),
 					'value'       => array_flip( extensive_vc_get_yes_no_select_array( false ) ),
-					'group'       => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'       => esc_html__( 'Design Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'colorpicker',
 					'param_name'  => 'fill_background_color',
-					'heading'     => esc_html__( 'Fill Background Color', 'extensive-vc' ),
-					'description' => esc_html__( 'Set background color under the line', 'extensive-vc' ),
+					'heading'     => esc_html__( 'Fill Background Color', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Set background color under the line', 'extensive-vc-addon' ),
 					'dependency'  => array( 'element' => 'disable_line', 'value' => array( 'no' ) ),
-					'group'       => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'       => esc_html__( 'Design Options', 'extensive-vc-addon' )
 				)
 			);
 			
@@ -126,7 +118,7 @@ if ( ! class_exists( 'EVCLineGraph' ) ) {
 		function render( $atts, $content = null ) {
 			$args   = array(
 				'custom_class'          => '',
-				'legend_text'           => esc_html__( 'Legend', 'extensive-vc' ),
+				'legend_text'           => esc_html__( 'Legend', 'extensive-vc-addon' ),
 				'line_color'            => '',
 				'line_thickness'        => '',
 				'disable_line'          => 'no',

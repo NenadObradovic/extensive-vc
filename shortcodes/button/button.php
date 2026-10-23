@@ -21,7 +21,7 @@ if ( ! class_exists( 'EVCButton' ) ) {
 		 */
 		function __construct() {
 			$this->setBase( 'evc_button' );
-			$this->setShortcodeName( esc_html__( 'Button', 'extensive-vc' ) );
+			$this->setShortcodeName( esc_html__( 'Button', 'extensive-vc-addon' ) );
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
@@ -34,15 +34,15 @@ if ( ! class_exists( 'EVCButton' ) ) {
 		 * @return self
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
 		}
 		
 		/**
-		 * Set shortcode parameters for Visual Composer shortcodes options panel
+		 * Set shortcode parameters for WPBakery Page Builder shortcodes options panel
 		 */
 		function shortcodeParameters() {
 			$params = array_merge(
@@ -50,22 +50,22 @@ if ( ! class_exists( 'EVCButton' ) ) {
 					array(
 						'type'        => 'textfield',
 						'param_name'  => 'custom_class',
-						'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc' ),
-						'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
+						'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc-addon' ),
+						'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc-addon' )
 					),
 					array(
 						'type'        => 'dropdown',
 						'param_name'  => 'type',
-						'heading'     => esc_html__( 'Type', 'extensive-vc' ),
+						'heading'     => esc_html__( 'Type', 'extensive-vc-addon' ),
 						'value'       => array(
-							esc_html__( 'Solid', 'extensive-vc' )                         => 'solid',
-							esc_html__( 'Outline', 'extensive-vc' )                       => 'outline',
-							esc_html__( 'Simple', 'extensive-vc' )                        => 'simple',
-							esc_html__( 'Simple Fill Line On Hover', 'extensive-vc' )     => 'fill-line',
-							esc_html__( 'Simple Fill Text On Hover', 'extensive-vc' )     => 'fill-text',
-							esc_html__( 'Simple Strike Line On Hover', 'extensive-vc' )   => 'strike-line',
-							esc_html__( 'Simple Strike Line On Hover 2', 'extensive-vc' ) => 'strike-line-2',
-							esc_html__( 'Simple Switch Line On Hover', 'extensive-vc' )   => 'switch-line'
+							esc_html__( 'Solid', 'extensive-vc-addon' )                         => 'solid',
+							esc_html__( 'Outline', 'extensive-vc-addon' )                       => 'outline',
+							esc_html__( 'Simple', 'extensive-vc-addon' )                        => 'simple',
+							esc_html__( 'Simple Fill Line On Hover', 'extensive-vc-addon' )     => 'fill-line',
+							esc_html__( 'Simple Fill Text On Hover', 'extensive-vc-addon' )     => 'fill-text',
+							esc_html__( 'Simple Strike Line On Hover', 'extensive-vc-addon' )   => 'strike-line',
+							esc_html__( 'Simple Strike Line On Hover 2', 'extensive-vc-addon' ) => 'strike-line-2',
+							esc_html__( 'Simple Switch Line On Hover', 'extensive-vc-addon' )   => 'switch-line'
 						),
 						'save_always' => true,
 						'admin_label' => true
@@ -73,27 +73,28 @@ if ( ! class_exists( 'EVCButton' ) ) {
 					array(
 						'type'        => 'dropdown',
 						'param_name'  => 'size',
-						'heading'     => esc_html__( 'Size', 'extensive-vc' ),
+						'heading'     => esc_html__( 'Size', 'extensive-vc-addon' ),
 						'value'       => array(
-							esc_html__( 'Large', 'extensive-vc' )  => 'large',
-							esc_html__( 'Medium', 'extensive-vc' ) => 'medium',
-							esc_html__( 'Normal', 'extensive-vc' ) => 'normal',
-							esc_html__( 'Small', 'extensive-vc' )  => 'small',
-							esc_html__( 'Tiny', 'extensive-vc' )   => 'tiny'
+							esc_html__( 'Large', 'extensive-vc-addon' )      => 'large',
+							esc_html__( 'Medium', 'extensive-vc-addon' )     => 'medium',
+							esc_html__( 'Normal', 'extensive-vc-addon' )     => 'normal',
+							esc_html__( 'Small', 'extensive-vc-addon' )      => 'small',
+							esc_html__( 'Tiny', 'extensive-vc-addon' )       => 'tiny',
+							esc_html__( 'Full Width', 'extensive-vc-addon' ) => 'full-width',
 						),
 						'save_always' => true,
 						'admin_label' => true,
-						'dependency'  => array( 'element' => 'type', 'value'   => array( 'solid', 'outline' ) )
+						'dependency'  => array( 'element' => 'type', 'value' => array( 'solid', 'outline' ) )
 					),
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'text',
-						'heading'    => esc_html__( 'Text', 'extensive-vc' )
+						'heading'    => esc_html__( 'Text', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'vc_link',
 						'param_name' => 'custom_link',
-						'heading'    => esc_html__( 'Custom Link', 'extensive-vc' )
+						'heading'    => esc_html__( 'Custom Link', 'extensive-vc-addon' )
 					)
 				),
 				extensive_vc_get_shortcode_icon_options_array(),
@@ -101,127 +102,127 @@ if ( ! class_exists( 'EVCButton' ) ) {
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'font_family',
-						'heading'    => esc_html__( 'Font Family', 'extensive-vc' ),
-						'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+						'heading'    => esc_html__( 'Font Family', 'extensive-vc-addon' ),
+						'group'      => esc_html__( 'Typography Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'font_size',
-						'heading'    => esc_html__( 'Font Size (px or em)', 'extensive-vc' ),
-						'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+						'heading'    => esc_html__( 'Font Size (px or em)', 'extensive-vc-addon' ),
+						'group'      => esc_html__( 'Typography Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'line_height',
-						'heading'    => esc_html__( 'Line Height (px or em)', 'extensive-vc' ),
-						'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+						'heading'    => esc_html__( 'Line Height (px or em)', 'extensive-vc-addon' ),
+						'group'      => esc_html__( 'Typography Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'dropdown',
 						'param_name' => 'font_weight',
-						'heading'    => esc_html__( 'Font Weight', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Font Weight', 'extensive-vc-addon' ),
 						'value'      => array_flip( extensive_vc_get_font_weight_array( true ) ),
-						'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Typography Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'dropdown',
 						'param_name' => 'font_style',
-						'heading'    => esc_html__( 'Font Style', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Font Style', 'extensive-vc-addon' ),
 						'value'      => array_flip( extensive_vc_get_font_style_array( true ) ),
-						'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Typography Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'letter_spacing',
-						'heading'    => esc_html__( 'Letter Spacing (px or em)', 'extensive-vc' ),
-						'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+						'heading'    => esc_html__( 'Letter Spacing (px or em)', 'extensive-vc-addon' ),
+						'group'      => esc_html__( 'Typography Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'dropdown',
 						'param_name' => 'text_transform',
-						'heading'    => esc_html__( 'Text Transform', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Text Transform', 'extensive-vc-addon' ),
 						'value'      => array_flip( extensive_vc_get_text_transform_array( true ) ),
-						'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Typography Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'color',
-						'heading'    => esc_html__( 'Color', 'extensive-vc' ),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'heading'    => esc_html__( 'Color', 'extensive-vc-addon' ),
+						'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'hover_color',
-						'heading'    => esc_html__( 'Hover Color', 'extensive-vc' ),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'heading'    => esc_html__( 'Hover Color', 'extensive-vc-addon' ),
+						'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'bg_color',
-						'heading'    => esc_html__( 'Background Color', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Background Color', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'type', 'value' => array( 'solid' ) ),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'hover_bg_color',
-						'heading'    => esc_html__( 'Hover Background Color', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Hover Background Color', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'type', 'value'   => array( 'solid', 'outline' ) ),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'border_color',
-						'heading'    => esc_html__( 'Border Color', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Border Color', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'type', 'value'   => array( 'solid', 'outline' ) ),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'hover_border_color',
-						'heading'    => esc_html__( 'Hover Border Color', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Hover Border Color', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'type', 'value'   => array( 'solid', 'outline' ) ),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'border_width',
-						'heading'    => esc_html__( 'Border Width (px)', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Border Width (px)', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'type', 'value'   => array( 'solid', 'outline' ) ),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'line_color',
-						'heading'    => esc_html__( 'Line Color', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Line Color', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'type', 'value'   => array( 'fill-line', 'strike-line', 'strike-line-2', 'switch-line' ) ),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'switch_line_color',
-						'heading'    => esc_html__( 'Switch Line Color', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Switch Line Color', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'type', 'value' => array( 'switch-line' ) ),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'        => 'textfield',
 						'param_name'  => 'margin',
-						'heading'     => esc_html__( 'Margin', 'extensive-vc' ),
-						'description' => esc_html__( 'Insert margin in format: top right bottom left (e.g. 10px 5px 10px 5px)', 'extensive-vc' ),
-						'group'       => esc_html__( 'Design Options', 'extensive-vc' )
+						'heading'     => esc_html__( 'Margin', 'extensive-vc-addon' ),
+						'description' => esc_html__( 'Insert margin in format: top right bottom left (e.g. 10px 5px 10px 5px)', 'extensive-vc-addon' ),
+						'group'       => esc_html__( 'Design Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'dropdown',
 						'param_name' => 'button_alignment',
-						'heading'    => esc_html__( 'Button Alignment', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Button Alignment', 'extensive-vc-addon' ),
 						'value'      => array(
-							esc_html__( 'Default', 'extensive-vc' ) => '',
-							esc_html__( 'Left', 'extensive-vc' )    => 'left',
-							esc_html__( 'Right', 'extensive-vc' )   => 'right',
-							esc_html__( 'Center', 'extensive-vc' )  => 'center'
+							esc_html__( 'Default', 'extensive-vc-addon' ) => '',
+							esc_html__( 'Left', 'extensive-vc-addon' )    => 'left',
+							esc_html__( 'Right', 'extensive-vc-addon' )   => 'right',
+							esc_html__( 'Center', 'extensive-vc-addon' )  => 'center'
 						),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 					)
 				)
 			);
@@ -326,7 +327,7 @@ if ( ! class_exists( 'EVCButton' ) ) {
 			}
 			
 			if ( ! empty( $params['font_size'] ) ) {
-				if ( extensive_vc_string_ends_with( $params['font_size'], 'px' ) || extensive_vc_string_ends_with( $params['font_size'], 'em' ) ) {
+				if ( extensive_vc_string_ends_with_typography_units( $params['font_size'] ) ) {
 					$styles[] = 'font-size: ' . $params['font_size'];
 				} else {
 					$styles[] = 'font-size: ' . $params['font_size'] . 'px';
@@ -334,7 +335,7 @@ if ( ! class_exists( 'EVCButton' ) ) {
 			}
 			
 			if ( ! empty( $params['line_height'] ) ) {
-				if ( extensive_vc_string_ends_with( $params['line_height'], 'px' ) || extensive_vc_string_ends_with( $params['line_height'], 'em' ) ) {
+				if ( extensive_vc_string_ends_with_typography_units( $params['line_height'] ) ) {
 					$styles[] = 'line-height: ' . $params['line_height'];
 				} else {
 					$styles[] = 'line-height: ' . $params['line_height'] . 'px';
@@ -350,7 +351,7 @@ if ( ! class_exists( 'EVCButton' ) ) {
 			}
 			
 			if ( ! empty( $params['letter_spacing'] ) ) {
-				if ( extensive_vc_string_ends_with( $params['letter_spacing'], 'px' ) || extensive_vc_string_ends_with( $params['letter_spacing'], 'em' ) ) {
+				if ( extensive_vc_string_ends_with_typography_units( $params['letter_spacing'] ) ) {
 					$styles[] = 'letter-spacing: ' . $params['letter_spacing'];
 				} else {
 					$styles[] = 'letter-spacing: ' . $params['letter_spacing'] . 'px';

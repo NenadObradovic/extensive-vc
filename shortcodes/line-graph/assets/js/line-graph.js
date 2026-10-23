@@ -16,12 +16,12 @@
 				var thisHolder = $(this),
 					legendText = thisHolder.data('legend-text'),
 					holderBorderColor = thisHolder.data('border-color'),
-					borderColor = holderBorderColor !== undefined && holderBorderColor !== '' ? holderBorderColor : '',
+					borderColor = holderBorderColor !== undefined && holderBorderColor !== '' ? holderBorderColor : 'rgba(0, 0, 0, 0.1)',
 					holderBorderWidth = thisHolder.data('border-width'),
-					borderWidth = holderBorderWidth !== undefined && holderBorderWidth !== '' ? holderBorderWidth : '',
+					borderWidth = holderBorderWidth !== undefined && holderBorderWidth !== '' ? parseInt(holderBorderWidth, 10) : 3,
 					showLine = thisHolder.data('disable-line') !== 'yes',
 					holderBackgroundColor = thisHolder.data('background-color'),
-					backgroundColor = holderBackgroundColor !== undefined && holderBackgroundColor !== '' ? holderBackgroundColor : '',
+					backgroundColor = holderBackgroundColor !== undefined && holderBackgroundColor !== '' ? holderBackgroundColor : 'rgba(0, 0, 0, 0.1)',
 					pieChartItem = thisHolder.children('.evc-line-graph-item'),
 					canvas = thisHolder.children('canvas'),
 					labels = [],
@@ -41,10 +41,10 @@
 					}
 				});
 				
-				thisHolder.appear(function () {
+				evc.evcIsInViewport.check(thisHolder, function () {
 					thisHolder.addClass('evc-lg-appeared');
 					
-					new Chart(canvas, {
+					new Chart(canvas[0], {
 						type: 'line',
 						data: {
 							labels: labels,
@@ -54,11 +54,13 @@
 								backgroundColor: backgroundColor,
 								borderColor: borderColor,
 								borderWidth: borderWidth,
-								showLine: showLine
+								showLine: showLine,
+								fill: true,
+								tension: 0.4
 							}]
 						}
 					});
-				}, {accX: 0, accY: -80});
+				});
 			});
 		}
 	}

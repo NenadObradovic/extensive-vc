@@ -21,7 +21,7 @@ if ( ! class_exists( 'EVCGalleryBlock' ) ) {
 		 */
 		function __construct() {
 			$this->setBase( 'evc_gallery_block' );
-			$this->setShortcodeName( esc_html__( 'Gallery Block', 'extensive-vc' ) );
+			$this->setShortcodeName( esc_html__( 'Gallery Block', 'extensive-vc-addon' ) );
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
@@ -34,74 +34,74 @@ if ( ! class_exists( 'EVCGalleryBlock' ) ) {
 		 * @return self
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
 		}
 		
 		/**
-		 * Set shortcode parameters for Visual Composer shortcodes options panel
+		 * Set shortcode parameters for WPBakery Page Builder shortcodes options panel
 		 */
 		function shortcodeParameters() {
 			$params = array(
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'custom_class',
-					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc' ),
-					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
+					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'dropdown',
 					'param_name'  => 'type',
-					'heading'     => esc_html__( 'Type', 'extensive-vc' ),
+					'heading'     => esc_html__( 'Type', 'extensive-vc-addon' ),
 					'value'       => array(
-						esc_html__( 'Featured Image Top', 'extensive-vc' )          => 'featured-top',
-						esc_html__( 'Featured Image On Left Side', 'extensive-vc' ) => 'featured-left'
+						esc_html__( 'Featured Image Top', 'extensive-vc-addon' )          => 'featured-top',
+						esc_html__( 'Featured Image On Left Side', 'extensive-vc-addon' ) => 'featured-left'
 					),
 					'save_always' => true
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'space_between_items',
-					'heading'    => esc_html__( 'Space Between Items', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Space Between Items', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_space_between_items_array() )
 				),
 				array(
 					'type'        => 'attach_images',
 					'param_name'  => 'images',
-					'heading'     => esc_html__( 'Images', 'extensive-vc' ),
-					'description' => esc_html__( 'Select images from media library. The first image you upload will be set as the featured image if you set Featured Image Size', 'extensive-vc' )
+					'heading'     => esc_html__( 'Images', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Select images from media library. The first image you upload will be set as the featured image if you set Featured Image Size', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'featured_image_size',
-					'heading'     => esc_html__( 'Featured Image Size', 'extensive-vc' ),
-					'description' => esc_html__( 'Fill your image size (thumbnail, medium, large or full) or enter image size in pixels: 200x100 (width x height). Leave empty to use original image size', 'extensive-vc' )
+					'heading'     => esc_html__( 'Featured Image Size', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Fill your image size (thumbnail, medium, large or full) or enter image size in pixels: 200x100 (width x height). Leave empty to use original image size', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'image_size',
-					'heading'     => esc_html__( 'Image Size', 'extensive-vc' ),
-					'description' => esc_html__( 'Fill your image size (thumbnail, medium, large or full) or enter image size in pixels: 200x100 (width x height). Leave empty to use original image size', 'extensive-vc' )
+					'heading'     => esc_html__( 'Image Size', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Fill your image size (thumbnail, medium, large or full) or enter image size in pixels: 200x100 (width x height). Leave empty to use original image size', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'image_behavior',
-					'heading'    => esc_html__( 'Image Behavior', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Image Behavior', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_image_behavior_array() )
 				),
 				array(
 					'type'        => 'textarea',
 					'param_name'  => 'custom_links',
-					'heading'     => esc_html__( 'Custom Links', 'extensive-vc' ),
-					'description' => esc_html__( 'Delimit links by comma', 'extensive-vc' )
+					'heading'     => esc_html__( 'Custom Links', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Delimit links by comma', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'custom_link_target',
-					'heading'    => esc_html__( 'Custom Link Target', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Custom Link Target', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_link_target_array() ),
 					'dependency' => array( 'element' => 'custom_links', 'not_empty' => true )
 				)
@@ -220,20 +220,15 @@ if ( ! class_exists( 'EVCGalleryBlock' ) ) {
 		 * @return string/array
 		 */
 		private function getImageSize( $imageSize, $featuredImageSize ) {
-			$imageSize = ! empty( $featuredImageSize ) ? trim( $featuredImageSize ) : trim( $imageSize );
-			//Find digits
-			preg_match_all( '/\d+/', $imageSize, $matches );
-			
-			if ( in_array( $imageSize, array( 'thumbnail', 'medium', 'large', 'full' ) ) ) {
-				return $imageSize;
-			} elseif ( ! empty( $matches[0] ) ) {
-				return array(
-					$matches[0][0],
-					$matches[0][1]
-				);
-			} else {
-				return ! empty( $featuredImageSize ) ? 'no-featured-image' : 'full';
+			$size  = ! empty( $featuredImageSize ) ? trim( $featuredImageSize ) : trim( $imageSize );
+			$value = extensive_vc_get_image_size_value( $size );
+
+			// Invalid featured image size value disables featured image size
+			if ( 'full' === $value && ! empty( $featuredImageSize ) && 'full' !== $size ) {
+				return 'no-featured-image';
 			}
+
+			return $value;
 		}
 		
 		/**

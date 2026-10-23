@@ -11,6 +11,6 @@ if ( ! empty( $pagination_type ) ) { ?>
 			<div class="evc-ps-bounce-2"></div>
 			<div class="evc-ps-bounce-3"></div>
 		</div>
-		<?php echo extensive_vc_render_shortcode( 'evc_button', $button_params ); ?>
+		<?php echo extensive_vc_render_shortcode( 'evc_button', $button_params ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</div>
 <?php } ?>

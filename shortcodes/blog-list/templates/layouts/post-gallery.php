@@ -10,10 +10,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php
 		$params['without_zoom'] = true;
 		
-		echo extensive_vc_get_module_template_part( 'shortcodes', 'blog-list', 'templates/parts/image', 'with-date', $params ); ?>
+		extensive_vc_template_part( 'shortcodes', 'blog-list', 'templates/parts/image', 'with-date', $params ); ?>
 		<div class="evc-bli-content">
-			<?php echo extensive_vc_get_module_template_part( 'shortcodes', 'blog-list', 'templates/parts/title', '', $params ); ?>
-			<?php echo extensive_vc_get_module_template_part( 'shortcodes', 'blog-list', 'templates/parts/excerpt', '', $params ); ?>
+			<?php extensive_vc_template_part( 'shortcodes', 'blog-list', 'templates/parts/title', '', $params ); ?>
+			<?php extensive_vc_template_part( 'shortcodes', 'blog-list', 'templates/parts/excerpt', '', $params ); ?>
 		</div>
 		<a class="evc-bli-link" href="<?php the_permalink(); ?>"></a>
 	</div>

@@ -22,7 +22,7 @@ if ( ! class_exists( 'EVCTabs' ) ) {
 		function __construct() {
 			$this->setBase( 'evc_tabs' );
 			$this->setChildBase( 'evc_tabs_item' );
-			$this->setShortcodeName( esc_html__( 'Tabs', 'extensive-vc' ) );
+			$this->setShortcodeName( esc_html__( 'Tabs', 'extensive-vc-addon' ) );
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
@@ -40,15 +40,15 @@ if ( ! class_exists( 'EVCTabs' ) ) {
 		 * @return self
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
 		}
 		
 		/**
-		 * Add shortcode custom css style for Visual Composer shortcodes panel
+		 * Add shortcode custom css style for WPBakery Page Builder shortcodes panel
 		 */
 		function addShortcodeIconCustomStyle( $style ) {
 			$current_style = '.vc_shortcodes_container.wpb_evc_tabs_item { background-color: #f5f5f5; }';
@@ -59,47 +59,47 @@ if ( ! class_exists( 'EVCTabs' ) ) {
 		}
 		
 		/**
-		 * Set shortcode parameters for Visual Composer shortcodes options panel
+		 * Set shortcode parameters for WPBakery Page Builder shortcodes options panel
 		 */
 		function shortcodeParameters() {
 			$params = array(
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'custom_class',
-					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc' ),
-					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
+					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'dropdown',
 					'param_name'  => 'type',
-					'heading'     => esc_html__( 'Type', 'extensive-vc' ),
+					'heading'     => esc_html__( 'Type', 'extensive-vc-addon' ),
 					'value'       => array(
-						esc_html__( 'Standard', 'extensive-vc' ) => 'standard',
-						esc_html__( 'Simple', 'extensive-vc' )   => 'simple',
-						esc_html__( 'Vertical', 'extensive-vc' ) => 'vertical',
-						esc_html__( 'Centered', 'extensive-vc' ) => 'centered'
+						esc_html__( 'Standard', 'extensive-vc-addon' ) => 'standard',
+						esc_html__( 'Simple', 'extensive-vc-addon' )   => 'simple',
+						esc_html__( 'Vertical', 'extensive-vc-addon' ) => 'vertical',
+						esc_html__( 'Centered', 'extensive-vc-addon' ) => 'centered'
 					),
 					'save_always' => true
 				),
 				array(
 					'type'        => 'dropdown',
 					'param_name'  => 'animation_type',
-					'heading'     => esc_html__( 'Animation Type', 'extensive-vc' ),
-					'description' => esc_html__( 'Choose tab content animation on item click', 'extensive-vc' ),
+					'heading'     => esc_html__( 'Animation Type', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Choose tab content animation on item click', 'extensive-vc-addon' ),
 					'value'       => array(
-						esc_html__( 'Default', 'extensive-vc' )           => '',
-						esc_html__( 'Fade', 'extensive-vc' )              => 'fade',
-						esc_html__( 'Slide From Bottom', 'extensive-vc' ) => 'slide-from-bottom',
-						esc_html__( 'Slide From Right', 'extensive-vc' )  => 'slide-from-right'
+						esc_html__( 'Default', 'extensive-vc-addon' )           => '',
+						esc_html__( 'Fade', 'extensive-vc-addon' )              => 'fade',
+						esc_html__( 'Slide From Bottom', 'extensive-vc-addon' ) => 'slide-from-bottom',
+						esc_html__( 'Slide From Right', 'extensive-vc-addon' )  => 'slide-from-right'
 					)
 				),
 				array(
 					'type'        => 'dropdown',
 					'param_name'  => 'skin',
-					'heading'     => esc_html__( 'Skin', 'extensive-vc' ),
+					'heading'     => esc_html__( 'Skin', 'extensive-vc-addon' ),
 					'value'       => array(
-						esc_html__( 'Default', 'extensive-vc' ) => '',
-						esc_html__( 'Light', 'extensive-vc' )   => 'light'
+						esc_html__( 'Default', 'extensive-vc-addon' ) => '',
+						esc_html__( 'Light', 'extensive-vc-addon' )   => 'light'
 					)
 				)
 			);

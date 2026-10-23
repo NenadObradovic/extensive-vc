@@ -22,7 +22,7 @@ if ( ! class_exists( 'EVCDoughnutChartItem' ) ) {
 		function __construct() {
 			$this->setBase( 'evc_doughnut_chart_item' );
 			$this->setParentBase( 'evc_doughnut_chart' );
-			$this->setShortcodeName( esc_html__( 'Doughnut Chart Item', 'extensive-vc' ) );
+			$this->setShortcodeName( esc_html__( 'Doughnut Chart Item', 'extensive-vc-addon' ) );
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
@@ -35,32 +35,32 @@ if ( ! class_exists( 'EVCDoughnutChartItem' ) ) {
 		 * @return self
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
 		}
 		
 		/**
-		 * Set shortcode parameters for Visual Composer shortcodes options panel
+		 * Set shortcode parameters for WPBakery Page Builder shortcodes options panel
 		 */
 		function shortcodeParameters() {
 			$params = array(
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'label',
-					'heading'    => esc_html__( 'Label', 'extensive-vc' )
+					'heading'    => esc_html__( 'Label', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'value',
-					'heading'    => esc_html__( 'Value', 'extensive-vc' )
+					'heading'    => esc_html__( 'Value', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'color',
-					'heading'    => esc_html__( 'Color', 'extensive-vc' )
+					'heading'    => esc_html__( 'Color', 'extensive-vc-addon' )
 				)
 			);
 			

@@ -22,7 +22,7 @@ if ( ! class_exists( 'EVCIconListItem' ) ) {
 		function __construct() {
 			$this->setBase( 'evc_icon_list_item' );
 			$this->setParentBase( 'evc_icon_list' );
-			$this->setShortcodeName( esc_html__( 'Icon List Item', 'extensive-vc' ) );
+			$this->setShortcodeName( esc_html__( 'Icon List Item', 'extensive-vc-addon' ) );
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
@@ -35,15 +35,15 @@ if ( ! class_exists( 'EVCIconListItem' ) ) {
 		 * @return self
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
 		}
 		
 		/**
-		 * Set shortcode parameters for Visual Composer shortcodes options panel
+		 * Set shortcode parameters for WPBakery Page Builder shortcodes options panel
 		 */
 		function shortcodeParameters() {
 			$params = array_merge(
@@ -51,8 +51,8 @@ if ( ! class_exists( 'EVCIconListItem' ) ) {
 					array(
 						'type'        => 'textfield',
 						'param_name'  => 'custom_class',
-						'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc' ),
-						'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
+						'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc-addon' ),
+						'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc-addon' )
 					)
 				),
 				extensive_vc_get_shortcode_icon_options_array(),
@@ -60,47 +60,47 @@ if ( ! class_exists( 'EVCIconListItem' ) ) {
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'icon_size',
-						'heading'    => esc_html__( 'Icon Size (px)', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Icon Size (px)', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'icon_library', 'not_empty' => true ),
-						'group'      => esc_html__( 'Icon Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Icon Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'icon_color',
-						'heading'    => esc_html__( 'Icon Color', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Icon Color', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'icon_library', 'not_empty' => true ),
-						'group'      => esc_html__( 'Icon Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Icon Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'icon_right_padding',
-						'heading'    => esc_html__( 'Icon Right Padding (px)', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Icon Right Padding (px)', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'icon_library', 'not_empty' => true ),
-						'group'      => esc_html__( 'Icon Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Icon Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'        => 'textfield',
 						'param_name'  => 'text',
-						'heading'     => esc_html__( 'Text', 'extensive-vc' ),
+						'heading'     => esc_html__( 'Text', 'extensive-vc-addon' ),
 						'admin_label' => true
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'text_color',
-						'heading'    => esc_html__( 'Text Color', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Text Color', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'text', 'not_empty' => true ),
-						'group'      => esc_html__( 'Text Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Text Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'vc_link',
 						'param_name' => 'custom_link',
-						'heading'    => esc_html__( 'Custom Link', 'extensive-vc' )
+						'heading'    => esc_html__( 'Custom Link', 'extensive-vc-addon' )
 					),
 					array(
 						'type'        => 'textfield',
 						'param_name'  => 'space_between_items',
-						'heading'     => esc_html__( 'Space Between Items (px)', 'extensive-vc' ),
-						'description' => esc_html__( 'Fill space between items in your list. Default value is 8', 'extensive-vc' )
+						'heading'     => esc_html__( 'Space Between Items (px)', 'extensive-vc-addon' ),
+						'description' => esc_html__( 'Fill space between items in your list. Default value is 8', 'extensive-vc-addon' )
 					)
 				)
 			);

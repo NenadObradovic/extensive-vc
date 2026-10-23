@@ -33,8 +33,8 @@ if ( ! class_exists( 'ExtensiveVCPredefinedStyle' ) ) {
 		 * @return self
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
@@ -88,14 +88,14 @@ if ( ! class_exists( 'ExtensiveVCPredefinedStyle' ) ) {
 		function enqueueGoogleFont() {
 			
 			$defaultFontArgs = array(
-				'family' => urlencode( 'Raleway:400,500,600,700,800,900|Poppins:400,700' ),
-				'subset' => urlencode( 'latin-ext' ),
+				'family'  => urlencode( 'Raleway:400,500,600,700,800,900|Poppins:400,700' ),
+				'subset'  => urlencode( 'latin-ext' ),
+				'display' => 'swap',
 			);
-			
-			$protocol   = is_ssl() ? 'https:' : 'http:';
-			$googleFont = add_query_arg( $defaultFontArgs, $protocol . '//fonts.googleapis.com/css' );
-			
-			wp_enqueue_style( 'extensive-vc-google-fonts', esc_url_raw( $googleFont ), array(), '1.0' );
+
+			$googleFont = add_query_arg( apply_filters( 'extensive_vc_filter_google_fonts_args', $defaultFontArgs ), 'https://fonts.googleapis.com/css' );
+
+			wp_enqueue_style( 'extensive-vc-google-fonts', esc_url_raw( $googleFont ), array(), EXTENSIVE_VC_VERSION );
 		}
 	}
 }

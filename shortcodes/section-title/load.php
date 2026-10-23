@@ -4,4 +4,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-include_once 'section-title.php';
+require_once __DIR__ . '/section-title.php';

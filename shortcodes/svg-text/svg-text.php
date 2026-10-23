@@ -21,7 +21,7 @@ if ( ! class_exists( 'EVCSVGText' ) ) {
 		 */
 		function __construct() {
 			$this->setBase( 'evc_svg_text' );
-			$this->setShortcodeName( esc_html__( 'SVG Text', 'extensive-vc' ) );
+			$this->setShortcodeName( esc_html__( 'SVG Text', 'extensive-vc-addon' ) );
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
@@ -34,101 +34,101 @@ if ( ! class_exists( 'EVCSVGText' ) ) {
 		 * @return self
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
 		}
 		
 		/**
-		 * Set shortcode parameters for Visual Composer shortcodes options panel
+		 * Set shortcode parameters for WPBakery Page Builder shortcodes options panel
 		 */
 		function shortcodeParameters() {
 			$params = array(
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'custom_class',
-					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc' ),
-					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
+					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'text',
-					'heading'    => esc_html__( 'Text', 'extensive-vc' )
+					'heading'    => esc_html__( 'Text', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'vc_link',
 					'param_name' => 'custom_link',
-					'heading'    => esc_html__( 'Custom Link', 'extensive-vc' )
+					'heading'    => esc_html__( 'Custom Link', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'color',
-					'heading'    => esc_html__( 'Color', 'extensive-vc' ),
-					'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+					'heading'    => esc_html__( 'Color', 'extensive-vc-addon' ),
+					'group'      => esc_html__( 'Typography Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'font_size',
-					'heading'    => esc_html__( 'Font Size (px)', 'extensive-vc' ),
-					'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+					'heading'    => esc_html__( 'Font Size (px)', 'extensive-vc-addon' ),
+					'group'      => esc_html__( 'Typography Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'font_weight',
-					'heading'    => esc_html__( 'Font Weight', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Font Weight', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_font_weight_array( true ) ),
-					'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Typography Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'text_transform',
-					'heading'    => esc_html__( 'Text Transform', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Text Transform', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_text_transform_array( true ) ),
-					'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Typography Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'font_size_1440',
-					'heading'     => esc_html__( 'Font Size (px)', 'extensive-vc' ),
-					'description' => esc_html__( 'Set font size for 1440px screen size', 'extensive-vc' ),
-					'group'       => esc_html__( 'Responsive Options', 'extensive-vc' )
+					'heading'     => esc_html__( 'Font Size (px)', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Set font size for 1440px screen size', 'extensive-vc-addon' ),
+					'group'       => esc_html__( 'Responsive Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'font_size_1366',
-					'heading'     => esc_html__( 'Font Size (px)', 'extensive-vc' ),
-					'description' => esc_html__( 'Set font size for 1366px screen size', 'extensive-vc' ),
-					'group'       => esc_html__( 'Responsive Options', 'extensive-vc' )
+					'heading'     => esc_html__( 'Font Size (px)', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Set font size for 1366px screen size', 'extensive-vc-addon' ),
+					'group'       => esc_html__( 'Responsive Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'font_size_1280',
-					'heading'     => esc_html__( 'Font Size (px)', 'extensive-vc' ),
-					'description' => esc_html__( 'Set font size for 1280px screen size', 'extensive-vc' ),
-					'group'       => esc_html__( 'Responsive Options', 'extensive-vc' )
+					'heading'     => esc_html__( 'Font Size (px)', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Set font size for 1280px screen size', 'extensive-vc-addon' ),
+					'group'       => esc_html__( 'Responsive Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'font_size_1024',
-					'heading'     => esc_html__( 'Font Size (px)', 'extensive-vc' ),
-					'description' => esc_html__( 'Set font size for tablet landscape screen size', 'extensive-vc' ),
-					'group'       => esc_html__( 'Responsive Options', 'extensive-vc' )
+					'heading'     => esc_html__( 'Font Size (px)', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Set font size for tablet landscape screen size', 'extensive-vc-addon' ),
+					'group'       => esc_html__( 'Responsive Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'font_size_768',
-					'heading'     => esc_html__( 'Font Size (px)', 'extensive-vc' ),
-					'description' => esc_html__( 'Set font size for tablet portrait screen size', 'extensive-vc' ),
-					'group'       => esc_html__( 'Responsive Options', 'extensive-vc' )
+					'heading'     => esc_html__( 'Font Size (px)', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Set font size for tablet portrait screen size', 'extensive-vc-addon' ),
+					'group'       => esc_html__( 'Responsive Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'font_size_680',
-					'heading'     => esc_html__( 'Font Size (px)', 'extensive-vc' ),
-					'description' => esc_html__( 'Set font size for mobiles screen size', 'extensive-vc' ),
-					'group'       => esc_html__( 'Responsive Options', 'extensive-vc' )
+					'heading'     => esc_html__( 'Font Size (px)', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Set font size for mobiles screen size', 'extensive-vc-addon' ),
+					'group'       => esc_html__( 'Responsive Options', 'extensive-vc-addon' )
 				)
 			);
 			
@@ -161,7 +161,7 @@ if ( ! class_exists( 'EVCSVGText' ) ) {
 			);
 			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
-			$params['holder_rand_class'] = 'evc-st-' . mt_rand( 500, 10000 );
+			$params['holder_rand_class'] = 'evc-st-' . wp_rand( 500, 10000 );
 			$params['holder_classes']    = $this->getHolderClasses( $params );
 			$params['holder_styles']     = $this->getHolderStyles( $params );
 			$params['holder_data']       = $this->getHolderData( $params );

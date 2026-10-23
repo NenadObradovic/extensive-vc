@@ -58,12 +58,12 @@ if ( ! class_exists( 'ClientsClass' ) ) {
 			register_post_type( $this->getBase(),
 				array(
 					'labels'        => array(
-						'menu_name'     => esc_html__( 'EVC Clients', 'extensive-vc' ),
-						'name'          => esc_html__( 'EVC Clients', 'extensive-vc' ),
-						'singular_name' => esc_html__( 'Client', 'extensive-vc' ),
-						'add_item'      => esc_html__( 'New Client', 'extensive-vc' ),
-						'add_new_item'  => esc_html__( 'Add New Client', 'extensive-vc' ),
-						'edit_item'     => esc_html__( 'Edit Client', 'extensive-vc' )
+						'menu_name'     => esc_html__( 'EVC Clients', 'extensive-vc-addon' ),
+						'name'          => esc_html__( 'EVC Clients', 'extensive-vc-addon' ),
+						'singular_name' => esc_html__( 'Client', 'extensive-vc-addon' ),
+						'add_item'      => esc_html__( 'New Client', 'extensive-vc-addon' ),
+						'add_new_item'  => esc_html__( 'Add New Client', 'extensive-vc-addon' ),
+						'edit_item'     => esc_html__( 'Edit Client', 'extensive-vc-addon' )
 					),
 					'public'        => false,
 					'show_in_menu'  => true,
@@ -83,17 +83,17 @@ if ( ! class_exists( 'ClientsClass' ) ) {
 		 */
 		private function registerTax() {
 			$labels = array(
-				'name'              => esc_html__( 'Clients Categories', 'extensive-vc' ),
-				'singular_name'     => esc_html__( 'Client Category', 'extensive-vc' ),
-				'search_items'      => esc_html__( 'Search Clients Categories', 'extensive-vc' ),
-				'all_items'         => esc_html__( 'All Clients Categories', 'extensive-vc' ),
-				'parent_item'       => esc_html__( 'Parent Client Category', 'extensive-vc' ),
-				'parent_item_colon' => esc_html__( 'Parent Client Category:', 'extensive-vc' ),
-				'edit_item'         => esc_html__( 'Edit Clients Category', 'extensive-vc' ),
-				'update_item'       => esc_html__( 'Update Clients Category', 'extensive-vc' ),
-				'add_new_item'      => esc_html__( 'Add New Clients Category', 'extensive-vc' ),
-				'new_item_name'     => esc_html__( 'New Clients Category Name', 'extensive-vc' ),
-				'menu_name'         => esc_html__( 'Clients Categories', 'extensive-vc' )
+				'name'              => esc_html__( 'Clients Categories', 'extensive-vc-addon' ),
+				'singular_name'     => esc_html__( 'Client Category', 'extensive-vc-addon' ),
+				'search_items'      => esc_html__( 'Search Clients Categories', 'extensive-vc-addon' ),
+				'all_items'         => esc_html__( 'All Clients Categories', 'extensive-vc-addon' ),
+				'parent_item'       => esc_html__( 'Parent Client Category', 'extensive-vc-addon' ),
+				'parent_item_colon' => esc_html__( 'Parent Client Category:', 'extensive-vc-addon' ),
+				'edit_item'         => esc_html__( 'Edit Clients Category', 'extensive-vc-addon' ),
+				'update_item'       => esc_html__( 'Update Clients Category', 'extensive-vc-addon' ),
+				'add_new_item'      => esc_html__( 'Add New Clients Category', 'extensive-vc-addon' ),
+				'new_item_name'     => esc_html__( 'New Clients Category Name', 'extensive-vc-addon' ),
+				'menu_name'         => esc_html__( 'Clients Categories', 'extensive-vc-addon' )
 			);
 			
 			register_taxonomy( $this->getBaseTaxonomy(), array( $this->getBase() ),

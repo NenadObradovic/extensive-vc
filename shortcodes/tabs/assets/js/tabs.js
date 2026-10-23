@@ -33,7 +33,7 @@
 				
 				thisTabs.tabs();
 				
-				thisTabs.appear(function () {
+				evc.evcIsInViewport.check(thisTabs, function () {
 					thisTabs.css({'visibility': 'visible'});
 					showTabContent(tabContent);
 				});

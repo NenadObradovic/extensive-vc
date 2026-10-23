@@ -4,6 +4,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-include_once 'clients-class.php';
-include_once 'clients-functions.php';
-include_once 'shortcodes/load.php';
+require_once __DIR__ . '/clients-class.php';
+require_once __DIR__ . '/clients-functions.php';
+require_once __DIR__ . '/shortcodes/load.php';

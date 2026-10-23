@@ -5,4 +5,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<p class="evc-c-not-found"><?php esc_html_e( 'Sorry, no posts matched your criteria', 'extensive-vc' ); ?></p>
+<p class="evc-c-not-found"><?php esc_html_e( 'Sorry, no posts matched your criteria', 'extensive-vc-addon' ); ?></p>

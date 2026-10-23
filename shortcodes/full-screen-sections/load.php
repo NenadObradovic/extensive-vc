@@ -4,6 +4,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-include_once 'functions.php';
-include_once 'full-screen-sections.php';
-include_once 'full-screen-sections-item.php';
+require_once __DIR__ . '/functions.php';
+require_once __DIR__ . '/full-screen-sections.php';
+require_once __DIR__ . '/full-screen-sections-item.php';

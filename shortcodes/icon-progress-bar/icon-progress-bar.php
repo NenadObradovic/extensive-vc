@@ -21,7 +21,7 @@ if ( ! class_exists( 'EVCIconProgressBar' ) ) {
 		 */
 		function __construct() {
 			$this->setBase( 'evc_icon_progress_bar' );
-			$this->setShortcodeName( esc_html__( 'Icon Progress Bar', 'extensive-vc' ) );
+			$this->setShortcodeName( esc_html__( 'Icon Progress Bar', 'extensive-vc-addon' ) );
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
@@ -34,15 +34,15 @@ if ( ! class_exists( 'EVCIconProgressBar' ) ) {
 		 * @return self
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
 		}
 		
 		/**
-		 * Set shortcode parameters for Visual Composer shortcodes options panel
+		 * Set shortcode parameters for WPBakery Page Builder shortcodes options panel
 		 */
 		function shortcodeParameters() {
 			$params = array_merge(
@@ -50,18 +50,18 @@ if ( ! class_exists( 'EVCIconProgressBar' ) ) {
 					array(
 						'type'        => 'textfield',
 						'param_name'  => 'custom_class',
-						'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc' ),
-						'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
+						'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc-addon' ),
+						'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'number_of_icons',
-						'heading'    => esc_html__( 'Number Of Icons', 'extensive-vc' )
+						'heading'    => esc_html__( 'Number Of Icons', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'number_of_active_icons',
-						'heading'    => esc_html__( 'Number Of Active Icons', 'extensive-vc' )
+						'heading'    => esc_html__( 'Number Of Active Icons', 'extensive-vc-addon' )
 					)
 				),
 				extensive_vc_get_shortcode_icon_options_array(),
@@ -69,54 +69,54 @@ if ( ! class_exists( 'EVCIconProgressBar' ) ) {
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'icon_size',
-						'heading'    => esc_html__( 'Icon Size (px)', 'extensive-vc' ),
-						'group'      => esc_html__( 'Icon Options', 'extensive-vc' )
+						'heading'    => esc_html__( 'Icon Size (px)', 'extensive-vc-addon' ),
+						'group'      => esc_html__( 'Icon Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'icon_color',
-						'heading'    => esc_html__( 'Icon Color', 'extensive-vc' ),
-						'group'      => esc_html__( 'Icon Options', 'extensive-vc' )
+						'heading'    => esc_html__( 'Icon Color', 'extensive-vc-addon' ),
+						'group'      => esc_html__( 'Icon Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'icon_active_color',
-						'heading'    => esc_html__( 'Icon Active Color', 'extensive-vc' ),
-						'group'      => esc_html__( 'Icon Options', 'extensive-vc' )
+						'heading'    => esc_html__( 'Icon Active Color', 'extensive-vc-addon' ),
+						'group'      => esc_html__( 'Icon Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'space_between_icons',
-						'heading'    => esc_html__( 'Space Between Icons (px)', 'extensive-vc' ),
-						'group'      => esc_html__( 'Icon Options', 'extensive-vc' )
+						'heading'    => esc_html__( 'Space Between Icons (px)', 'extensive-vc-addon' ),
+						'group'      => esc_html__( 'Icon Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'        => 'textfield',
 						'param_name'  => 'title',
-						'heading'     => esc_html__( 'Title', 'extensive-vc' ),
+						'heading'     => esc_html__( 'Title', 'extensive-vc-addon' ),
 						'admin_label' => true
 					),
 					array(
 						'type'       => 'dropdown',
 						'param_name' => 'title_tag',
-						'heading'    => esc_html__( 'Title Tag', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Title Tag', 'extensive-vc-addon' ),
 						'value'      => array_flip( extensive_vc_get_title_tag_array( true, array( 'p' => 'p' ) ) ),
 						'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-						'group'      => esc_html__( 'Title Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Title Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'title_color',
-						'heading'    => esc_html__( 'Title Color', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Title Color', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-						'group'      => esc_html__( 'Title Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Title Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'title_bottom_margin',
-						'heading'    => esc_html__( 'Title Bottom Margin (px)', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Title Bottom Margin (px)', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-						'group'      => esc_html__( 'Title Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Title Options', 'extensive-vc-addon' )
 					)
 				)
 			);

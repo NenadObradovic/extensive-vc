@@ -224,7 +224,7 @@ if ( ! class_exists( 'EVCShortcode' ) ) {
 		}
 		
 		/**
-		 * Add shortcode custom icon for Visual Composer shortcodes panel
+		 * Add shortcode custom icon for WPBakery Page Builder shortcodes panel
 		 *
 		 * @param $icon array - list of shortcodes custom icon
 		 *
@@ -271,7 +271,7 @@ if ( ! class_exists( 'EVCShortcode' ) ) {
 		}
 		
 		/**
-		 * Maps shortcode to Visual Composer. Hooked on vc_before_init
+		 * Maps shortcode to WPBakery Page Builder. Hooked on vc_before_init
 		 *
 		 * @param $params array - contains parent and child values to check is shortcode parent or child for nested shortcodes
 		 */
@@ -312,9 +312,9 @@ if ( ! class_exists( 'EVCShortcode' ) ) {
 				vc_map(
 					array_merge(
 						array(
-							'name'     => sprintf( esc_html__( 'EVC ', 'extensive-vc' ) . '%s', $this->getShortcodeName() ),
+							'name'     => sprintf( esc_html__( 'EVC ', 'extensive-vc-addon' ) . '%s', $this->getShortcodeName() ),
 							'base'     => $this->getBase(),
-							'category' => esc_html__( 'Extensive VC', 'extensive-vc' ),
+							'category' => esc_html__( 'Extensive VC', 'extensive-vc-addon' ),
 							'icon'     => 'evc-vc-custom-icon ' . $this->getIconClass(),
 							'params'   => apply_filters( 'extensive_vc_filter_shortcode_params', $this->getShortcodeParameters(), $this->getBase() )
 						),

@@ -18,6 +18,7 @@ $item_classes = implode( ' ', $item_classes );
 
 ?>
 <div class="evc-c-item <?php echo esc_attr( $item_classes ); ?>">
+	<?php do_action( 'extensive_vc_action_clients_item_before_content', $params ); ?>
 	<div class="evc-c-item-inner">
 		<div class="evc-c-images">
 			<?php if ( ! empty( $custom_link ) ) { ?>
@@ -34,7 +35,7 @@ $item_classes = implode( ' ', $item_classes );
 			<?php } ?>
 		</div>
 		<?php if ( isset( $enable_title ) && $enable_title === 'yes' && ! empty( $title ) ) { ?>
-			<<?php echo esc_attr( $title_tag ); ?> class="evc-c-title" <?php extensive_vc_print_inline_style( $title_styles ); ?>>
+			<<?php echo esc_attr( extensive_vc_escape_title_tag( $title_tag ) ); ?> class="evc-c-title" <?php extensive_vc_print_inline_style( $title_styles ); ?>>
 				<?php if ( ! empty( $custom_link ) ) { ?>
 					<a href="<?php echo esc_url( $custom_link ); ?>" target="<?php echo esc_attr( $custom_link_target ); ?>">
 				<?php } ?>
@@ -42,7 +43,8 @@ $item_classes = implode( ' ', $item_classes );
 				<?php if ( ! empty( $custom_link ) ) { ?>
 					</a>
 				<?php } ?>
-			</<?php echo esc_attr( $title_tag ); ?>>
+			</<?php echo esc_attr( extensive_vc_escape_title_tag( $title_tag ) ); ?>>
 		<?php } ?>
 	</div>
+	<?php do_action( 'extensive_vc_action_clients_item_after_content', $params ); ?>
 </div>

@@ -24,17 +24,17 @@
 			}
 		},
 		createChart: function (holder) {
-			holder.appear(function () {
+			evc.evcIsInViewport.check(holder, function () {
 				holder.addClass('evc-pc-appeared');
 				
-				var chart = new Chart(holder.children('canvas'), {
+				var chart = new Chart(holder.children('canvas')[0], {
 					type: 'pie',
 					data: evcPieChart.getChartData(holder),
 					options: evcPieChart.getChartOptions(holder)
 				});
 				
 				evcPieChart.charts.push(chart);
-			}, {accX: 0, accY: -80});
+			});
 		},
 		getChartData: function (holder) {
 			var chartItem = holder.children('.evc-pie-chart-item'),
@@ -86,12 +86,16 @@
 				options = {};
 			
 			options['responsive'] = true;
-			options['legend'] = {
-				display: enableLegend,
-				position: legendPosition,
-				labels: {
-					fontSize: legendTextSize,
-					fontColor: legendColor
+			options['plugins'] = {
+				legend: {
+					display: !!enableLegend,
+					position: legendPosition,
+					labels: {
+						font: {
+							size: legendTextSize
+						},
+						color: legendColor
+					}
 				}
 			};
 			

@@ -21,7 +21,7 @@ if ( ! class_exists( 'EVCProductList' ) ) {
 		 */
 		function __construct() {
 			$this->setBase( 'evc_product_list' );
-			$this->setShortcodeName( esc_html__( 'Product List', 'extensive-vc' ) );
+			$this->setShortcodeName( esc_html__( 'Product List', 'extensive-vc-addon' ) );
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
@@ -34,130 +34,130 @@ if ( ! class_exists( 'EVCProductList' ) ) {
 		 * @return self
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
 		}
 		
 		/**
-		 * Set shortcode parameters for Visual Composer shortcodes options panel
+		 * Set shortcode parameters for WPBakery Page Builder shortcodes options panel
 		 */
 		function shortcodeParameters() {
 			$params = array(
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'custom_class',
-					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc' ),
-					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
+					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'dropdown',
 					'param_name'  => 'layout_collections',
-					'heading'     => esc_html__( 'Layout Collections', 'extensive-vc' ),
+					'heading'     => esc_html__( 'Layout Collections', 'extensive-vc-addon' ),
 					'value'       => array(
-						esc_html__( 'Standard', 'extensive-vc' )                  => 'standard',
-						esc_html__( 'Standard - Button Sliding', 'extensive-vc' ) => 'standard-button-sliding',
-						esc_html__( 'Gallery', 'extensive-vc' )                   => 'gallery'
+						esc_html__( 'Standard', 'extensive-vc-addon' )                  => 'standard',
+						esc_html__( 'Standard - Button Sliding', 'extensive-vc-addon' ) => 'standard-button-sliding',
+						esc_html__( 'Gallery', 'extensive-vc-addon' )                   => 'gallery'
 					),
 					'save_always' => true
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'number_of_products',
-					'heading'    => esc_html__( 'Number of Products', 'extensive-vc' )
+					'heading'    => esc_html__( 'Number of Products', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'number_of_columns',
-					'heading'    => esc_html__( 'Number of Columns', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Number of Columns', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_number_of_columns_array() )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'space_between_items',
-					'heading'    => esc_html__( 'Space Between Items', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Space Between Items', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_space_between_items_array() )
 				),
 				array(
 					'type'        => 'dropdown',
 					'param_name'  => 'orderby',
-					'heading'     => esc_html__( 'Order By', 'extensive-vc' ),
-					'value'       => array_flip( extensive_vc_get_query_order_by_array( false, array( 'on-sale' => esc_html__( 'On Sale', 'extensive-vc' ) ) ) )
+					'heading'     => esc_html__( 'Order By', 'extensive-vc-addon' ),
+					'value'       => array_flip( extensive_vc_get_query_order_by_array( false, array( 'on-sale' => esc_html__( 'On Sale', 'extensive-vc-addon' ) ) ) )
 				),
 				array(
 					'type'        => 'dropdown',
 					'param_name'  => 'order',
-					'heading'     => esc_html__( 'Order', 'extensive-vc' ),
+					'heading'     => esc_html__( 'Order', 'extensive-vc-addon' ),
 					'value'       => array_flip( extensive_vc_get_query_order_array() )
 				),
 				array(
 					'type'        => 'dropdown',
 					'param_name'  => 'taxonomy_to_display',
-					'heading'     => esc_html__( 'Choose Sorting Taxonomy', 'extensive-vc' ),
+					'heading'     => esc_html__( 'Choose Sorting Taxonomy', 'extensive-vc-addon' ),
 					'value'       => array(
-						esc_html__( 'Default', 'extensive-vc' )  => '',
-						esc_html__( 'Category', 'extensive-vc' ) => 'category',
-						esc_html__( 'Tag', 'extensive-vc' )      => 'tag',
-						esc_html__( 'ID', 'extensive-vc' )       => 'id'
+						esc_html__( 'Default', 'extensive-vc-addon' )  => '',
+						esc_html__( 'Category', 'extensive-vc-addon' ) => 'category',
+						esc_html__( 'Tag', 'extensive-vc-addon' )      => 'tag',
+						esc_html__( 'ID', 'extensive-vc-addon' )       => 'id'
 					),
-					'description' => esc_html__( 'If you would like to display only certain products, this is where you can select the criteria to choose which products to display', 'extensive-vc' )
+					'description' => esc_html__( 'If you would like to display only certain products, this is where you can select the criteria to choose which products to display', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'taxonomy_values',
-					'heading'     => esc_html__( 'Enter Taxonomy Values', 'extensive-vc' ),
-					'description' => esc_html__( 'Separate values (category slugs, tags, or post IDs) with a comma', 'extensive-vc' )
+					'heading'     => esc_html__( 'Enter Taxonomy Values', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Separate values (category slugs, tags, or post IDs) with a comma', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'dropdown',
 					'param_name'  => 'image_proportions',
-					'heading'     => esc_html__( 'Image Proportions', 'extensive-vc' ),
+					'heading'     => esc_html__( 'Image Proportions', 'extensive-vc-addon' ),
 					'value'       => array(
-						esc_html__( 'Default', 'extensive-vc' )        => '',
-						esc_html__( 'Original', 'extensive-vc' )       => 'full',
-						esc_html__( 'Medium', 'extensive-vc' )         => 'medium',
-						esc_html__( 'Large', 'extensive-vc' )          => 'large',
-						esc_html__( 'Shop Single', 'extensive-vc' )    => 'woocommerce_single',
-						esc_html__( 'Shop Thumbnail', 'extensive-vc' ) => 'woocommerce_thumbnail'
+						esc_html__( 'Default', 'extensive-vc-addon' )        => '',
+						esc_html__( 'Original', 'extensive-vc-addon' )       => 'full',
+						esc_html__( 'Medium', 'extensive-vc-addon' )         => 'medium',
+						esc_html__( 'Large', 'extensive-vc-addon' )          => 'large',
+						esc_html__( 'Shop Single', 'extensive-vc-addon' )    => 'woocommerce_single',
+						esc_html__( 'Shop Thumbnail', 'extensive-vc-addon' ) => 'woocommerce_thumbnail'
 					)
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'enable_title',
-					'heading'    => esc_html__( 'Enable Title', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Enable Title', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'title_tag',
-					'heading'    => esc_html__( 'Title Tag', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Title Tag', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_title_tag_array( true, array( 'p' => 'p' ) ) ),
 					'dependency' => array( 'element' => 'enable_title', 'value' => array( 'yes' ) ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'enable_ratings',
-					'heading'    => esc_html__( 'Enable Ratings', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Enable Ratings', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'enable_price',
-					'heading'    => esc_html__( 'Enable Price', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Enable Price', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'enable_category',
-					'heading'    => esc_html__( 'Enable Category', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Enable Category', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false ) ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 				)
 			);
 			
@@ -214,12 +214,14 @@ if ( ! class_exists( 'EVCProductList' ) ) {
 				'post_status'         => 'publish',
 				'post_type'           => 'product',
 				'ignore_sticky_posts' => 1,
-				'posts_per_page'      => $params['number_of_products'],
+				'posts_per_page'      => intval( $params['number_of_products'] ),
 				'orderby'             => $params['orderby'],
-				'order'               => $params['order']
+				'order'               => $params['order'],
+				'tax_query'           => $this->getVisibilityTaxQuery(), // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
 			);
-			
+
 			if ( $params['orderby'] === 'on-sale' && function_exists( 'wc_get_product_ids_on_sale' ) ) {
+				$args['orderby']       = 'date';
 				$args['no_found_rows'] = 1;
 				$args['post__in']      = array_merge( array( 0 ), wc_get_product_ids_on_sale() );
 			}
@@ -248,6 +250,41 @@ if ( ! class_exists( 'EVCProductList' ) ) {
 			return $args;
 		}
 		
+		/**
+		 * Get tax query which excludes products hidden from the catalog and out of stock products when WooCommerce option is enabled
+		 *
+		 * @return array
+		 */
+		private function getVisibilityTaxQuery() {
+			$tax_query = array();
+
+			if ( ! function_exists( 'wc_get_product_visibility_term_ids' ) ) {
+				return $tax_query;
+			}
+
+			$visibility_terms = wc_get_product_visibility_term_ids();
+			$excluded_terms   = array();
+
+			if ( ! empty( $visibility_terms['exclude-from-catalog'] ) ) {
+				$excluded_terms[] = $visibility_terms['exclude-from-catalog'];
+			}
+
+			if ( 'yes' === get_option( 'woocommerce_hide_out_of_stock_items' ) && ! empty( $visibility_terms['outofstock'] ) ) {
+				$excluded_terms[] = $visibility_terms['outofstock'];
+			}
+
+			if ( ! empty( $excluded_terms ) ) {
+				$tax_query[] = array(
+					'taxonomy' => 'product_visibility',
+					'field'    => 'term_taxonomy_id',
+					'terms'    => $excluded_terms,
+					'operator' => 'NOT IN',
+				);
+			}
+
+			return $tax_query;
+		}
+
 		/**
 		 * Get shortcode holder classes
 		 *

@@ -5,12 +5,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $i  = 0;
-$id = rand( 1000, 9999 );
+$id = wp_rand( 1000, 9999 );
 
 wp_enqueue_style( 'lightbox' );
 wp_enqueue_script( 'lightbox' );
 ?>
+<?php do_action( 'extensive_vc_action_before_gallery_block', $params ); ?>
 <div class="evc-gallery-block evc-shortcode <?php echo esc_attr( $holder_classes ); ?>">
+	<?php do_action( 'extensive_vc_action_gallery_block_before_content', $params ); ?>
 	<div class="evc-gb-wrapper evc-element-wrapper">
 		<?php foreach ( $images as $image ) {
 			$i++;
@@ -31,12 +33,12 @@ wp_enqueue_script( 'lightbox' );
 					<?php } ?>
 					
 					<?php if ( $image_behavior === 'lightbox' ) { ?>
-						<a class="evc-gb-lightbox" href="<?php echo esc_url( wp_get_attachment_url( $image['image_id'] ) ); ?>" data-lightbox="evc-gb-lb-<?php echo esc_attr( $id ); ?>" data-title="<?php echo get_the_title( $image['image_id'] ); ?>">
+						<a class="evc-gb-lightbox" href="<?php echo esc_url( wp_get_attachment_url( $image['image_id'] ) ); ?>" data-lightbox="evc-gb-lb-<?php echo esc_attr( $id ); ?>" data-title="<?php echo esc_attr( get_the_title( $image['image_id'] ) ); ?>">
 					<?php } ?>
 					
 					<?php
 						if ( is_array( $image_size ) && count( $image_size ) ) {
-							echo extensive_vc_generate_thumbnail( $image['image_id'], $image_size[0], $image_size[1] );
+							echo wp_kses_post( extensive_vc_generate_thumbnail( $image['image_id'], $image_size[0], $image_size[1] ) );
 						} else {
 							echo wp_get_attachment_image( $image['image_id'], $image_size );
 						}
@@ -49,4 +51,6 @@ wp_enqueue_script( 'lightbox' );
 			</div>
 		<?php } ?>
 	</div>
+	<?php do_action( 'extensive_vc_action_gallery_block_after_content', $params ); ?>
 </div>
+<?php do_action( 'extensive_vc_action_after_gallery_block', $params ); ?>

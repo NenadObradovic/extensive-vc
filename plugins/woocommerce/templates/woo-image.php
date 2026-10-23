@@ -15,6 +15,6 @@ if ( function_exists( 'woocommerce_get_product_thumbnail' ) && has_post_thumbnai
 				<?php woocommerce_show_product_loop_sale_flash(); ?>
 			</div>
 		<?php } ?>
-		<?php echo woocommerce_get_product_thumbnail( $image_proportions ); ?>
+		<?php echo wp_kses_post( woocommerce_get_product_thumbnail( $image_proportions ) ); ?>
 	</div>
 <?php }

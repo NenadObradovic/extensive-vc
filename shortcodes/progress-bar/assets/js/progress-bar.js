@@ -20,7 +20,7 @@
 					percentValue = parseFloat(barContent.data('percentage'));
 				
 				if (typeof percentValue !== 'undefined' && percentValue !== false) {
-					thisBar.appear(function () {
+					evc.evcIsInViewport.check(thisBar, function () {
 						evcInitProgressBarCounter(percent, percentValue);
 						
 						if(isVerticalType) {
@@ -28,7 +28,7 @@
 						} else {
 							barContent.stop().animate({'width': percentValue + '%'}, 1500);
 						}
-					}, {accX: 0, accY: -80});
+					});
 				}
 			});
 		}

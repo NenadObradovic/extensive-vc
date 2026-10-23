@@ -22,7 +22,7 @@ if ( ! class_exists( 'EVCFullScreenSectionsItem' ) ) {
 		function __construct() {
 			$this->setBase( 'evc_full_screen_sections_item' );
 			$this->setParentBase( 'evc_full_screen_sections' );
-			$this->setShortcodeName( esc_html__( 'Full Screen Sections Item', 'extensive-vc' ) );
+			$this->setShortcodeName( esc_html__( 'Full Screen Sections Item', 'extensive-vc-addon' ) );
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
@@ -35,78 +35,78 @@ if ( ! class_exists( 'EVCFullScreenSectionsItem' ) ) {
 		 * @return self
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
 		}
 		
 		/**
-		 * Set shortcode parameters for Visual Composer shortcodes options panel
+		 * Set shortcode parameters for WPBakery Page Builder shortcodes options panel
 		 */
 		function shortcodeParameters() {
 			$params = array(
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'custom_class',
-					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc' ),
-					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
+					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'background_color',
-					'heading'    => esc_html__( 'Background Color', 'extensive-vc' )
+					'heading'    => esc_html__( 'Background Color', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'attach_image',
 					'param_name' => 'background_image',
-					'heading'    => esc_html__( 'Background Image', 'extensive-vc' )
+					'heading'    => esc_html__( 'Background Image', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'background_position',
-					'heading'     => esc_html__( 'Background Image Position', 'extensive-vc' ),
-					'description' => esc_html__( 'Please insert position in format horizontal vertical position, example - center center', 'extensive-vc' ),
+					'heading'     => esc_html__( 'Background Image Position', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Please insert position in format horizontal vertical position, example - center center', 'extensive-vc-addon' ),
 					'dependency'  => array( 'item' => 'background_image', 'not_empty' => true )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'background_size',
-					'heading'    => esc_html__( 'Background Image Size', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Background Image Size', 'extensive-vc-addon' ),
 					'value'      => array(
-						esc_html__( 'Cover', 'extensive-vc' )   => 'cover',
-						esc_html__( 'Contain', 'extensive-vc' ) => 'contain',
-						esc_html__( 'Inherit', 'extensive-vc' ) => 'inherit'
+						esc_html__( 'Cover', 'extensive-vc-addon' )   => 'cover',
+						esc_html__( 'Contain', 'extensive-vc-addon' ) => 'contain',
+						esc_html__( 'Inherit', 'extensive-vc-addon' ) => 'inherit'
 					),
 					'dependency' => array( 'item' => 'background_image', 'not_empty' => true )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'vertical_alignment',
-					'heading'    => esc_html__( 'Content Vertical Alignment', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Content Vertical Alignment', 'extensive-vc-addon' ),
 					'value'      => array(
-						esc_html__( 'Default', 'extensive-vc' ) => '',
-						esc_html__( 'Top', 'extensive-vc' )     => 'top',
-						esc_html__( 'Middle', 'extensive-vc' )  => 'middle',
-						esc_html__( 'Bottom', 'extensive-vc' )  => 'bottom'
+						esc_html__( 'Default', 'extensive-vc-addon' ) => '',
+						esc_html__( 'Top', 'extensive-vc-addon' )     => 'top',
+						esc_html__( 'Middle', 'extensive-vc-addon' )  => 'middle',
+						esc_html__( 'Bottom', 'extensive-vc-addon' )  => 'bottom'
 					)
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'horizontal_alignment',
-					'heading'    => esc_html__( 'Content Horizontal Alignment', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Content Horizontal Alignment', 'extensive-vc-addon' ),
 					'value'      => array(
-						esc_html__( 'Default', 'extensive-vc' ) => '',
-						esc_html__( 'Left', 'extensive-vc' )    => 'left',
-						esc_html__( 'Center', 'extensive-vc' )  => 'center',
-						esc_html__( 'Right', 'extensive-vc' )   => 'right'
+						esc_html__( 'Default', 'extensive-vc-addon' ) => '',
+						esc_html__( 'Left', 'extensive-vc-addon' )    => 'left',
+						esc_html__( 'Center', 'extensive-vc-addon' )  => 'center',
+						esc_html__( 'Right', 'extensive-vc-addon' )   => 'right'
 					)
 				),
 				array(
 					'type'       => 'vc_link',
 					'param_name' => 'custom_link',
-					'heading'    => esc_html__( 'Custom Link', 'extensive-vc' )
+					'heading'    => esc_html__( 'Custom Link', 'extensive-vc-addon' )
 				)
 			);
 			

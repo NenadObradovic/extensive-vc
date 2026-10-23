@@ -5,7 +5,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
+<?php do_action( 'extensive_vc_action_before_process', $params ); ?>
 <div class="evc-process evc-shortcode <?php echo esc_attr( $holder_classes ); ?>">
+	<?php do_action( 'extensive_vc_action_process_before_content', $params ); ?>
 	<div class="evc-p-mark-horizontal">
 		<?php for ( $i = 1; $i <= $number_of_items; $i ++ ) { ?>
 			<div class="evc-p-mark">
@@ -25,4 +27,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="evc-p-inner">
 		<?php echo do_shortcode( $content ); ?>
 	</div>
+	<?php do_action( 'extensive_vc_action_process_after_content', $params ); ?>
 </div>
+<?php do_action( 'extensive_vc_action_after_process', $params ); ?>

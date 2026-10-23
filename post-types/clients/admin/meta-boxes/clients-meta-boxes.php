@@ -23,7 +23,7 @@ if ( ! function_exists( 'extensive_vc_register_clients_meta_boxes' ) ) {
 		
 		$metaBoxes[] = array(
 			'id'       => 'clients',
-			'title'    => esc_html__( 'Clients', 'extensive-vc' ),
+			'title'    => esc_html__( 'Clients', 'extensive-vc-addon' ),
 			'function' => 'extensive_vc_add_clients_meta_boxes',
 			'screen'   => 'clients',
 			'context'  => 'advanced',
@@ -77,7 +77,7 @@ if ( ! function_exists( 'extensive_vc_add_clients_meta_boxes' ) ) {
 			array(
 				'type'               => 'image',
 				'name'               => 'evc_client_image',
-				'label'              => esc_html__( 'Image', 'extensive-vc' ),
+				'label'              => esc_html__( 'Image', 'extensive-vc-addon' ),
 				'just_render_fields' => $just_render_fields
 			)
 		);
@@ -86,7 +86,7 @@ if ( ! function_exists( 'extensive_vc_add_clients_meta_boxes' ) ) {
 			array(
 				'type'               => 'image',
 				'name'               => 'evc_client_hover_image',
-				'label'              => esc_html__( 'Hover Image', 'extensive-vc' ),
+				'label'              => esc_html__( 'Hover Image', 'extensive-vc-addon' ),
 				'just_render_fields' => $just_render_fields
 			)
 		);
@@ -95,7 +95,7 @@ if ( ! function_exists( 'extensive_vc_add_clients_meta_boxes' ) ) {
 			array(
 				'type'               => 'text',
 				'name'               => 'evc_client_link',
-				'label'              => esc_html__( 'Link', 'extensive-vc' ),
+				'label'              => esc_html__( 'Link', 'extensive-vc-addon' ),
 				'just_render_fields' => $just_render_fields
 			)
 		);

@@ -4,5 +4,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-include_once 'functions.php';
-include_once 'blog-list-widget.php';
+require_once __DIR__ . '/functions.php';
+require_once __DIR__ . '/blog-list-widget.php';

@@ -13,8 +13,8 @@ if ( ! class_exists( 'EVCContactForm7Widget' ) ) {
 		public function __construct() {
 			parent::__construct(
 				'evc_contact_form_7_widget',
-				esc_html__( 'EVC Contact Form 7', 'extensive-vc' ),
-				array( 'description' => esc_html__( 'Add contact form 7 element to widget areas', 'extensive-vc' ) )
+				esc_html__( 'EVC Contact Form 7', 'extensive-vc-addon' ),
+				array( 'description' => esc_html__( 'Add contact form 7 element to widget areas', 'extensive-vc-addon' ) )
 			);
 			
 			$this->setWidgetParameters();
@@ -28,18 +28,18 @@ if ( ! class_exists( 'EVCContactForm7Widget' ) ) {
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'custom_class',
-					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc' ),
-					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
+					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'widget_title',
-					'heading'    => esc_html__( 'Widget Title', 'extensive-vc' )
+					'heading'    => esc_html__( 'Widget Title', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'contact_forms_7',
-					'heading'    => esc_html__( 'Select Contact Form 7', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Select Contact Form 7', 'extensive-vc-addon' ),
 					'value'      => extensive_vc_get_contact_forms_7_array()
 				)
 			);

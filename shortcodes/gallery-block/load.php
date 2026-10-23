@@ -4,4 +4,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-include_once 'gallery-block.php';
+require_once __DIR__ . '/gallery-block.php';

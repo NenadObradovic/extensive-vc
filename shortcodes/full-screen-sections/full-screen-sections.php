@@ -22,7 +22,7 @@ if ( ! class_exists( 'EVCFullScreenSections' ) ) {
 		function __construct() {
 			$this->setBase( 'evc_full_screen_sections' );
 			$this->setChildBase( 'evc_full_screen_sections_item' );
-			$this->setShortcodeName( esc_html__( 'Full Screen Sections', 'extensive-vc' ) );
+			$this->setShortcodeName( esc_html__( 'Full Screen Sections', 'extensive-vc-addon' ) );
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
@@ -31,7 +31,6 @@ if ( ! class_exists( 'EVCFullScreenSections' ) ) {
 			// Additional methods need to be loaded after parent constructor loaded if we used methods from the parent class
 			if ( $this->getIsShortcodeEnabled() ) {
 				add_filter( 'extensive_vc_filter_add_vc_shortcodes_custom_style', array( $this, 'addShortcodeIconCustomStyle' ) );
-				add_action( 'extensive_vc_enqueue_additional_scripts_before_main_js', array( $this, 'enqueueShortcodeAdditionalScripts' ) );
 			}
 		}
 		
@@ -41,15 +40,15 @@ if ( ! class_exists( 'EVCFullScreenSections' ) ) {
 		 * @return self
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
 		}
 		
 		/**
-		 * Add shortcode custom css style for Visual Composer shortcodes panel
+		 * Add shortcode custom css style for WPBakery Page Builder shortcodes panel
 		 */
 		function addShortcodeIconCustomStyle( $style ) {
 			$current_style = '.vc_shortcodes_container.wpb_evc_full_screen_sections_item { background-color: #f5f5f5; }';
@@ -60,42 +59,35 @@ if ( ! class_exists( 'EVCFullScreenSections' ) ) {
 		}
 		
 		/**
-		 * Enqueue necessary 3rd party scripts for this shortcode
-		 */
-		function enqueueShortcodeAdditionalScripts() {
-			wp_register_script( 'fullPage', EXTENSIVE_VC_SHORTCODES_URL_PATH . '/full-screen-sections/assets/js/plugins/jquery.fullPage.min.js', array( 'jquery' ), false, true );
-		}
-		
-		/**
-		 * Set shortcode parameters for Visual Composer shortcodes options panel
+		 * Set shortcode parameters for WPBakery Page Builder shortcodes options panel
 		 */
 		function shortcodeParameters() {
 			$params = array(
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'custom_class',
-					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc' ),
-					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
+					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'enable_navigation',
-					'heading'    => esc_html__( 'Enable Navigation Arrows', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Enable Navigation Arrows', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'top_margin_offset',
-					'heading'     => esc_html__( 'Top Margin Offset (px)', 'extensive-vc' ),
-					'description' => esc_html__( 'Defines top margin offset to put shortcode behind header if header element is not transparent', 'extensive-vc' )
+					'heading'     => esc_html__( 'Top Margin Offset (px)', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Defines top margin offset to put shortcode behind header if header element is not transparent', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'slide_animation',
-					'heading'    => esc_html__( 'Choose Slide Animation', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Choose Slide Animation', 'extensive-vc-addon' ),
 					'value'      => array(
-						esc_html__( 'Predefined', 'extensive-vc' ) => 'predefined',
-						esc_html__( 'Slide', 'extensive-vc' )      => 'slide'
+						esc_html__( 'Predefined', 'extensive-vc-addon' ) => 'predefined',
+						esc_html__( 'Slide', 'extensive-vc-addon' )      => 'slide'
 					
 					)
 				)

@@ -33,8 +33,8 @@ if ( ! class_exists( 'ExtensiveVCFramework' ) ) {
 		 * @return ExtensiveVCFramework object
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
@@ -94,8 +94,8 @@ if ( ! class_exists( 'ExtensiveVCOptions' ) ) {
 		 * @return ExtensiveVCOptions object
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
@@ -122,8 +122,43 @@ if ( ! class_exists( 'ExtensiveVCOptions' ) ) {
 			
 			register_setting(
 				'evc_options_group',
-				'evc_options'
+				'evc_options',
+				array(
+					'type'              => 'array',
+					'sanitize_callback' => array( $this, 'sanitizeOptions' ),
+				)
 			);
+		}
+
+		/**
+		 * Sanitize admin options values before they are saved into database
+		 *
+		 * @param $options array - submitted options values
+		 *
+		 * @return array
+		 */
+		function sanitizeOptions( $options ) {
+			$sanitized_options = array();
+
+			if ( ! is_array( $options ) ) {
+				return $sanitized_options;
+			}
+
+			foreach ( $options as $key => $value ) {
+				$key = sanitize_key( $key );
+
+				if ( empty( $key ) || ! is_scalar( $value ) ) {
+					continue;
+				}
+
+				if ( 'evc_main_color' === $key ) {
+					$sanitized_options[ $key ] = (string) sanitize_hex_color( $value );
+				} else {
+					$sanitized_options[ $key ] = sanitize_text_field( $value );
+				}
+			}
+
+			return $sanitized_options;
 		}
 		
 		/**
@@ -227,8 +262,27 @@ if ( ! class_exists( 'ExtensiveVCOptions' ) ) {
 			if ( ! empty( $description ) ) {
 				$html .= '<p class="description">' . esc_html( $description ) . '</p>';
 			}
-			
-			echo $html;
+
+			$attributes   = array(
+				'class'    => true,
+				'id'       => true,
+				'name'     => true,
+				'type'     => true,
+				'value'    => true,
+				'for'      => true,
+				'checked'  => true,
+				'selected' => true,
+			);
+			$allowed_html = array(
+				'input'    => $attributes,
+				'select'   => $attributes,
+				'option'   => $attributes,
+				'fieldset' => $attributes,
+				'label'    => $attributes,
+				'p'        => $attributes,
+			);
+
+			echo wp_kses( $html, $allowed_html );
 		}
 	}
 }
@@ -246,12 +300,14 @@ if ( ! class_exists( 'ExtensiveVCMetaBoxes' ) ) {
 		 */
 		private static $instance;
 		public $options;
-		
+		public $types;
+
 		/**
 		 * Constructor
 		 */
 		private function __construct() {
 			$this->options = array();
+			$this->types   = array();
 		}
 		
 		/**
@@ -260,8 +316,8 @@ if ( ! class_exists( 'ExtensiveVCMetaBoxes' ) ) {
 		 * @return ExtensiveVCMetaBoxes object
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
@@ -275,6 +331,27 @@ if ( ! class_exists( 'ExtensiveVCMetaBoxes' ) ) {
 		 */
 		function addOption( $key, $value ) {
 			$this->options[ $key ] = $value;
+		}
+
+		/**
+		 * Add option field type
+		 *
+		 * @param $key string - option key
+		 * @param $type string - option field type
+		 */
+		function addOptionType( $key, $type ) {
+			$this->types[ $key ] = $type;
+		}
+
+		/**
+		 * Get option field type by option key
+		 *
+		 * @param $key string - option key
+		 *
+		 * @return string
+		 */
+		function getOptionType( $key ) {
+			return isset( $this->types[ $key ] ) ? $this->types[ $key ] : 'text';
 		}
 		
 		/**
@@ -328,6 +405,7 @@ if ( ! class_exists( 'ExtensiveVCMetaBoxes' ) ) {
 			
 			if ( $just_render_fields ) {
 				$this->addOption( $option_name, '' );
+				$this->addOptionType( $option_name, $option_type );
 			} else {
 				$option_value = $this->getOptionValueByName( $option_name );
 				?>
@@ -343,7 +421,7 @@ if ( ! class_exists( 'ExtensiveVCMetaBoxes' ) ) {
 							break;
 						case 'textarea':
 							?>
-							<textarea class="evc-meta-box-field evc-meta-box-textarea" type="textarea" rows="4" name="<?php echo esc_attr( $option_name ); ?>"><?php echo esc_attr( $option_value ); ?></textarea>
+							<textarea class="evc-meta-box-field evc-meta-box-textarea" type="textarea" rows="4" name="<?php echo esc_attr( $option_name ); ?>"><?php echo esc_textarea( $option_value ); ?></textarea>
 							<?php
 							break;
 						case 'image':
@@ -354,8 +432,8 @@ if ( ! class_exists( 'ExtensiveVCMetaBoxes' ) ) {
 									echo wp_get_attachment_image( $option_value, 'medium', false, array( 'class' => 'evc-meta-box-image' ) );
 								} ?>
 								
-								<input class="button button-primary button-large evc-meta-box-upload-button" type="button" value="<?php esc_attr_e( 'Upload Image', 'extensive-vc' ); ?>" />
-								<input class="button button-large evc-meta-box-remove-upload-button <?php echo esc_attr( $visibilityClass ); ?>" type="button" value="<?php esc_attr_e( 'Remove Image', 'extensive-vc' ); ?>" />
+								<input class="button button-primary button-large evc-meta-box-upload-button" type="button" value="<?php esc_attr_e( 'Upload Image', 'extensive-vc-addon' ); ?>" />
+								<input class="button button-large evc-meta-box-remove-upload-button <?php echo esc_attr( $visibilityClass ); ?>" type="button" value="<?php esc_attr_e( 'Remove Image', 'extensive-vc-addon' ); ?>" />
 								
 								<input type="hidden" name="<?php echo esc_attr( $option_name ); ?>" value="<?php echo esc_attr( $option_value ); ?>" />
 							</div>

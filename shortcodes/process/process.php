@@ -22,7 +22,7 @@ if ( ! class_exists( 'EVCProcess' ) ) {
 		function __construct() {
 			$this->setBase( 'evc_process' );
 			$this->setChildBase( 'evc_process_item' );
-			$this->setShortcodeName( esc_html__( 'Process', 'extensive-vc' ) );
+			$this->setShortcodeName( esc_html__( 'Process', 'extensive-vc-addon' ) );
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
@@ -40,15 +40,15 @@ if ( ! class_exists( 'EVCProcess' ) ) {
 		 * @return self
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
 		}
 		
 		/**
-		 * Add shortcode custom css style for Visual Composer shortcodes panel
+		 * Add shortcode custom css style for WPBakery Page Builder shortcodes panel
 		 */
 		function addShortcodeIconCustomStyle( $style ) {
 			$current_style = '.wpb_content_element.wpb_evc_process_item > .wpb_element_wrapper { background-color: #f5f5f5; }';
@@ -59,54 +59,54 @@ if ( ! class_exists( 'EVCProcess' ) ) {
 		}
 		
 		/**
-		 * Set shortcode parameters for Visual Composer shortcodes options panel
+		 * Set shortcode parameters for WPBakery Page Builder shortcodes options panel
 		 */
 		function shortcodeParameters() {
 			$params = array(
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'custom_class',
-					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc' ),
-					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
+					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'number_of_columns',
-					'heading'    => esc_html__( 'Number of Columns', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Number of Columns', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_number_of_columns_array( array( 'one', 'five', 'six' ) ) )
 				),
 				array(
 					'type'        => 'dropdown',
 					'param_name'  => 'switch_to_one_column',
-					'heading'     => esc_html__( 'Switch to One Column', 'extensive-vc' ),
+					'heading'     => esc_html__( 'Switch to One Column', 'extensive-vc-addon' ),
 					'value'       => array(
-						esc_html__( 'Default None', 'extensive-vc' ) => '',
-						esc_html__( 'Below 1366px', 'extensive-vc' ) => '1366',
-						esc_html__( 'Below 1280px', 'extensive-vc' ) => '1280',
-						esc_html__( 'Below 1024px', 'extensive-vc' ) => '1024',
-						esc_html__( 'Below 768px', 'extensive-vc' )  => '768',
-						esc_html__( 'Below 680px', 'extensive-vc' )  => '680',
-						esc_html__( 'Below 480px', 'extensive-vc' )  => '480'
+						esc_html__( 'Default None', 'extensive-vc-addon' ) => '',
+						esc_html__( 'Below 1366px', 'extensive-vc-addon' ) => '1366',
+						esc_html__( 'Below 1280px', 'extensive-vc-addon' ) => '1280',
+						esc_html__( 'Below 1024px', 'extensive-vc-addon' ) => '1024',
+						esc_html__( 'Below 768px', 'extensive-vc-addon' )  => '768',
+						esc_html__( 'Below 680px', 'extensive-vc-addon' )  => '680',
+						esc_html__( 'Below 480px', 'extensive-vc-addon' )  => '480'
 					),
-					'description' => esc_html__( 'Choose on which stage item will be full width', 'extensive-vc' )
+					'description' => esc_html__( 'Choose on which stage item will be full width', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'circle_number_color',
-					'heading'    => esc_html__( 'Circle Number Color', 'extensive-vc' ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'heading'    => esc_html__( 'Circle Number Color', 'extensive-vc-addon' ),
+					'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'circle_background_color',
-					'heading'    => esc_html__( 'Circle Background Color', 'extensive-vc' ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'heading'    => esc_html__( 'Circle Background Color', 'extensive-vc-addon' ),
+					'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'line_color',
-					'heading'    => esc_html__( 'Line Color', 'extensive-vc' ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'heading'    => esc_html__( 'Line Color', 'extensive-vc-addon' ),
+					'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 				)
 			);
 			

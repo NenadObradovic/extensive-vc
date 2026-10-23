@@ -13,8 +13,8 @@ if ( ! class_exists( 'EVCTextMarqueeWidget' ) ) {
 		public function __construct() {
 			parent::__construct(
 				'evc_text_marquee_widget',
-				esc_html__( 'EVC Text Marquee', 'extensive-vc' ),
-				array( 'description' => esc_html__( 'Add text marquee element to widget areas', 'extensive-vc' ) )
+				esc_html__( 'EVC Text Marquee', 'extensive-vc-addon' ),
+				array( 'description' => esc_html__( 'Add text marquee element to widget areas', 'extensive-vc-addon' ) )
 			);
 			
 			$this->setWidgetParameters();
@@ -28,55 +28,55 @@ if ( ! class_exists( 'EVCTextMarqueeWidget' ) ) {
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'custom_class',
-					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc' ),
-					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
+					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'widget_title',
-					'heading'    => esc_html__( 'Widget Title', 'extensive-vc' )
+					'heading'    => esc_html__( 'Widget Title', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'text',
-					'heading'     => esc_html__( 'Text', 'extensive-vc' )
+					'heading'     => esc_html__( 'Text', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'color',
-					'heading'    => esc_html__( 'Color', 'extensive-vc' )
+					'heading'    => esc_html__( 'Color', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'font_size',
-					'heading'    => esc_html__( 'Font Size (px or em)', 'extensive-vc' )
+					'heading'    => esc_html__( 'Font Size (px or em)', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'line_height',
-					'heading'    => esc_html__( 'Line Height (px or em)', 'extensive-vc' )
+					'heading'    => esc_html__( 'Line Height (px or em)', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'font_weight',
-					'heading'    => esc_html__( 'Font Weight', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Font Weight', 'extensive-vc-addon' ),
 					'value'      => extensive_vc_get_font_weight_array( true )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'font_style',
-					'heading'    => esc_html__( 'Font Style', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Font Style', 'extensive-vc-addon' ),
 					'value'      => extensive_vc_get_font_style_array( true )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'letter_spacing',
-					'heading'    => esc_html__( 'Letter Spacing (px or em)', 'extensive-vc' )
+					'heading'    => esc_html__( 'Letter Spacing (px or em)', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'text_transform',
-					'heading'    => esc_html__( 'Text Transform', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Text Transform', 'extensive-vc-addon' ),
 					'value'      => extensive_vc_get_text_transform_array( true )
 				)
 			);
@@ -103,6 +103,7 @@ if ( ! class_exists( 'EVCTextMarqueeWidget' ) ) {
 					echo wp_kses_post( $args['before_title'] ) . esc_html( $instance['widget_title'] ) . wp_kses_post( $args['after_title'] );
 				}
 				
+				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Shortcode output is escaped in its template.
 				echo extensive_vc_render_shortcode( 'evc_text_marquee', $instance ); // XSS OK
 			echo '</div>';
 		}

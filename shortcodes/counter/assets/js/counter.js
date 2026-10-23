@@ -16,7 +16,7 @@
 				var thisCounter = $(this),
 					digit = thisCounter.find('.evc-c-digit');
 
-				thisCounter.appear(function () {
+				evc.evcIsInViewport.check(thisCounter, function () {
 					thisCounter.css('opacity', '1');
 
 					digit.countTo({
@@ -25,7 +25,7 @@
 						speed: 1500,
 						refreshInterval: 100
 					});
-				}, {accX: 0, accY: -80});
+				});
 			});
 		}
 	}

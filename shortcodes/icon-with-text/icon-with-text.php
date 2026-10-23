@@ -21,7 +21,7 @@ if ( ! class_exists( 'EVCIconWithText' ) ) {
 		 */
 		function __construct() {
 			$this->setBase( 'evc_icon_with_text' );
-			$this->setShortcodeName( esc_html__( 'Icon With Text', 'extensive-vc' ) );
+			$this->setShortcodeName( esc_html__( 'Icon With Text', 'extensive-vc-addon' ) );
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
@@ -34,15 +34,15 @@ if ( ! class_exists( 'EVCIconWithText' ) ) {
 		 * @return self
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
 		}
 		
 		/**
-		 * Set shortcode parameters for Visual Composer shortcodes options panel
+		 * Set shortcode parameters for WPBakery Page Builder shortcodes options panel
 		 */
 		function shortcodeParameters() {
 			$params = array_merge(
@@ -50,16 +50,16 @@ if ( ! class_exists( 'EVCIconWithText' ) ) {
 					array(
 						'type'        => 'textfield',
 						'param_name'  => 'custom_class',
-						'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc' ),
-						'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
+						'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc-addon' ),
+						'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc-addon' )
 					),
 					array(
 						'type'        => 'dropdown',
 						'param_name'  => 'type',
-						'heading'     => esc_html__( 'Type', 'extensive-vc' ),
+						'heading'     => esc_html__( 'Type', 'extensive-vc-addon' ),
 						'value'       => array(
-							esc_html__( 'Icon Top', 'extensive-vc' )  => 'icon-top',
-							esc_html__( 'Icon Left', 'extensive-vc' ) => 'icon-left'
+							esc_html__( 'Icon Top', 'extensive-vc-addon' )  => 'icon-top',
+							esc_html__( 'Icon Left', 'extensive-vc-addon' ) => 'icon-left'
 						),
 						'save_always' => true
 					)
@@ -69,67 +69,74 @@ if ( ! class_exists( 'EVCIconWithText' ) ) {
 					array(
 						'type'       => 'attach_image',
 						'param_name' => 'custom_icon',
-						'heading'    => esc_html__( 'Custom Icon', 'extensive-vc' )
+						'heading'    => esc_html__( 'Custom Icon', 'extensive-vc-addon' )
+					),
+					array(
+						'type'        => 'textfield',
+						'param_name'  => 'image_size',
+						'heading'     => esc_html__( 'Image Size', 'extensive-vc-addon' ),
+						'description' => esc_html__( 'Fill your image size (thumbnail, medium, large, full or any registered image size) or enter image size in pixels: 200x100 (width x height). Leave empty to use original image size', 'extensive-vc-addon' ),
+						'dependency'  => array( 'element' => 'custom_icon', 'not_empty' => true )
 					),
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'icon_size',
-						'heading'    => esc_html__( 'Icon Size (px)', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Icon Size (px)', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'icon_library', 'not_empty' => true ),
-						'group'      => esc_html__( 'Icon Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Icon Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'icon_color',
-						'heading'    => esc_html__( 'Icon Color', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Icon Color', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'icon_library', 'not_empty' => true ),
-						'group'      => esc_html__( 'Icon Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Icon Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'        => 'textfield',
 						'param_name'  => 'title',
-						'heading'     => esc_html__( 'Title', 'extensive-vc' ),
+						'heading'     => esc_html__( 'Title', 'extensive-vc-addon' ),
 						'admin_label' => true
 					),
 					array(
 						'type'        => 'dropdown',
 						'param_name'  => 'title_tag',
-						'heading'     => esc_html__( 'Title Tag', 'extensive-vc' ),
+						'heading'     => esc_html__( 'Title Tag', 'extensive-vc-addon' ),
 						'value'       => array_flip( extensive_vc_get_title_tag_array( true, array( 'p' => 'p' ) ) ),
 						'save_always' => true,
 						'dependency'  => array( 'element' => 'title', 'not_empty' => true ),
-						'group'       => esc_html__( 'Title Options', 'extensive-vc' )
+						'group'       => esc_html__( 'Title Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'title_color',
-						'heading'    => esc_html__( 'Title Color', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Title Color', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-						'group'      => esc_html__( 'Title Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Title Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'textarea',
 						'param_name' => 'text',
-						'heading'    => esc_html__( 'Text', 'extensive-vc' )
+						'heading'    => esc_html__( 'Text', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'text_color',
-						'heading'    => esc_html__( 'Text Color', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Text Color', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'text', 'not_empty' => true ),
-						'group'      => esc_html__( 'Text Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Text Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'text_top_margin',
-						'heading'    => esc_html__( 'Text Top Margin (px)', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Text Top Margin (px)', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'text', 'not_empty' => true ),
-						'group'      => esc_html__( 'Text Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Text Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'vc_link',
 						'param_name' => 'custom_link',
-						'heading'    => esc_html__( 'Custom Link', 'extensive-vc' )
+						'heading'    => esc_html__( 'Custom Link', 'extensive-vc-addon' )
 					)
 				)
 			);
@@ -158,6 +165,7 @@ if ( ! class_exists( 'EVCIconWithText' ) ) {
 				'icon_monosocial'  => '',
 				'icon_material'    => '',
 				'custom_icon'      => '',
+				'image_size'       => 'full',
 				'icon_size'        => '',
 				'icon_color'       => '',
 				'title'            => '',
@@ -170,6 +178,8 @@ if ( ! class_exists( 'EVCIconWithText' ) ) {
 				'custom_link'      => ''
 			);
 			$params = shortcode_atts( $args, $atts, $this->getBase() );
+
+			$params['image_size'] = extensive_vc_get_image_size_value( $params['image_size'] );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params, $args );
 			

@@ -15,9 +15,9 @@
 			holder.each(function () {
 				var thisHolder = $(this);
 				
-				thisHolder.appear(function () {
+				evc.evcIsInViewport.check(thisHolder, function () {
 					thisHolder.addClass('evc-process-appeared');
-				}, {accX: 0, accY: -80});
+				});
 			});
 		}
 	}

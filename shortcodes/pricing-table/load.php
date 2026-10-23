@@ -4,6 +4,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-include_once 'functions.php';
-include_once 'pricing-table.php';
-include_once 'pricing-table-item.php';
+require_once __DIR__ . '/functions.php';
+require_once __DIR__ . '/pricing-table.php';
+require_once __DIR__ . '/pricing-table-item.php';

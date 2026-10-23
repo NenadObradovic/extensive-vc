@@ -4,5 +4,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-include_once 'functions.php';
-include_once 'cf7-widget.php';
+require_once __DIR__ . '/functions.php';
+require_once __DIR__ . '/cf7-widget.php';

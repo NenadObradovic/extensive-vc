@@ -4,6 +4,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-include_once 'testimonials-class.php';
-include_once 'testimonials-functions.php';
-include_once 'shortcodes/load.php';
+require_once __DIR__ . '/testimonials-class.php';
+require_once __DIR__ . '/testimonials-functions.php';
+require_once __DIR__ . '/shortcodes/load.php';

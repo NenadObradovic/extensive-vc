@@ -4,6 +4,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-include_once 'functions.php';
-include_once 'doughnut-chart.php';
-include_once 'doughnut-chart-item.php';
+require_once __DIR__ . '/functions.php';
+require_once __DIR__ . '/doughnut-chart.php';
+require_once __DIR__ . '/doughnut-chart-item.php';

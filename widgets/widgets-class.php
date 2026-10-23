@@ -36,7 +36,7 @@ if ( ! class_exists( 'EVCWidget' ) ) {
 			if ( is_array( $this->params ) && count( $this->params ) ) {
 				foreach ( $this->params as $param_array ) {
 					$param_name    = $param_array['param_name'];
-					${$param_name} = isset( $instance[ $param_name ] ) ? esc_attr( $instance[ $param_name ] ) : '';
+					${$param_name} = isset( $instance[ $param_name ] ) ? $instance[ $param_name ] : '';
 				}
 				
 				foreach ( $this->params as $param ) {
@@ -56,7 +56,7 @@ if ( ! class_exists( 'EVCWidget' ) ) {
 							?>
 							<p>
 								<label for="<?php echo esc_attr( $this->get_field_id( $param['param_name'] ) ); ?>"><?php echo esc_html( $param['heading'] ); ?></label>
-								<textarea class="widefat" rows="16" cols="20" id="<?php echo esc_attr( $this->get_field_id( $param['param_name'] ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( $param['param_name'] ) ); ?>"><?php echo esc_attr( ${$param['param_name']} ); ?></textarea>
+								<textarea class="widefat" rows="16" cols="20" id="<?php echo esc_attr( $this->get_field_id( $param['param_name'] ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( $param['param_name'] ) ); ?>"><?php echo esc_textarea( ${$param['param_name']} ); ?></textarea>
 								<?php if ( ! empty( $param['description'] ) ) { ?>
 									<small><?php echo esc_html( $param['description'] ); ?></small>
 								<?php } ?>
@@ -71,13 +71,11 @@ if ( ! class_exists( 'EVCWidget' ) ) {
 									<select class="widefat" name="<?php echo esc_attr( $this->get_field_name( $param['param_name'] ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( $param['param_name'] ) ); ?>">
 										<?php foreach ( $param['value'] as $key => $value ) {
 											if ( isset( $param['inverse_value'] ) && $param['inverse_value'] ) {
-												$selected = selected( $value, ${$param['param_name']}, false );
 												?>
-												<option <?php echo esc_attr( $selected ); ?> value="<?php echo esc_attr( $value ); ?>"><?php echo esc_attr( $key ); ?></option>
+												<option value="<?php echo esc_attr( $value ); ?>" <?php selected( $value, ${$param['param_name']} ); ?>><?php echo esc_html( $key ); ?></option>
 											<?php } else {
-												$selected = selected( $key, ${$param['param_name']}, false );
 												?>
-												<option <?php echo esc_attr( $selected ); ?> value="<?php echo esc_attr( $key ); ?>"><?php echo esc_attr( $value ); ?></option>
+												<option value="<?php echo esc_attr( $key ); ?>" <?php selected( $key, ${$param['param_name']} ); ?>><?php echo esc_html( $value ); ?></option>
 											<?php }
 										} ?>
 									</select>
@@ -102,7 +100,7 @@ if ( ! class_exists( 'EVCWidget' ) ) {
 					}
 				}
 			} else { ?>
-				<p><?php esc_html_e( 'Please add some options for this widget', 'extensive-vc' ); ?></p>
+				<p><?php esc_html_e( 'Please add some options for this widget', 'extensive-vc-addon' ); ?></p>
 			<?php }
 		}
 		
@@ -121,10 +119,12 @@ if ( ! class_exists( 'EVCWidget' ) ) {
 				$param_name = $param['param_name'];
 				$param_type = $param['type'];
 				
-				if ( $param_type === 'textarea' && current_user_can( 'unfiltered_html' ) ) {
-					$instance[ $param_name ] = $new_instance[ $param_name ];
+				$param_value = isset( $new_instance[ $param_name ] ) ? $new_instance[ $param_name ] : '';
+				
+				if ( $param_type === 'textarea' ) {
+					$instance[ $param_name ] = current_user_can( 'unfiltered_html' ) ? $param_value : wp_kses_post( $param_value );
 				} else {
-					$instance[ $param_name ] = sanitize_text_field( $new_instance[ $param_name ] );
+					$instance[ $param_name ] = sanitize_text_field( $param_value );
 				}
 			}
 			

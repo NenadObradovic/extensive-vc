@@ -21,7 +21,7 @@ if ( ! class_exists( 'EVCBlogList' ) ) {
 		 */
 		function __construct() {
 			$this->setBase( 'evc_blog_list' );
-			$this->setShortcodeName( esc_html__( 'Blog List', 'extensive-vc' ) );
+			$this->setShortcodeName( esc_html__( 'Blog List', 'extensive-vc-addon' ) );
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
@@ -44,15 +44,15 @@ if ( ! class_exists( 'EVCBlogList' ) ) {
 		 * @return self
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
 		}
 		
 		/**
-		 * Set shortcode parameters for Visual Composer shortcodes options panel
+		 * Set shortcode parameters for WPBakery Page Builder shortcodes options panel
 		 */
 		function shortcodeParameters() {
 			$params = array_merge(
@@ -60,29 +60,29 @@ if ( ! class_exists( 'EVCBlogList' ) ) {
 					array(
 						'type'        => 'textfield',
 						'param_name'  => 'custom_class',
-						'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc' ),
-						'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
+						'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc-addon' ),
+						'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc-addon' )
 					),
 					array(
 						'type'        => 'dropdown',
 						'param_name'  => 'type',
-						'heading'     => esc_html__( 'Type', 'extensive-vc' ),
+						'heading'     => esc_html__( 'Type', 'extensive-vc-addon' ),
 						'value'       => array(
-							esc_html__( 'Standard', 'extensive-vc' ) => 'standard',
-							esc_html__( 'Gallery', 'extensive-vc' )  => 'gallery',
-							esc_html__( 'Simple', 'extensive-vc' )   => 'simple',
-							esc_html__( 'Minimal', 'extensive-vc' )  => 'minimal'
+							esc_html__( 'Standard', 'extensive-vc-addon' ) => 'standard',
+							esc_html__( 'Gallery', 'extensive-vc-addon' )  => 'gallery',
+							esc_html__( 'Simple', 'extensive-vc-addon' )   => 'simple',
+							esc_html__( 'Minimal', 'extensive-vc-addon' )  => 'minimal'
 						),
 						'save_always' => true
 					),
 					array(
 						'type'        => 'dropdown',
 						'param_name'  => 'layout_collections',
-						'heading'     => esc_html__( 'Layout Collections', 'extensive-vc' ),
+						'heading'     => esc_html__( 'Layout Collections', 'extensive-vc-addon' ),
 						'value'       => array(
-							esc_html__( 'Default', 'extensive-vc' )       => '',
-							esc_html__( 'Date On Image', 'extensive-vc' ) => 'date-on-image',
-							esc_html__( 'Boxed Layout', 'extensive-vc' )  => 'boxed'
+							esc_html__( 'Default', 'extensive-vc-addon' )       => '',
+							esc_html__( 'Date On Image', 'extensive-vc-addon' ) => 'date-on-image',
+							esc_html__( 'Boxed Layout', 'extensive-vc-addon' )  => 'boxed'
 						),
 						'save_always' => true,
 						'dependency'  => array( 'element' => 'type', 'value' => array( 'standard' ) )
@@ -90,122 +90,122 @@ if ( ! class_exists( 'EVCBlogList' ) ) {
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'number_of_posts',
-						'heading'    => esc_html__( 'Number of Posts', 'extensive-vc' )
+						'heading'    => esc_html__( 'Number of Posts', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'dropdown',
 						'param_name' => 'number_of_columns',
-						'heading'    => esc_html__( 'Number of Columns', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Number of Columns', 'extensive-vc-addon' ),
 						'value'      => array_flip( extensive_vc_get_number_of_columns_array() )
 					),
 					array(
 						'type'       => 'dropdown',
 						'param_name' => 'space_between_items',
-						'heading'    => esc_html__( 'Space Between Items', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Space Between Items', 'extensive-vc-addon' ),
 						'value'      => array_flip( extensive_vc_get_space_between_items_array() )
 					),
 					array(
 						'type'        => 'autocomplete',
 						'param_name'  => 'category',
-						'heading'     => esc_html__( 'Category', 'extensive-vc' ),
-						'description' => esc_html__( 'Enter one category slug or leave empty for showing all categories', 'extensive-vc' )
+						'heading'     => esc_html__( 'Category', 'extensive-vc-addon' ),
+						'description' => esc_html__( 'Enter one category slug or leave empty for showing all categories', 'extensive-vc-addon' )
 					),
 					array(
 						'type'        => 'dropdown',
 						'param_name'  => 'orderby',
-						'heading'     => esc_html__( 'Order By', 'extensive-vc' ),
+						'heading'     => esc_html__( 'Order By', 'extensive-vc-addon' ),
 						'value'       => array_flip( extensive_vc_get_query_order_by_array() )
 					),
 					array(
 						'type'        => 'dropdown',
 						'param_name'  => 'order',
-						'heading'     => esc_html__( 'Order', 'extensive-vc' ),
+						'heading'     => esc_html__( 'Order', 'extensive-vc-addon' ),
 						'value'       => array_flip( extensive_vc_get_query_order_array() )
 					),
 					array(
 						'type'       => 'dropdown',
 						'param_name' => 'pagination_type',
-						'heading'    => esc_html__( 'Pagination Type', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Pagination Type', 'extensive-vc-addon' ),
 						'value'      => array(
-							esc_html__( 'No Pagination', 'extensive-vc' ) => '',
-							esc_html__( 'Load More', 'extensive-vc' )     => 'load-more'
+							esc_html__( 'No Pagination', 'extensive-vc-addon' ) => '',
+							esc_html__( 'Load More', 'extensive-vc-addon' )     => 'load-more'
 						)
 					),
 					array(
 						'type'       => 'dropdown',
 						'param_name' => 'skin',
-						'heading'    => esc_html__( 'Skin', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Skin', 'extensive-vc-addon' ),
 						'value'      => array(
-							esc_html__( 'Default', 'extensive-vc' ) => '',
-							esc_html__( 'Light', 'extensive-vc' )   => 'light'
+							esc_html__( 'Default', 'extensive-vc-addon' ) => '',
+							esc_html__( 'Light', 'extensive-vc-addon' )   => 'light'
 						),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'dropdown',
 						'param_name' => 'image_proportions',
-						'heading'    => esc_html__( 'Image Proportions', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Image Proportions', 'extensive-vc-addon' ),
 						'value'      => array(
-							esc_html__( 'Original', 'extensive-vc' )  => 'full',
-							esc_html__( 'Large', 'extensive-vc' )     => 'large',
-							esc_html__( 'Medium', 'extensive-vc' )    => 'medium',
-							esc_html__( 'Thumbnail', 'extensive-vc' ) => 'thumbnail',
+							esc_html__( 'Original', 'extensive-vc-addon' )  => 'full',
+							esc_html__( 'Large', 'extensive-vc-addon' )     => 'large',
+							esc_html__( 'Medium', 'extensive-vc-addon' )    => 'medium',
+							esc_html__( 'Thumbnail', 'extensive-vc-addon' ) => 'thumbnail',
 						),
 						'dependency' => array( 'element' => 'type', 'value' => array( 'standard', 'gallery' ) ),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'dropdown',
 						'param_name' => 'title_tag',
-						'heading'    => esc_html__( 'Title Tag', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Title Tag', 'extensive-vc-addon' ),
 						'value'      => array_flip( extensive_vc_get_title_tag_array( true, array( 'p' => 'p' ) ) ),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'dropdown',
 						'param_name' => 'enable_excerpt',
-						'heading'    => esc_html__( 'Enable Excerpt', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Enable Excerpt', 'extensive-vc-addon' ),
 						'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
 						'dependency' => array( 'element' => 'type', 'value' => array( 'standard', 'gallery' ) ),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'        => 'textfield',
 						'param_name'  => 'excerpt_length',
-						'heading'     => esc_html__( 'Excerpt Length', 'extensive-vc' ),
-						'description' => esc_html__( 'Set number of characters', 'extensive-vc' ),
+						'heading'     => esc_html__( 'Excerpt Length', 'extensive-vc-addon' ),
+						'description' => esc_html__( 'Set number of characters', 'extensive-vc-addon' ),
 						'dependency'  => array( 'element' => 'enable_excerpt', 'value' => array( 'yes' ) ),
-						'group'       => esc_html__( 'Design Options', 'extensive-vc' )
+						'group'       => esc_html__( 'Design Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'dropdown',
 						'param_name' => 'enable_category',
-						'heading'    => esc_html__( 'Enable Category', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Enable Category', 'extensive-vc-addon' ),
 						'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
 						'dependency' => array( 'element' => 'type', 'value' => array( 'standard' ) ),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'dropdown',
 						'param_name' => 'enable_author',
-						'heading'    => esc_html__( 'Enable Author', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Enable Author', 'extensive-vc-addon' ),
 						'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
 						'dependency' => array( 'element' => 'type', 'value' => array( 'standard' ) ),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'dropdown',
 						'param_name' => 'enable_date',
-						'heading'    => esc_html__( 'Enable Date', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Enable Date', 'extensive-vc-addon' ),
 						'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
-						'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'button_text',
-						'heading'    => esc_html__( 'Button Text', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Button Text', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'pagination_type', 'not_empty' => true ),
-						'group'      => esc_html__( 'Button Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Button Options', 'extensive-vc-addon' )
 					)
 				),
 				extensive_vc_get_button_shortcode_options_array( true )
@@ -242,7 +242,7 @@ if ( ! class_exists( 'EVCBlogList' ) ) {
 				'enable_category'           => 'yes',
 				'enable_author'             => 'yes',
 				'enable_date'               => 'yes',
-				'button_text'               => esc_html__( 'Load More', 'extensive-vc' ),
+				'button_text'               => esc_html__( 'Load More', 'extensive-vc-addon' ),
 				'button_type'               => '',
 				'button_size'               => '',
 				'button_font_size'          => '',
@@ -301,23 +301,7 @@ if ( ! class_exists( 'EVCBlogList' ) ) {
 		 * @return array
 		 */
 		public function categoryAutocompleteSuggester( $query ) {
-			global $wpdb;
-			$post_meta_infos       = $wpdb->get_results( $wpdb->prepare( "SELECT a.slug AS slug, a.name AS category_title
-					FROM {$wpdb->terms} AS a
-					LEFT JOIN ( SELECT term_id, taxonomy  FROM {$wpdb->term_taxonomy} ) AS b ON b.term_id = a.term_id
-					WHERE b.taxonomy = 'category' AND a.name LIKE '%%%s%%'", stripslashes( $query ) ), ARRAY_A );
-			
-			$results = array();
-			if ( is_array( $post_meta_infos ) && ! empty( $post_meta_infos ) ) {
-				foreach ( $post_meta_infos as $value ) {
-					$data          = array();
-					$data['value'] = $value['slug'];
-					$data['label'] = ( ( strlen( $value['category_title'] ) > 0 ) ? esc_html__( 'Category', 'extensive-vc' ) . ': ' . $value['category_title'] : '' );
-					$results[]     = $data;
-				}
-			}
-			
-			return $results;
+			return extensive_vc_get_taxonomy_autocomplete_suggestions( $query, 'category' );
 		}
 		
 		/**
@@ -340,7 +324,7 @@ if ( ! class_exists( 'EVCBlogList' ) ) {
 					
 					$category_title_display = '';
 					if ( ! empty( $category_title ) ) {
-						$category_title_display = esc_html__( 'Category', 'extensive-vc' ) . ': ' . $category_title;
+						$category_title_display = esc_html__( 'Category', 'extensive-vc-addon' ) . ': ' . $category_title;
 					}
 					
 					$data          = array();

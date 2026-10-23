@@ -4,8 +4,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-include_once 'cf7-functions.php';
+require_once __DIR__ . '/cf7-functions.php';
 
 if ( extensive_vc_contact_form_7_installed() ) {
-	include_once 'widgets/load.php';
+	require_once __DIR__ . '/widgets/load.php';
 }

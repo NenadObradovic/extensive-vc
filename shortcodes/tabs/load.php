@@ -4,6 +4,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-include_once 'functions.php';
-include_once 'tabs.php';
-include_once 'tabs-item.php';
+require_once __DIR__ . '/functions.php';
+require_once __DIR__ . '/tabs.php';
+require_once __DIR__ . '/tabs-item.php';

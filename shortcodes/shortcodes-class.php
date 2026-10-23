@@ -16,40 +16,16 @@ if ( ! class_exists( 'ShortcodesClass' ) ) {
 		private $loadedShortcodes = array();
 		
 		/**
-		 * Constructor
-		 */
-		private function __construct() {
-		}
-		
-		/**
 		 * Get the instance of ShortcodesClass
 		 *
 		 * @return self
 		 */
 		public static function getInstance() {
-			if ( ! ( self::$instance instanceof self ) ) {
+			if ( is_null( self::$instance ) ) {
 				self::$instance = new self();
 			}
 			
 			return self::$instance;
-		}
-		
-		/**
-		 * Cloning disabled
-		 */
-		private function __clone() {
-		}
-		
-		/**
-		 * Serialization disabled
-		 */
-		private function __sleep() {
-		}
-		
-		/**
-		 * De-serialization disabled
-		 */
-		private function __wakeup() {
 		}
 		
 		/**

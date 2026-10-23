@@ -22,7 +22,7 @@ if ( ! class_exists( 'EVCPricingTable' ) ) {
 		function __construct() {
 			$this->setBase( 'evc_pricing_table' );
 			$this->setChildBase( 'evc_pricing_table_item' );
-			$this->setShortcodeName( esc_html__( 'Pricing Table', 'extensive-vc' ) );
+			$this->setShortcodeName( esc_html__( 'Pricing Table', 'extensive-vc-addon' ) );
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
@@ -40,15 +40,15 @@ if ( ! class_exists( 'EVCPricingTable' ) ) {
 		 * @return self
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
 		}
 		
 		/**
-		 * Add shortcode custom css style for Visual Composer shortcodes panel
+		 * Add shortcode custom css style for WPBakery Page Builder shortcodes panel
 		 */
 		function addShortcodeIconCustomStyle( $style ) {
 			$current_style = '.wpb_content_element.wpb_evc_pricing_table_item > .wpb_element_wrapper { background-color: #f5f5f5; }';
@@ -59,26 +59,26 @@ if ( ! class_exists( 'EVCPricingTable' ) ) {
 		}
 		
 		/**
-		 * Set shortcode parameters for Visual Composer shortcodes options panel
+		 * Set shortcode parameters for WPBakery Page Builder shortcodes options panel
 		 */
 		function shortcodeParameters() {
 			$params = array(
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'custom_class',
-					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc' ),
-					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
+					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'number_of_columns',
-					'heading'    => esc_html__( 'Number of Columns', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Number of Columns', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_number_of_columns_array( array( 'six' ) ) )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'space_between_items',
-					'heading'    => esc_html__( 'Space Between Items', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Space Between Items', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_space_between_items_array() )
 				)
 			);

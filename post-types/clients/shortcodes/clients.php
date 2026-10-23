@@ -21,7 +21,7 @@ if ( ! class_exists( 'EVCClients' ) ) {
 		 */
 		function __construct() {
 			$this->setBase( 'evc_clients' );
-			$this->setShortcodeName( esc_html__( 'Clients', 'extensive-vc' ) );
+			$this->setShortcodeName( esc_html__( 'Clients', 'extensive-vc-addon' ) );
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
@@ -29,7 +29,6 @@ if ( ! class_exists( 'EVCClients' ) ) {
 			
 			// Additional methods need to be loaded after parent constructor loaded if we used methods from the parent class
 			if ( $this->getIsShortcodeEnabled() ) {
-				add_action( 'extensive_vc_enqueue_additional_scripts_before_main_js', array( $this, 'enqueueShortcodeAdditionalScripts' ) );
 				
 				// Category filter
 				add_filter( 'vc_autocomplete_evc_clients_category_callback', array( $this, 'clientsCategoryAutocompleteSuggester' ), 10, 1 ); // Get suggestion(find). Must return an array
@@ -45,221 +44,213 @@ if ( ! class_exists( 'EVCClients' ) ) {
 		 * @return self
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
 		}
 		
 		/**
-		 * Enqueue necessary 3rd party scripts for this shortcode
-		 */
-		function enqueueShortcodeAdditionalScripts() {
-			wp_register_style( 'owl-carousel', EXTENSIVE_VC_ASSETS_URL_PATH . '/plugins/owl-carousel/owl.carousel.min.css' );
-			wp_register_script( 'owl-carousel', EXTENSIVE_VC_ASSETS_URL_PATH . '/plugins/owl-carousel/owl.carousel.min.js', array( 'jquery' ), false, true );
-		}
-		
-		/**
-		 * Set shortcode parameters for Visual Composer shortcodes options panel
+		 * Set shortcode parameters for WPBakery Page Builder shortcodes options panel
 		 */
 		function shortcodeParameters() {
 			$params = array(
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'custom_class',
-					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc' ),
-					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
+					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'dropdown',
 					'param_name'  => 'type',
-					'heading'     => esc_html__( 'Type', 'extensive-vc' ),
+					'heading'     => esc_html__( 'Type', 'extensive-vc-addon' ),
 					'value'       => array(
-						esc_html__( 'Slider', 'extensive-vc' )  => 'slider',
-						esc_html__( 'Gallery', 'extensive-vc' ) => 'gallery'
+						esc_html__( 'Slider', 'extensive-vc-addon' )  => 'slider',
+						esc_html__( 'Gallery', 'extensive-vc-addon' ) => 'gallery'
 					),
 					'save_always' => true
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'number',
-					'heading'     => esc_html__( 'Number of Clients', 'extensive-vc' ),
-					'description' => esc_html__( 'Enter number of clients or leave empty for showing all clients', 'extensive-vc' )
+					'heading'     => esc_html__( 'Number of Clients', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Enter number of clients or leave empty for showing all clients', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'autocomplete',
 					'param_name'  => 'category',
-					'heading'     => esc_html__( 'Category', 'extensive-vc' ),
-					'description' => esc_html__( 'Enter one category slug or leave empty for showing all categories', 'extensive-vc' )
+					'heading'     => esc_html__( 'Category', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Enter one category slug or leave empty for showing all categories', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'dropdown',
 					'param_name'  => 'orderby',
-					'heading'     => esc_html__( 'Order By', 'extensive-vc' ),
+					'heading'     => esc_html__( 'Order By', 'extensive-vc-addon' ),
 					'value'       => array_flip( extensive_vc_get_query_order_by_array() )
 				),
 				array(
 					'type'        => 'dropdown',
 					'param_name'  => 'order',
-					'heading'     => esc_html__( 'Order', 'extensive-vc' ),
+					'heading'     => esc_html__( 'Order', 'extensive-vc-addon' ),
 					'value'       => array_flip( extensive_vc_get_query_order_array() )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'custom_link_target',
-					'heading'    => esc_html__( 'Custom Link Target', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Custom Link Target', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_link_target_array() )
 				),
 				array(
 					'type'        => 'dropdown',
 					'param_name'  => 'items_hover_animation',
-					'heading'     => esc_html__( 'Items Hover Animation', 'extensive-vc' ),
+					'heading'     => esc_html__( 'Items Hover Animation', 'extensive-vc-addon' ),
 					'value'       => array(
-						esc_html__( 'Switch Images', 'extensive-vc' ) => 'switch-images',
-						esc_html__( 'Roll Over', 'extensive-vc' )     => 'roll-over'
+						esc_html__( 'Switch Images', 'extensive-vc-addon' ) => 'switch-images',
+						esc_html__( 'Roll Over', 'extensive-vc-addon' )     => 'roll-over'
 					)
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'enable_title',
-					'heading'    => esc_html__( 'Enable Title Text', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Enable Title Text', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false ) )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'title_tag',
-					'heading'    => esc_html__( 'Title Tag', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Title Tag', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_title_tag_array( true, array( 'p' => 'p' ) ) ),
 					'dependency' => array( 'element' => 'enable_title', 'value' => array( 'yes') ),
-					'group'      => esc_html__( 'Title Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Title Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'title_color',
-					'heading'    => esc_html__( 'Title Color', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Title Color', 'extensive-vc-addon' ),
 					'dependency' => array( 'element' => 'enable_title', 'value' => array( 'yes') ),
-					'group'      => esc_html__( 'Title Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Title Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'title_top_margin',
-					'heading'    => esc_html__( 'Title Top Margin (px)', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Title Top Margin (px)', 'extensive-vc-addon' ),
 					'dependency' => array( 'element' => 'enable_title', 'value' => array( 'yes') ),
-					'group'      => esc_html__( 'Title Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Title Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'title_bottom_margin',
-					'heading'    => esc_html__( 'Title Bottom Margin (px)', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Title Bottom Margin (px)', 'extensive-vc-addon' ),
 					'dependency' => array( 'element' => 'enable_title', 'value' => array( 'yes') ),
-					'group'      => esc_html__( 'Title Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Title Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'number_of_columns',
-					'heading'    => esc_html__( 'Number of Columns', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Number of Columns', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_number_of_columns_array() ),
 					'dependency' => array( 'element' => 'type', 'value' => array( 'gallery' ) ),
-					'group'      => esc_html__( 'Gallery Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Gallery Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'space_between_items',
-					'heading'    => esc_html__( 'Space Between Items', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Space Between Items', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_space_between_items_array() ),
 					'dependency' => array( 'element' => 'type', 'value' => array( 'gallery' ) ),
-					'group'      => esc_html__( 'Gallery Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Gallery Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'number_of_visible_items',
-					'heading'    => esc_html__( 'Number of Visible Items', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Number of Visible Items', 'extensive-vc-addon' ),
 					'value'      => array(
-						esc_html__( 'One', 'extensive-vc' )   => '1',
-						esc_html__( 'Two', 'extensive-vc' )   => '2',
-						esc_html__( 'Three', 'extensive-vc' ) => '3',
-						esc_html__( 'Four', 'extensive-vc' )  => '4',
-						esc_html__( 'Five', 'extensive-vc' )  => '5',
-						esc_html__( 'Six', 'extensive-vc' )   => '6'
+						esc_html__( 'One', 'extensive-vc-addon' )   => '1',
+						esc_html__( 'Two', 'extensive-vc-addon' )   => '2',
+						esc_html__( 'Three', 'extensive-vc-addon' ) => '3',
+						esc_html__( 'Four', 'extensive-vc-addon' )  => '4',
+						esc_html__( 'Five', 'extensive-vc-addon' )  => '5',
+						esc_html__( 'Six', 'extensive-vc-addon' )   => '6'
 					),
 					'dependency' => array( 'element' => 'type', 'value' => array( 'slider' ) ),
-					'group'      => esc_html__( 'Slider Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Slider Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'carousel_loop',
-					'heading'    => esc_html__( 'Enable Slider Loop', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Enable Slider Loop', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
 					'dependency' => array( 'element' => 'type', 'value' => array( 'slider' ) ),
-					'group'      => esc_html__( 'Slider Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Slider Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'carousel_autoplay',
-					'heading'    => esc_html__( 'Enable Slider Autoplay', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Enable Slider Autoplay', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
 					'dependency' => array( 'element' => 'type', 'value' => array( 'slider' ) ),
-					'group'      => esc_html__( 'Slider Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Slider Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'carousel_autoplay_pause',
-					'heading'    => esc_html__( 'Enable Slider Autoplay Hover Pause', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Enable Slider Autoplay Hover Pause', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false ) ),
 					'dependency' => array( 'element' => 'type', 'value' => array( 'slider' ) ),
-					'group'      => esc_html__( 'Slider Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Slider Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'carousel_speed',
-					'heading'     => esc_html__( 'Slide Duration (ms)', 'extensive-vc' ),
-					'description' => esc_html__( 'Speed of slide in milliseconds. Default value is 5000', 'extensive-vc' ),
+					'heading'     => esc_html__( 'Slide Duration (ms)', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Speed of slide in milliseconds. Default value is 5000', 'extensive-vc-addon' ),
 					'dependency'  => array( 'element' => 'type', 'value' => array( 'slider' ) ),
-					'group'       => esc_html__( 'Slider Options', 'extensive-vc' )
+					'group'       => esc_html__( 'Slider Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'carousel_speed_animation',
-					'heading'     => esc_html__( 'Slide Animation Duration (ms)', 'extensive-vc' ),
-					'description' => esc_html__( 'Speed of slide animation in milliseconds. Default value is 600', 'extensive-vc' ),
+					'heading'     => esc_html__( 'Slide Animation Duration (ms)', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Speed of slide animation in milliseconds. Default value is 600', 'extensive-vc-addon' ),
 					'dependency'  => array( 'element' => 'type', 'value' => array( 'slider' ) ),
-					'group'       => esc_html__( 'Slider Options', 'extensive-vc' )
+					'group'       => esc_html__( 'Slider Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'carousel_margin',
-					'heading'     => esc_html__( 'Slide Margin (px)', 'extensive-vc' ),
-					'description' => esc_html__( 'Define right margin for slide items. Default value is 0', 'extensive-vc' ),
+					'heading'     => esc_html__( 'Slide Margin (px)', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Define right margin for slide items. Default value is 0', 'extensive-vc-addon' ),
 					'dependency'  => array( 'element' => 'type', 'value' => array( 'slider' ) ),
-					'group'       => esc_html__( 'Slider Options', 'extensive-vc' )
+					'group'       => esc_html__( 'Slider Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'carousel_navigation',
-					'heading'    => esc_html__( 'Enable Slider Navigation', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Enable Slider Navigation', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
 					'dependency' => array( 'element' => 'type', 'value' => array( 'slider' ) ),
-					'group'      => esc_html__( 'Slider Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Slider Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'carousel_pagination',
-					'heading'    => esc_html__( 'Enable Slider Pagination', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Enable Slider Pagination', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_yes_no_select_array( false, true ) ),
 					'dependency' => array( 'element' => 'type', 'value' => array( 'slider' ) ),
-					'group'      => esc_html__( 'Slider Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Slider Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'dropdown',
 					'param_name'  => 'carousel_navigation_skin',
-					'heading'     => esc_html__( 'Slider Navigation Skin', 'extensive-vc' ),
+					'heading'     => esc_html__( 'Slider Navigation Skin', 'extensive-vc-addon' ),
 					'value'       => array(
-						esc_html__( 'Default', 'extensive-vc' ) => '',
-						esc_html__( 'Light', 'extensive-vc' )   => 'light'
+						esc_html__( 'Default', 'extensive-vc-addon' ) => '',
+						esc_html__( 'Light', 'extensive-vc-addon' )   => 'light'
 					),
 					'dependency' => array( 'element' => 'type', 'value' => array( 'slider' ) ),
-					'group'      => esc_html__( 'Slider Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Slider Options', 'extensive-vc-addon' )
 				)
 			);
 			
@@ -395,25 +386,7 @@ if ( ! class_exists( 'EVCClients' ) ) {
 		 * @return array
 		 */
 		function clientsCategoryAutocompleteSuggester( $query ) {
-			global $wpdb;
-			
-			$post_meta_infos = $wpdb->get_results( $wpdb->prepare( "SELECT a.slug AS slug, a.name AS clients_category_title
-				FROM {$wpdb->terms} AS a
-				LEFT JOIN ( SELECT term_id, taxonomy  FROM {$wpdb->term_taxonomy} ) AS b ON b.term_id = a.term_id
-				WHERE b.taxonomy = 'clients-category' AND a.name LIKE '%%%s%%'", stripslashes( $query ) ), ARRAY_A );
-			
-			$results = array();
-			
-			if ( is_array( $post_meta_infos ) && ! empty( $post_meta_infos ) ) {
-				foreach ( $post_meta_infos as $value ) {
-					$data          = array();
-					$data['value'] = $value['slug'];
-					$data['label'] = ( ( strlen( $value['clients_category_title'] ) > 0 ) ? esc_html__( 'Category', 'extensive-vc' ) . ': ' . $value['clients_category_title'] : '' );
-					$results[]     = $data;
-				}
-			}
-			
-			return $results;
+			return extensive_vc_get_taxonomy_autocomplete_suggestions( $query, 'clients-category' );
 		}
 		
 		/**
@@ -438,7 +411,7 @@ if ( ! class_exists( 'EVCClients' ) ) {
 					$clients_category_title_display = '';
 					
 					if ( ! empty( $clients_category_title ) ) {
-						$clients_category_title_display = esc_html__( 'Category', 'extensive-vc' ) . ': ' . $clients_category_title;
+						$clients_category_title_display = esc_html__( 'Category', 'extensive-vc-addon' ) . ': ' . $clients_category_title;
 					}
 					
 					$data          = array();

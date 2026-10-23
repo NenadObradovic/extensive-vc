@@ -4,16 +4,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-wp_enqueue_script( 'counter' );
+wp_enqueue_script( 'jquery-countto' );
 ?>
+<?php do_action( 'extensive_vc_action_before_progress_bar', $params ); ?>
 <div class="evc-progress-bar evc-shortcode <?php echo esc_attr( $holder_classes ); ?>">
+	<?php do_action( 'extensive_vc_action_progress_bar_before_content', $params ); ?>
 	<?php if( ! empty( $title ) ) { ?>
-		<<?php echo esc_attr( $title_tag ); ?> class="evc-pb-title" <?php extensive_vc_print_inline_style( $title_styles ); ?>>
+		<<?php echo esc_attr( extensive_vc_escape_title_tag( $title_tag ) ); ?> class="evc-pb-title" <?php extensive_vc_print_inline_style( $title_styles ); ?>>
 			<span class="evc-pb-title-label"><?php echo esc_html( $title ); ?></span>
-			<span class="evc-pb-percent" <?php extensive_vc_print_inline_style( $percent_styles ); ?>>0</span>
-		</<?php echo esc_attr( $title_tag ); ?>>
+			<span class="evc-pb-percent" <?php extensive_vc_print_inline_style( $percent_styles ); ?>><?php echo esc_html( (float) $percent ); ?></span>
+		</<?php echo esc_attr( extensive_vc_escape_title_tag( $title_tag ) ); ?>>
 	<?php } ?>
 	<div class="evc-pb-inactive-bar" <?php extensive_vc_print_inline_style( $inactive_bar_styles ); ?>>
 		<div class="evc-pb-active-bar" <?php extensive_vc_print_inline_style( $active_bar_styles ); ?> <?php extensive_vc_print_inline_attrs( $progress_bar_data ); ?>></div>
 	</div>
+	<?php do_action( 'extensive_vc_action_progress_bar_after_content', $params ); ?>
 </div>
+<?php do_action( 'extensive_vc_action_after_progress_bar', $params ); ?>

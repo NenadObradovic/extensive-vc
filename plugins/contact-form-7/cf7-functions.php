@@ -24,11 +24,19 @@ if ( ! function_exists( 'extensive_vc_get_contact_forms_7_array' ) ) {
 	 * @return array
 	 */
 	function extensive_vc_get_contact_forms_7_array( $first_empty = false ) {
-		$cf7_forms = get_posts( 'post_type="wpcf7_contact_form"&numberposts=-1' );
+		$cf7_forms = get_posts(
+			array(
+				'post_type'      => 'wpcf7_contact_form',
+				'post_status'    => 'publish',
+				'posts_per_page' => -1,
+				'orderby'        => 'title',
+				'order'          => 'ASC',
+			)
+		);
 		$options   = array();
 		
 		if ( $first_empty ) {
-			$options[''] = esc_html__( 'Default', 'extensive-vc' );
+			$options[''] = esc_html__( 'Default', 'extensive-vc-addon' );
 		}
 		
 		if ( ! empty( $cf7_forms ) ) {
@@ -36,7 +44,7 @@ if ( ! function_exists( 'extensive_vc_get_contact_forms_7_array' ) ) {
 				$options[ $cf7_form->ID ] = $cf7_form->post_title;
 			}
 		} else {
-			$options[] = esc_html__( 'No contact forms 7 found', 'extensive-vc' );
+			$options[] = esc_html__( 'No contact forms 7 found', 'extensive-vc-addon' );
 		}
 		
 		return $options;

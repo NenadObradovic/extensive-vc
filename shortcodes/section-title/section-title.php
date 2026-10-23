@@ -21,7 +21,7 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 		 */
 		function __construct() {
 			$this->setBase( 'evc_section_title' );
-			$this->setShortcodeName( esc_html__( 'Section Title', 'extensive-vc' ) );
+			$this->setShortcodeName( esc_html__( 'Section Title', 'extensive-vc-addon' ) );
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
@@ -34,15 +34,15 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 		 * @return self
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
 		}
 		
 		/**
-		 * Set shortcode parameters for Visual Composer shortcodes options panel
+		 * Set shortcode parameters for WPBakery Page Builder shortcodes options panel
 		 */
 		function shortcodeParameters() {
 			$params = array_merge(
@@ -50,106 +50,106 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 					array(
 						'type'        => 'textfield',
 						'param_name'  => 'custom_class',
-						'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc' ),
-						'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
+						'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc-addon' ),
+						'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'dropdown',
 						'param_name' => 'text_alignment',
-						'heading'    => esc_html__( 'Text Alignment', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Text Alignment', 'extensive-vc-addon' ),
 						'value'      => array(
-							esc_html__( 'Default', 'extensive-vc' ) => 'top',
-							esc_html__( 'Left', 'extensive-vc' )    => 'left',
-							esc_html__( 'Center', 'extensive-vc' )  => 'center',
-							esc_html__( 'Right', 'extensive-vc' )   => 'right'
+							esc_html__( 'Default', 'extensive-vc-addon' ) => 'top',
+							esc_html__( 'Left', 'extensive-vc-addon' )    => 'left',
+							esc_html__( 'Center', 'extensive-vc-addon' )  => 'center',
+							esc_html__( 'Right', 'extensive-vc-addon' )   => 'right'
 						)
 					),
 					array(
 						'type'        => 'textfield',
 						'param_name'  => 'title',
-						'heading'     => esc_html__( 'Title', 'extensive-vc' ),
+						'heading'     => esc_html__( 'Title', 'extensive-vc-addon' ),
 						'admin_label' => true
 					),
 					array(
 						'type'       => 'dropdown',
 						'param_name' => 'title_tag',
-						'heading'    => esc_html__( 'Title Tag', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Title Tag', 'extensive-vc-addon' ),
 						'value'      => array_flip( extensive_vc_get_title_tag_array( true ) ),
 						'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-						'group'      => esc_html__( 'Title Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Title Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'title_color',
-						'heading'    => esc_html__( 'Title Color', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Title Color', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-						'group'      => esc_html__( 'Title Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Title Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'dropdown',
 						'param_name' => 'enable_separator',
-						'heading'    => esc_html__( 'Enable Separator', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Enable Separator', 'extensive-vc-addon' ),
 						'value'      => array_flip( extensive_vc_get_yes_no_select_array( false ) )
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'separator_color',
-						'heading'    => esc_html__( 'Separator Color', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Separator Color', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'enable_separator', 'value' => array( 'yes' ) ),
-						'group'      => esc_html__( 'Separator Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Separator Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'separator_width',
-						'heading'    => esc_html__( 'Separator Width (px or %)', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Separator Width (px or %)', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'enable_separator', 'value' => array( 'yes' ) ),
-						'group'      => esc_html__( 'Separator Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Separator Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'separator_thickness',
-						'heading'    => esc_html__( 'Separator Thickness (px)', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Separator Thickness (px)', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'enable_separator', 'value' => array( 'yes' ) ),
-						'group'      => esc_html__( 'Separator Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Separator Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'separator_top_margin',
-						'heading'    => esc_html__( 'Separator Top Margin (px)', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Separator Top Margin (px)', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'enable_separator', 'value' => array( 'yes' ) ),
-						'group'      => esc_html__( 'Separator Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Separator Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'textarea',
 						'param_name' => 'text',
-						'heading'    => esc_html__( 'Text', 'extensive-vc' )
+						'heading'    => esc_html__( 'Text', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'dropdown',
 						'param_name' => 'text_tag',
-						'heading'    => esc_html__( 'Text Tag', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Text Tag', 'extensive-vc-addon' ),
 						'value'      => array_flip( extensive_vc_get_title_tag_array( true, array( 'p' => 'p' ) ) ),
 						'dependency' => array( 'element' => 'text', 'not_empty' => true ),
-						'group'      => esc_html__( 'Text Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Text Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'colorpicker',
 						'param_name' => 'text_color',
-						'heading'    => esc_html__( 'Text Color', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Text Color', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'text', 'not_empty' => true ),
-						'group'      => esc_html__( 'Text Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Text Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'text_top_margin',
-						'heading'    => esc_html__( 'Text Top Margin (px)', 'extensive-vc' ),
+						'heading'    => esc_html__( 'Text Top Margin (px)', 'extensive-vc-addon' ),
 						'dependency' => array( 'element' => 'text', 'not_empty' => true ),
-						'group'      => esc_html__( 'Text Options', 'extensive-vc' )
+						'group'      => esc_html__( 'Text Options', 'extensive-vc-addon' )
 					),
 					array(
 						'type'       => 'textfield',
 						'param_name' => 'button_text',
-						'heading'    => esc_html__( 'Button Text', 'extensive-vc' )
+						'heading'    => esc_html__( 'Button Text', 'extensive-vc-addon' )
 					)
 				),
 				extensive_vc_get_button_shortcode_options_array()

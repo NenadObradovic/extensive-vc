@@ -11,8 +11,8 @@ if ( ! function_exists( 'extensive_vc_add_admin_menu_page' ) ) {
 	function extensive_vc_add_admin_menu_page() {
 		
 		add_menu_page(
-			esc_html__( 'Extensive VC Addons', 'extensive-vc' ),
-			esc_html__( 'Extensive VC', 'extensive-vc' ),
+			esc_html__( 'Extensive VC Addons', 'extensive-vc-addon' ),
+			esc_html__( 'Extensive VC', 'extensive-vc-addon' ),
 			'edit_posts',
 			'evc-admin-menu-page',
 			'extensive_vc_admin_about_page_content',
@@ -39,12 +39,12 @@ if ( ! function_exists( 'extensive_vc_admin_about_page_redirect' ) ) {
 		delete_transient( '_extensive_vc_admin_about_page_redirect' );
 		
 		// If activating from network, or bulk, bail
-		if ( is_network_admin() || isset( $_GET['activate-multi'] ) ) {
+		if ( is_network_admin() || isset( $_GET['activate-multi'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Only checks if plugins are bulk activated.
 			return;
 		}
 		
 		// Redirect to welcome page
-		wp_safe_redirect( add_query_arg( array( 'page' => 'evc-admin-menu-page' ), esc_url( admin_url( 'index.php' ) ) ) );
+		wp_safe_redirect( add_query_arg( array( 'page' => 'evc-admin-about-page' ), admin_url( 'admin.php' ) ) );
 		exit;
 	}
 	
@@ -61,8 +61,8 @@ if ( ! function_exists( 'extensive_vc_add_admin_menu_settings_page' ) ) {
 		
 		add_submenu_page(
 			'evc-admin-menu-page',
-			esc_html__( 'Settings', 'extensive-vc' ),
-			esc_html__( 'Settings', 'extensive-vc' ),
+			esc_html__( 'Settings', 'extensive-vc-addon' ),
+			esc_html__( 'Settings', 'extensive-vc-addon' ),
 			'manage_options',
 			'evc-admin-options-page',
 			'extensive_vc_render_admin_menu_settings_page'
@@ -78,13 +78,13 @@ if ( ! function_exists( 'extensive_vc_render_admin_menu_settings_page' ) ) {
 	 */
 	function extensive_vc_render_admin_menu_settings_page() { ?>
 		<div class="wrap evc-admin-settings">
-			<h2><?php esc_attr_e( 'Extensive VC Settings', 'extensive-vc' ); ?></h2>
+			<h2><?php esc_attr_e( 'Extensive VC Settings', 'extensive-vc-addon' ); ?></h2>
 			<?php settings_errors(); ?>
 			<h2 class="nav-tab-wrapper">
 				<?php
 					$tabs = array(
 						'general' => array(
-							'title' => esc_html__( 'General', 'extensive-vc' ),
+							'title' => esc_html__( 'General', 'extensive-vc-addon' ),
 							'url'   => 'evc-admin-options-page'
 						)
 					);
@@ -101,8 +101,8 @@ if ( ! function_exists( 'extensive_vc_render_admin_menu_settings_page' ) ) {
 			</h2>
 			<form action="options.php" method="post">
 				<p class="evc-donate-link">
-					<?php esc_html_e( 'If you enjoy using Extensive VC plugin and find it useful, please consider making a donation. Your donation will help encourage and support the plugin\'s continued development and better user support. Thank you, WP Realize team.', 'extensive-vc' ); ?>
-					<a href="https://www.paypal.me/NenadObradovic" target="_blank"><?php esc_html_e( 'Donate', 'extensive-vc' ); ?></a>
+					<?php esc_html_e( 'If you enjoy using Extensive VC plugin and find it useful, please consider making a donation. Your donation will help encourage and support the plugin\'s continued development and better user support. Thank you, WP Realize team.', 'extensive-vc-addon' ); ?>
+					<a href="https://www.paypal.me/NenadObradovic" target="_blank"><?php esc_html_e( 'Donate', 'extensive-vc-addon' ); ?></a>
 				</p>
 				<?php
 					settings_fields( 'evc_options_group' );
@@ -126,8 +126,8 @@ if ( ! function_exists( 'extensive_vc_add_admin_menu_about_page' ) ) {
 		
 		add_submenu_page(
 			'evc-admin-menu-page',
-			esc_html__( 'About', 'extensive-vc' ),
-			esc_html__( 'About', 'extensive-vc' ),
+			esc_html__( 'About', 'extensive-vc-addon' ),
+			esc_html__( 'About', 'extensive-vc-addon' ),
 			'edit_posts',
 			'evc-admin-about-page',
 			'extensive_vc_admin_about_page_content'
@@ -148,15 +148,16 @@ if ( ! function_exists( 'extensive_vc_admin_about_page_content' ) ) {
 		?>
 		<div class="wrap about-wrap evc-admin-about">
 			<div class="evc-admin-about-content">
-				<h1><?php echo sprintf( esc_html__( 'Welcome to Extensive VC Addons %s', 'extensive-vc' ), EXTENSIVE_VC_VERSION ); ?></h1>
-				<img class="evc-admin-logo" src="<?php echo EXTENSIVE_VC_ASSETS_URL_PATH . '/img/extensive_vc_admin_logo.jpg'; ?>" alt="<?php esc_html_e( 'Extensive VC Admin Logo', 'extensive-vc' ); ?>" />
+				<?php /* translators: %s: plugin version */ ?>
+				<h1><?php echo esc_html( sprintf( __( 'Welcome to Extensive VC Addons %s', 'extensive-vc-addon' ), EXTENSIVE_VC_VERSION ) ); ?></h1>
+				<img class="evc-admin-logo" src="<?php echo esc_url( EXTENSIVE_VC_ASSETS_URL_PATH . '/img/extensive_vc_admin_logo.jpg' ); ?>" alt="<?php esc_attr_e( 'Extensive VC Admin Logo', 'extensive-vc-addon' ); ?>" />
 				<div class="about-text">
-					<?php esc_html_e( 'Thank you for installing Extensive VC Addons! Extensive VC is most powerful plugin addons for WPBakery page builder formerly Visual Composer.', 'extensive-vc' ); ?>
+					<?php esc_html_e( 'Thank you for installing Extensive VC Addons! Extensive VC is most powerful plugin addons for WPBakery page builder.', 'extensive-vc-addon' ); ?>
 				</div>
-				<img class="evc-admin-image" src="<?php echo EXTENSIVE_VC_ASSETS_URL_PATH . '/img/extensive_vc_admin_image.jpg'; ?>" alt="<?php esc_html_e( 'Extensive VC Admin Image', 'extensive-vc' ); ?>" />
+				<img class="evc-admin-image" src="<?php echo esc_url( EXTENSIVE_VC_ASSETS_URL_PATH . '/img/extensive_vc_admin_image.jpg' ); ?>" alt="<?php esc_attr_e( 'Extensive VC Admin Image', 'extensive-vc-addon' ); ?>" />
 				<p class="evc-donate-link">
-					<?php esc_html_e( 'If you enjoy using Extensive VC plugin and find it useful, please consider making a donation. Your donation will help encourage and support the plugin\'s continued development and better user support. Thank you, WP Realize team.', 'extensive-vc' ); ?>
-					<a href="https://www.paypal.me/NenadObradovic" target="_blank"><?php esc_html_e( 'Donate', 'extensive-vc' ); ?></a>
+					<?php esc_html_e( 'If you enjoy using Extensive VC plugin and find it useful, please consider making a donation. Your donation will help encourage and support the plugin\'s continued development and better user support. Thank you, WP Realize team.', 'extensive-vc-addon' ); ?>
+					<a href="https://www.paypal.me/NenadObradovic" target="_blank"><?php esc_html_e( 'Donate', 'extensive-vc-addon' ); ?></a>
 				</p>
 			</div>
 		</div>
@@ -177,7 +178,7 @@ if ( ! function_exists( 'extensive_vc_add_admin_bar_menu_options' ) ) {
 		
 		$args = array(
 			'id'    => 'evc-admin-bar-options-page',
-			'title' => sprintf( '<span class="ab-icon dashicons-before dashicons-schedule"></span> %s', esc_html__( 'Extensive VC', 'extensive-vc' ) ),
+			'title' => sprintf( '<span class="ab-icon dashicons-before dashicons-schedule"></span> %s', esc_html__( 'Extensive VC', 'extensive-vc-addon' ) ),
 			'href'  => esc_url( admin_url('admin.php?page=evc-admin-options-page') )
 		);
 		

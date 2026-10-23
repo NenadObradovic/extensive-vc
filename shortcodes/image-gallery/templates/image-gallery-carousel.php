@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $i  = 0;
-$id = rand( 1000, 9999 );
+$id = wp_rand( 1000, 9999 );
 
 wp_enqueue_style( 'owl-carousel' );
 wp_enqueue_script( 'owl-carousel' );
@@ -13,7 +13,9 @@ wp_enqueue_script( 'owl-carousel' );
 wp_enqueue_style( 'lightbox' );
 wp_enqueue_script( 'lightbox' );
 ?>
+<?php do_action( 'extensive_vc_action_before_image_gallery', $params ); ?>
 <div class="evc-image-gallery evc-shortcode <?php echo esc_attr( $holder_classes ); ?>">
+	<?php do_action( 'extensive_vc_action_image_gallery_before_content', $params ); ?>
 	<div class="evc-ig-slider evc-owl-carousel" <?php extensive_vc_print_inline_attrs( $slider_data, true ); ?>>
 		<?php foreach ( $images as $image ) { ?>
 			<div class="evc-ig-image-item">
@@ -23,12 +25,12 @@ wp_enqueue_script( 'lightbox' );
 					<?php } ?>
 					
 					<?php if ( $image_behavior === 'lightbox' ) { ?>
-						<a class="evc-ig-lightbox" href="<?php echo esc_url( wp_get_attachment_url( $image['image_id'] ) ); ?>" data-lightbox="evc-ig-lb-<?php echo esc_attr( $id ); ?>" data-title="<?php echo get_the_title( $image['image_id'] ); ?>">
+						<a class="evc-ig-lightbox" href="<?php echo esc_url( wp_get_attachment_url( $image['image_id'] ) ); ?>" data-lightbox="evc-ig-lb-<?php echo esc_attr( $id ); ?>" data-title="<?php echo esc_attr( get_the_title( $image['image_id'] ) ); ?>">
 					<?php } ?>
 						
 					<?php
 						if ( is_array( $image_size ) && count( $image_size ) ) {
-							echo extensive_vc_generate_thumbnail( $image['image_id'], $image_size[0], $image_size[1] );
+							echo wp_kses_post( extensive_vc_generate_thumbnail( $image['image_id'], $image_size[0], $image_size[1] ) );
 						} else {
 							echo wp_get_attachment_image( $image['image_id'], $image_size );
 						}
@@ -41,4 +43,6 @@ wp_enqueue_script( 'lightbox' );
 			</div>
 		<?php } ?>
 	</div>
+	<?php do_action( 'extensive_vc_action_image_gallery_after_content', $params ); ?>
 </div>
+<?php do_action( 'extensive_vc_action_after_image_gallery', $params ); ?>

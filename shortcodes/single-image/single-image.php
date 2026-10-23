@@ -21,7 +21,7 @@ if ( ! class_exists( 'EVCSingleImage' ) ) {
 		 */
 		function __construct() {
 			$this->setBase( 'evc_single_image' );
-			$this->setShortcodeName( esc_html__( 'Single Image', 'extensive-vc' ) );
+			$this->setShortcodeName( esc_html__( 'Single Image', 'extensive-vc-addon' ) );
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
@@ -34,46 +34,46 @@ if ( ! class_exists( 'EVCSingleImage' ) ) {
 		 * @return self
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
 		}
 		
 		/**
-		 * Set shortcode parameters for Visual Composer shortcodes options panel
+		 * Set shortcode parameters for WPBakery Page Builder shortcodes options panel
 		 */
 		function shortcodeParameters() {
 			$params = array(
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'custom_class',
-					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc' ),
-					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
+					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'attach_image',
 					'param_name'  => 'image',
-					'heading'     => esc_html__( 'Image', 'extensive-vc' ),
-					'description' => esc_html__( 'Select image from media library', 'extensive-vc' )
+					'heading'     => esc_html__( 'Image', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Select image from media library', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'image_size',
-					'heading'     => esc_html__( 'Image Size', 'extensive-vc' ),
-					'description' => esc_html__( 'Fill your image size (thumbnail, medium, large or full) or enter image size in pixels: 200x100 (width x height). Leave empty to use original image size', 'extensive-vc' )
+					'heading'     => esc_html__( 'Image Size', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Fill your image size (thumbnail, medium, large or full) or enter image size in pixels: 200x100 (width x height). Leave empty to use original image size', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'image_behavior',
-					'heading'    => esc_html__( 'Image Behavior', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Image Behavior', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_image_behavior_array() )
 				),
 				array(
 					'type'       => 'vc_link',
 					'param_name' => 'custom_link',
-					'heading'    => esc_html__( 'Custom Link', 'extensive-vc' )
+					'heading'    => esc_html__( 'Custom Link', 'extensive-vc-addon' )
 				)
 			);
 			
@@ -148,20 +148,7 @@ if ( ! class_exists( 'EVCSingleImage' ) ) {
 		 * @return string/array
 		 */
 		private function getImageSize( $imageSize ) {
-			$imageSize = trim( $imageSize );
-			//Find digits
-			preg_match_all( '/\d+/', $imageSize, $matches );
-			
-			if ( in_array( $imageSize, array( 'thumbnail', 'medium', 'large', 'full' ) ) ) {
-				return $imageSize;
-			} elseif ( ! empty( $matches[0] ) ) {
-				return array(
-					$matches[0][0],
-					$matches[0][1]
-				);
-			} else {
-				return 'full';
-			}
+			return extensive_vc_get_image_size_value( $imageSize );
 		}
 	}
 }

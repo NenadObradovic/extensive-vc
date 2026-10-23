@@ -6,6 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 <div class="evc-t-item">
+	<?php do_action( 'extensive_vc_action_testimonials_item_before_content', $params ); ?>
 	<?php if ( has_post_thumbnail() ) { ?>
 		<div class="evc-t-image">
 			<?php echo get_the_post_thumbnail( $current_id, $image_size ); ?>
@@ -24,4 +25,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</span>
 		<?php } ?>
 	</div>
+	<?php do_action( 'extensive_vc_action_testimonials_item_after_content', $params ); ?>
 </div>

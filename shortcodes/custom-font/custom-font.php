@@ -21,7 +21,7 @@ if ( ! class_exists( 'EVCCustomFont' ) ) {
 		 */
 		function __construct() {
 			$this->setBase( 'evc_custom_font' );
-			$this->setShortcodeName( esc_html__( 'Custom Font', 'extensive-vc' ) );
+			$this->setShortcodeName( esc_html__( 'Custom Font', 'extensive-vc-addon' ) );
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
@@ -34,194 +34,194 @@ if ( ! class_exists( 'EVCCustomFont' ) ) {
 		 * @return self
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
 		}
 		
 		/**
-		 * Set shortcode parameters for Visual Composer shortcodes options panel
+		 * Set shortcode parameters for WPBakery Page Builder shortcodes options panel
 		 */
 		function shortcodeParameters() {
 			$params = array(
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'custom_class',
-					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc' ),
-					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
+					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'title',
-					'heading'    => esc_html__( 'Title', 'extensive-vc' )
+					'heading'    => esc_html__( 'Title', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'title_tag',
-					'heading'    => esc_html__( 'Title Tag', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Title Tag', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_title_tag_array( true, array( 'p' => 'p' ) ) )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'color',
-					'heading'    => esc_html__( 'Color', 'extensive-vc' )
+					'heading'    => esc_html__( 'Color', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'margin',
-					'heading'     => esc_html__( 'Margin (px or %)', 'extensive-vc' ),
-					'description' => esc_html__( 'Insert margin in format: top right bottom left (e.g. 10px 5px 10px 5px)', 'extensive-vc' )
+					'heading'     => esc_html__( 'Margin (px or %)', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Insert margin in format: top right bottom left (e.g. 10px 5px 10px 5px)', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'font_family',
-					'heading'    => esc_html__( 'Font Family', 'extensive-vc' ),
-					'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+					'heading'    => esc_html__( 'Font Family', 'extensive-vc-addon' ),
+					'group'      => esc_html__( 'Typography Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'font_size',
-					'heading'    => esc_html__( 'Font Size (px or em)', 'extensive-vc' ),
-					'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+					'heading'    => esc_html__( 'Font Size (px or em)', 'extensive-vc-addon' ),
+					'group'      => esc_html__( 'Typography Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'line_height',
-					'heading'    => esc_html__( 'Line Height (px or em)', 'extensive-vc' ),
-					'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+					'heading'    => esc_html__( 'Line Height (px or em)', 'extensive-vc-addon' ),
+					'group'      => esc_html__( 'Typography Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'font_weight',
-					'heading'    => esc_html__( 'Font Weight', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Font Weight', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_font_weight_array( true ) ),
-					'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Typography Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'font_style',
-					'heading'    => esc_html__( 'Font Style', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Font Style', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_font_style_array( true ) ),
-					'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Typography Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'letter_spacing',
-					'heading'    => esc_html__( 'Letter Spacing (px or em)', 'extensive-vc' ),
-					'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+					'heading'    => esc_html__( 'Letter Spacing (px or em)', 'extensive-vc-addon' ),
+					'group'      => esc_html__( 'Typography Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'text_transform',
-					'heading'    => esc_html__( 'Text Transform', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Text Transform', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_text_transform_array( true ) ),
-					'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Typography Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'text_decoration',
-					'heading'    => esc_html__( 'Text Decoration', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Text Decoration', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_text_decorations_array( true ) ),
-					'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Typography Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'text_align',
-					'heading'    => esc_html__( 'Text Align', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Text Align', 'extensive-vc-addon' ),
 					'value'      => array(
-						esc_html__( 'Default', 'extensive-vc' ) => '',
-						esc_html__( 'Left', 'extensive-vc' )    => 'left',
-						esc_html__( 'Center', 'extensive-vc' )  => 'center',
-						esc_html__( 'Right', 'extensive-vc' )   => 'right',
-						esc_html__( 'Justify', 'extensive-vc' ) => 'justify'
+						esc_html__( 'Default', 'extensive-vc-addon' ) => '',
+						esc_html__( 'Left', 'extensive-vc-addon' )    => 'left',
+						esc_html__( 'Center', 'extensive-vc-addon' )  => 'center',
+						esc_html__( 'Right', 'extensive-vc-addon' )   => 'right',
+						esc_html__( 'Justify', 'extensive-vc-addon' ) => 'justify'
 					),
-					'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Typography Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'font_size_1440',
-					'heading'     => esc_html__( 'Font Size (px or em)', 'extensive-vc' ),
-					'description' => esc_html__( 'Set font size for 1440px screen size', 'extensive-vc' ),
-					'group'       => esc_html__( 'Responsive Options', 'extensive-vc' )
+					'heading'     => esc_html__( 'Font Size (px or em)', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Set font size for 1440px screen size', 'extensive-vc-addon' ),
+					'group'       => esc_html__( 'Responsive Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'line_height_1440',
-					'heading'     => esc_html__( 'Line Height (px or em)', 'extensive-vc' ),
-					'description' => esc_html__( 'Set line height for 1440px screen size', 'extensive-vc' ),
-					'group'       => esc_html__( 'Responsive Options', 'extensive-vc' )
+					'heading'     => esc_html__( 'Line Height (px or em)', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Set line height for 1440px screen size', 'extensive-vc-addon' ),
+					'group'       => esc_html__( 'Responsive Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'font_size_1366',
-					'heading'     => esc_html__( 'Font Size (px or em)', 'extensive-vc' ),
-					'description' => esc_html__( 'Set font size for 1366px screen size', 'extensive-vc' ),
-					'group'       => esc_html__( 'Responsive Options', 'extensive-vc' )
+					'heading'     => esc_html__( 'Font Size (px or em)', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Set font size for 1366px screen size', 'extensive-vc-addon' ),
+					'group'       => esc_html__( 'Responsive Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'line_height_1366',
-					'heading'     => esc_html__( 'Line Height (px or em)', 'extensive-vc' ),
-					'description' => esc_html__( 'Set line height for 1366px screen size', 'extensive-vc' ),
-					'group'       => esc_html__( 'Responsive Options', 'extensive-vc' )
+					'heading'     => esc_html__( 'Line Height (px or em)', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Set line height for 1366px screen size', 'extensive-vc-addon' ),
+					'group'       => esc_html__( 'Responsive Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'font_size_1280',
-					'heading'     => esc_html__( 'Font Size (px or em)', 'extensive-vc' ),
-					'description' => esc_html__( 'Set font size for 1280px screen size', 'extensive-vc' ),
-					'group'       => esc_html__( 'Responsive Options', 'extensive-vc' )
+					'heading'     => esc_html__( 'Font Size (px or em)', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Set font size for 1280px screen size', 'extensive-vc-addon' ),
+					'group'       => esc_html__( 'Responsive Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'line_height_1280',
-					'heading'     => esc_html__( 'Line Height (px or em)', 'extensive-vc' ),
-					'description' => esc_html__( 'Set line height for 1280px screen size', 'extensive-vc' ),
-					'group'       => esc_html__( 'Responsive Options', 'extensive-vc' )
+					'heading'     => esc_html__( 'Line Height (px or em)', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Set line height for 1280px screen size', 'extensive-vc-addon' ),
+					'group'       => esc_html__( 'Responsive Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'font_size_1024',
-					'heading'     => esc_html__( 'Font Size (px or em)', 'extensive-vc' ),
-					'description' => esc_html__( 'Set font size for tablet landscape screen size', 'extensive-vc' ),
-					'group'       => esc_html__( 'Responsive Options', 'extensive-vc' )
+					'heading'     => esc_html__( 'Font Size (px or em)', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Set font size for tablet landscape screen size', 'extensive-vc-addon' ),
+					'group'       => esc_html__( 'Responsive Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'line_height_1024',
-					'heading'     => esc_html__( 'Line Height (px or em)', 'extensive-vc' ),
-					'description' => esc_html__( 'Set line height for tablet landscape screen size', 'extensive-vc' ),
-					'group'       => esc_html__( 'Responsive Options', 'extensive-vc' )
+					'heading'     => esc_html__( 'Line Height (px or em)', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Set line height for tablet landscape screen size', 'extensive-vc-addon' ),
+					'group'       => esc_html__( 'Responsive Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'font_size_768',
-					'heading'     => esc_html__( 'Font Size (px or em)', 'extensive-vc' ),
-					'description' => esc_html__( 'Set font size for tablet portrait screen size', 'extensive-vc' ),
-					'group'       => esc_html__( 'Responsive Options', 'extensive-vc' )
+					'heading'     => esc_html__( 'Font Size (px or em)', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Set font size for tablet portrait screen size', 'extensive-vc-addon' ),
+					'group'       => esc_html__( 'Responsive Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'line_height_768',
-					'heading'     => esc_html__( 'Line Height (px or em)', 'extensive-vc' ),
-					'description' => esc_html__( 'Set line height for tablet portrait screen size', 'extensive-vc' ),
-					'group'       => esc_html__( 'Responsive Options', 'extensive-vc' )
+					'heading'     => esc_html__( 'Line Height (px or em)', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Set line height for tablet portrait screen size', 'extensive-vc-addon' ),
+					'group'       => esc_html__( 'Responsive Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'font_size_680',
-					'heading'     => esc_html__( 'Font Size (px or em)', 'extensive-vc' ),
-					'description' => esc_html__( 'Set font size for mobiles screen size', 'extensive-vc' ),
-					'group'       => esc_html__( 'Responsive Options', 'extensive-vc' )
+					'heading'     => esc_html__( 'Font Size (px or em)', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Set font size for mobiles screen size', 'extensive-vc-addon' ),
+					'group'       => esc_html__( 'Responsive Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'line_height_680',
-					'heading'     => esc_html__( 'Line Height (px or em)', 'extensive-vc' ),
-					'description' => esc_html__( 'Set line height for mobiles screen size', 'extensive-vc' ),
-					'group'       => esc_html__( 'Responsive Options', 'extensive-vc' )
+					'heading'     => esc_html__( 'Line Height (px or em)', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Set line height for mobiles screen size', 'extensive-vc-addon' ),
+					'group'       => esc_html__( 'Responsive Options', 'extensive-vc-addon' )
 				)
 			);
 			
@@ -267,7 +267,7 @@ if ( ! class_exists( 'EVCCustomFont' ) ) {
 			);
 			$params = shortcode_atts( $args, $atts, $this->getBase() );
 			
-			$params['holder_rand_class'] = 'evc-cf-' . mt_rand( 500, 10000 );
+			$params['holder_rand_class'] = 'evc-cf-' . wp_rand( 500, 10000 );
 			$params['holder_classes']    = $this->getHolderClasses( $params );
 			$params['holder_styles']     = $this->getHolderStyles( $params );
 			$params['holder_data']       = $this->getHolderData( $params );
@@ -310,7 +310,7 @@ if ( ! class_exists( 'EVCCustomFont' ) ) {
 			}
 			
 			if ( ! empty( $params['font_size'] ) ) {
-				if ( extensive_vc_string_ends_with( $params['font_size'], 'px' ) || extensive_vc_string_ends_with( $params['font_size'], 'em' ) ) {
+				if ( extensive_vc_string_ends_with_typography_units( $params['font_size'] ) ) {
 					$styles[] = 'font-size: ' . $params['font_size'];
 				} else {
 					$styles[] = 'font-size: ' . $params['font_size'] . 'px';
@@ -318,7 +318,7 @@ if ( ! class_exists( 'EVCCustomFont' ) ) {
 			}
 			
 			if ( ! empty( $params['line_height'] ) ) {
-				if ( extensive_vc_string_ends_with( $params['line_height'], 'px' ) || extensive_vc_string_ends_with( $params['line_height'], 'em' ) ) {
+				if ( extensive_vc_string_ends_with_typography_units( $params['line_height'] ) ) {
 					$styles[] = 'line-height: ' . $params['line_height'];
 				} else {
 					$styles[] = 'line-height: ' . $params['line_height'] . 'px';
@@ -334,7 +334,7 @@ if ( ! class_exists( 'EVCCustomFont' ) ) {
 			}
 			
 			if ( ! empty( $params['letter_spacing'] ) ) {
-				if ( extensive_vc_string_ends_with( $params['letter_spacing'], 'px' ) || extensive_vc_string_ends_with( $params['letter_spacing'], 'em' ) ) {
+				if ( extensive_vc_string_ends_with_typography_units( $params['letter_spacing'] ) ) {
 					$styles[] = 'letter-spacing: ' . $params['letter_spacing'];
 				} else {
 					$styles[] = 'letter-spacing: ' . $params['letter_spacing'] . 'px';
@@ -377,7 +377,7 @@ if ( ! class_exists( 'EVCCustomFont' ) ) {
 			
 			$laptopLargeFS = $params['font_size_1440'];
 			if ( $laptopLargeFS !== '' ) {
-				if ( extensive_vc_string_ends_with( $laptopLargeFS, 'px' ) || extensive_vc_string_ends_with( $laptopLargeFS, 'em' ) ) {
+				if ( extensive_vc_string_ends_with_typography_units( $laptopLargeFS ) ) {
 					$data['data-font-size-1440'] = $laptopLargeFS;
 				} else {
 					$data['data-font-size-1440'] = $laptopLargeFS . 'px';
@@ -386,7 +386,7 @@ if ( ! class_exists( 'EVCCustomFont' ) ) {
 			
 			$laptopSmallFS = $params['font_size_1366'];
 			if ( $laptopSmallFS !== '' ) {
-				if ( extensive_vc_string_ends_with( $laptopSmallFS, 'px' ) || extensive_vc_string_ends_with( $laptopSmallFS, 'em' ) ) {
+				if ( extensive_vc_string_ends_with_typography_units( $laptopSmallFS ) ) {
 					$data['data-font-size-1366'] = $laptopSmallFS;
 				} else {
 					$data['data-font-size-1366'] = $laptopSmallFS . 'px';
@@ -395,7 +395,7 @@ if ( ! class_exists( 'EVCCustomFont' ) ) {
 			
 			$laptopMacFS = $params['font_size_1280'];
 			if ( $laptopMacFS !== '' ) {
-				if ( extensive_vc_string_ends_with( $laptopMacFS, 'px' ) || extensive_vc_string_ends_with( $laptopMacFS, 'em' ) ) {
+				if ( extensive_vc_string_ends_with_typography_units( $laptopMacFS ) ) {
 					$data['data-font-size-1280'] = $laptopMacFS;
 				} else {
 					$data['data-font-size-1280'] = $laptopMacFS . 'px';
@@ -404,7 +404,7 @@ if ( ! class_exists( 'EVCCustomFont' ) ) {
 			
 			$tabletLandscapeFS = $params['font_size_1024'];
 			if ( $tabletLandscapeFS !== '' ) {
-				if ( extensive_vc_string_ends_with( $tabletLandscapeFS, 'px' ) || extensive_vc_string_ends_with( $tabletLandscapeFS, 'em' ) ) {
+				if ( extensive_vc_string_ends_with_typography_units( $tabletLandscapeFS ) ) {
 					$data['data-font-size-1024'] = $tabletLandscapeFS;
 				} else {
 					$data['data-font-size-1024'] = $tabletLandscapeFS . 'px';
@@ -413,7 +413,7 @@ if ( ! class_exists( 'EVCCustomFont' ) ) {
 			
 			$tabletPortraitFS = $params['font_size_768'];
 			if ( $tabletPortraitFS !== '' ) {
-				if ( extensive_vc_string_ends_with( $tabletPortraitFS, 'px' ) || extensive_vc_string_ends_with( $tabletPortraitFS, 'em' ) ) {
+				if ( extensive_vc_string_ends_with_typography_units( $tabletPortraitFS ) ) {
 					$data['data-font-size-768'] = $tabletPortraitFS;
 				} else {
 					$data['data-font-size-768'] = $tabletPortraitFS . 'px';
@@ -422,7 +422,7 @@ if ( ! class_exists( 'EVCCustomFont' ) ) {
 			
 			$mobilesFS = $params['font_size_680'];
 			if ( $mobilesFS !== '' ) {
-				if ( extensive_vc_string_ends_with( $mobilesFS, 'px' ) || extensive_vc_string_ends_with( $mobilesFS, 'em' ) ) {
+				if ( extensive_vc_string_ends_with_typography_units( $mobilesFS ) ) {
 					$data['data-font-size-680'] = $mobilesFS;
 				} else {
 					$data['data-font-size-680'] = $mobilesFS . 'px';
@@ -431,7 +431,7 @@ if ( ! class_exists( 'EVCCustomFont' ) ) {
 			
 			$laptopLargeLH = $params['line_height_1440'];
 			if ( $laptopLargeLH !== '' ) {
-				if ( extensive_vc_string_ends_with( $laptopLargeLH, 'px' ) || extensive_vc_string_ends_with( $laptopLargeLH, 'em' ) ) {
+				if ( extensive_vc_string_ends_with_typography_units( $laptopLargeLH ) ) {
 					$data['data-line-height-1440'] = $laptopLargeLH;
 				} else {
 					$data['data-line-height-1440'] = $laptopLargeLH . 'px';
@@ -440,7 +440,7 @@ if ( ! class_exists( 'EVCCustomFont' ) ) {
 			
 			$laptopSmallLH = $params['line_height_1366'];
 			if ( $laptopSmallLH !== '' ) {
-				if ( extensive_vc_string_ends_with( $laptopSmallLH, 'px' ) || extensive_vc_string_ends_with( $laptopSmallLH, 'em' ) ) {
+				if ( extensive_vc_string_ends_with_typography_units( $laptopSmallLH ) ) {
 					$data['data-line-height-1366'] = $laptopSmallLH;
 				} else {
 					$data['data-line-height-1366'] = $laptopSmallLH . 'px';
@@ -449,7 +449,7 @@ if ( ! class_exists( 'EVCCustomFont' ) ) {
 			
 			$laptopMacLH = $params['line_height_1280'];
 			if ( $laptopMacLH !== '' ) {
-				if ( extensive_vc_string_ends_with( $laptopMacLH, 'px' ) || extensive_vc_string_ends_with( $laptopMacLH, 'em' ) ) {
+				if ( extensive_vc_string_ends_with_typography_units( $laptopMacLH ) ) {
 					$data['data-line-height-1280'] = $laptopMacLH;
 				} else {
 					$data['data-line-height-1280'] = $laptopMacLH . 'px';
@@ -458,7 +458,7 @@ if ( ! class_exists( 'EVCCustomFont' ) ) {
 			
 			$tabletLandscapeLH = $params['line_height_1024'];
 			if ( $tabletLandscapeLH !== '' ) {
-				if ( extensive_vc_string_ends_with( $tabletLandscapeLH, 'px' ) || extensive_vc_string_ends_with( $tabletLandscapeLH, 'em' ) ) {
+				if ( extensive_vc_string_ends_with_typography_units( $tabletLandscapeLH ) ) {
 					$data['data-line-height-1024'] = $tabletLandscapeLH;
 				} else {
 					$data['data-line-height-1024'] = $tabletLandscapeLH . 'px';
@@ -467,7 +467,7 @@ if ( ! class_exists( 'EVCCustomFont' ) ) {
 			
 			$tabletPortraitLH = $params['line_height_768'];
 			if ( $tabletPortraitLH !== '' ) {
-				if ( extensive_vc_string_ends_with( $tabletPortraitLH, 'px' ) || extensive_vc_string_ends_with( $tabletPortraitLH, 'em' ) ) {
+				if ( extensive_vc_string_ends_with_typography_units( $tabletPortraitLH ) ) {
 					$data['data-line-height-768'] = $tabletPortraitLH;
 				} else {
 					$data['data-line-height-768'] = $tabletPortraitLH . 'px';
@@ -476,7 +476,7 @@ if ( ! class_exists( 'EVCCustomFont' ) ) {
 			
 			$mobilesLH = $params['line_height_680'];
 			if ( $mobilesLH !== '' ) {
-				if ( extensive_vc_string_ends_with( $mobilesLH, 'px' ) || extensive_vc_string_ends_with( $mobilesLH, 'em' ) ) {
+				if ( extensive_vc_string_ends_with_typography_units( $mobilesLH ) ) {
 					$data['data-line-height-680'] = $mobilesLH;
 				} else {
 					$data['data-line-height-680'] = $mobilesLH . 'px';

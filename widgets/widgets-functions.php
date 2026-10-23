@@ -11,7 +11,7 @@ if ( ! function_exists( 'extensive_vc_include_widgets' ) ) {
 	function extensive_vc_include_widgets() {
 		
 		foreach ( glob( EXTENSIVE_VC_SHORTCODES_ABS_PATH . '/*/widgets/load.php' ) as $widget_load ) {
-			include_once $widget_load;
+			require_once $widget_load;
 		}
 		
 		// Hook to include additional widgets

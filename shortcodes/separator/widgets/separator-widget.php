@@ -13,8 +13,8 @@ if ( ! class_exists( 'EVCSeparatorWidget' ) ) {
 		public function __construct() {
 			parent::__construct(
 				'evc_separator_widget',
-				esc_html__( 'EVC Separator', 'extensive-vc' ),
-				array( 'description' => esc_html__( 'Add separator element to widget areas', 'extensive-vc' ) )
+				esc_html__( 'EVC Separator', 'extensive-vc-addon' ),
+				array( 'description' => esc_html__( 'Add separator element to widget areas', 'extensive-vc-addon' ) )
 			);
 			
 			$this->setWidgetParameters();
@@ -28,56 +28,56 @@ if ( ! class_exists( 'EVCSeparatorWidget' ) ) {
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'custom_class',
-					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc' ),
-					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
+					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc-addon' )
 				),
 				array(
 					'type'          => 'dropdown',
 					'param_name'    => 'position',
-					'heading'       => esc_html__( 'Position', 'extensive-vc' ),
+					'heading'       => esc_html__( 'Position', 'extensive-vc-addon' ),
 					'value'         => array(
-						esc_html__( 'Center', 'extensive-vc' ) => 'center',
-						esc_html__( 'Left', 'extensive-vc' )   => 'left',
-						esc_html__( 'Right', 'extensive-vc' )  => 'right'
+						esc_html__( 'Center', 'extensive-vc-addon' ) => 'center',
+						esc_html__( 'Left', 'extensive-vc-addon' )   => 'left',
+						esc_html__( 'Right', 'extensive-vc-addon' )  => 'right'
 					),
 					'inverse_value' => true
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'width',
-					'heading'    => esc_html__( 'Width (px or %)', 'extensive-vc' )
+					'heading'    => esc_html__( 'Width (px or %)', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'thickness',
-					'heading'    => esc_html__( 'Thickness (px)', 'extensive-vc' )
+					'heading'    => esc_html__( 'Thickness (px)', 'extensive-vc-addon' )
 				),
 				array(
 					'type'          => 'dropdown',
 					'param_name'    => 'style',
-					'heading'       => esc_html__( 'Style', 'extensive-vc' ),
+					'heading'       => esc_html__( 'Style', 'extensive-vc-addon' ),
 					'value'         => array(
-						esc_html__( 'Default', 'extensive-vc' ) => '',
-						esc_html__( 'Dashed', 'extensive-vc' )  => 'dashed',
-						esc_html__( 'Solid', 'extensive-vc' )   => 'solid',
-						esc_html__( 'Dotted', 'extensive-vc' )  => 'dotted'
+						esc_html__( 'Default', 'extensive-vc-addon' ) => '',
+						esc_html__( 'Dashed', 'extensive-vc-addon' )  => 'dashed',
+						esc_html__( 'Solid', 'extensive-vc-addon' )   => 'solid',
+						esc_html__( 'Dotted', 'extensive-vc-addon' )  => 'dotted'
 					),
 					'inverse_value' => true
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'top_margin',
-					'heading'    => esc_html__( 'Top Margin (px or %)', 'extensive-vc' )
+					'heading'    => esc_html__( 'Top Margin (px or %)', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'bottom_margin',
-					'heading'    => esc_html__( 'Bottom Margin (px or %)', 'extensive-vc' )
+					'heading'    => esc_html__( 'Bottom Margin (px or %)', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'color',
-					'heading'    => esc_html__( 'Color', 'extensive-vc' )
+					'heading'    => esc_html__( 'Color', 'extensive-vc-addon' )
 				)
 			);
 		}
@@ -99,6 +99,7 @@ if ( ! class_exists( 'EVCSeparatorWidget' ) ) {
 			} );
 			
 			echo '<div class="widget evc-widget evc-separator-widget">';
+				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Shortcode output is escaped in its template.
 				echo extensive_vc_render_shortcode( 'evc_separator', $instance ); // XSS OK
 			echo '</div>';
 		}

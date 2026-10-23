@@ -61,6 +61,42 @@ if ( ! function_exists( 'extensive_vc_render_admin_meta_boxes' ) ) {
 	}
 }
 
+if ( ! function_exists( 'extensive_vc_sanitize_meta_box_field' ) ) {
+	/**
+	 * Sanitize meta box field value based on field type
+	 *
+	 * @param $value string|array - field value
+	 * @param $type string - field type
+	 * @param $key string - field name
+	 *
+	 * @return string|int|array
+	 */
+	function extensive_vc_sanitize_meta_box_field( $value, $type, $key = '' ) {
+		$sanitized_value = '';
+		$has_value       = is_array( $value ) ? ! empty( array_filter( $value, 'strlen' ) ) : '' !== trim( (string) $value );
+
+		if ( $has_value ) {
+			if ( is_array( $value ) ) {
+				$sanitized_value = map_deep( $value, 'sanitize_text_field' );
+			} else {
+				switch ( $type ) {
+					case 'image':
+						$sanitized_value = absint( $value ) > 0 ? absint( $value ) : '';
+						break;
+					case 'textarea':
+						$sanitized_value = trim( sanitize_textarea_field( $value ) );
+						break;
+					default:
+						$sanitized_value = trim( sanitize_text_field( $value ) );
+						break;
+				}
+			}
+		}
+
+		return apply_filters( 'extensive_vc_filter_sanitize_meta_box_field', $sanitized_value, $value, $type, $key );
+	}
+}
+
 if ( ! function_exists( 'extensive_vc_save_admin_meta_boxes' ) ) {
 	/**
 	 * Saves admin meta box to postmeta table
@@ -76,58 +112,68 @@ if ( ! function_exists( 'extensive_vc_save_admin_meta_boxes' ) ) {
 			return;
 		}
 		
+		// If this is a revision, bail
+		if ( wp_is_post_revision( $post_id ) ) {
+			return;
+		}
+
+		// If current post type are not in list, bail
+		$post_types = apply_filters( 'extensive_vc_filter_allowed_post_types_meta_boxes', array() );
+
+		if ( empty( $post ) || ! in_array( $post->post_type, $post_types, true ) ) {
+			return;
+		}
+
 		// If our nonce isn't there, or we can't verify it, bail
 		$meta_boxes  = apply_filters( 'extensive_vc_filter_add_meta_boxes', array() );
-		$nonce_array = array();
-		
+		$nonce_valid = false;
+
 		if ( is_array( $meta_boxes ) && ! empty( $meta_boxes ) ) {
 			foreach ( $meta_boxes as $meta_box ) {
-				$id = esc_attr( $meta_box['id'] );
-				
-				$nonce_array[] = array(
-					'nonce'     => 'extensive_vc_meta_box_' . $id . '_save',
-					'post_type' => $id
-				);
-			}
-		}
-		
-		if ( is_array( $nonce_array ) && count( $nonce_array ) ) {
-			foreach ( $nonce_array as $nonce ) {
-				if ( extensive_vc_is_forwarded_admin_page_active( $nonce['post_type'] ) ) {
-					if ( ! isset( $_POST[ $nonce['nonce'] ] ) || ! wp_verify_nonce( $_POST[ $nonce['nonce'] ], $nonce['nonce'] ) ) {
-						return;
-					}
+				if ( empty( $meta_box['id'] ) || empty( $meta_box['screen'] ) || ! in_array( $post->post_type, (array) $meta_box['screen'], true ) ) {
+					continue;
+				}
+
+				$nonce = 'extensive_vc_meta_box_' . esc_attr( $meta_box['id'] ) . '_save';
+
+				if ( isset( $_POST[ $nonce ] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST[ $nonce ] ) ), $nonce ) ) {
+					$nonce_valid = true;
+					break;
 				}
 			}
 		}
-		
-		// If default wp nonce isn't there, bail
-		if ( ! isset( $_POST['_wpnonce'] ) ) {
+
+		if ( ! $nonce_valid ) {
 			return;
 		}
-		
+
 		// If current user can't edit this post, bail
 		if ( ! current_user_can( 'edit_post', $post_id ) ) {
 			return;
 		}
-		
-		// If current post type are not in list, bail
-		$post_types = apply_filters( 'extensive_vc_filter_allowed_post_types_meta_boxes', array( 'post', 'page' ) );
-		
-		if ( ! in_array( $post->post_type, $post_types ) ) {
-			return;
-		}
-		
-		// Make sure your data is set before trying to save it
+
+		// Hook to allow 3rd party elements to save their own fields
+		do_action( 'extensive_vc_action_save_post_meta_box', $post_id, $post );
+
+		// phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Sanitized by field type.
 		foreach ( $evc_options->metaBoxes->getOptions() as $key => $value ) {
-			$field_key = $_POST[ $key ];
-			
-			if ( isset( $field_key ) && trim( $field_key !== '' ) ) {
-				update_post_meta( $post_id, $key, sanitize_text_field( $field_key ) );
+			// Fields which are not part of the submitted meta box form are skipped, so other post types meta is not touched
+			if ( ! array_key_exists( $key, $_POST ) ) {
+				continue;
+			}
+
+			$field_value = extensive_vc_sanitize_meta_box_field( wp_unslash( $_POST[ $key ] ), $evc_options->metaBoxes->getOptionType( $key ), $key );
+
+			if ( '' !== $field_value && array() !== $field_value ) {
+				update_post_meta( $post_id, $key, $field_value );
 			} else {
 				delete_post_meta( $post_id, $key );
 			}
 		}
+		// phpcs:enable
+
+		// Hook to do additional actions after meta box fields are saved
+		do_action( 'extensive_vc_action_after_save_post_meta_box', $post_id, $post );
 	}
 	
 	add_action( 'save_post', 'extensive_vc_save_admin_meta_boxes', 10, 2 );

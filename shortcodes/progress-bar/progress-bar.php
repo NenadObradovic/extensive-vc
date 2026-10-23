@@ -21,16 +21,11 @@ if ( ! class_exists( 'EVCProgressBar' ) ) {
 		 */
 		function __construct() {
 			$this->setBase( 'evc_progress_bar' );
-			$this->setShortcodeName( esc_html__( 'Progress Bar', 'extensive-vc' ) );
+			$this->setShortcodeName( esc_html__( 'Progress Bar', 'extensive-vc-addon' ) );
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
 			parent::__construct();
-			
-			// Additional methods need to be loaded after parent constructor loaded if we used methods from the parent class
-			if ( $this->getIsShortcodeEnabled() ) {
-				add_action( 'extensive_vc_enqueue_additional_scripts_before_main_js', array( $this, 'enqueueShortcodeAdditionalScripts' ) );
-			}
 		}
 		
 		/**
@@ -39,38 +34,31 @@ if ( ! class_exists( 'EVCProgressBar' ) ) {
 		 * @return self
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
 		}
 		
 		/**
-		 * Enqueue necessary 3rd party scripts for this shortcode
-		 */
-		function enqueueShortcodeAdditionalScripts() {
-			wp_register_script( 'counter', EXTENSIVE_VC_SHORTCODES_URL_PATH . '/progress-bar/assets/js/plugins/counter.js', array( 'jquery' ), false, true );
-		}
-		
-		/**
-		 * Set shortcode parameters for Visual Composer shortcodes options panel
+		 * Set shortcode parameters for WPBakery Page Builder shortcodes options panel
 		 */
 		function shortcodeParameters() {
 			$params = array(
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'custom_class',
-					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc' ),
-					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
+					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'dropdown',
 					'param_name'  => 'type',
-					'heading'     => esc_html__( 'Type', 'extensive-vc' ),
+					'heading'     => esc_html__( 'Type', 'extensive-vc-addon' ),
 					'value'       => array(
-						esc_html__( 'Horizontal', 'extensive-vc' ) => 'horizontal',
-						esc_html__( 'Vertical', 'extensive-vc' )   => 'vertical'
+						esc_html__( 'Horizontal', 'extensive-vc-addon' ) => 'horizontal',
+						esc_html__( 'Vertical', 'extensive-vc-addon' )   => 'vertical'
 					),
 					'save_always' => true,
 					'admin_label' => true
@@ -78,60 +66,60 @@ if ( ! class_exists( 'EVCProgressBar' ) ) {
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'percent',
-					'heading'    => esc_html__( 'Percentage', 'extensive-vc' )
+					'heading'    => esc_html__( 'Percentage', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'percent_color',
-					'heading'    => esc_html__( 'Percentage Color', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Percentage Color', 'extensive-vc-addon' ),
 					'dependency' => array( 'element' => 'percent', 'not_empty' => true ),
-					'group'      => esc_html__( 'Percentage Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Percentage Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'title',
-					'heading'     => esc_html__( 'Title', 'extensive-vc' ),
+					'heading'     => esc_html__( 'Title', 'extensive-vc-addon' ),
 					'admin_label' => true
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'title_tag',
-					'heading'    => esc_html__( 'Title Tag', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Title Tag', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_title_tag_array( true, array( 'p' => 'p' ) ) ),
 					'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-					'group'      => esc_html__( 'Title Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Title Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'title_color',
-					'heading'    => esc_html__( 'Title Color', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Title Color', 'extensive-vc-addon' ),
 					'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-					'group'      => esc_html__( 'Title Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Title Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'title_bottom_margin',
-					'heading'    => esc_html__( 'Title Bottom Margin (px)', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Title Bottom Margin (px)', 'extensive-vc-addon' ),
 					'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-					'group'      => esc_html__( 'Title Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Title Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'active_bar_color',
-					'heading'    => esc_html__( 'Active Bar Color', 'extensive-vc' ),
-					'group'      => esc_html__( 'Bar Options', 'extensive-vc' )
+					'heading'    => esc_html__( 'Active Bar Color', 'extensive-vc-addon' ),
+					'group'      => esc_html__( 'Bar Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'inactive_bar_color',
-					'heading'    => esc_html__( 'Inactive Bar Color', 'extensive-vc' ),
-					'group'      => esc_html__( 'Bar Options', 'extensive-vc' )
+					'heading'    => esc_html__( 'Inactive Bar Color', 'extensive-vc-addon' ),
+					'group'      => esc_html__( 'Bar Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'bar_height',
-					'heading'    => esc_html__( 'Bar Height (px)', 'extensive-vc' ),
-					'group'      => esc_html__( 'Bar Settings', 'extensive-vc' )
+					'heading'    => esc_html__( 'Bar Height (px)', 'extensive-vc-addon' ),
+					'group'      => esc_html__( 'Bar Settings', 'extensive-vc-addon' )
 				)
 			);
 			

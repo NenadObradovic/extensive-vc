@@ -11,7 +11,7 @@ if ( ! function_exists( 'extensive_vc_include_plugins' ) ) {
 	function extensive_vc_include_plugins() {
 		
 		foreach ( glob( EXTENSIVE_VC_PLUGINS_ABS_PATH . '/*/load.php' ) as $plugin_load ) {
-			include_once $plugin_load;
+			require_once $plugin_load;
 		}
 		
 		// Hook to include additional plugins

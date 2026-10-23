@@ -10,7 +10,7 @@ if ( ! function_exists( 'extensive_vc_include_custom_post_types' ) ) {
 	 */
 	function extensive_vc_include_custom_post_types() {
 		foreach ( glob( EXTENSIVE_VC_CPT_ABS_PATH . '/*/load.php' ) as $cpt_load ) {
-			include_once $cpt_load;
+			require_once $cpt_load;
 		}
 		
 		// Hook to include additional custom post types
@@ -25,7 +25,7 @@ if ( ! function_exists( 'extensive_vc_load_custom_post_types' ) ) {
 	 * Register/load all custom post types
 	 */
 	function extensive_vc_load_custom_post_types() {
-		include_once 'post-types-class.php';
+		require_once __DIR__ . '/post-types-class.php';
 		
 		ExtensiveVC\CPT\PostTypesClass::getInstance()->register();
 	}
@@ -39,7 +39,7 @@ if ( ! function_exists( 'extensive_vc_include_custom_post_types_meta_boxes' ) ) 
 	 */
 	function extensive_vc_include_custom_post_types_meta_boxes() {
 		foreach ( glob( EXTENSIVE_VC_CPT_ABS_PATH . '/*/admin/meta-boxes/*.php' ) as $metaBoxesMap ) {
-			include_once $metaBoxesMap;
+			require_once $metaBoxesMap;
 		}
 	}
 	

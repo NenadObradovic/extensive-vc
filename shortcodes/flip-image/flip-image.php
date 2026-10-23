@@ -21,7 +21,7 @@ if ( ! class_exists( 'EVCFlipImage' ) ) {
 		 */
 		function __construct() {
 			$this->setBase( 'evc_flip_image' );
-			$this->setShortcodeName( esc_html__( 'Flip Image', 'extensive-vc' ) );
+			$this->setShortcodeName( esc_html__( 'Flip Image', 'extensive-vc-addon' ) );
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
@@ -34,95 +34,95 @@ if ( ! class_exists( 'EVCFlipImage' ) ) {
 		 * @return self
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
 		}
 		
 		/**
-		 * Set shortcode parameters for Visual Composer shortcodes options panel
+		 * Set shortcode parameters for WPBakery Page Builder shortcodes options panel
 		 */
 		function shortcodeParameters() {
 			$params = array(
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'custom_class',
-					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc' ),
-					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
+					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'dropdown',
 					'param_name'  => 'type',
-					'heading'     => esc_html__( 'Type', 'extensive-vc' ),
+					'heading'     => esc_html__( 'Type', 'extensive-vc-addon' ),
 					'value'       => array(
-						esc_html__( 'Horizontal', 'extensive-vc' ) => 'horizontal',
-						esc_html__( 'Vertical', 'extensive-vc' )   => 'vertical'
+						esc_html__( 'Horizontal', 'extensive-vc-addon' ) => 'horizontal',
+						esc_html__( 'Vertical', 'extensive-vc-addon' )   => 'vertical'
 					),
 					'admin_label' => true
 				),
 				array(
 					'type'        => 'attach_image',
 					'param_name'  => 'image',
-					'heading'     => esc_html__( 'Image', 'extensive-vc' ),
-					'description' => esc_html__( 'Select image from media library', 'extensive-vc' )
+					'heading'     => esc_html__( 'Image', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Select image from media library', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'image_size',
-					'heading'     => esc_html__( 'Image Size', 'extensive-vc' ),
-					'description' => esc_html__( 'Fill your image size (thumbnail, medium, large or full) or enter image size in pixels: 200x100 (width x height). Leave empty to use original image size', 'extensive-vc' )
+					'heading'     => esc_html__( 'Image Size', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Fill your image size (thumbnail, medium, large or full) or enter image size in pixels: 200x100 (width x height). Leave empty to use original image size', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'vc_link',
 					'param_name' => 'custom_link',
-					'heading'    => esc_html__( 'Custom Link', 'extensive-vc' )
+					'heading'    => esc_html__( 'Custom Link', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'content_bg_color',
-					'heading'    => esc_html__( 'Content Background Color', 'extensive-vc' ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'heading'    => esc_html__( 'Content Background Color', 'extensive-vc-addon' ),
+					'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'title',
-					'heading'    => esc_html__( 'Title', 'extensive-vc' )
+					'heading'    => esc_html__( 'Title', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'title_tag',
-					'heading'    => esc_html__( 'Title Tag', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Title Tag', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_title_tag_array( true ) ),
 					'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'title_color',
-					'heading'    => esc_html__( 'Title Color', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Title Color', 'extensive-vc-addon' ),
 					'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textarea',
 					'param_name' => 'text',
-					'heading'    => esc_html__( 'Text', 'extensive-vc' )
+					'heading'    => esc_html__( 'Text', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'text_color',
-					'heading'    => esc_html__( 'Text Color', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Text Color', 'extensive-vc-addon' ),
 					'dependency' => array( 'element' => 'text', 'not_empty' => true ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'text_top_margin',
-					'heading'    => esc_html__( 'Text Top Margin (px)', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Text Top Margin (px)', 'extensive-vc-addon' ),
 					'dependency' => array( 'element' => 'text', 'not_empty' => true ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 				)
 			);
 			
@@ -194,20 +194,7 @@ if ( ! class_exists( 'EVCFlipImage' ) ) {
 		 * @return string/array
 		 */
 		private function getImageSize( $imageSize ) {
-			$imageSize = trim( $imageSize );
-			//Find digits
-			preg_match_all( '/\d+/', $imageSize, $matches );
-			
-			if ( in_array( $imageSize, array( 'thumbnail', 'medium', 'large', 'full' ) ) ) {
-				return $imageSize;
-			} elseif ( ! empty( $matches[0] ) ) {
-				return array(
-					$matches[0][0],
-					$matches[0][1]
-				);
-			} else {
-				return 'full';
-			}
+			return extensive_vc_get_image_size_value( $imageSize );
 		}
 		
 		/**

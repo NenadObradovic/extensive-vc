@@ -26,7 +26,7 @@ if ( ! function_exists( 'extensive_vc_check_product_mark_visibility' ) ) {
 	function extensive_vc_check_product_mark_visibility( $itemEnabled = true ) {
 		global $product;
 		
-		if ( method_exists( $product, 'is_on_sale' ) && $itemEnabled ) {
+		if ( $product instanceof WC_Product && $itemEnabled ) {
 			return $product->is_on_sale();
 		} else {
 			return false;
@@ -45,7 +45,7 @@ if ( ! function_exists( 'extensive_vc_check_product_rating_visibility' ) ) {
 	function extensive_vc_check_product_rating_visibility( $itemEnabled = true ) {
 		global $product;
 		
-		if ( method_exists( $product, 'get_average_rating' ) && $itemEnabled ) {
+		if ( $product instanceof WC_Product && $itemEnabled ) {
 			return get_option( 'woocommerce_enable_review_rating' ) !== 'no' && $product->get_average_rating() > 0;
 		} else {
 			return false;
@@ -64,7 +64,7 @@ if ( ! function_exists( 'extensive_vc_check_product_price_visibility' ) ) {
 	function extensive_vc_check_product_price_visibility( $itemEnabled = true ) {
 		global $product;
 		
-		if ( method_exists( $product, 'get_price_html' ) && $itemEnabled ) {
+		if ( $product instanceof WC_Product && $itemEnabled ) {
 			return $product->get_price_html() !== '';
 		} else {
 			return false;
@@ -83,6 +83,6 @@ if ( ! function_exists( 'extensive_vc_check_product_category_visibility' ) ) {
 	function extensive_vc_check_product_category_visibility( $itemEnabled = true ) {
 		global $product;
 		
-		return method_exists( $product, 'get_id' ) && $itemEnabled;
+		return $product instanceof WC_Product && $itemEnabled;
 	}
 }

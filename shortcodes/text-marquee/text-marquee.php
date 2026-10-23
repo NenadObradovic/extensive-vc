@@ -21,7 +21,7 @@ if ( ! class_exists( 'EVCTextMarquee' ) ) {
 		 */
 		function __construct() {
 			$this->setBase( 'evc_text_marquee' );
-			$this->setShortcodeName( esc_html__( 'Text Marquee', 'extensive-vc' ) );
+			$this->setShortcodeName( esc_html__( 'Text Marquee', 'extensive-vc-addon' ) );
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
@@ -34,73 +34,73 @@ if ( ! class_exists( 'EVCTextMarquee' ) ) {
 		 * @return self
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
 		}
 		
 		/**
-		 * Set shortcode parameters for Visual Composer shortcodes options panel
+		 * Set shortcode parameters for WPBakery Page Builder shortcodes options panel
 		 */
 		function shortcodeParameters() {
 			$params = array(
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'custom_class',
-					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc' ),
-					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
+					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'text',
-					'heading'     => esc_html__( 'Text', 'extensive-vc' ),
+					'heading'     => esc_html__( 'Text', 'extensive-vc-addon' ),
 					'admin_label' => true
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'color',
-					'heading'    => esc_html__( 'Color', 'extensive-vc' )
+					'heading'    => esc_html__( 'Color', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'font_size',
-					'heading'    => esc_html__( 'Font Size (px or em)', 'extensive-vc' ),
-					'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+					'heading'    => esc_html__( 'Font Size (px or em)', 'extensive-vc-addon' ),
+					'group'      => esc_html__( 'Typography Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'line_height',
-					'heading'    => esc_html__( 'Line Height (px or em)', 'extensive-vc' ),
-					'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+					'heading'    => esc_html__( 'Line Height (px or em)', 'extensive-vc-addon' ),
+					'group'      => esc_html__( 'Typography Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'font_weight',
-					'heading'    => esc_html__( 'Font Weight', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Font Weight', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_font_weight_array( true ) ),
-					'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Typography Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'font_style',
-					'heading'    => esc_html__( 'Font Style', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Font Style', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_font_style_array( true ) ),
-					'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Typography Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'letter_spacing',
-					'heading'    => esc_html__( 'Letter Spacing (px or em)', 'extensive-vc' ),
-					'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+					'heading'    => esc_html__( 'Letter Spacing (px or em)', 'extensive-vc-addon' ),
+					'group'      => esc_html__( 'Typography Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'text_transform',
-					'heading'    => esc_html__( 'Text Transform', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Text Transform', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_text_transform_array( true ) ),
-					'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Typography Options', 'extensive-vc-addon' )
 				)
 			);
 			
@@ -168,7 +168,7 @@ if ( ! class_exists( 'EVCTextMarquee' ) ) {
 			}
 			
 			if ( ! empty( $params['font_size'] ) ) {
-				if ( extensive_vc_string_ends_with( $params['font_size'], 'px' ) || extensive_vc_string_ends_with( $params['font_size'], 'em' ) ) {
+				if ( extensive_vc_string_ends_with_typography_units( $params['font_size'] ) ) {
 					$styles[] = 'font-size: ' . $params['font_size'];
 				} else {
 					$styles[] = 'font-size: ' . $params['font_size'] . 'px';
@@ -176,7 +176,7 @@ if ( ! class_exists( 'EVCTextMarquee' ) ) {
 			}
 			
 			if ( ! empty( $params['line_height'] ) ) {
-				if ( extensive_vc_string_ends_with( $params['line_height'], 'px' ) || extensive_vc_string_ends_with( $params['line_height'], 'em' ) ) {
+				if ( extensive_vc_string_ends_with_typography_units( $params['line_height'] ) ) {
 					$styles[] = 'line-height: ' . $params['line_height'];
 				} else {
 					$styles[] = 'line-height: ' . $params['line_height'] . 'px';
@@ -192,7 +192,7 @@ if ( ! class_exists( 'EVCTextMarquee' ) ) {
 			}
 			
 			if ( ! empty( $params['letter_spacing'] ) ) {
-				if ( extensive_vc_string_ends_with( $params['letter_spacing'], 'px' ) || extensive_vc_string_ends_with( $params['letter_spacing'], 'em' ) ) {
+				if ( extensive_vc_string_ends_with_typography_units( $params['letter_spacing'] ) ) {
 					$styles[] = 'letter-spacing: ' . $params['letter_spacing'];
 				} else {
 					$styles[] = 'letter-spacing: ' . $params['letter_spacing'] . 'px';

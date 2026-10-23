@@ -21,7 +21,7 @@ if ( ! class_exists( 'EVCBlockquote' ) ) {
 		 */
 		function __construct() {
 			$this->setBase( 'evc_blockquote' );
-			$this->setShortcodeName( esc_html__( 'Blockquote', 'extensive-vc' ) );
+			$this->setShortcodeName( esc_html__( 'Blockquote', 'extensive-vc-addon' ) );
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
@@ -34,60 +34,60 @@ if ( ! class_exists( 'EVCBlockquote' ) ) {
 		 * @return self
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
 		}
 		
 		/**
-		 * Set shortcode parameters for Visual Composer shortcodes options panel
+		 * Set shortcode parameters for WPBakery Page Builder shortcodes options panel
 		 */
 		function shortcodeParameters() {
 			$params = array(
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'custom_class',
-					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc' ),
-					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
+					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'dropdown',
 					'param_name'  => 'type',
-					'heading'     => esc_html__( 'Type', 'extensive-vc' ),
+					'heading'     => esc_html__( 'Type', 'extensive-vc-addon' ),
 					'value'       => array(
-						esc_html__( 'Simple', 'extensive-vc' )    => 'simple',
-						esc_html__( 'Left Line', 'extensive-vc' ) => 'left-line',
-						esc_html__( 'With Icon', 'extensive-vc' ) => 'with-icon'
+						esc_html__( 'Simple', 'extensive-vc-addon' )    => 'simple',
+						esc_html__( 'Left Line', 'extensive-vc-addon' ) => 'left-line',
+						esc_html__( 'With Icon', 'extensive-vc-addon' ) => 'with-icon'
 					),
 					'admin_label' => true
 				),
 				array(
 					'type'       => 'textarea',
 					'param_name' => 'text',
-					'heading'    => esc_html__( 'Text', 'extensive-vc' )
+					'heading'    => esc_html__( 'Text', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'text_color',
-					'heading'    => esc_html__( 'Text Color', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Text Color', 'extensive-vc-addon' ),
 					'dependency' => array( 'element' => 'text', 'not_empty' => true ),
-					'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Typography Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'font_size',
-					'heading'    => esc_html__( 'Font Size (px or em)', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Font Size (px or em)', 'extensive-vc-addon' ),
 					'dependency' => array( 'element' => 'text', 'not_empty' => true ),
-					'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Typography Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'line_height',
-					'heading'    => esc_html__( 'Line Height (px or em)', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Line Height (px or em)', 'extensive-vc-addon' ),
 					'dependency' => array( 'element' => 'text', 'not_empty' => true ),
-					'group'      => esc_html__( 'Typography Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Typography Options', 'extensive-vc-addon' )
 				)
 			);
 			
@@ -152,7 +152,7 @@ if ( ! class_exists( 'EVCBlockquote' ) ) {
 			}
 			
 			if ( ! empty( $params['font_size'] ) ) {
-				if ( extensive_vc_string_ends_with( $params['font_size'], 'px' ) || extensive_vc_string_ends_with( $params['font_size'], 'em' ) ) {
+				if ( extensive_vc_string_ends_with_typography_units( $params['font_size'] ) ) {
 					$styles[] = 'font-size: ' . $params['font_size'];
 				} else {
 					$styles[] = 'font-size: ' . $params['font_size'] . 'px';
@@ -160,7 +160,7 @@ if ( ! class_exists( 'EVCBlockquote' ) ) {
 			}
 			
 			if ( ! empty( $params['line_height'] ) ) {
-				if ( extensive_vc_string_ends_with( $params['line_height'], 'px' ) || extensive_vc_string_ends_with( $params['line_height'], 'em' ) ) {
+				if ( extensive_vc_string_ends_with_typography_units( $params['line_height'] ) ) {
 					$styles[] = 'line-height: ' . $params['line_height'];
 				} else {
 					$styles[] = 'line-height: ' . $params['line_height'] . 'px';

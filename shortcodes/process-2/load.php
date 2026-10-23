@@ -4,6 +4,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-include_once 'functions.php';
-include_once 'process-2.php';
-include_once 'process-2-item.php';
+require_once __DIR__ . '/functions.php';
+require_once __DIR__ . '/process-2.php';
+require_once __DIR__ . '/process-2-item.php';

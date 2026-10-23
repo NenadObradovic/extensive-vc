@@ -1,0 +1,28 @@
+# Files and folders excluded from WordPress.org plugin package (used by bin/release.js)
+
+# Version control and editor files
+/.git
+/.gitattributes
+/.gitignore
+/.distignore
+/.idea
+/.vscode
+.DS_Store
+Thumbs.db
+
+# Build tools
+/node_modules
+/package.json
+/package-lock.json
+/webpack.config.js
+/bin
+/dist
+/docs
+/README.md
+
+# Assets sources, plugin loads compiled files (assets/js/main.js is readable version of all scripts)
+**/scss
+**/*.scss
+**/*.map
+/assets/js/modules
+/shortcodes/*/assets/js

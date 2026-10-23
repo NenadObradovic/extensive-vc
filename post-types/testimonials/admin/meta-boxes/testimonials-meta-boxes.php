@@ -23,7 +23,7 @@ if ( ! function_exists( 'extensive_vc_register_testimonials_meta_boxes' ) ) {
 		
 		$metaBoxes[] = array(
 			'id'       => 'testimonials',
-			'title'    => esc_html__( 'Testimonials', 'extensive-vc' ),
+			'title'    => esc_html__( 'Testimonials', 'extensive-vc-addon' ),
 			'function' => 'extensive_vc_add_testimonials_meta_boxes',
 			'screen'   => 'testimonials',
 			'context'  => 'advanced',
@@ -77,7 +77,7 @@ if ( ! function_exists( 'extensive_vc_add_testimonials_meta_boxes' ) ) {
 			array(
 				'type'               => 'textarea',
 				'name'               => 'evc_testimonial_text',
-				'label'              => esc_html__( 'Text', 'extensive-vc' ),
+				'label'              => esc_html__( 'Text', 'extensive-vc-addon' ),
 				'just_render_fields' => $just_render_fields
 			)
 		);
@@ -86,7 +86,7 @@ if ( ! function_exists( 'extensive_vc_add_testimonials_meta_boxes' ) ) {
 			array(
 				'type'               => 'text',
 				'name'               => 'evc_testimonial_author',
-				'label'              => esc_html__( 'Author', 'extensive-vc' ),
+				'label'              => esc_html__( 'Author', 'extensive-vc-addon' ),
 				'just_render_fields' => $just_render_fields
 			)
 		);
@@ -95,7 +95,7 @@ if ( ! function_exists( 'extensive_vc_add_testimonials_meta_boxes' ) ) {
 			array(
 				'type'               => 'text',
 				'name'               => 'evc_testimonial_position',
-				'label'              => esc_html__( 'Author Job Position', 'extensive-vc' ),
+				'label'              => esc_html__( 'Author Job Position', 'extensive-vc-addon' ),
 				'just_render_fields' => $just_render_fields
 			)
 		);

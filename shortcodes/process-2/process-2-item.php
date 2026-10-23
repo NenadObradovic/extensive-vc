@@ -22,7 +22,7 @@ if ( ! class_exists( 'EVCProcess2Item' ) ) {
 		function __construct() {
 			$this->setBase( 'evc_process_2_item' );
 			$this->setParentBase( 'evc_process_2' );
-			$this->setShortcodeName( esc_html__( 'Process 2 Item', 'extensive-vc' ) );
+			$this->setShortcodeName( esc_html__( 'Process 2 Item', 'extensive-vc-addon' ) );
 			$this->setShortcodeParameters( $this->shortcodeParameters() );
 			
 			// Parent constructor need to be loaded after setter's method initialization
@@ -35,80 +35,87 @@ if ( ! class_exists( 'EVCProcess2Item' ) ) {
 		 * @return self
 		 */
 		public static function getInstance() {
-			if ( self::$instance == null ) {
-				return new self;
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 			
 			return self::$instance;
 		}
 		
 		/**
-		 * Set shortcode parameters for Visual Composer shortcodes options panel
+		 * Set shortcode parameters for WPBakery Page Builder shortcodes options panel
 		 */
 		function shortcodeParameters() {
 			$params = array(
 				array(
 					'type'        => 'textfield',
 					'param_name'  => 'custom_class',
-					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc' ),
-					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc' )
+					'heading'     => esc_html__( 'Custom CSS Class', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS', 'extensive-vc-addon' )
 				),
 				array(
 					'type'        => 'attach_image',
 					'param_name'  => 'image',
-					'heading'     => esc_html__( 'Image', 'extensive-vc' ),
-					'description' => esc_html__( 'Select image from media library', 'extensive-vc' )
+					'heading'     => esc_html__( 'Image', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Select image from media library', 'extensive-vc-addon' )
+				),
+				array(
+					'type'        => 'textfield',
+					'param_name'  => 'image_size',
+					'heading'     => esc_html__( 'Image Size', 'extensive-vc-addon' ),
+					'description' => esc_html__( 'Fill your image size (thumbnail, medium, large, full or any registered image size) or enter image size in pixels: 200x100 (width x height). Leave empty to use original image size', 'extensive-vc-addon' ),
+					'dependency'  => array( 'element' => 'image', 'not_empty' => true )
 				),
 				array(
 					'type'       => 'vc_link',
 					'param_name' => 'custom_link',
-					'heading'    => esc_html__( 'Custom Link', 'extensive-vc' )
+					'heading'    => esc_html__( 'Custom Link', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'title',
-					'heading'    => esc_html__( 'Title', 'extensive-vc' )
+					'heading'    => esc_html__( 'Title', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'dropdown',
 					'param_name' => 'title_tag',
-					'heading'    => esc_html__( 'Title Tag', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Title Tag', 'extensive-vc-addon' ),
 					'value'      => array_flip( extensive_vc_get_title_tag_array( true, array( 'p' => 'p' ) ) ),
 					'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'title_color',
-					'heading'    => esc_html__( 'Title Color', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Title Color', 'extensive-vc-addon' ),
 					'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'title_top_margin',
-					'heading'    => esc_html__( 'Title Top Margin (px)', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Title Top Margin (px)', 'extensive-vc-addon' ),
 					'dependency' => array( 'element' => 'title', 'not_empty' => true ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textarea',
 					'param_name' => 'text',
-					'heading'    => esc_html__( 'Text', 'extensive-vc' )
+					'heading'    => esc_html__( 'Text', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'colorpicker',
 					'param_name' => 'text_color',
-					'heading'    => esc_html__( 'Text Color', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Text Color', 'extensive-vc-addon' ),
 					'dependency' => array( 'element' => 'text', 'not_empty' => true ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 				),
 				array(
 					'type'       => 'textfield',
 					'param_name' => 'text_top_margin',
-					'heading'    => esc_html__( 'Text Top Margin (px)', 'extensive-vc' ),
+					'heading'    => esc_html__( 'Text Top Margin (px)', 'extensive-vc-addon' ),
 					'dependency' => array( 'element' => 'text', 'not_empty' => true ),
-					'group'      => esc_html__( 'Design Options', 'extensive-vc' )
+					'group'      => esc_html__( 'Design Options', 'extensive-vc-addon' )
 				)
 			);
 			
@@ -127,6 +134,7 @@ if ( ! class_exists( 'EVCProcess2Item' ) ) {
 			$args   = array(
 				'custom_class'     => '',
 				'image'            => '',
+				'image_size'       => 'full',
 				'custom_link'      => '',
 				'title'            => '',
 				'title_tag'        => 'h4',
@@ -137,6 +145,8 @@ if ( ! class_exists( 'EVCProcess2Item' ) ) {
 				'text_top_margin'  => ''
 			);
 			$params = shortcode_atts( $args, $atts, $this->getBase() );
+
+			$params['image_size'] = extensive_vc_get_image_size_value( $params['image_size'] );
 			
 			$params['holder_classes'] = $this->getHolderClasses( $params );
 			

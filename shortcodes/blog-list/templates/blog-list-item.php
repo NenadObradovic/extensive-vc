@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( $type === 'standard' ) {
-	echo extensive_vc_get_module_template_part( 'shortcodes', 'blog-list', 'templates/layouts/post', $layout_collections, $params );
+	extensive_vc_template_part( 'shortcodes', 'blog-list', 'templates/layouts/post', $layout_collections, $params );
 } else {
-	echo extensive_vc_get_module_template_part( 'shortcodes', 'blog-list', 'templates/layouts/post', $type, $params );
+	extensive_vc_template_part( 'shortcodes', 'blog-list', 'templates/layouts/post', $type, $params );
 }
