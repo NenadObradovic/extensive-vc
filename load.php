@@ -7,6 +7,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( extensive_vc_is_wpbakery_page_builder_installed() ) {
 	require_once EXTENSIVE_VC_ABS_PATH . '/lib/framework.php';
 	require_once EXTENSIVE_VC_ABS_PATH . '/lib/helpers-functions.php';
+	require_once EXTENSIVE_VC_ABS_PATH . '/lib/social-icons.php';
+	require_once EXTENSIVE_VC_ABS_PATH . '/lib/assets-functions.php';
+	require_once EXTENSIVE_VC_ABS_PATH . '/lib/responsive-functions.php';
 	require_once EXTENSIVE_VC_ABS_PATH . '/lib/predefined-style-class.php';
 	
 	if ( file_exists( EXTENSIVE_VC_ABS_PATH . '/post-types' ) ) {

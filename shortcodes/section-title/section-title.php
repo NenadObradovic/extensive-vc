@@ -86,6 +86,46 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 						'group'      => esc_html__( 'Title Options', 'extensive-vc-addon' )
 					),
 					array(
+						'type'        => 'textarea',
+						'param_name'  => 'animated_words',
+						'heading'     => esc_html__( 'Animated Words', 'extensive-vc-addon' ),
+						'description' => esc_html__( 'Words or phrases displayed with animation after the title, one per line', 'extensive-vc-addon' ),
+						'group'       => esc_html__( 'Animated Text Options', 'extensive-vc-addon' )
+					),
+					array(
+						'type'        => 'dropdown',
+						'param_name'  => 'animated_type',
+						'heading'     => esc_html__( 'Animation Type', 'extensive-vc-addon' ),
+						'value'       => array(
+							esc_html__( 'Typing', 'extensive-vc-addon' )   => 'typing',
+							esc_html__( 'Rotating', 'extensive-vc-addon' ) => 'rotating'
+						),
+						'dependency'  => array( 'element' => 'animated_words', 'not_empty' => true ),
+						'group'       => esc_html__( 'Animated Text Options', 'extensive-vc-addon' )
+					),
+					array(
+						'type'        => 'textfield',
+						'param_name'  => 'title_after',
+						'heading'     => esc_html__( 'Text After Animated Words', 'extensive-vc-addon' ),
+						'dependency'  => array( 'element' => 'animated_words', 'not_empty' => true ),
+						'group'       => esc_html__( 'Animated Text Options', 'extensive-vc-addon' )
+					),
+					array(
+						'type'        => 'colorpicker',
+						'param_name'  => 'animated_color',
+						'heading'     => esc_html__( 'Animated Words Color', 'extensive-vc-addon' ),
+						'dependency'  => array( 'element' => 'animated_words', 'not_empty' => true ),
+						'group'       => esc_html__( 'Animated Text Options', 'extensive-vc-addon' )
+					),
+					array(
+						'type'        => 'textfield',
+						'param_name'  => 'animated_delay',
+						'heading'     => esc_html__( 'Delay Between Words (ms)', 'extensive-vc-addon' ),
+						'description' => esc_html__( 'Default value is 2000', 'extensive-vc-addon' ),
+						'dependency'  => array( 'element' => 'animated_words', 'not_empty' => true ),
+						'group'       => esc_html__( 'Animated Text Options', 'extensive-vc-addon' )
+					),
+					array(
 						'type'       => 'dropdown',
 						'param_name' => 'enable_separator',
 						'heading'    => esc_html__( 'Enable Separator', 'extensive-vc-addon' ),
@@ -173,6 +213,11 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 				'title'                     => '',
 				'title_tag'                 => 'h2',
 				'title_color'               => '',
+				'animated_words'            => '',
+				'animated_type'             => 'typing',
+				'title_after'               => '',
+				'animated_color'            => '',
+				'animated_delay'            => '',
 				'enable_separator'          => 'no',
 				'separator_color'           => '',
 				'separator_width'           => '',
@@ -209,12 +254,42 @@ if ( ! class_exists( 'EVCSectionTitle' ) ) {
 			$params['text_tag']         = ! empty( $params['text_tag'] ) ? $params['text_tag'] : $args['text_tag'];
 			$params['text_styles']      = $this->getTextStyles( $params );
 			$params['button_params']    = extensive_vc_get_button_shortcode_params( $params );
+			$params['animated_data']    = $this->getAnimatedData( $params );
 			
 			$html = extensive_vc_get_module_template_part( 'shortcodes', 'section-title', 'templates/section-title', '', $params );
 			
 			return $html;
 		}
 		
+		/**
+		 * Get animated words data
+		 *
+		 * @param $params array - shortcode parameters value
+		 *
+		 * @return array
+		 */
+		private function getAnimatedData( $params ) {
+			$words = array_values( array_filter( array_map( 'trim', preg_split( '/\r\n|\r|\n|<br\s*\/?>/', (string) $params['animated_words'] ) ), 'strlen' ) );
+			$words = array_map( 'sanitize_text_field', $words );
+
+			if ( empty( $words ) ) {
+				return array();
+			}
+
+			$styles = array();
+
+			if ( ! empty( $params['animated_color'] ) ) {
+				$styles[] = 'color: ' . $params['animated_color'];
+			}
+
+			return array(
+				'words'  => $words,
+				'type'   => in_array( $params['animated_type'], array( 'typing', 'rotating' ), true ) ? $params['animated_type'] : 'typing',
+				'delay'  => '' !== $params['animated_delay'] ? max( 500, absint( $params['animated_delay'] ) ) : 2000,
+				'styles' => $styles,
+			);
+		}
+
 		/**
 		 * Get shortcode holder classes
 		 *

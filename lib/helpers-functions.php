@@ -273,6 +273,30 @@ if ( ! function_exists( 'extensive_vc_get_svg_icon' ) ) {
 	}
 }
 
+if ( ! function_exists( 'extensive_vc_get_social_icon' ) ) {
+	/**
+	 * Returns social icon svg html
+	 *
+	 * @param $icon string - social icon slug from extensive_vc_get_social_icons function
+	 * @param $class string - additional icon classes
+	 *
+	 * @return string
+	 */
+	function extensive_vc_get_social_icon( $icon, $class = '' ) {
+		$icons = extensive_vc_get_social_icons();
+
+		if ( empty( $icons[ $icon ]['path'] ) ) {
+			return '';
+		}
+
+		return sprintf(
+			'<svg class="%1$s" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="%2$s"/></svg>',
+			esc_attr( trim( 'evc-svg-icon evc-social-icon evc-social-icon-' . $icon . ' ' . $class ) ),
+			esc_attr( $icons[ $icon ]['path'] )
+		);
+	}
+}
+
 if ( ! function_exists( 'extensive_vc_print_svg_icon' ) ) {
 	/**
 	 * Print svg icon html
@@ -720,6 +744,9 @@ if ( ! function_exists( 'extensive_vc_render_shortcode' ) ) {
 		if ( ! isset( $shortcode_tags[ $shortcode_tag ] ) ) {
 			return;
 		}
+
+		// Shortcode is rendered directly (e.g. from widgets), so pre_do_shortcode_tag filter is not called
+		extensive_vc_enqueue_element_assets( $shortcode_tag );
 
 		if ( is_array( $shortcode_tags[ $shortcode_tag ] ) ) {
 			$shortcode_array = $shortcode_tags[ $shortcode_tag ];
@@ -1404,6 +1431,23 @@ if ( ! function_exists( 'extensive_vc_get_button_shortcode_options_array' ) ) {
 		}
 
 		return $options;
+	}
+}
+
+if ( ! function_exists( 'extensive_vc_get_button_shortcode_default_args' ) ) {
+	/**
+	 * Returns default values of button options, used with extensive_vc_get_button_shortcode_options_array function
+	 *
+	 * @return array
+	 */
+	function extensive_vc_get_button_shortcode_default_args() {
+		$args = array();
+
+		foreach ( extensive_vc_get_button_shortcode_options_array() as $option ) {
+			$args[ $option['param_name'] ] = '';
+		}
+
+		return $args;
 	}
 }
 

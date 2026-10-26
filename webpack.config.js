@@ -5,7 +5,8 @@
  * npm run watch - rebuilds files on every change
  *
  * JS sources: assets/js/modules/*.js (global plugin scripts) and shortcodes/<shortcode>/assets/js/*.js
- * CSS sources: assets/css/main.css and assets/css/admin/main-admin.css
+ * Output: main.min.js (all scripts), core.min.js (global scripts) and assets/js/elements/<shortcode>.min.js
+ * CSS sources: assets/css/main.css and assets/css/admin/main-admin.css, main.css is split per element with bin/split-css.js
  */
 const path = require( 'path' );
 const glob = require( 'fs' ).globSync;
@@ -21,6 +22,19 @@ const mainScripts = [].concat(
 	glob( '{shortcodes,post-types,plugins}/*/assets/js/*.js' ).sort(),
 	glob( 'plugins/*/shortcodes/*/assets/js/*.js' ).sort()
 ).map( ( file ) => './' + file.split( path.sep ).join( '/' ) );
+
+// Per element scripts, loaded only on pages where element is used (element slug is shortcode folder name)
+const elementScripts = {};
+
+glob( '{shortcodes,post-types,plugins}/*/assets/js/*.js' )
+	.concat( glob( 'plugins/*/shortcodes/*/assets/js/*.js' ) )
+	.map( ( file ) => file.split( path.sep ).join( '/' ) )
+	.sort()
+	.forEach( ( file ) => {
+		const slug = file.split( '/assets/js/' )[ 0 ].split( '/' ).pop();
+
+		elementScripts[ 'assets/js/elements/' + slug + '.min' ] = ( elementScripts[ 'assets/js/elements/' + slug + '.min' ] || [] ).concat( './' + file );
+	} );
 
 // Remove source map references from 3rd party libraries, map files are not distributed
 const removeSourceMap = ( content ) => content.toString().replace( /\n?\/\/# sourceMappingURL=.*$/m, '' );
@@ -58,6 +72,8 @@ module.exports = [
 		name: 'minified',
 		entry: {
 			'assets/js/main.min': mainScripts,
+			'assets/js/core.min': mainScripts.filter( ( file ) => file.startsWith( './assets/js/modules/' ) ),
+			...elementScripts,
 			'assets/js/admin/main-admin.min': './assets/js/admin/main-admin.js',
 			'assets/css/main.min': './assets/css/main.css',
 			'assets/css/admin/main-admin.min': './assets/css/admin/main-admin.css',

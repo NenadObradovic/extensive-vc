@@ -30,15 +30,13 @@ if ( ! class_exists( 'EVCShortcode' ) ) {
 		 * @param $shortcodeParams array - set specific shortcode behavior
 		 */
 		function __construct( $shortcodeParams = array() ) {
-			$hasChild     = false;
-			$hasParent    = false;
-			$isNested     = false;
-			$isInCPT      = false;
-			$isInPlugins  = false;
-			$pluginModule = '';
-			
-			extract( $shortcodeParams );
-			
+			$hasChild     = ! empty( $shortcodeParams['hasChild'] );
+			$hasParent    = ! empty( $shortcodeParams['hasParent'] );
+			$isNested     = ! empty( $shortcodeParams['isNested'] );
+			$isInCPT      = ! empty( $shortcodeParams['isInCPT'] );
+			$isInPlugins  = ! empty( $shortcodeParams['isInPlugins'] );
+			$pluginModule = ! empty( $shortcodeParams['pluginModule'] ) ? $shortcodeParams['pluginModule'] : '';
+
 			$mainBase = $hasParent ? $this->getParentBase() : $this->getBase();
 			$this->setIsShortcodeEnabled( $this->checkIsShortcodeEnabled( $mainBase ) );
 			
@@ -60,6 +58,8 @@ if ( ! class_exists( 'EVCShortcode' ) ) {
 				add_filter( 'extensive_vc_filter_add_vc_shortcodes_custom_icon', array( $this, 'addShortcodeIcon' ) );
 				
 				add_action( 'vc_before_init', array( $this, 'vcMap' ) );
+
+				add_filter( 'extensive_vc_filter_elements_map', array( $this, 'addElementIntoMap' ) );
 			}
 			
 			if ( ! $hasParent ) {
@@ -254,6 +254,26 @@ if ( ! class_exists( 'EVCShortcode' ) ) {
 		}
 		
 		/**
+		 * Add element into elements map, which is used for assets loading and responsive options
+		 *
+		 * @param $elements array - list of elements
+		 *
+		 * @return array
+		 */
+		function addElementIntoMap( $elements ) {
+			$shortcodeConstructor = $this->getShortcodeConstructor();
+			$isChild              = ! empty( $shortcodeConstructor['has_parent'] );
+			$mainBase             = $isChild ? $this->getParentBase() : $this->getBase();
+
+			$elements[ $this->getBase() ] = array(
+				'slug'     => str_replace( '_', '-', preg_replace( '/^evc_/', '', $mainBase ) ),
+				'is_child' => $isChild,
+			);
+
+			return $elements;
+		}
+
+		/**
 		 * Add shortcode into shortcodes list for admin settings options
 		 *
 		 * @param $shortcodes array - list of shortcodes
@@ -270,6 +290,22 @@ if ( ! class_exists( 'EVCShortcode' ) ) {
 			return $shortcodes;
 		}
 		
+		/**
+		 * Get shortcode parameters for WPBakery Page Builder map, main elements get global responsive options
+		 *
+		 * @return array
+		 */
+		function getMapParameters() {
+			$shortcodeConstructor = $this->getShortcodeConstructor();
+			$params               = (array) $this->getShortcodeParameters();
+
+			if ( empty( $shortcodeConstructor['has_parent'] ) && function_exists( 'extensive_vc_get_responsive_shortcode_params' ) ) {
+				$params = array_merge( $params, extensive_vc_get_responsive_shortcode_params() );
+			}
+
+			return $params;
+		}
+
 		/**
 		 * Maps shortcode to WPBakery Page Builder. Hooked on vc_before_init
 		 *
@@ -316,7 +352,7 @@ if ( ! class_exists( 'EVCShortcode' ) ) {
 							'base'     => $this->getBase(),
 							'category' => esc_html__( 'Extensive VC', 'extensive-vc-addon' ),
 							'icon'     => 'evc-vc-custom-icon ' . $this->getIconClass(),
-							'params'   => apply_filters( 'extensive_vc_filter_shortcode_params', $this->getShortcodeParameters(), $this->getBase() )
+							'params'   => apply_filters( 'extensive_vc_filter_shortcode_params', $this->getMapParameters(), $this->getBase() )
 						),
 						$parentSettings,
 						$childSettings

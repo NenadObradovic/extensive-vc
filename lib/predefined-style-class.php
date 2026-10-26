@@ -23,7 +23,8 @@ if ( ! class_exists( 'ExtensiveVCPredefinedStyle' ) ) {
 			
 			if ( $this->isPredefinedStyleEnabled() ) {
 				add_filter( 'body_class', array( $this, 'addBodyClasses' ) );
-				add_action( 'wp_enqueue_scripts', array( $this, 'enqueueGoogleFont' ) );
+				add_action( 'wp_enqueue_scripts', array( $this, 'enqueueFonts' ) );
+				add_action( 'extensive_vc_action_enqueue_element_assets', array( $this, 'enqueueFontsWithElement' ) );
 			}
 		}
 		
@@ -83,19 +84,54 @@ if ( ! class_exists( 'ExtensiveVCPredefinedStyle' ) ) {
 		}
 		
 		/**
-		 * Enqueue google font
+		 * Get fonts loading option value
+		 *
+		 * @return string - local (fonts are loaded from plugin folder), google (fonts are loaded from Google Fonts CDN) or disabled
 		 */
-		function enqueueGoogleFont() {
-			
-			$defaultFontArgs = array(
-				'family'  => urlencode( 'Raleway:400,500,600,700,800,900|Poppins:400,700' ),
-				'subset'  => urlencode( 'latin-ext' ),
-				'display' => 'swap',
-			);
+		function getFontsLoading() {
+			$evc_options = extensive_vc_get_global_options();
+			$value       = $evc_options->options->getOptionValueById( 'evc_fonts_loading' );
 
-			$googleFont = add_query_arg( apply_filters( 'extensive_vc_filter_google_fonts_args', $defaultFontArgs ), 'https://fonts.googleapis.com/css' );
+			return in_array( $value, array( 'google', 'disabled' ), true ) ? $value : 'local';
+		}
 
-			wp_enqueue_style( 'extensive-vc-google-fonts', esc_url_raw( $googleFont ), array(), EXTENSIVE_VC_VERSION );
+		/**
+		 * Register predefined style fonts, fonts are loaded locally by default without connection to external services
+		 */
+		function enqueueFonts() {
+			$fontsLoading = $this->getFontsLoading();
+
+			if ( 'disabled' === $fontsLoading ) {
+				return;
+			}
+
+			if ( 'google' === $fontsLoading ) {
+				$defaultFontArgs = array(
+					'family'  => urlencode( 'Raleway:400,500,600,700,800,900|Poppins:400,700' ),
+					'subset'  => urlencode( 'latin-ext' ),
+					'display' => 'swap',
+				);
+
+				$googleFont = add_query_arg( apply_filters( 'extensive_vc_filter_google_fonts_args', $defaultFontArgs ), 'https://fonts.googleapis.com/css' );
+
+				wp_register_style( 'extensive-vc-fonts', esc_url_raw( $googleFont ), array(), EXTENSIVE_VC_VERSION );
+			} else {
+				wp_register_style( 'extensive-vc-fonts', EXTENSIVE_VC_ASSETS_URL_PATH . '/css/fonts.min.css', array(), EXTENSIVE_VC_VERSION );
+			}
+
+			// When assets are loaded only for used elements, fonts are loaded together with elements assets
+			if ( 'all' === extensive_vc_get_assets_loading_mode() ) {
+				wp_enqueue_style( 'extensive-vc-fonts' );
+			}
+		}
+
+		/**
+		 * Enqueue predefined style fonts when element assets are loaded
+		 */
+		function enqueueFontsWithElement() {
+			if ( wp_style_is( 'extensive-vc-fonts', 'registered' ) ) {
+				wp_enqueue_style( 'extensive-vc-fonts' );
+			}
 		}
 	}
 }

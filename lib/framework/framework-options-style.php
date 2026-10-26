@@ -33,7 +33,12 @@ if ( ! function_exists( 'extensive_vc_init_admin_options_style' ) ) {
 				'.evc-full-screen-sections .evc-fss-nav-holder a:hover',
 				'.evc-carousel-skin-light .evc-owl-carousel .owl-nav .owl-next:hover',
 				'.evc-carousel-skin-light .evc-owl-carousel .owl-nav .owl-prev:hover',
-				'.evc-blog-list .evc-bli-post-info > * a:hover'
+				'.evc-blog-list .evc-bli-post-info > * a:hover',
+				'.evc-section-title .evc-st-animated',
+				'.evc-team-member .evc-tm-position',
+				'.evc-team-member .evc-tm-social-link:hover',
+				'.evc-accordion .evc-acc-title:hover',
+				'.evc-accordion .evc-acc-title[aria-expanded="true"]'
 			);
 			
 			$main_color_bg_selector = array(

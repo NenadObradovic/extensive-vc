@@ -209,6 +209,89 @@
 
 (function ($) {
 	'use strict';
+
+	$(document).ready(function () {
+		evcInitAccordion();
+	});
+
+	/**
+	 * Init accordion shortcode functionality, markup follows WAI-ARIA accordion pattern
+	 */
+	function evcInitAccordion() {
+		var holder = $('.evc-accordion');
+
+		if (holder.length) {
+			var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+				duration = reduceMotion ? 0 : 250;
+
+			holder.each(function () {
+				var thisHolder = $(this),
+					isAccordion = thisHolder.data('behavior') === 'accordion',
+					items = thisHolder.children('.evc-accordion-item'),
+					buttons = items.find('> .evc-acc-title-holder > .evc-acc-title');
+
+				var toggleItem = function (item, open) {
+					var button = item.find('> .evc-acc-title-holder > .evc-acc-title'),
+						content = item.children('.evc-acc-content');
+
+					button.attr('aria-expanded', open ? 'true' : 'false');
+					item.toggleClass('evc-acc-item-open', open);
+
+					if (open) {
+						content.stop(true, true).removeAttr('hidden').hide().slideDown(duration);
+					} else {
+						content.stop(true, true).slideUp(duration, function () {
+							content.attr('hidden', '').css('display', '');
+						});
+					}
+				};
+
+				buttons.on('click', function () {
+					var item = $(this).closest('.evc-accordion-item'),
+						open = $(this).attr('aria-expanded') !== 'true';
+
+					if (open && isAccordion) {
+						items.not(item).filter('.evc-acc-item-open').each(function () {
+							toggleItem($(this), false);
+						});
+					}
+
+					toggleItem(item, open);
+				});
+
+				// Keyboard navigation between accordion headers
+				buttons.on('keydown', function (event) {
+					var index = buttons.index(this),
+						target = null;
+
+					switch (event.key) {
+						case 'ArrowDown':
+							target = buttons.eq((index + 1) % buttons.length);
+							break;
+						case 'ArrowUp':
+							target = buttons.eq((index - 1 + buttons.length) % buttons.length);
+							break;
+						case 'Home':
+							target = buttons.first();
+							break;
+						case 'End':
+							target = buttons.last();
+							break;
+					}
+
+					if (target) {
+						event.preventDefault();
+						target.trigger('focus');
+					}
+				});
+			});
+		}
+	}
+
+})(jQuery);
+
+(function ($) {
+	'use strict';
 	
 	$(document).ready(function () {
 		evcButton().init();
@@ -278,6 +361,98 @@
 		};
 	};
 	
+})(jQuery);
+
+(function ($) {
+	'use strict';
+
+	$(document).ready(function () {
+		evcInitCountdown();
+	});
+
+	/**
+	 * Init countdown shortcode functionality
+	 */
+	function evcInitCountdown() {
+		var holder = $('.evc-countdown');
+
+		if (holder.length) {
+			holder.each(function () {
+				var thisHolder = $(this),
+					type = thisHolder.data('type'),
+					expireAction = thisHolder.data('expire-action'),
+					endTime = parseInt(thisHolder.data('end'), 10) || 0,
+					digits = thisHolder.find('.evc-cd-digit'),
+					unitSeconds = {days: 86400, hours: 3600, minutes: 60, seconds: 1},
+					interval;
+
+				// Evergreen countdown end time is saved per visitor
+				if (type === 'evergreen') {
+					endTime = evcGetEvergreenEndTime(thisHolder.data('id'), parseInt(thisHolder.data('duration'), 10) || 0);
+				}
+
+				var expire = function () {
+					clearInterval(interval);
+
+					if (expireAction === 'hide') {
+						thisHolder.hide();
+					} else if (expireAction === 'message' && thisHolder.find('.evc-cd-expired-message').length) {
+						thisHolder.addClass('evc-cd-expired');
+						thisHolder.find('.evc-cd-timer').attr('hidden', '');
+						thisHolder.find('.evc-cd-expired-message').removeAttr('hidden');
+					}
+				};
+
+				var update = function () {
+					var remaining = Math.max(0, Math.floor((endTime - Date.now()) / 1000));
+
+					// Values of hidden units are added to the next visible unit
+					digits.each(function () {
+						var digit = $(this),
+							seconds = unitSeconds[digit.data('unit')] || 1,
+							value = Math.floor(remaining / seconds);
+
+						remaining -= value * seconds;
+						digit.text(value < 10 ? '0' + value : value);
+					});
+
+					if (endTime <= Date.now()) {
+						expire();
+					}
+				};
+
+				update();
+				interval = setInterval(update, 1000);
+			});
+		}
+	}
+
+	/**
+	 * Get evergreen countdown end time, end time is saved into local storage when visitor opens the page for the first time
+	 */
+	function evcGetEvergreenEndTime(id, duration) {
+		var key = 'evcCountdown' + id,
+			endTime = 0;
+
+		try {
+			endTime = parseInt(window.localStorage.getItem(key), 10) || 0;
+		} catch (e) {
+			endTime = 0;
+		}
+
+		if (!endTime) {
+			endTime = Date.now() + duration * 1000;
+
+			try {
+				window.localStorage.setItem(key, endTime);
+			} catch (e) {
+				// Local storage is not available, countdown starts again on every page load
+			}
+		}
+
+		return endTime;
+	}
+
 })(jQuery);
 
 (function ($) {
@@ -642,6 +817,77 @@
 
 (function ($) {
 	'use strict';
+
+	$(document).ready(function () {
+		evcInitImageComparison();
+	});
+
+	/**
+	 * Init image comparison shortcode functionality
+	 * Range input is used for keyboard and screen readers, pointer events are used for dragging
+	 */
+	function evcInitImageComparison() {
+		var holder = $('.evc-image-comparison');
+
+		if (holder.length) {
+			holder.each(function () {
+				var thisHolder = $(this),
+					element = thisHolder[0],
+					inner = thisHolder.find('.evc-ic-inner')[0],
+					range = thisHolder.find('.evc-ic-range')[0],
+					isVertical = thisHolder.hasClass('evc-ic-vertical'),
+					moveOnHover = thisHolder.hasClass('evc-ic-move-on-hover'),
+					isDragging = false;
+
+				if (!inner || !range) {
+					return;
+				}
+
+				var setPosition = function (position) {
+					position = Math.min(100, Math.max(0, position));
+
+					element.style.setProperty('--evc-ic-position', position + '%');
+					range.value = position;
+				};
+
+				var getPointerPosition = function (event) {
+					var rect = inner.getBoundingClientRect();
+
+					return isVertical ? (event.clientY - rect.top) / rect.height * 100 : (event.clientX - rect.left) / rect.width * 100;
+				};
+
+				range.addEventListener('input', function () {
+					setPosition(parseFloat(range.value));
+				});
+
+				inner.addEventListener('pointerdown', function (event) {
+					isDragging = true;
+					inner.setPointerCapture(event.pointerId);
+					setPosition(getPointerPosition(event));
+					thisHolder.addClass('evc-ic-dragging');
+				});
+
+				inner.addEventListener('pointermove', function (event) {
+					if (isDragging || (moveOnHover && event.pointerType === 'mouse')) {
+						setPosition(getPointerPosition(event));
+					}
+				});
+
+				var stopDragging = function () {
+					isDragging = false;
+					thisHolder.removeClass('evc-ic-dragging');
+				};
+
+				inner.addEventListener('pointerup', stopDragging);
+				inner.addEventListener('pointercancel', stopDragging);
+			});
+		}
+	}
+
+})(jQuery);
+
+(function ($) {
+	'use strict';
 	
 	$(document).ready(function () {
 		evcInitLineGraph();
@@ -923,6 +1169,96 @@
 		}
 	}
 	
+})(jQuery);
+
+(function ($) {
+	'use strict';
+
+	$(document).ready(function () {
+		evcInitSectionTitleAnimatedWords();
+	});
+
+	/**
+	 * Init section title animated words (typing and rotating effects)
+	 */
+	function evcInitSectionTitleAnimatedWords() {
+		var holder = $('.evc-section-title .evc-st-animated');
+
+		if (holder.length) {
+			var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+			holder.each(function () {
+				var thisHolder = $(this),
+					words = thisHolder.data('words'),
+					type = thisHolder.data('type'),
+					delay = parseInt(thisHolder.data('delay'), 10) || 2000;
+
+				// Animation is not used when user prefers reduced motion, first word is displayed
+				if (reduceMotion || !Array.isArray(words) || words.length < 2) {
+					return;
+				}
+
+				evc.evcIsInViewport.check(thisHolder, function () {
+					if (type === 'rotating') {
+						evcRotateWords(thisHolder, words, delay);
+					} else {
+						evcTypeWords(thisHolder, words, delay);
+					}
+				});
+			});
+		}
+	}
+
+	/**
+	 * Typing effect, word is typed letter by letter and then deleted
+	 */
+	function evcTypeWords(holder, words, delay) {
+		var element = holder[0],
+			wordIndex = 0,
+			charIndex = words[0].length,
+			isDeleting = true;
+
+		holder.addClass('evc-st-animated-active');
+
+		var tick = function () {
+			var word = words[wordIndex],
+				timeout = isDeleting ? 40 : 90;
+
+			charIndex += isDeleting ? -1 : 1;
+			element.textContent = word.substring(0, charIndex);
+
+			if (!isDeleting && charIndex === word.length) {
+				isDeleting = true;
+				timeout = delay;
+			} else if (isDeleting && charIndex === 0) {
+				isDeleting = false;
+				wordIndex = (wordIndex + 1) % words.length;
+				timeout = 300;
+			}
+
+			setTimeout(tick, timeout);
+		};
+
+		setTimeout(tick, delay);
+	}
+
+	/**
+	 * Rotating effect, words are changed with fade animation
+	 */
+	function evcRotateWords(holder, words, delay) {
+		var wordIndex = 0;
+
+		setInterval(function () {
+			holder.addClass('evc-st-animated-hide');
+
+			setTimeout(function () {
+				wordIndex = (wordIndex + 1) % words.length;
+				holder[0].textContent = words[wordIndex];
+				holder.removeClass('evc-st-animated-hide');
+			}, 300);
+		}, delay);
+	}
+
 })(jQuery);
 
 (function ($) {

@@ -4,7 +4,7 @@ Plugin Name: Extensive VC Addons for WPBakery Page Builder
 Plugin URI: http://wprealize.com/
 Author: Nenad Obradovic
 Author URI: http://wprealize.com/introduced/
-Version: 2.0
+Version: 2.1
 Requires at least: 6.0
 Requires PHP: 8.2
 WC requires at least: 8.0
@@ -107,8 +107,15 @@ if ( ! class_exists( 'Extensive_VC_Addon' ) ) {
 			// Hook to enqueue additional scripts before main css
 			do_action( 'extensive_vc_enqueue_additional_scripts_before_main_css' );
 			
-			// Enqueue main plugin css
-			wp_enqueue_style( 'extensive-vc-main-style', EXTENSIVE_VC_ASSETS_URL_PATH . '/css/main' . ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min' ) . '.css', array(), EXTENSIVE_VC_VERSION );
+			$load_all_assets = 'all' === extensive_vc_get_assets_loading_mode();
+			$assets_suffix   = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
+			// Main plugin css contains styles for all elements, otherwise core css is loaded with stylesheets of used elements only
+			if ( $load_all_assets ) {
+				wp_enqueue_style( 'extensive-vc-main-style', EXTENSIVE_VC_ASSETS_URL_PATH . '/css/main' . $assets_suffix . '.css', array(), EXTENSIVE_VC_VERSION );
+			} else {
+				wp_register_style( 'extensive-vc-main-style', EXTENSIVE_VC_ASSETS_URL_PATH . '/css/core.min.css', array(), EXTENSIVE_VC_VERSION );
+			}
 			
 			// Register 3rd party libraries, shortcodes enqueue them only when they are rendered
 			$this->registerThirdPartyScripts();
@@ -116,8 +123,12 @@ if ( ! class_exists( 'Extensive_VC_Addon' ) ) {
 			// Hook to enqueue additional scripts before main js
 			do_action( 'extensive_vc_enqueue_additional_scripts_before_main_js' );
 			
-			// Enqueue main plugin js
-			wp_enqueue_script( 'extensive-vc-main-script', EXTENSIVE_VC_ASSETS_URL_PATH . '/js/main' . ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min' ) . '.js', array( 'jquery' ), EXTENSIVE_VC_VERSION, true );
+			// Main plugin js contains scripts for all elements, otherwise core js is loaded with scripts of used elements only
+			if ( $load_all_assets ) {
+				wp_enqueue_script( 'extensive-vc-main-script', EXTENSIVE_VC_ASSETS_URL_PATH . '/js/main' . $assets_suffix . '.js', array( 'jquery' ), EXTENSIVE_VC_VERSION, true );
+			} else {
+				wp_register_script( 'extensive-vc-main-script', EXTENSIVE_VC_ASSETS_URL_PATH . '/js/core.min.js', array( 'jquery' ), EXTENSIVE_VC_VERSION, true );
+			}
 			
 			// Extend main plugin js with additional variables
 			$evc_global_variables = array(

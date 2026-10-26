@@ -2,3 +2,5 @@ assets/css/scss
 gulp
 node_modules/
 dist/
+research_notes/
+reports/

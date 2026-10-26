@@ -70,7 +70,10 @@ if ( ! function_exists( 'extensive_vc_add_admin_shortcodes_icon_styles' ) ) {
 				}
 				
 				$icon_name  = isset( $icon['child_item'] ) && $icon['child_item'] === true ? 'admin_child_icon' : 'admin_icon';
-				$admin_icon = $module_path . '/' . esc_attr( $icon['shortcode'] ) . '/assets/img/' . $icon_name . '.png';
+				$admin_icon = $module_path . '/' . esc_attr( $icon['shortcode'] ) . '/assets/img/' . $icon_name;
+
+				// New elements use svg icons, older elements png icons
+				$admin_icon .= file_exists( str_replace( EXTENSIVE_VC_URL_PATH, EXTENSIVE_VC_ABS_PATH . '/', $admin_icon ) . '.svg' ) ? '.svg' : '.png';
 				
 				if ( ! empty( $admin_icon ) ) {
 					$iconStyles[] = '.vc_element-icon.evc-vc-custom-icon' . esc_attr( $icon['class'] ) . ' { background-image: url(' . esc_url( $admin_icon ) . ') !important; }';

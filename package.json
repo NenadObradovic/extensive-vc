@@ -1,21 +1,24 @@
 {
 	"name": "extensive-vc-addon",
-	"version": "2.0.0",
+	"version": "2.1.0",
 	"private": true,
 	"description": "Extensive VC Addons for WPBakery page builder - assets build",
 	"license": "GPL-2.0-or-later",
 	"scripts": {
-		"build": "webpack --mode=production",
+		"build": "webpack --mode=production && node bin/split-css.js && node bin/build-fonts.js && node bin/build-icons.js",
 		"watch": "webpack --mode=production --watch",
 		"release": "node bin/release.js"
 	},
 	"devDependencies": {
+		"@fontsource/poppins": "^5.3.0",
+		"@fontsource/raleway": "^5.3.0",
 		"chart.js": "^4.5.1",
 		"copy-webpack-plugin": "^14.0.0",
 		"css-loader": "^7.1.5",
 		"css-minimizer-webpack-plugin": "^8.0.0",
 		"lightbox2": "^2.12.0",
 		"mini-css-extract-plugin": "^2.10.2",
+		"simple-icons": "^16.35.0",
 		"terser-webpack-plugin": "^5.6.1",
 		"webpack": "^5.112.0",
 		"webpack-cli": "^7.2.3",

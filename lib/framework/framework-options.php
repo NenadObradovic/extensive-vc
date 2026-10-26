@@ -27,6 +27,21 @@ if ( ! function_exists( 'extensive_vc_render_admin_options_fields' ) ) {
 				'sb_options'  => extensive_vc_get_yes_no_select_array( false, true )
 	        )
 		);
+
+		$evc_options->options->addField(
+			array(
+				'page'        => 'evc_options_general_page',
+				'type'        => 'select',
+				'id'          => 'evc_fonts_loading',
+				'title'       => esc_html__( 'Predefined Style Fonts', 'extensive-vc-addon' ),
+				'description' => esc_html__( 'Raleway and Poppins fonts used by predefined style are loaded from the plugin folder by default, without connection to Google servers (GDPR friendly)', 'extensive-vc-addon' ),
+				'sb_options'  => array(
+					'local'    => esc_html__( 'Load fonts locally', 'extensive-vc-addon' ),
+					'google'   => esc_html__( 'Load fonts from Google Fonts', 'extensive-vc-addon' ),
+					'disabled' => esc_html__( 'Disable fonts, use theme fonts', 'extensive-vc-addon' ),
+				),
+			)
+		);
 		
 		$evc_options->options->addField(
 			array(
@@ -57,6 +72,20 @@ if ( ! function_exists( 'extensive_vc_render_admin_options_fields' ) ) {
 				'title'       => esc_html__( 'Disable Widgets', 'extensive-vc-addon' ),
 				'description' => esc_html__( 'Disable widgets which you will not use on your site to increase site performance', 'extensive-vc-addon' ),
 				'cb_options'  => extensive_vc_return_widgets_label_array()
+			)
+		);
+
+		$evc_options->options->addField(
+			array(
+				'page'        => 'evc_options_general_page',
+				'type'        => 'select',
+				'id'          => 'evc_assets_loading',
+				'title'       => esc_html__( 'Assets Loading', 'extensive-vc-addon' ),
+				'description' => esc_html__( 'By default styles and scripts are loaded only on pages where elements are used. Load all assets on every page if elements are added dynamically, e.g. through ajax or custom templates', 'extensive-vc-addon' ),
+				'sb_options'  => array(
+					'elements' => esc_html__( 'Only for used elements', 'extensive-vc-addon' ),
+					'all'      => esc_html__( 'All assets on every page', 'extensive-vc-addon' ),
+				),
 			)
 		);
 	}

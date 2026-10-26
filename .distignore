@@ -26,3 +26,7 @@ Thumbs.db
 **/*.map
 /assets/js/modules
 /shortcodes/*/assets/js
+
+# Research notes
+/research_notes
+/reports
