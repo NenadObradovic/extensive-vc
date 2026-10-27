@@ -75,6 +75,10 @@ const split = ( css ) => {
 	return { core, elements };
 };
 
+// Element stylesheets are one folder deeper than main.css (assets/css/elements), so relative urls get one more "../"
+const rebaseUrls = ( css ) =>
+	css.replace( /url\(\s*(['"]?)(?!data:|[a-z]+:\/\/|\/|#)([^'")]+)\1\s*\)/gi, ( match, quote, url ) => 'url(' + quote + '../' + url + quote + ')' );
+
 const minify = async ( css, from ) => ( await postcss( [ cssnano( { preset: 'default' } ) ] ).process( css, { from } ) ).css;
 
 ( async () => {
@@ -88,7 +92,7 @@ const minify = async ( css, from ) => ( await postcss( [ cssnano( { preset: 'def
 	fs.writeFileSync( coreFile, await minify( core, SOURCE ) );
 
 	for ( const [ slug, css ] of Object.entries( elements ) ) {
-		fs.writeFileSync( path.join( OUTPUT_DIR, slug + '.min.css' ), await minify( css, SOURCE ) );
+		fs.writeFileSync( path.join( OUTPUT_DIR, slug + '.min.css' ), await minify( rebaseUrls( css ), SOURCE ) );
 	}
 
 	const size = ( file ) => ( fs.statSync( file ).size / 1024 ).toFixed( 1 ) + ' KB';

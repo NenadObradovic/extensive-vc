@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Extensive VC Addons for WPBakery Page Builder 2.1\n"
+"Project-Id-Version: Extensive VC Addons for WPBakery Page Builder 2.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/extensive-vc-addon\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-23T09:46:53+00:00\n"
+"POT-Creation-Date: 2026-10-27T09:59:34+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: extensive-vc-addon\n"
@@ -227,6 +227,7 @@ msgstr ""
 #: shortcodes/full-screen-sections/full-screen-sections-item.php:89
 #: shortcodes/full-screen-sections/full-screen-sections-item.php:100
 #: shortcodes/image-gallery/image-gallery.php:198
+#: shortcodes/image-hotspot/image-hotspot-item.php:115
 #: shortcodes/post-carousel/post-carousel.php:104
 #: shortcodes/post-carousel/post-carousel.php:226
 #: shortcodes/section-title/section-title.php:61
@@ -306,6 +307,7 @@ msgid "No"
 msgstr ""
 
 #: lib/helpers-functions.php:919
+#: shortcodes/timeline/timeline-item.php:60
 msgid "Date"
 msgstr ""
 
@@ -333,14 +335,20 @@ msgstr ""
 #: shortcodes/custom-font/widgets/custom-font-widget.php:42
 #: shortcodes/icon-progress-bar/icon-progress-bar.php:96
 #: shortcodes/icon-with-text/icon-with-text.php:98
+#: shortcodes/image-accordion/image-accordion-item.php:66
+#: shortcodes/image-hotspot/image-hotspot-item.php:91
 #: shortcodes/image-with-text/image-with-text.php:81
 #: shortcodes/interactive-banner/interactive-banner.php:113
+#: shortcodes/price-menu/price-menu-item.php:66
 #: shortcodes/pricing-table/pricing-table-item.php:60
 #: shortcodes/process-2/process-2-item.php:77
 #: shortcodes/process/process-item.php:59
 #: shortcodes/progress-bar/progress-bar.php:81
 #: shortcodes/section-title/section-title.php:70
+#: shortcodes/social-share/social-share.php:142
+#: shortcodes/table-of-contents/table-of-contents.php:58
 #: shortcodes/tabs/tabs-item.php:59
+#: shortcodes/timeline/timeline-item.php:67
 msgid "Title"
 msgstr ""
 
@@ -406,6 +414,7 @@ msgstr ""
 #: lib/helpers-functions.php:1338
 #: shortcodes/button/button.php:80
 #: shortcodes/button/widgets/button-widget.php:63
+#: shortcodes/social-share/social-share.php:180
 msgid "Normal"
 msgstr ""
 
@@ -433,6 +442,8 @@ msgstr ""
 #: lib/helpers-functions.php:1106
 #: lib/helpers-functions.php:1132
 #: lib/helpers-functions.php:1152
+#: shortcodes/business-hours/business-hours.php:89
+#: shortcodes/table-of-contents/table-of-contents.php:89
 msgid "None"
 msgstr ""
 
@@ -577,6 +588,7 @@ msgstr ""
 #: lib/helpers-functions.php:1320
 #: shortcodes/button/button.php:62
 #: shortcodes/button/widgets/button-widget.php:45
+#: shortcodes/social-share/social-share.php:160
 msgid "Outline"
 msgstr ""
 
@@ -585,11 +597,14 @@ msgstr ""
 #: shortcodes/blockquote/blockquote.php:60
 #: shortcodes/blog-list/blog-list.php:73
 #: shortcodes/blog-list/widgets/blog-list-widget.php:52
+#: shortcodes/business-hours/business-hours.php:77
 #: shortcodes/button/button.php:63
 #: shortcodes/button/widgets/button-widget.php:46
 #: shortcodes/countdown/countdown.php:106
 #: shortcodes/dropcaps/dropcaps.php:60
+#: shortcodes/price-menu/price-menu.php:82
 #: shortcodes/tabs/tabs.php:78
+#: shortcodes/timeline/timeline.php:93
 msgid "Simple"
 msgstr ""
 
@@ -638,6 +653,7 @@ msgstr ""
 #: lib/helpers-functions.php:1334
 #: shortcodes/button/button.php:76
 #: shortcodes/button/widgets/button-widget.php:58
+#: shortcodes/social-share/social-share.php:178
 msgid "Size"
 msgstr ""
 
@@ -648,6 +664,7 @@ msgstr ""
 #: shortcodes/button/button.php:78
 #: shortcodes/button/widgets/button-widget.php:61
 #: shortcodes/post-carousel/post-carousel.php:115
+#: shortcodes/social-share/social-share.php:182
 msgid "Large"
 msgstr ""
 
@@ -664,6 +681,7 @@ msgstr ""
 #: lib/helpers-functions.php:1339
 #: shortcodes/button/button.php:81
 #: shortcodes/button/widgets/button-widget.php:64
+#: shortcodes/social-share/social-share.php:181
 msgid "Small"
 msgstr ""
 
@@ -718,10 +736,12 @@ msgid "Hover Color"
 msgstr ""
 
 #: lib/helpers-functions.php:1370
+#: shortcodes/business-hours/business-hours.php:140
 #: shortcodes/button/button.php:162
 #: shortcodes/button/widgets/button-widget.php:136
 #: shortcodes/full-screen-sections/full-screen-sections-item.php:59
 #: shortcodes/pricing-table/pricing-table-item.php:167
+#: shortcodes/table-of-contents/table-of-contents.php:158
 msgid "Background Color"
 msgstr ""
 
@@ -736,6 +756,7 @@ msgstr ""
 #: shortcodes/button/button.php:176
 #: shortcodes/button/widgets/button-widget.php:148
 #: shortcodes/pricing-table/pricing-table-item.php:173
+#: shortcodes/table-of-contents/table-of-contents.php:164
 msgid "Border Color"
 msgstr ""
 
@@ -755,7 +776,9 @@ msgstr ""
 #: shortcodes/button/button.php:197
 #: shortcodes/button/widgets/button-widget.php:166
 #: shortcodes/line-graph/line-graph.php:80
+#: shortcodes/price-menu/price-menu.php:136
 #: shortcodes/process/process.php:108
+#: shortcodes/timeline/timeline.php:118
 msgid "Line Color"
 msgstr ""
 
@@ -852,6 +875,8 @@ msgstr ""
 #: shortcodes/blog-list/blog-list.php:63
 #: shortcodes/blog-list/widgets/blog-list-widget.php:31
 #: shortcodes/blog-list/widgets/blog-list-widget.php:42
+#: shortcodes/business-hours/business-hours-item.php:54
+#: shortcodes/business-hours/business-hours.php:69
 #: shortcodes/button/button.php:53
 #: shortcodes/button/widgets/button-widget.php:31
 #: shortcodes/countdown/countdown.php:66
@@ -868,13 +893,19 @@ msgstr ""
 #: shortcodes/icon-list/icon-list.php:71
 #: shortcodes/icon-progress-bar/icon-progress-bar.php:53
 #: shortcodes/icon-with-text/icon-with-text.php:53
+#: shortcodes/image-accordion/image-accordion-item.php:54
+#: shortcodes/image-accordion/image-accordion.php:86
 #: shortcodes/image-comparison/image-comparison.php:52
 #: shortcodes/image-gallery/image-gallery.php:52
+#: shortcodes/image-hotspot/image-hotspot-item.php:54
+#: shortcodes/image-hotspot/image-hotspot.php:98
 #: shortcodes/image-with-text/image-with-text.php:52
 #: shortcodes/interactive-banner/interactive-banner.php:53
 #: shortcodes/line-graph/line-graph.php:69
 #: shortcodes/pie-chart/pie-chart.php:69
 #: shortcodes/post-carousel/post-carousel.php:63
+#: shortcodes/price-menu/price-menu-item.php:54
+#: shortcodes/price-menu/price-menu.php:72
 #: shortcodes/pricing-table/pricing-table-item.php:54
 #: shortcodes/pricing-table/pricing-table.php:69
 #: shortcodes/process-2/process-2-item.php:53
@@ -886,12 +917,16 @@ msgstr ""
 #: shortcodes/separator/separator.php:52
 #: shortcodes/separator/widgets/separator-widget.php:31
 #: shortcodes/single-image/single-image.php:52
+#: shortcodes/social-share/social-share.php:106
 #: shortcodes/svg-text/svg-text.php:52
+#: shortcodes/table-of-contents/table-of-contents.php:52
 #: shortcodes/tabs/tabs-item.php:53
 #: shortcodes/tabs/tabs.php:69
 #: shortcodes/team-member/team-member.php:52
 #: shortcodes/text-marquee/text-marquee.php:52
 #: shortcodes/text-marquee/widgets/text-marquee-widget.php:31
+#: shortcodes/timeline/timeline-item.php:54
+#: shortcodes/timeline/timeline.php:72
 msgid "Custom CSS Class"
 msgstr ""
 
@@ -905,6 +940,8 @@ msgstr ""
 #: shortcodes/blog-list/blog-list.php:64
 #: shortcodes/blog-list/widgets/blog-list-widget.php:32
 #: shortcodes/blog-list/widgets/blog-list-widget.php:43
+#: shortcodes/business-hours/business-hours-item.php:55
+#: shortcodes/business-hours/business-hours.php:70
 #: shortcodes/button/button.php:54
 #: shortcodes/button/widgets/button-widget.php:32
 #: shortcodes/countdown/countdown.php:67
@@ -921,13 +958,19 @@ msgstr ""
 #: shortcodes/icon-list/icon-list.php:72
 #: shortcodes/icon-progress-bar/icon-progress-bar.php:54
 #: shortcodes/icon-with-text/icon-with-text.php:54
+#: shortcodes/image-accordion/image-accordion-item.php:55
+#: shortcodes/image-accordion/image-accordion.php:87
 #: shortcodes/image-comparison/image-comparison.php:53
 #: shortcodes/image-gallery/image-gallery.php:53
+#: shortcodes/image-hotspot/image-hotspot-item.php:55
+#: shortcodes/image-hotspot/image-hotspot.php:99
 #: shortcodes/image-with-text/image-with-text.php:53
 #: shortcodes/interactive-banner/interactive-banner.php:54
 #: shortcodes/line-graph/line-graph.php:70
 #: shortcodes/pie-chart/pie-chart.php:70
 #: shortcodes/post-carousel/post-carousel.php:64
+#: shortcodes/price-menu/price-menu-item.php:55
+#: shortcodes/price-menu/price-menu.php:73
 #: shortcodes/pricing-table/pricing-table-item.php:55
 #: shortcodes/pricing-table/pricing-table.php:70
 #: shortcodes/process-2/process-2-item.php:54
@@ -939,12 +982,16 @@ msgstr ""
 #: shortcodes/separator/separator.php:53
 #: shortcodes/separator/widgets/separator-widget.php:32
 #: shortcodes/single-image/single-image.php:53
+#: shortcodes/social-share/social-share.php:107
 #: shortcodes/svg-text/svg-text.php:53
+#: shortcodes/table-of-contents/table-of-contents.php:53
 #: shortcodes/tabs/tabs-item.php:54
 #: shortcodes/tabs/tabs.php:70
 #: shortcodes/team-member/team-member.php:53
 #: shortcodes/text-marquee/text-marquee.php:53
 #: shortcodes/text-marquee/widgets/text-marquee-widget.php:32
+#: shortcodes/timeline/timeline-item.php:55
+#: shortcodes/timeline/timeline.php:73
 msgid "Style particular content element differently - add a class name and refer to it in custom CSS"
 msgstr ""
 
@@ -1100,6 +1147,13 @@ msgstr ""
 #: shortcodes/blog-list/blog-list.php:186
 #: shortcodes/blog-list/blog-list.php:194
 #: shortcodes/blog-list/blog-list.php:201
+#: shortcodes/business-hours/business-hours.php:109
+#: shortcodes/business-hours/business-hours.php:115
+#: shortcodes/business-hours/business-hours.php:121
+#: shortcodes/business-hours/business-hours.php:128
+#: shortcodes/business-hours/business-hours.php:135
+#: shortcodes/business-hours/business-hours.php:142
+#: shortcodes/business-hours/business-hours.php:149
 #: shortcodes/button/button.php:151
 #: shortcodes/button/button.php:157
 #: shortcodes/button/button.php:164
@@ -1130,9 +1184,21 @@ msgstr ""
 #: shortcodes/flip-image/flip-image.php:151
 #: shortcodes/flip-image/flip-image.php:163
 #: shortcodes/flip-image/flip-image.php:170
+#: shortcodes/image-accordion/image-accordion.php:147
+#: shortcodes/image-accordion/image-accordion.php:153
+#: shortcodes/image-accordion/image-accordion.php:159
+#: shortcodes/image-accordion/image-accordion.php:165
+#: shortcodes/image-accordion/image-accordion.php:171
 #: shortcodes/image-comparison/image-comparison.php:121
 #: shortcodes/image-comparison/image-comparison.php:127
 #: shortcodes/image-comparison/image-comparison.php:133
+#: shortcodes/image-hotspot/image-hotspot.php:140
+#: shortcodes/image-hotspot/image-hotspot.php:146
+#: shortcodes/image-hotspot/image-hotspot.php:152
+#: shortcodes/image-hotspot/image-hotspot.php:159
+#: shortcodes/image-hotspot/image-hotspot.php:165
+#: shortcodes/image-hotspot/image-hotspot.php:171
+#: shortcodes/image-hotspot/image-hotspot.php:177
 #: shortcodes/image-with-text/image-with-text.php:90
 #: shortcodes/image-with-text/image-with-text.php:97
 #: shortcodes/image-with-text/image-with-text.php:104
@@ -1154,6 +1220,14 @@ msgstr ""
 #: shortcodes/post-carousel/post-carousel.php:133
 #: shortcodes/post-carousel/post-carousel.php:141
 #: shortcodes/post-carousel/post-carousel.php:149
+#: shortcodes/price-menu/price-menu.php:113
+#: shortcodes/price-menu/price-menu.php:119
+#: shortcodes/price-menu/price-menu.php:125
+#: shortcodes/price-menu/price-menu.php:131
+#: shortcodes/price-menu/price-menu.php:138
+#: shortcodes/price-menu/price-menu.php:144
+#: shortcodes/price-menu/price-menu.php:150
+#: shortcodes/price-menu/price-menu.php:157
 #: shortcodes/pricing-table/pricing-table-item.php:68
 #: shortcodes/pricing-table/pricing-table-item.php:75
 #: shortcodes/pricing-table/pricing-table-item.php:87
@@ -1179,11 +1253,30 @@ msgstr ""
 #: shortcodes/separator/separator.php:90
 #: shortcodes/separator/separator.php:96
 #: shortcodes/separator/separator.php:102
+#: shortcodes/social-share/social-share.php:221
+#: shortcodes/social-share/social-share.php:228
+#: shortcodes/social-share/social-share.php:234
+#: shortcodes/social-share/social-share.php:242
+#: shortcodes/social-share/social-share.php:248
+#: shortcodes/table-of-contents/table-of-contents.php:135
+#: shortcodes/table-of-contents/table-of-contents.php:141
+#: shortcodes/table-of-contents/table-of-contents.php:147
+#: shortcodes/table-of-contents/table-of-contents.php:153
+#: shortcodes/table-of-contents/table-of-contents.php:159
+#: shortcodes/table-of-contents/table-of-contents.php:165
 #: shortcodes/team-member/team-member.php:117
 #: shortcodes/team-member/team-member.php:124
 #: shortcodes/team-member/team-member.php:131
 #: shortcodes/team-member/team-member.php:138
 #: shortcodes/team-member/team-member.php:145
+#: shortcodes/timeline/timeline.php:113
+#: shortcodes/timeline/timeline.php:119
+#: shortcodes/timeline/timeline.php:125
+#: shortcodes/timeline/timeline.php:131
+#: shortcodes/timeline/timeline.php:137
+#: shortcodes/timeline/timeline.php:143
+#: shortcodes/timeline/timeline.php:150
+#: shortcodes/timeline/timeline.php:157
 msgid "Design Options"
 msgstr ""
 
@@ -1198,14 +1291,18 @@ msgstr ""
 #: shortcodes/flip-image/flip-image.php:141
 #: shortcodes/icon-progress-bar/icon-progress-bar.php:102
 #: shortcodes/icon-with-text/icon-with-text.php:104
+#: shortcodes/image-accordion/image-accordion.php:145
 #: shortcodes/image-with-text/image-with-text.php:87
 #: shortcodes/interactive-banner/interactive-banner.php:119
 #: shortcodes/post-carousel/post-carousel.php:124
+#: shortcodes/price-menu/price-menu.php:111
 #: shortcodes/pricing-table/pricing-table-item.php:65
 #: shortcodes/process-2/process-2-item.php:82
 #: shortcodes/process/process-item.php:64
 #: shortcodes/progress-bar/progress-bar.php:87
 #: shortcodes/section-title/section-title.php:76
+#: shortcodes/table-of-contents/table-of-contents.php:133
+#: shortcodes/timeline/timeline.php:111
 msgid "Title Tag"
 msgstr ""
 
@@ -1231,11 +1328,15 @@ msgstr ""
 #: post-types/clients/admin/meta-boxes/clients-meta-boxes.php:80
 #: shortcodes/flip-image/flip-image.php:70
 #: shortcodes/flip-image/flip-image.php:78
+#: shortcodes/image-accordion/image-accordion-item.php:60
+#: shortcodes/image-hotspot/image-hotspot.php:104
 #: shortcodes/image-with-text/image-with-text.php:58
 #: shortcodes/interactive-banner/interactive-banner.php:72
+#: shortcodes/price-menu/price-menu-item.php:60
 #: shortcodes/process-2/process-2-item.php:59
 #: shortcodes/single-image/single-image.php:58
 #: shortcodes/team-member/team-member.php:78
+#: shortcodes/timeline/timeline-item.php:73
 msgid "Image"
 msgstr ""
 
@@ -1381,13 +1482,18 @@ msgstr ""
 #: shortcodes/flip-image/flip-image.php:149
 #: shortcodes/icon-progress-bar/icon-progress-bar.php:110
 #: shortcodes/icon-with-text/icon-with-text.php:113
+#: shortcodes/image-accordion/image-accordion.php:152
 #: shortcodes/image-with-text/image-with-text.php:95
 #: shortcodes/interactive-banner/interactive-banner.php:127
+#: shortcodes/price-menu/price-menu.php:118
 #: shortcodes/pricing-table/pricing-table-item.php:73
 #: shortcodes/process-2/process-2-item.php:90
 #: shortcodes/process/process-item.php:72
 #: shortcodes/progress-bar/progress-bar.php:95
 #: shortcodes/section-title/section-title.php:84
+#: shortcodes/social-share/social-share.php:219
+#: shortcodes/table-of-contents/table-of-contents.php:140
+#: shortcodes/timeline/timeline.php:136
 msgid "Title Color"
 msgstr ""
 
@@ -1572,6 +1678,9 @@ msgstr ""
 #: shortcodes/dropcaps/dropcaps.php:114
 #: shortcodes/icon-list/icon-list-item.php:84
 #: shortcodes/icon-with-text/icon-with-text.php:120
+#: shortcodes/image-accordion/image-accordion-item.php:72
+#: shortcodes/image-hotspot/image-hotspot-item.php:79
+#: shortcodes/image-hotspot/image-hotspot-item.php:97
 #: shortcodes/image-with-text/image-with-text.php:109
 #: shortcodes/interactive-banner/interactive-banner.php:134
 #: shortcodes/process-2/process-2-item.php:104
@@ -1604,13 +1713,17 @@ msgstr ""
 #: shortcodes/flip-image/flip-image.php:84
 #: shortcodes/gallery-block/gallery-block.php:86
 #: shortcodes/icon-with-text/icon-with-text.php:77
+#: shortcodes/image-accordion/image-accordion.php:124
 #: shortcodes/image-comparison/image-comparison.php:69
 #: shortcodes/image-gallery/image-gallery.php:76
+#: shortcodes/image-hotspot/image-hotspot.php:110
 #: shortcodes/image-with-text/image-with-text.php:64
 #: shortcodes/interactive-banner/interactive-banner.php:78
+#: shortcodes/price-menu/price-menu.php:89
 #: shortcodes/process-2/process-2-item.php:65
 #: shortcodes/single-image/single-image.php:64
 #: shortcodes/team-member/team-member.php:84
+#: shortcodes/timeline/timeline.php:99
 msgid "Image Size"
 msgstr ""
 
@@ -1694,6 +1807,7 @@ msgstr ""
 #: shortcodes/accordion/accordion-item.php:66
 #: shortcodes/flip-image/flip-image.php:71
 #: shortcodes/pricing-table/pricing-table-item.php:161
+#: shortcodes/timeline/timeline-item.php:79
 msgid "Content"
 msgstr ""
 
@@ -1702,14 +1816,19 @@ msgid "Accordion"
 msgstr ""
 
 #: shortcodes/accordion/accordion.php:97
+#: shortcodes/business-hours/business-hours.php:75
 #: shortcodes/countdown/countdown.php:103
+#: shortcodes/price-menu/price-menu.php:78
 #: shortcodes/separator/separator.php:78
 #: shortcodes/separator/widgets/separator-widget.php:58
+#: shortcodes/timeline/timeline.php:90
 msgid "Style"
 msgstr ""
 
 #: shortcodes/accordion/accordion.php:99
+#: shortcodes/business-hours/business-hours.php:78
 #: shortcodes/countdown/countdown.php:105
+#: shortcodes/timeline/timeline.php:92
 msgid "Boxed"
 msgstr ""
 
@@ -1741,10 +1860,12 @@ msgstr ""
 #: shortcodes/custom-font/widgets/custom-font-widget.php:113
 #: shortcodes/doughnut-chart/doughnut-chart.php:115
 #: shortcodes/full-screen-sections/full-screen-sections-item.php:103
+#: shortcodes/image-hotspot/image-hotspot.php:86
 #: shortcodes/pie-chart/pie-chart.php:115
 #: shortcodes/section-title/section-title.php:64
 #: shortcodes/separator/separator.php:62
 #: shortcodes/separator/widgets/separator-widget.php:41
+#: shortcodes/social-share/social-share.php:192
 #: shortcodes/team-member/team-member.php:72
 msgid "Right"
 msgstr ""
@@ -1757,10 +1878,12 @@ msgstr ""
 #: shortcodes/custom-font/widgets/custom-font-widget.php:111
 #: shortcodes/doughnut-chart/doughnut-chart.php:117
 #: shortcodes/full-screen-sections/full-screen-sections-item.php:101
+#: shortcodes/image-hotspot/image-hotspot.php:85
 #: shortcodes/pie-chart/pie-chart.php:117
 #: shortcodes/section-title/section-title.php:62
 #: shortcodes/separator/separator.php:61
 #: shortcodes/separator/widgets/separator-widget.php:40
+#: shortcodes/social-share/social-share.php:190
 #: shortcodes/team-member/team-member.php:71
 msgid "Left"
 msgstr ""
@@ -1803,12 +1926,15 @@ msgstr ""
 #: shortcodes/flip-image/flip-image.php:161
 #: shortcodes/icon-list/icon-list-item.php:90
 #: shortcodes/icon-with-text/icon-with-text.php:125
+#: shortcodes/image-accordion/image-accordion.php:158
 #: shortcodes/image-with-text/image-with-text.php:114
 #: shortcodes/interactive-banner/interactive-banner.php:139
+#: shortcodes/price-menu/price-menu.php:130
 #: shortcodes/process-2/process-2-item.php:109
 #: shortcodes/process/process-item.php:84
 #: shortcodes/section-title/section-title.php:178
 #: shortcodes/team-member/team-member.php:136
+#: shortcodes/timeline/timeline.php:142
 msgid "Text Color"
 msgstr ""
 
@@ -1872,6 +1998,7 @@ msgstr ""
 
 #: shortcodes/blog-list/blog-list.php:74
 #: shortcodes/blog-list/widgets/blog-list-widget.php:53
+#: shortcodes/social-share/social-share.php:161
 msgid "Minimal"
 msgstr ""
 
@@ -1907,6 +2034,7 @@ msgstr ""
 #: shortcodes/blog-list/blog-list.php:137
 #: shortcodes/blog-list/widgets/blog-list-widget.php:107
 #: shortcodes/post-carousel/post-carousel.php:102
+#: shortcodes/social-share/social-share.php:157
 #: shortcodes/tabs/tabs.php:99
 msgid "Skin"
 msgstr ""
@@ -1975,6 +2103,134 @@ msgstr ""
 msgid "Only for standard and gallery layout"
 msgstr ""
 
+#: shortcodes/business-hours/business-hours-item.php:26
+msgid "Business Hours Item"
+msgstr ""
+
+#: shortcodes/business-hours/business-hours-item.php:60
+msgid "Day Label"
+msgstr ""
+
+#: shortcodes/business-hours/business-hours-item.php:61
+msgid "E.g. Monday or Monday - Friday"
+msgstr ""
+
+#: shortcodes/business-hours/business-hours-item.php:67
+msgid "Working Hours"
+msgstr ""
+
+#: shortcodes/business-hours/business-hours-item.php:68
+msgid "E.g. 09:00 - 17:00"
+msgstr ""
+
+#: shortcodes/business-hours/business-hours-item.php:75
+#: shortcodes/business-hours/business-hours.php:58
+#: shortcodes/business-hours/business-hours.php:185
+msgid "Closed"
+msgstr ""
+
+#: shortcodes/business-hours/business-hours-item.php:81
+#: shortcodes/countdown/countdown.php:51
+msgid "Days"
+msgstr ""
+
+#: shortcodes/business-hours/business-hours-item.php:83
+msgid "Select days which this item contains, they are used to highlight current day"
+msgstr ""
+
+#: shortcodes/business-hours/business-hours.php:30
+msgid "Business Hours"
+msgstr ""
+
+#: shortcodes/business-hours/business-hours.php:85
+msgid "Divider"
+msgstr ""
+
+#: shortcodes/business-hours/business-hours.php:87
+#: shortcodes/price-menu/price-menu.php:81
+msgid "Line Between Items"
+msgstr ""
+
+#: shortcodes/business-hours/business-hours.php:88
+msgid "Dotted Line Between Day And Hours"
+msgstr ""
+
+#: shortcodes/business-hours/business-hours.php:95
+msgid "Highlight Current Day"
+msgstr ""
+
+#: shortcodes/business-hours/business-hours.php:97
+msgid "Item which contains current day (by site timezone from Settings -> General) is highlighted. Set days for each item in item options"
+msgstr ""
+
+#: shortcodes/business-hours/business-hours.php:102
+msgid "Closed Text"
+msgstr ""
+
+#: shortcodes/business-hours/business-hours.php:103
+msgid "Text displayed for items marked as closed. Default value is Closed"
+msgstr ""
+
+#: shortcodes/business-hours/business-hours.php:108
+msgid "Day Color"
+msgstr ""
+
+#: shortcodes/business-hours/business-hours.php:114
+msgid "Hours Color"
+msgstr ""
+
+#: shortcodes/business-hours/business-hours.php:120
+msgid "Closed Text Color"
+msgstr ""
+
+#: shortcodes/business-hours/business-hours.php:126
+msgid "Current Day Color"
+msgstr ""
+
+#: shortcodes/business-hours/business-hours.php:133
+msgid "Divider Color"
+msgstr ""
+
+#: shortcodes/business-hours/business-hours.php:147
+#: shortcodes/icon-list/icon-list-item.php:102
+#: shortcodes/image-accordion/image-accordion.php:130
+#: shortcodes/price-menu/price-menu.php:155
+#: shortcodes/timeline/timeline.php:155
+msgid "Space Between Items (px)"
+msgstr ""
+
+#: shortcodes/business-hours/business-hours.php:148
+msgid "Default value is 12"
+msgstr ""
+
+#: shortcodes/business-hours/functions.php:20
+msgid "Monday"
+msgstr ""
+
+#: shortcodes/business-hours/functions.php:21
+msgid "Tuesday"
+msgstr ""
+
+#: shortcodes/business-hours/functions.php:22
+msgid "Wednesday"
+msgstr ""
+
+#: shortcodes/business-hours/functions.php:23
+msgid "Thursday"
+msgstr ""
+
+#: shortcodes/business-hours/functions.php:24
+msgid "Friday"
+msgstr ""
+
+#: shortcodes/business-hours/functions.php:25
+msgid "Saturday"
+msgstr ""
+
+#: shortcodes/business-hours/functions.php:26
+msgid "Sunday"
+msgstr ""
+
 #: shortcodes/button/button.php:24
 msgid "Button"
 msgstr ""
@@ -1994,10 +2250,15 @@ msgstr ""
 #: shortcodes/full-screen-sections/full-screen-sections-item.php:109
 #: shortcodes/icon-list/icon-list-item.php:97
 #: shortcodes/icon-with-text/icon-with-text.php:139
+#: shortcodes/image-accordion/image-accordion-item.php:77
+#: shortcodes/image-hotspot/image-hotspot-item.php:102
 #: shortcodes/image-with-text/image-with-text.php:76
 #: shortcodes/interactive-banner/interactive-banner.php:153
+#: shortcodes/price-menu/price-menu-item.php:96
 #: shortcodes/process-2/process-2-item.php:72
 #: shortcodes/single-image/single-image.php:76
+#: shortcodes/social-share/social-share.php:124
+#: shortcodes/social-share/social-share.php:130
 #: shortcodes/svg-text/svg-text.php:63
 #: shortcodes/team-member/team-member.php:108
 msgid "Custom Link"
@@ -2059,9 +2320,11 @@ msgstr ""
 #: shortcodes/custom-font/custom-font.php:136
 #: shortcodes/custom-font/widgets/custom-font-widget.php:112
 #: shortcodes/full-screen-sections/full-screen-sections-item.php:102
+#: shortcodes/image-accordion/image-accordion.php:139
 #: shortcodes/section-title/section-title.php:63
 #: shortcodes/separator/separator.php:60
 #: shortcodes/separator/widgets/separator-widget.php:39
+#: shortcodes/social-share/social-share.php:191
 #: shortcodes/team-member/team-member.php:70
 msgid "Center"
 msgstr ""
@@ -2093,10 +2356,6 @@ msgstr ""
 
 #: shortcodes/countdown/countdown.php:24
 msgid "Countdown"
-msgstr ""
-
-#: shortcodes/countdown/countdown.php:51
-msgid "Days"
 msgstr ""
 
 #: shortcodes/countdown/countdown.php:52
@@ -2144,6 +2403,7 @@ msgid "Separated"
 msgstr ""
 
 #: shortcodes/countdown/countdown.php:113
+#: shortcodes/social-share/social-share.php:188
 msgid "Alignment"
 msgstr ""
 
@@ -2202,6 +2462,7 @@ msgid "Labels Color"
 msgstr ""
 
 #: shortcodes/countdown/countdown.php:183
+#: shortcodes/timeline/timeline.php:148
 msgid "Box Background Color"
 msgstr ""
 
@@ -2435,12 +2696,14 @@ msgstr ""
 
 #: shortcodes/doughnut-chart/doughnut-chart.php:114
 #: shortcodes/full-screen-sections/full-screen-sections-item.php:90
+#: shortcodes/image-hotspot/image-hotspot.php:83
 #: shortcodes/pie-chart/pie-chart.php:114
 msgid "Top"
 msgstr ""
 
 #: shortcodes/doughnut-chart/doughnut-chart.php:116
 #: shortcodes/full-screen-sections/full-screen-sections-item.php:92
+#: shortcodes/image-hotspot/image-hotspot.php:84
 #: shortcodes/pie-chart/pie-chart.php:116
 msgid "Bottom"
 msgstr ""
@@ -2465,10 +2728,14 @@ msgid "Dropcaps"
 msgstr ""
 
 #: shortcodes/dropcaps/dropcaps.php:61
+#: shortcodes/price-menu/price-menu.php:99
+#: shortcodes/social-share/social-share.php:171
 msgid "Circle"
 msgstr ""
 
 #: shortcodes/dropcaps/dropcaps.php:62
+#: shortcodes/price-menu/price-menu.php:97
+#: shortcodes/social-share/social-share.php:169
 msgid "Square"
 msgstr ""
 
@@ -2514,12 +2781,14 @@ msgid "Flip Image"
 msgstr ""
 
 #: shortcodes/flip-image/flip-image.php:60
+#: shortcodes/image-accordion/image-accordion.php:94
 #: shortcodes/image-comparison/image-comparison.php:77
 #: shortcodes/progress-bar/progress-bar.php:60
 msgid "Horizontal"
 msgstr ""
 
 #: shortcodes/flip-image/flip-image.php:61
+#: shortcodes/image-accordion/image-accordion.php:95
 #: shortcodes/image-comparison/image-comparison.php:78
 #: shortcodes/progress-bar/progress-bar.php:61
 #: shortcodes/tabs/tabs.php:79
@@ -2555,6 +2824,7 @@ msgid "Front Side Text Color"
 msgstr ""
 
 #: shortcodes/flip-image/flip-image.php:116
+#: shortcodes/image-accordion/image-accordion.php:118
 msgid "Height (px)"
 msgstr ""
 
@@ -2740,10 +3010,6 @@ msgstr ""
 msgid "Icon Right Padding (px)"
 msgstr ""
 
-#: shortcodes/icon-list/icon-list-item.php:102
-msgid "Space Between Items (px)"
-msgstr ""
-
 #: shortcodes/icon-list/icon-list-item.php:103
 msgid "Fill space between items in your list. Default value is 8"
 msgstr ""
@@ -2791,9 +3057,111 @@ msgstr ""
 
 #: shortcodes/icon-with-text/icon-with-text.php:78
 #: shortcodes/image-comparison/image-comparison.php:70
+#: shortcodes/image-hotspot/image-hotspot.php:111
 #: shortcodes/process-2/process-2-item.php:66
 #: shortcodes/team-member/team-member.php:85
 msgid "Fill your image size (thumbnail, medium, large, full or any registered image size) or enter image size in pixels: 200x100 (width x height). Leave empty to use original image size"
+msgstr ""
+
+#: shortcodes/image-accordion/image-accordion-item.php:26
+msgid "Image Accordion Item"
+msgstr ""
+
+#: shortcodes/image-accordion/image-accordion-item.php:61
+#: shortcodes/image-with-text/image-with-text.php:59
+#: shortcodes/interactive-banner/interactive-banner.php:73
+#: shortcodes/price-menu/price-menu-item.php:61
+#: shortcodes/process-2/process-2-item.php:60
+#: shortcodes/process-2/process-2.php:97
+#: shortcodes/single-image/single-image.php:59
+#: shortcodes/team-member/team-member.php:79
+#: shortcodes/timeline/timeline-item.php:74
+msgid "Select image from media library"
+msgstr ""
+
+#: shortcodes/image-accordion/image-accordion-item.php:82
+#: shortcodes/image-hotspot/image-hotspot-item.php:107
+msgid "Link Text"
+msgstr ""
+
+#: shortcodes/image-accordion/image-accordion-item.php:83
+#: shortcodes/image-hotspot/image-hotspot-item.php:108
+msgid "Default value is Read More"
+msgstr ""
+
+#: shortcodes/image-accordion/image-accordion-item.php:117
+#: shortcodes/image-hotspot/image-hotspot-item.php:153
+msgid "Read More"
+msgstr ""
+
+#: shortcodes/image-accordion/image-accordion.php:30
+msgid "Image Accordion"
+msgstr ""
+
+#: shortcodes/image-accordion/image-accordion.php:92
+#: shortcodes/image-comparison/image-comparison.php:75
+msgid "Orientation"
+msgstr ""
+
+#: shortcodes/image-accordion/image-accordion.php:97
+msgid "Horizontal accordion is displayed vertically on mobile devices"
+msgstr ""
+
+#: shortcodes/image-accordion/image-accordion.php:103
+msgid "Open Item On"
+msgstr ""
+
+#: shortcodes/image-accordion/image-accordion.php:105
+#: shortcodes/image-hotspot/image-hotspot.php:119
+msgid "Hover"
+msgstr ""
+
+#: shortcodes/image-accordion/image-accordion.php:106
+#: shortcodes/image-hotspot/image-hotspot.php:120
+msgid "Click"
+msgstr ""
+
+#: shortcodes/image-accordion/image-accordion.php:112
+msgid "Opened Item"
+msgstr ""
+
+#: shortcodes/image-accordion/image-accordion.php:113
+msgid "Number of item which is opened by default. Default value is 1, set 0 to keep all items closed"
+msgstr ""
+
+#: shortcodes/image-accordion/image-accordion.php:119
+msgid "Height of the element for horizontal orientation or height of opened item for vertical orientation. Default value is 450"
+msgstr ""
+
+#: shortcodes/image-accordion/image-accordion.php:125
+#: shortcodes/timeline/timeline.php:100
+msgid "Fill your image size (thumbnail, medium, large, full or any registered image size) or enter image size in pixels: 200x100 (width x height). Default value is large"
+msgstr ""
+
+#: shortcodes/image-accordion/image-accordion.php:131
+msgid "Default value is 6"
+msgstr ""
+
+#: shortcodes/image-accordion/image-accordion.php:136
+msgid "Content Alignment"
+msgstr ""
+
+#: shortcodes/image-accordion/image-accordion.php:138
+msgid "Bottom Left"
+msgstr ""
+
+#: shortcodes/image-accordion/image-accordion.php:164
+#: shortcodes/interactive-banner/interactive-banner.php:85
+#: shortcodes/team-member/team-member.php:143
+msgid "Overlay Color"
+msgstr ""
+
+#: shortcodes/image-accordion/image-accordion.php:170
+msgid "Opened Item Overlay Color"
+msgstr ""
+
+#: shortcodes/image-accordion/templates/image-accordion-item.php:16
+msgid "Open item"
 msgstr ""
 
 #: shortcodes/image-comparison/image-comparison.php:24
@@ -2810,10 +3178,6 @@ msgstr ""
 
 #: shortcodes/image-comparison/image-comparison.php:64
 msgid "After Image"
-msgstr ""
-
-#: shortcodes/image-comparison/image-comparison.php:75
-msgid "Orientation"
 msgstr ""
 
 #: shortcodes/image-comparison/image-comparison.php:85
@@ -2891,17 +3255,111 @@ msgstr ""
 msgid "Grid Options"
 msgstr ""
 
-#: shortcodes/image-with-text/image-with-text.php:24
-msgid "Image With Text"
+#: shortcodes/image-hotspot/image-hotspot-item.php:26
+msgid "Image Hotspot Item"
 msgstr ""
 
-#: shortcodes/image-with-text/image-with-text.php:59
-#: shortcodes/interactive-banner/interactive-banner.php:73
-#: shortcodes/process-2/process-2-item.php:60
-#: shortcodes/process-2/process-2.php:97
-#: shortcodes/single-image/single-image.php:59
-#: shortcodes/team-member/team-member.php:79
-msgid "Select image from media library"
+#: shortcodes/image-hotspot/image-hotspot-item.php:60
+msgid "Horizontal Position (%)"
+msgstr ""
+
+#: shortcodes/image-hotspot/image-hotspot-item.php:61
+msgid "Distance from the left edge of the image, from 0 to 100"
+msgstr ""
+
+#: shortcodes/image-hotspot/image-hotspot-item.php:67
+msgid "Vertical Position (%)"
+msgstr ""
+
+#: shortcodes/image-hotspot/image-hotspot-item.php:68
+msgid "Distance from the top edge of the image, from 0 to 100"
+msgstr ""
+
+#: shortcodes/image-hotspot/image-hotspot-item.php:74
+msgid "Marker Type"
+msgstr ""
+
+#: shortcodes/image-hotspot/image-hotspot-item.php:76
+msgid "Plus"
+msgstr ""
+
+#: shortcodes/image-hotspot/image-hotspot-item.php:77
+msgid "Dot"
+msgstr ""
+
+#: shortcodes/image-hotspot/image-hotspot-item.php:78
+msgid "Number"
+msgstr ""
+
+#: shortcodes/image-hotspot/image-hotspot-item.php:85
+msgid "Marker Text"
+msgstr ""
+
+#: shortcodes/image-hotspot/image-hotspot-item.php:114
+#: shortcodes/image-hotspot/image-hotspot.php:126
+msgid "Tooltip Position"
+msgstr ""
+
+#. translators: %d: hotspot number
+#: shortcodes/image-hotspot/image-hotspot-item.php:155
+#, php-format
+msgid "Hotspot %d"
+msgstr ""
+
+#: shortcodes/image-hotspot/image-hotspot.php:30
+msgid "Image Hotspot"
+msgstr ""
+
+#: shortcodes/image-hotspot/image-hotspot.php:105
+msgid "Select image from media library. Set position of each hotspot in percentages in hotspot item options"
+msgstr ""
+
+#: shortcodes/image-hotspot/image-hotspot.php:117
+msgid "Show Tooltip On"
+msgstr ""
+
+#: shortcodes/image-hotspot/image-hotspot.php:132
+msgid "Enable Pulse Animation"
+msgstr ""
+
+#: shortcodes/image-hotspot/image-hotspot.php:138
+msgid "Marker Size (px)"
+msgstr ""
+
+#: shortcodes/image-hotspot/image-hotspot.php:139
+msgid "Default value is 32"
+msgstr ""
+
+#: shortcodes/image-hotspot/image-hotspot.php:145
+msgid "Marker Icon Color"
+msgstr ""
+
+#: shortcodes/image-hotspot/image-hotspot.php:151
+msgid "Marker Background Color"
+msgstr ""
+
+#: shortcodes/image-hotspot/image-hotspot.php:157
+msgid "Tooltip Width (px)"
+msgstr ""
+
+#: shortcodes/image-hotspot/image-hotspot.php:158
+msgid "Default value is 240"
+msgstr ""
+
+#: shortcodes/image-hotspot/image-hotspot.php:164
+msgid "Tooltip Background Color"
+msgstr ""
+
+#: shortcodes/image-hotspot/image-hotspot.php:170
+msgid "Tooltip Title Color"
+msgstr ""
+
+#: shortcodes/image-hotspot/image-hotspot.php:176
+msgid "Tooltip Text Color"
+msgstr ""
+
+#: shortcodes/image-with-text/image-with-text.php:24
+msgid "Image With Text"
 msgstr ""
 
 #: shortcodes/interactive-banner/interactive-banner.php:24
@@ -2923,11 +3381,6 @@ msgstr ""
 
 #: shortcodes/interactive-banner/interactive-banner.php:65
 msgid "Shutter In Vertical"
-msgstr ""
-
-#: shortcodes/interactive-banner/interactive-banner.php:85
-#: shortcodes/team-member/team-member.php:143
-msgid "Overlay Color"
 msgstr ""
 
 #: shortcodes/line-graph/line-graph-item.php:25
@@ -2987,12 +3440,87 @@ msgstr ""
 msgid "Sliding Excerpt"
 msgstr ""
 
-#: shortcodes/pricing-table/pricing-table-item.php:25
-msgid "Pricing Table Item"
+#: shortcodes/price-menu/price-menu-item.php:26
+msgid "Price Menu Item"
 msgstr ""
 
+#: shortcodes/price-menu/price-menu-item.php:72
 #: shortcodes/pricing-table/pricing-table-item.php:80
 msgid "Price"
+msgstr ""
+
+#: shortcodes/price-menu/price-menu-item.php:73
+msgid "E.g. $12 or 12 EUR"
+msgstr ""
+
+#: shortcodes/price-menu/price-menu-item.php:79
+msgid "Old Price"
+msgstr ""
+
+#: shortcodes/price-menu/price-menu-item.php:80
+msgid "Displayed as crossed out price before the current price"
+msgstr ""
+
+#: shortcodes/price-menu/price-menu-item.php:85
+msgid "Description"
+msgstr ""
+
+#: shortcodes/price-menu/price-menu-item.php:90
+msgid "Badge"
+msgstr ""
+
+#: shortcodes/price-menu/price-menu-item.php:91
+msgid "E.g. New, Popular or Vegan"
+msgstr ""
+
+#: shortcodes/price-menu/price-menu.php:30
+msgid "Price Menu"
+msgstr ""
+
+#: shortcodes/price-menu/price-menu.php:80
+msgid "Dotted Line Between Title And Price"
+msgstr ""
+
+#: shortcodes/price-menu/price-menu.php:90
+msgid "Fill your image size (thumbnail, medium, large, full or any registered image size) or enter image size in pixels: 200x100 (width x height). Default value is thumbnail"
+msgstr ""
+
+#: shortcodes/price-menu/price-menu.php:95
+msgid "Image Shape"
+msgstr ""
+
+#: shortcodes/price-menu/price-menu.php:98
+#: shortcodes/social-share/social-share.php:170
+msgid "Rounded"
+msgstr ""
+
+#: shortcodes/price-menu/price-menu.php:105
+msgid "Image Width (px)"
+msgstr ""
+
+#: shortcodes/price-menu/price-menu.php:106
+msgid "Default value is 80"
+msgstr ""
+
+#: shortcodes/price-menu/price-menu.php:124
+#: shortcodes/pricing-table/pricing-table-item.php:99
+msgid "Price Color"
+msgstr ""
+
+#: shortcodes/price-menu/price-menu.php:143
+msgid "Badge Color"
+msgstr ""
+
+#: shortcodes/price-menu/price-menu.php:149
+msgid "Badge Background Color"
+msgstr ""
+
+#: shortcodes/price-menu/price-menu.php:156
+msgid "Default value is 25"
+msgstr ""
+
+#: shortcodes/pricing-table/pricing-table-item.php:25
+msgid "Pricing Table Item"
 msgstr ""
 
 #: shortcodes/pricing-table/pricing-table-item.php:85
@@ -3001,10 +3529,6 @@ msgstr ""
 
 #: shortcodes/pricing-table/pricing-table-item.php:92
 msgid "Price Background Image"
-msgstr ""
-
-#: shortcodes/pricing-table/pricing-table-item.php:99
-msgid "Price Color"
 msgstr ""
 
 #: shortcodes/pricing-table/pricing-table-item.php:106
@@ -3316,6 +3840,140 @@ msgstr ""
 msgid "Single Image"
 msgstr ""
 
+#: shortcodes/social-share/social-share.php:24
+msgid "Social Share"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:82
+msgid "Email"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:99
+#: shortcodes/social-share/social-share.php:298
+msgid "Copy Link"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:100
+msgid "Device Share Menu (mobile)"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:112
+msgid "Share Buttons"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:115
+msgid "Device share menu button is displayed only in browsers which support it (mostly on mobile devices)"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:121
+msgid "Shared Link"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:123
+msgid "Current Page"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:136
+msgid "Shared Title"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:137
+msgid "Leave empty to use current page title"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:143
+msgid "Text displayed before share buttons, e.g. Share:"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:148
+#: shortcodes/timeline/timeline.php:78
+msgid "Layout"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:150
+msgid "Icons"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:151
+msgid "Icons With Labels"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:159
+msgid "Brand Colors"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:167
+msgid "Shape"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:198
+msgid "Copy Link Label"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:199
+msgid "Default value is Copy Link"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:200
+#: shortcodes/social-share/social-share.php:207
+#: shortcodes/social-share/social-share.php:214
+msgid "Labels"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:205
+msgid "Link Copied Message"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:206
+msgid "Default value is Link copied"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:212
+msgid "Device Share Menu Label"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:213
+msgid "Default value is Share"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:226
+msgid "Buttons Color"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:227
+msgid "Leave empty to use brand colors"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:233
+msgid "Buttons Hover Color"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:239
+msgid "Icons Color"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:240
+msgid "Icons and labels color for brand colors skin"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:247
+msgid "Space Between Buttons (px)"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:299
+msgid "Link copied"
+msgstr ""
+
+#: shortcodes/social-share/social-share.php:300
+msgid "Share"
+msgstr ""
+
+#. translators: %s: social network name
+#: shortcodes/social-share/social-share.php:369
+#, php-format
+msgid "Share on %s"
+msgstr ""
+
 #: shortcodes/svg-text/svg-text.php:24
 msgid "SVG Text"
 msgstr ""
@@ -3328,6 +3986,87 @@ msgstr ""
 #: shortcodes/svg-text/svg-text.php:122
 #: shortcodes/svg-text/svg-text.php:129
 msgid "Font Size (px)"
+msgstr ""
+
+#: shortcodes/table-of-contents/table-of-contents.php:24
+#: shortcodes/table-of-contents/table-of-contents.php:204
+msgid "Table of Contents"
+msgstr ""
+
+#: shortcodes/table-of-contents/table-of-contents.php:59
+msgid "Default value is Table of Contents"
+msgstr ""
+
+#: shortcodes/table-of-contents/table-of-contents.php:65
+msgid "Include Headings"
+msgstr ""
+
+#: shortcodes/table-of-contents/table-of-contents.php:74
+msgid "Headings are collected from the page content. Add evc-toc-exclude class to a heading or its row to exclude it from the list"
+msgstr ""
+
+#: shortcodes/table-of-contents/table-of-contents.php:79
+msgid "Hierarchical View"
+msgstr ""
+
+#: shortcodes/table-of-contents/table-of-contents.php:85
+msgid "List Style"
+msgstr ""
+
+#: shortcodes/table-of-contents/table-of-contents.php:87
+msgid "Numbers"
+msgstr ""
+
+#: shortcodes/table-of-contents/table-of-contents.php:88
+msgid "Bullets"
+msgstr ""
+
+#: shortcodes/table-of-contents/table-of-contents.php:95
+msgid "Collapsible"
+msgstr ""
+
+#: shortcodes/table-of-contents/table-of-contents.php:101
+msgid "Collapsed By Default"
+msgstr ""
+
+#: shortcodes/table-of-contents/table-of-contents.php:108
+msgid "Highlight Current Section"
+msgstr ""
+
+#: shortcodes/table-of-contents/table-of-contents.php:114
+msgid "Sticky"
+msgstr ""
+
+#: shortcodes/table-of-contents/table-of-contents.php:116
+msgid "Element follows page scroll inside its column, e.g. in sidebar column. Set Equal height option for the row, so column is as tall as the content"
+msgstr ""
+
+#: shortcodes/table-of-contents/table-of-contents.php:121
+msgid "Scroll Offset (px)"
+msgstr ""
+
+#: shortcodes/table-of-contents/table-of-contents.php:122
+msgid "Space above the heading after scroll, e.g. height of the sticky header. Default value is 30"
+msgstr ""
+
+#: shortcodes/table-of-contents/table-of-contents.php:127
+msgid "Content Selector"
+msgstr ""
+
+#: shortcodes/table-of-contents/table-of-contents.php:128
+msgid "CSS selector of the content which contains headings, e.g. .entry-content. Leave empty to use page content"
+msgstr ""
+
+#: shortcodes/table-of-contents/table-of-contents.php:146
+msgid "Link Color"
+msgstr ""
+
+#: shortcodes/table-of-contents/table-of-contents.php:152
+msgid "Link Hover/Active Color"
+msgstr ""
+
+#: shortcodes/table-of-contents/templates/table-of-contents.php:15
+msgid "Show or hide table of contents"
 msgstr ""
 
 #: shortcodes/tabs/tabs-item.php:25
@@ -3419,6 +4158,50 @@ msgstr ""
 
 #: shortcodes/text-marquee/widgets/text-marquee-widget.php:17
 msgid "Add text marquee element to widget areas"
+msgstr ""
+
+#: shortcodes/timeline/timeline-item.php:26
+msgid "Timeline Item"
+msgstr ""
+
+#: shortcodes/timeline/timeline-item.php:61
+msgid "E.g. 2026 or March 2026"
+msgstr ""
+
+#: shortcodes/timeline/timeline.php:30
+msgid "Timeline"
+msgstr ""
+
+#: shortcodes/timeline/timeline.php:80
+msgid "Alternating"
+msgstr ""
+
+#: shortcodes/timeline/timeline.php:81
+msgid "Line On The Left"
+msgstr ""
+
+#: shortcodes/timeline/timeline.php:82
+msgid "Line On The Right"
+msgstr ""
+
+#: shortcodes/timeline/timeline.php:84
+msgid "Alternating layout is displayed with line on the left on mobile devices"
+msgstr ""
+
+#: shortcodes/timeline/timeline.php:105
+msgid "Enable Appear Animation"
+msgstr ""
+
+#: shortcodes/timeline/timeline.php:124
+msgid "Marker Color"
+msgstr ""
+
+#: shortcodes/timeline/timeline.php:130
+msgid "Date Color"
+msgstr ""
+
+#: shortcodes/timeline/timeline.php:156
+msgid "Default value is 40"
 msgstr ""
 
 #: widgets/widgets-class.php:103

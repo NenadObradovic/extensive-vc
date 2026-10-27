@@ -38,10 +38,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php } ?>
 			<?php if ( ! empty( $social_links ) ) { ?>
 				<ul class="evc-tm-social">
-					<?php foreach ( $social_links as $social_slug => $social_link ) { ?>
+					<?php foreach ( $social_links as $evc_social_slug => $evc_social_link ) { ?>
 						<li class="evc-tm-social-item">
-							<a class="evc-tm-social-link" href="<?php echo esc_url( $social_link['url'], array( 'http', 'https', 'mailto' ) ); ?>" aria-label="<?php echo esc_attr( $social_link['label'] ); ?>" <?php echo $social_link['external'] ? 'target="_blank" rel="noopener noreferrer"' : ''; ?>>
-								<?php echo wp_kses( extensive_vc_get_social_icon( $social_slug ), extensive_vc_get_svg_allowed_html() ); ?>
+							<a class="evc-tm-social-link" href="<?php echo esc_url( $evc_social_link['url'], array( 'http', 'https', 'mailto' ) ); ?>" aria-label="<?php echo esc_attr( $evc_social_link['label'] ); ?>" <?php echo $evc_social_link['external'] ? 'target="_blank" rel="noopener noreferrer"' : ''; ?>>
+								<?php echo wp_kses( extensive_vc_get_social_icon( $evc_social_slug ), extensive_vc_get_svg_allowed_html() ); ?>
 							</a>
 						</li>
 					<?php } ?>

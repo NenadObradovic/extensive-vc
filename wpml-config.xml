@@ -23,6 +23,19 @@
 			</attributes>
 		</shortcode>
 		<shortcode>
+			<tag>evc_business_hours</tag>
+			<attributes>
+				<attribute>closed_text</attribute>
+			</attributes>
+		</shortcode>
+		<shortcode>
+			<tag>evc_business_hours_item</tag>
+			<attributes>
+				<attribute>label</attribute>
+				<attribute>hours</attribute>
+			</attributes>
+		</shortcode>
+		<shortcode>
 			<tag>evc_button</tag>
 			<attributes>
 				<attribute>text</attribute>
@@ -126,6 +139,19 @@
 			</attributes>
 		</shortcode>
 		<shortcode>
+			<tag>evc_image_accordion</tag>
+		</shortcode>
+		<shortcode>
+			<tag>evc_image_accordion_item</tag>
+			<attributes>
+				<attribute type="media-ids">image</attribute>
+				<attribute>title</attribute>
+				<attribute type="area">text</attribute>
+				<attribute type="link" encoding="vc_link">custom_link</attribute>
+				<attribute>link_text</attribute>
+			</attributes>
+		</shortcode>
+		<shortcode>
 			<tag>evc_image_comparison</tag>
 			<attributes>
 				<attribute type="media-ids">before_image</attribute>
@@ -139,6 +165,22 @@
 			<attributes>
 				<attribute type="media-ids">images</attribute>
 				<attribute type="area">custom_links</attribute>
+			</attributes>
+		</shortcode>
+		<shortcode>
+			<tag>evc_image_hotspot</tag>
+			<attributes>
+				<attribute type="media-ids">image</attribute>
+			</attributes>
+		</shortcode>
+		<shortcode>
+			<tag>evc_image_hotspot_item</tag>
+			<attributes>
+				<attribute>marker_text</attribute>
+				<attribute>title</attribute>
+				<attribute type="area">text</attribute>
+				<attribute type="link" encoding="vc_link">custom_link</attribute>
+				<attribute>link_text</attribute>
 			</attributes>
 		</shortcode>
 		<shortcode>
@@ -183,6 +225,21 @@
 		</shortcode>
 		<shortcode>
 			<tag>evc_post_carousel</tag>
+		</shortcode>
+		<shortcode>
+			<tag>evc_price_menu</tag>
+		</shortcode>
+		<shortcode>
+			<tag>evc_price_menu_item</tag>
+			<attributes>
+				<attribute type="media-ids">image</attribute>
+				<attribute>title</attribute>
+				<attribute>price</attribute>
+				<attribute>old_price</attribute>
+				<attribute type="area">text</attribute>
+				<attribute>badge</attribute>
+				<attribute type="link" encoding="vc_link">custom_link</attribute>
+			</attributes>
 		</shortcode>
 		<shortcode>
 			<tag>evc_pricing_table</tag>
@@ -255,10 +312,26 @@
 			</attributes>
 		</shortcode>
 		<shortcode>
+			<tag>evc_social_share</tag>
+			<attributes>
+				<attribute>custom_title</attribute>
+				<attribute>title</attribute>
+				<attribute>copy_label</attribute>
+				<attribute>copied_label</attribute>
+				<attribute>native_label</attribute>
+			</attributes>
+		</shortcode>
+		<shortcode>
 			<tag>evc_svg_text</tag>
 			<attributes>
 				<attribute>text</attribute>
 				<attribute type="link" encoding="vc_link">custom_link</attribute>
+			</attributes>
+		</shortcode>
+		<shortcode>
+			<tag>evc_table_of_contents</tag>
+			<attributes>
+				<attribute>title</attribute>
 			</attributes>
 		</shortcode>
 		<shortcode>
@@ -287,6 +360,17 @@
 			<tag>evc_text_marquee</tag>
 			<attributes>
 				<attribute>text</attribute>
+			</attributes>
+		</shortcode>
+		<shortcode>
+			<tag>evc_timeline</tag>
+		</shortcode>
+		<shortcode>
+			<tag>evc_timeline_item</tag>
+			<attributes>
+				<attribute>date_label</attribute>
+				<attribute>title</attribute>
+				<attribute type="media-ids">image</attribute>
 			</attributes>
 		</shortcode>
 	</shortcodes>

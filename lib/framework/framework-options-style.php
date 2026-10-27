@@ -34,11 +34,18 @@ if ( ! function_exists( 'extensive_vc_init_admin_options_style' ) ) {
 				'.evc-carousel-skin-light .evc-owl-carousel .owl-nav .owl-next:hover',
 				'.evc-carousel-skin-light .evc-owl-carousel .owl-nav .owl-prev:hover',
 				'.evc-blog-list .evc-bli-post-info > * a:hover',
-				'.evc-section-title .evc-st-animated',
-				'.evc-team-member .evc-tm-position',
-				'.evc-team-member .evc-tm-social-link:hover',
-				'.evc-accordion .evc-acc-title:hover',
-				'.evc-accordion .evc-acc-title[aria-expanded="true"]'
+				'.evc-section-title .evc-st-animated'
+			);
+
+			// Newer elements use css variables for colors, so main color is set as variable value and element color options can override it
+			$main_color_variables = array(
+				'.evc-team-member'       => array( '--evc-tm-position-color', '--evc-tm-social-hover-color' ),
+				'.evc-accordion'         => array( '--evc-acc-title-active-color' ),
+				'.evc-business-hours'    => array( '--evc-bh-today-color' ),
+				'.evc-price-menu'        => array( '--evc-pm-price-color', '--evc-pm-badge-bg-color' ),
+				'.evc-table-of-contents' => array( '--evc-toc-link-active-color' ),
+				'.evc-image-hotspot'     => array( '--evc-ih-marker-bg-color' ),
+				'.evc-timeline'          => array( '--evc-tl-marker-color', '--evc-tl-date-color' )
 			);
 			
 			$main_color_bg_selector = array(
@@ -64,6 +71,10 @@ if ( ! function_exists( 'extensive_vc_init_admin_options_style' ) ) {
 			$current_styles .= extensive_vc_generate_dynamic_css( $main_color_c_selector, array( 'color' => $main_color ) );
 			$current_styles .= extensive_vc_generate_dynamic_css( $main_color_bg_selector, array( 'background-color' => $main_color ) );
 			$current_styles .= extensive_vc_generate_dynamic_css( $main_color_b_selector, array( 'border-color' => $main_color ) );
+
+			foreach ( $main_color_variables as $selector => $variables ) {
+				$current_styles .= extensive_vc_generate_dynamic_css( $selector, array_fill_keys( $variables, $main_color ) );
+			}
 		}
 		
 		$current_styles = $current_styles . $style;

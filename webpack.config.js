@@ -39,6 +39,9 @@ glob( '{shortcodes,post-types,plugins}/*/assets/js/*.js' )
 // Remove source map references from 3rd party libraries, map files are not distributed
 const removeSourceMap = ( content ) => content.toString().replace( /\n?\/\/# sourceMappingURL=.*$/m, '' );
 
+// Lightbox stylesheet is copied next to its images folder (in the package it is inside css folder), so image paths are updated
+const fixLightboxImagePaths = ( content ) => content.toString().replace( /url\((['"]?)\.\.\/images\//g, 'url($1images/' );
+
 const common = {
 	context: __dirname,
 	devtool: false,
@@ -97,7 +100,7 @@ module.exports = [
 				patterns: [
 					{ from: 'node_modules/chart.js/dist/chart.umd.min.js', to: 'assets/plugins/chart/chart.umd.min.js', transform: removeSourceMap },
 					{ from: 'node_modules/lightbox2/dist/js/lightbox.min.js', to: 'assets/plugins/lightbox/lightbox.min.js', transform: removeSourceMap },
-					{ from: 'node_modules/lightbox2/dist/css/lightbox.min.css', to: 'assets/plugins/lightbox/lightbox.min.css' },
+					{ from: 'node_modules/lightbox2/dist/css/lightbox.min.css', to: 'assets/plugins/lightbox/lightbox.min.css', transform: fixLightboxImagePaths },
 					{ from: 'node_modules/lightbox2/dist/images', to: 'assets/plugins/lightbox/images' },
 				],
 			} ),
