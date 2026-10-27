@@ -17,6 +17,15 @@ if ( ! defined( 'ABSPATH' ) || ! class_exists( 'WPBMap' ) ) {
 $evc_wpml_excluded = '/(^|_)(class|size|sizes|width|height|margin|padding|spacing|color|speed|delay|duration|number|percent|percentage|value|values|digit|offset|thickness|radius|columns|font|weight|line_height|letter_spacing|date|hours|minutes|id|ids|position|start|max|min|space|zoom|level|step|data|top|bottom|left|right|link|url|email)($|_)/';
 $evc_wpml_text     = '/(^|_)(title|text|label|labels|name|message|words|after|before|caption|description|subtitle|tagline|quote|author|content|legend|heading|features|currency|period|price)($|_)/';
 
+// Translatable text options which names are matched by the excluded pattern (e.g. hours, date, link)
+$evc_wpml_forced = array(
+	'evc_business_hours_item'  => array( 'hours' ),
+	'evc_price_menu_item'      => array( 'badge' ),
+	'evc_image_accordion_item' => array( 'link_text' ),
+	'evc_image_hotspot_item'   => array( 'link_text' ),
+	'evc_timeline_item'        => array( 'date_label' ),
+);
+
 $evc_wpml_shortcodes = array();
 
 foreach ( WPBMap::getAllShortCodes() as $evc_base => $evc_map ) {
@@ -46,7 +55,7 @@ foreach ( WPBMap::getAllShortCodes() as $evc_base => $evc_map ) {
 				$evc_attributes[ $evc_name ] = 'type="area"';
 				break;
 			case 'textfield':
-				$evc_is_text = preg_match( $evc_wpml_text, $evc_name ) && ! preg_match( $evc_wpml_excluded, preg_replace( $evc_wpml_text, '', $evc_name ) ) || 0 === strpos( $evc_name, 'label_' ) || in_array( $evc_name, array( 'name', 'position', 'title', 'text', 'letter' ), true );
+				$evc_is_text = preg_match( $evc_wpml_text, $evc_name ) && ! preg_match( $evc_wpml_excluded, preg_replace( $evc_wpml_text, '', $evc_name ) ) || 0 === strpos( $evc_name, 'label_' ) || in_array( $evc_name, array( 'name', 'position', 'title', 'text', 'letter' ), true ) || ( isset( $evc_wpml_forced[ $evc_base ] ) && in_array( $evc_name, $evc_wpml_forced[ $evc_base ], true ) );
 
 				if ( $evc_is_text ) {
 					$evc_attributes[ $evc_name ] = '';

@@ -1,5 +1,5 @@
 /**
- * Build social icons list used by Team Member element
+ * Build social icons list used by Team Member and Social Share elements
  *
  * Brand icons are taken from simple-icons package (CC0 license), LinkedIn, website and email icons are defined below.
  * Output: lib/social-icons.php
@@ -21,6 +21,10 @@ const BRAND_ICONS = {
 	dribbble: [ 'Dribbble', 'dribbble' ],
 	behance: [ 'Behance', 'behance' ],
 	whatsapp: [ 'WhatsApp', 'whatsapp' ],
+	threads: [ 'Threads', 'threads' ],
+	bluesky: [ 'Bluesky', 'bluesky' ],
+	telegram: [ 'Telegram', 'telegram' ],
+	reddit: [ 'Reddit', 'reddit' ],
 };
 
 const CUSTOM_ICONS = {
@@ -44,7 +48,7 @@ for ( const [ slug, [ label, file ] ] of Object.entries( BRAND_ICONS ) ) {
 
 Object.assign( icons, CUSTOM_ICONS );
 
-const order = [ 'facebook', 'x', 'instagram', 'linkedin', 'youtube', 'tiktok', 'pinterest', 'github', 'dribbble', 'behance', 'whatsapp', 'website', 'email' ];
+const order = [ 'facebook', 'x', 'instagram', 'linkedin', 'youtube', 'tiktok', 'pinterest', 'threads', 'bluesky', 'github', 'dribbble', 'behance', 'whatsapp', 'telegram', 'reddit', 'website', 'email' ];
 
 const entries = order
 	.map( ( slug ) => "\t\t'" + slug + "' => array(\n\t\t\t'label' => '" + icons[ slug ][ 0 ] + "',\n\t\t\t'path'  => '" + icons[ slug ][ 1 ] + "',\n\t\t)," )

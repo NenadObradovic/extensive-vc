@@ -4,7 +4,7 @@ Plugin Name: Extensive VC Addons for WPBakery Page Builder
 Plugin URI: http://wprealize.com/
 Author: Nenad Obradovic
 Author URI: http://wprealize.com/introduced/
-Version: 2.1
+Version: 2.2
 Requires at least: 6.0
 Requires PHP: 8.2
 WC requires at least: 8.0

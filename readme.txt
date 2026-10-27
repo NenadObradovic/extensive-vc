@@ -4,7 +4,7 @@ Tags: wpbakery, wpbakery addons, wpbakery page builder, shortcodes
 Donate link: http://wprealize.com/donate/
 Requires at least: 6.0
 Tested up to: 7.1
-Stable tag: 2.1
+Stable tag: 2.2
 Requires PHP: 8.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -24,29 +24,34 @@ See the all of addons elements in the action here - <a href="http://wprealize.co
 <h3>Features</h3>
 <h4 style="margin-top: 1rem;">1. Shortcodes</h4>
 <ul>
-	<li>Classic - Accordion / FAQ with FAQ schema (New)</li>
+	<li><a href="http://wprealize.com/classic/accordion/">Classic - Accordion / FAQ with FAQ schema</a></li>
 	<li><a href="http://wprealize.com/classic/blog-list/">Classic - Blog List</a></li>
+	<li><a href="http://wprealize.com/classic/business-hours/">Classic - Business Hours (New)</a></li>
 	<li><a href="http://wprealize.com/classic/button/">Classic - Button</a></li>
 	<li><a href="http://wprealize.com/classic/clients/">Classic - Clients</a></li>
 	<li><a href="http://wprealize.com/classic/icon-with-text/">Classic - Icon With Text</a></li>
 	<li><a href="http://wprealize.com/classic/image-with-text/">Classic - Image With Text</a></li>
+	<li><a href="http://wprealize.com/classic/price-menu/">Classic - Price Menu (New)</a></li>
 	<li><a href="http://wprealize.com/classic/pricing-table/">Classic - Pricing Table</a></li>
 	<li><a href="http://wprealize.com/classic/separator/">Classic - Separator</a></li>
 	<li><a href="http://wprealize.com/classic/single-image/">Classic - Single Image</a></li>
+	<li><a href="http://wprealize.com/classic/social-share/">Classic - Social Share (New)</a></li>
 	<li><a href="http://wprealize.com/classic/tabs/">Classic - Tabs</a></li>
-	<li>Classic - Team Member (New)</li>
+	<li><a href="http://wprealize.com/classic/team-member/">Classic - Team Member</a></li>
 	<li><a href="http://wprealize.com/interactive/flip-image/">Interactive - Flip Image / Flip Box</a></li>
 	<li><a href="http://wprealize.com/interactive/full-screen-sections/">Interactive - Full Screen Sections</a></li>
 	<li><a href="http://wprealize.com/interactive/gallery-block/">Interactive - Gallery Block</a></li>
-	<li>Interactive - Image Comparison (New)</li>
+	<li><a href="http://wprealize.com/interactive/image-accordion/">Interactive - Image Accordion (New)</a></li>
+	<li><a href="http://wprealize.com/interactive/image-comparison/">Interactive - Image Comparison</a></li>
 	<li><a href="http://wprealize.com/interactive/image-gallery/">Interactive - Image Gallery</a></li>
+	<li><a href="http://wprealize.com/interactive/image-hotspot/">Interactive - Image Hotspot (New)</a></li>
 	<li><a href="http://wprealize.com/interactive/interactive-banner/">Interactive - Interactive Banner</a></li>
 	<li><a href="http://wprealize.com/interactive/process/">Interactive - Process</a></li>
 	<li><a href="http://wprealize.com/interactive/process-2/">Interactive - Process 2</a></li>
 	<li><a href="http://wprealize.com/interactive/product-list/">Interactive - Product List</a></li>
 	<li><a href="http://wprealize.com/interactive/testimonials/">Interactive - Testimonials</a></li>
+	<li><a href="http://wprealize.com/infographic/countdown/">Infographic - Countdown</a></li>
 	<li><a href="http://wprealize.com/infographic/counter/">Infographic - Counter</a></li>
-	<li>Infographic - Countdown (New)</li>
 	<li><a href="http://wprealize.com/infographic/doughnut-chart/">Infographic - Doughnut Chart</a></li>
 	<li><a href="http://wprealize.com/infographic/icon-progress-bar/">Infographic - Icon Progress Bar</a></li>
 	<li><a href="http://wprealize.com/infographic/line-graph/">Infographic - Line Graph</a></li>
@@ -54,12 +59,14 @@ See the all of addons elements in the action here - <a href="http://wprealize.co
 	<li><a href="http://wprealize.com/infographic/post-carousel/">Infographic - Post Carousel</a></li>
 	<li><a href="http://wprealize.com/infographic/progress-bar/">Infographic - Progress Bar</a></li>
 	<li><a href="http://wprealize.com/infographic/text-marquee/">Infographic - Text Marquee</a></li>
+	<li><a href="http://wprealize.com/infographic/timeline/">Infographic - Timeline (New)</a></li>
 	<li><a href="http://wprealize.com/typography/blockquote/">Typography - Blockquote</a></li>
 	<li><a href="http://wprealize.com/typography/custom-font/">Typography - Custom Font</a></li>
 	<li><a href="http://wprealize.com/typography/dropcaps/">Typography - Dropcaps</a></li>
 	<li><a href="http://wprealize.com/typography/icon-list/">Typography - Icon List</a></li>
 	<li><a href="http://wprealize.com/typography/section-title/">Typography - Section Title with animated words</a></li>
 	<li><a href="http://wprealize.com/typography/svg-text/">Typography - SVG Text</a></li>
+	<li><a href="http://wprealize.com/typography/table-of-contents/">Typography - Table of Contents (New)</a></li>
 </ul>
 <h4 style="margin-top: 1rem;">2. Custom Post Types</h4>
 <ul>
@@ -127,6 +134,21 @@ My plugin it is extension for WPBakery page builder so you must first install/ac
 
 == Changelog ==
 
+2.2
+- Added Business Hours element with current day highlight
+- Added Price Menu element with images, old price and badges
+- Added Image Accordion element with hover or click behavior and keyboard support
+- Added Social Share element with share links (no 3rd party scripts), copy link and device share menu buttons
+- Added Table of Contents element generated from page headings, with collapsible list, current section highlight and sticky option
+- Added Image Hotspot element with tooltips, pulse animation and keyboard support
+- Added Timeline element with alternating, left and right layouts and appear animation
+- Added Threads, Bluesky, Telegram and Reddit social links for Team Member element
+- Updated language pot file
+- Fixed main color option overriding color options of Team Member and Accordion elements
+- Fixed Process 2 background image not found (404 error) when styles are loaded only for used elements
+- Fixed Predefined Style option overriding name, position and text styles of Team Member element
+- Fixed Lightbox previous, next, close and loading images not found (404 error)
+
 2.1
 - Added Team Member element with social icons
 - Added Countdown element with fixed date and evergreen types
@@ -139,10 +161,10 @@ My plugin it is extension for WPBakery page builder so you must first install/ac
 - Added Predefined Style Fonts option, Raleway and Poppins fonts are loaded locally by default (GDPR friendly)
 - Added wpml-config.xml for elements translation with WPML
 - Added svg icons support for elements in WPBakery Page Builder panel
+- Updated language pot file
 - Improved main color option for new elements
 - Improved Flip Image element, element is flipped on keyboard focus and animation respects reduced motion setting
 - Fixed Text Marquee and Process 2 style sections in main stylesheet
-- Updated language pot file
 
 2.0
 - Added PHP 8.4 compatibility
@@ -510,6 +532,9 @@ My plugin it is extension for WPBakery page builder so you must first install/ac
 - Initial release.
 
 == Upgrade Notice ==
+
+= 2.2 =
+Seven new elements: Business Hours, Price Menu, Image Accordion, Social Share, Table of Contents, Image Hotspot and Timeline.
 
 = 2.1 =
 New elements (Team Member, Countdown, Image Comparison, Accordion/FAQ), responsive options and faster loading. If elements are loaded through ajax or custom templates, set Extensive VC -> Settings -> Assets Loading to all assets.

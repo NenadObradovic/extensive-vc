@@ -292,6 +292,39 @@
 
 (function ($) {
 	'use strict';
+
+	$(document).ready(function () {
+		evcInitBusinessHours();
+	});
+
+	/**
+	 * Init business hours shortcode functionality, item which contains current day in site timezone is highlighted
+	 */
+	function evcInitBusinessHours() {
+		var holder = $('.evc-business-hours[data-timezone-offset]');
+
+		if (holder.length) {
+			holder.each(function () {
+				var thisHolder = $(this),
+					offset = parseInt(thisHolder.data('timezone-offset'), 10) || 0,
+					siteTime = new Date(Date.now() + offset * 60000),
+					today = siteTime.getUTCDay() || 7; // ISO-8601 day number, Sunday is 7
+
+				thisHolder.find('.evc-bh-item[data-days]').each(function () {
+					var days = String($(this).data('days')).split(',');
+
+					if (days.indexOf(String(today)) !== -1) {
+						$(this).addClass('evc-bh-today').attr('aria-current', 'date');
+					}
+				});
+			});
+		}
+	}
+
+})(jQuery);
+
+(function ($) {
+	'use strict';
 	
 	$(document).ready(function () {
 		evcButton().init();
@@ -819,6 +852,61 @@
 	'use strict';
 
 	$(document).ready(function () {
+		evcInitImageAccordion();
+	});
+
+	/**
+	 * Init image accordion shortcode functionality, item is opened on hover or click and on keyboard focus
+	 */
+	function evcInitImageAccordion() {
+		var holder = $('.evc-image-accordion');
+
+		if (holder.length) {
+			holder.each(function () {
+				var thisHolder = $(this),
+					openOnHover = thisHolder.data('behavior') !== 'click',
+					items = thisHolder.find('> .evc-ia-items > .evc-ia-item'),
+					defaultItem = items.filter('.evc-ia-active');
+
+				var setActive = function (item) {
+					items.each(function () {
+						var isActive = item && this === item[0];
+
+						$(this).toggleClass('evc-ia-active', isActive).children('.evc-ia-trigger').attr('aria-expanded', isActive ? 'true' : 'false');
+					});
+				};
+
+				items.children('.evc-ia-trigger').on('click', function () {
+					var item = $(this).parent();
+
+					// Click on opened item closes it when accordion is opened on click
+					setActive(!openOnHover && item.hasClass('evc-ia-active') ? null : item);
+				});
+
+				// Item with focused link or trigger is opened, so its content is visible
+				items.on('focusin', function () {
+					setActive($(this));
+				});
+
+				if (openOnHover) {
+					items.on('mouseenter', function () {
+						setActive($(this));
+					});
+
+					thisHolder.on('mouseleave', function () {
+						setActive(defaultItem.length ? defaultItem : null);
+					});
+				}
+			});
+		}
+	}
+
+})(jQuery);
+
+(function ($) {
+	'use strict';
+
+	$(document).ready(function () {
 		evcInitImageComparison();
 	});
 
@@ -882,6 +970,115 @@
 				inner.addEventListener('pointercancel', stopDragging);
 			});
 		}
+	}
+
+})(jQuery);
+
+(function ($) {
+	'use strict';
+
+	$(document).ready(function () {
+		evcInitImageHotspot();
+	});
+
+	/**
+	 * Init image hotspot shortcode functionality, tooltip is opened on hover/focus or click
+	 */
+	function evcInitImageHotspot() {
+		var holder = $('.evc-image-hotspot');
+
+		if (holder.length) {
+			holder.each(function () {
+				var thisHolder = $(this),
+					openOnHover = thisHolder.data('trigger') !== 'click',
+					items = thisHolder.find('.evc-ih-item').has('.evc-ih-tooltip');
+
+				var toggleItem = function (item, open) {
+					item.toggleClass('evc-ih-open', open).children('.evc-ih-marker').attr('aria-expanded', open ? 'true' : 'false');
+
+					if (open) {
+						evcFitTooltip(item);
+					}
+				};
+
+				var closeOthers = function (item) {
+					items.not(item).filter('.evc-ih-open').each(function () {
+						toggleItem($(this), false);
+					});
+				};
+
+				items.children('.evc-ih-marker').on('click', function () {
+					// Tooltip which is opened on hover stays opened on click, so it works the same on touch devices
+					var item = $(this).parent(),
+						open = openOnHover || !item.hasClass('evc-ih-open');
+
+					closeOthers(item);
+					toggleItem(item, open);
+				});
+
+				if (openOnHover) {
+					items.on('mouseenter focusin', function () {
+						closeOthers($(this));
+						toggleItem($(this), true);
+					}).on('mouseleave', function () {
+						if (!$(this).find(':focus').length) {
+							toggleItem($(this), false);
+						}
+					}).on('focusout', function (event) {
+						if (!$.contains(this, event.relatedTarget)) {
+							toggleItem($(this), false);
+						}
+					});
+				}
+
+				// Opened tooltip is closed with Escape key or click outside of hotspot
+				$(document).on('keydown', function (event) {
+					if (event.key === 'Escape') {
+						items.filter('.evc-ih-open').each(function () {
+							toggleItem($(this), false);
+
+							if ($(this).find(':focus').length) {
+								$(this).children('.evc-ih-marker').trigger('focus');
+							}
+						});
+					}
+				}).on('click', function (event) {
+					if (!$(event.target).closest('.evc-ih-item').length) {
+						items.filter('.evc-ih-open').each(function () {
+							toggleItem($(this), false);
+						});
+					}
+				});
+			});
+		}
+	}
+
+	/**
+	 * Move tooltip horizontally, so it doesn't go outside of the screen
+	 *
+	 * @param item object - hotspot item
+	 */
+	function evcFitTooltip(item) {
+		var tooltip = item.children('.evc-ih-tooltip')[0],
+			space = 10,
+			shift = 0;
+
+		if (!tooltip) {
+			return;
+		}
+
+		tooltip.style.setProperty('--evc-ih-shift', '0px');
+
+		var rect = tooltip.getBoundingClientRect(),
+			viewportWidth = document.documentElement.clientWidth;
+
+		if (rect.left < space) {
+			shift = space - rect.left;
+		} else if (rect.right > viewportWidth - space) {
+			shift = viewportWidth - space - rect.right;
+		}
+
+		tooltip.style.setProperty('--evc-ih-shift', Math.round(shift) + 'px');
 	}
 
 })(jQuery);
@@ -1263,6 +1460,94 @@
 
 (function ($) {
 	'use strict';
+
+	$(document).ready(function () {
+		evcInitSocialShare();
+	});
+
+	/**
+	 * Init social share shortcode functionality, copy link button and device share menu button
+	 */
+	function evcInitSocialShare() {
+		var holder = $('.evc-social-share');
+
+		if (holder.length) {
+			holder.each(function () {
+				var thisHolder = $(this),
+					status = thisHolder.find('.evc-ss-status'),
+					statusTimeout;
+
+				var showStatus = function (message) {
+					clearTimeout(statusTimeout);
+					status.text(message).addClass('evc-ss-status-visible');
+
+					statusTimeout = setTimeout(function () {
+						status.removeClass('evc-ss-status-visible').text('');
+					}, 2500);
+				};
+
+				thisHolder.find('.evc-ss-copy').on('click', function () {
+					var button = $(this),
+						url = button.data('url');
+
+					evcCopyText(url).then(function () {
+						showStatus(button.data('copied-label'));
+					}, function () {
+						// Clipboard is not available (e.g. page is not opened through https), so link is shown for manual copy
+						window.prompt('', url);
+					});
+				});
+
+				// Device share menu is available only in browsers which support Web Share API
+				if (typeof navigator.share === 'function') {
+					thisHolder.find('.evc-ss-item-native').removeAttr('hidden');
+
+					thisHolder.find('.evc-ss-native').on('click', function () {
+						var button = $(this);
+
+						navigator.share({
+							title: button.data('title'),
+							url: button.data('url')
+						}).catch(function () {
+							// Share is canceled by the user
+						});
+					});
+				}
+			});
+		}
+	}
+
+	/**
+	 * Copy text into clipboard
+	 *
+	 * @param text string
+	 *
+	 * @return Promise
+	 */
+	function evcCopyText(text) {
+		if (navigator.clipboard && window.isSecureContext) {
+			return navigator.clipboard.writeText(text);
+		}
+
+		return new Promise(function (resolve, reject) {
+			var field = $('<textarea readonly></textarea>').val(text).css({position: 'fixed', top: 0, left: 0, opacity: 0}).appendTo('body');
+
+			field[0].select();
+
+			try {
+				document.execCommand('copy') ? resolve() : reject();
+			} catch (error) {
+				reject();
+			}
+
+			field.remove();
+		});
+	}
+
+})(jQuery);
+
+(function ($) {
+	'use strict';
 	
 	$(document).ready(function () {
 		evcSVGTextResizeStyle();
@@ -1356,6 +1641,289 @@
 		}
 	}
 	
+})(jQuery);
+
+(function ($) {
+	'use strict';
+
+	$(document).ready(function () {
+		evcInitTableOfContents();
+	});
+
+	/**
+	 * Init table of contents shortcode functionality, list is generated from headings in the page content
+	 */
+	function evcInitTableOfContents() {
+		var holder = $('.evc-table-of-contents');
+
+		if (holder.length) {
+			var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+			holder.each(function () {
+				var thisHolder = $(this),
+					list = thisHolder.find('.evc-toc-list'),
+					listTag = list.prop('tagName').toLowerCase(),
+					levels = String(thisHolder.data('headings') || 'h2,h3').split(','),
+					hierarchical = thisHolder.data('hierarchical') !== 'no',
+					offset = parseInt(thisHolder.data('scroll-offset'), 10) || 0,
+					container = evcGetTableOfContentsContainer(thisHolder),
+					links = [];
+
+				var headings = $(container).find(levels.join(',')).filter(function () {
+					var heading = $(this);
+
+					return !heading.closest('.evc-table-of-contents, .evc-toc-exclude').length && heading.is(':visible') && heading.text().trim() !== '';
+				});
+
+				if (!headings.length) {
+					return;
+				}
+
+				// Each heading is added under the closest previous heading with lower level
+				var stack = [{level: 0, list: list}];
+
+				headings.each(function () {
+					var heading = $(this),
+						level = parseInt(this.tagName.substring(1), 10);
+
+					if (!this.id) {
+						this.id = evcGetUniqueHeadingId(heading.text());
+					}
+
+					if (hierarchical) {
+						while (stack.length > 1 && stack[stack.length - 1].level >= level) {
+							stack.pop();
+						}
+					}
+
+					var parent = hierarchical ? stack[stack.length - 1] : stack[0],
+						parentList = parent.list;
+
+					if (!parentList) {
+						parentList = parent.list = $('<' + listTag + ' class="evc-toc-sublist"></' + listTag + '>').appendTo(parent.item);
+					}
+
+					var item = $('<li class="evc-toc-item"></li>').appendTo(parentList),
+						link = $('<a class="evc-toc-link"></a>').attr('href', '#' + this.id).text(heading.text().trim()).appendTo(item);
+
+					links.push({link: link, heading: this});
+
+					if (hierarchical) {
+						stack.push({level: level, item: item, list: null});
+					}
+				});
+
+				thisHolder.addClass('evc-toc-ready');
+
+				list.on('click', '.evc-toc-link', function (event) {
+					var heading = document.getElementById(this.getAttribute('href').substring(1));
+
+					if (!heading) {
+						return;
+					}
+
+					event.preventDefault();
+
+					window.scrollTo({
+						top: heading.getBoundingClientRect().top + window.pageYOffset - offset,
+						behavior: reduceMotion ? 'auto' : 'smooth'
+					});
+
+					if (window.history && window.history.replaceState) {
+						window.history.replaceState(null, '', '#' + heading.id);
+					}
+
+					// Focus is moved to the heading, so keyboard users continue from the selected section
+					if (!heading.hasAttribute('tabindex')) {
+						heading.setAttribute('tabindex', '-1');
+					}
+
+					heading.focus({preventScroll: true});
+				});
+
+				thisHolder.find('.evc-toc-toggle').on('click', function () {
+					var button = $(this),
+						body = thisHolder.find('.evc-toc-body'),
+						expand = button.attr('aria-expanded') !== 'true';
+
+					button.attr('aria-expanded', expand ? 'true' : 'false');
+					body.prop('hidden', !expand);
+				});
+
+				if (thisHolder.data('highlight') !== 'no') {
+					evcInitTableOfContentsHighlight(links, offset);
+				}
+
+				if (thisHolder.hasClass('evc-toc-sticky')) {
+					evcInitTableOfContentsStickyColumn(thisHolder);
+				}
+			});
+		}
+	}
+
+	/**
+	 * Get content which contains headings
+	 *
+	 * @param holder object - table of contents element
+	 *
+	 * @return object
+	 */
+	function evcGetTableOfContentsContainer(holder) {
+		var selector = holder.data('container'),
+			container = null;
+
+		if (selector) {
+			try {
+				container = document.querySelector(selector);
+			} catch (error) {
+				container = null;
+			}
+		}
+
+		if (!container) {
+			container = holder.closest('.wpb-content-wrapper, .entry-content, article, main')[0] || document.body;
+		}
+
+		return container;
+	}
+
+	/**
+	 * Get unique id for heading from its text
+	 *
+	 * @param text string - heading text
+	 *
+	 * @return string
+	 */
+	function evcGetUniqueHeadingId(text) {
+		var slug = text.trim().toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9Ѐ-ӿ]+/g, '-').replace(/^-+|-+$/g, ''),
+			id = slug || 'section',
+			index = 2;
+
+		while (document.getElementById(id)) {
+			id = (slug || 'section') + '-' + index++;
+		}
+
+		return id;
+	}
+
+	/**
+	 * Sticky element follows the scroll only inside its parent, so the column and its inner wrappers are stretched to the row height.
+	 * Many themes don't support equal height columns, so the height is set with script
+	 *
+	 * @param holder object - table of contents element
+	 */
+	function evcInitTableOfContentsStickyColumn(holder) {
+		var column = holder.closest('.vc_column_container, .wpb_column');
+
+		if (!column.length || !column.parent().length) {
+			return;
+		}
+
+		var wrappers = holder.parentsUntil(column.parent());
+
+		var update = function () {
+			wrappers.css('min-height', '');
+
+			// Columns are stacked on small screens, so there is no space for sticky behavior
+			if (window.innerWidth <= 768) {
+				return;
+			}
+
+			var rowBottom = column.parent()[0].getBoundingClientRect().bottom;
+
+			wrappers.each(function () {
+				var height = rowBottom - this.getBoundingClientRect().top;
+
+				if (height > this.offsetHeight) {
+					this.style.minHeight = Math.floor(height) + 'px';
+				}
+			});
+		};
+
+		update();
+		$(window).on('load resize', update);
+
+		// Css sticky position doesn't work inside elements with hidden overflow (used by many themes), so element is moved with script
+		var hasClippedParent = holder.parentsUntil('html').filter(function () {
+			return $(this).css('overflow-x') !== 'visible' || $(this).css('overflow-y') !== 'visible';
+		}).length > 0;
+
+		if (hasClippedParent) {
+			var offset = parseInt(holder.css('top'), 10) || 0,
+				currentShift = 0,
+				ticking = false;
+
+			holder.addClass('evc-toc-sticky-js');
+
+			var move = function () {
+				var shift = 0;
+
+				if (window.innerWidth > 768) {
+					var top = holder[0].getBoundingClientRect().top - currentShift,
+						maxShift = holder.parent()[0].getBoundingClientRect().bottom - top - holder.outerHeight();
+
+					shift = Math.max(0, Math.min(offset - top, maxShift));
+				}
+
+				currentShift = Math.round(shift);
+				holder.css('transform', currentShift ? 'translateY(' + currentShift + 'px)' : '');
+				ticking = false;
+			};
+
+			$(window).on('scroll resize', function () {
+				if (!ticking) {
+					ticking = true;
+					window.requestAnimationFrame(move);
+				}
+			});
+
+			move();
+		}
+	}
+
+	/**
+	 * Highlight link of the section which is currently read
+	 *
+	 * @param links array - list of links and headings
+	 * @param offset int - scroll offset
+	 */
+	function evcInitTableOfContentsHighlight(links, offset) {
+		var ticking = false;
+
+		var update = function () {
+			var current = null;
+
+			$.each(links, function (index, item) {
+				if (item.heading.getBoundingClientRect().top - offset - 10 <= 0) {
+					current = item;
+				}
+			});
+
+			$.each(links, function (index, item) {
+				var isCurrent = item === current;
+
+				item.link.toggleClass('evc-toc-active', isCurrent);
+
+				if (isCurrent) {
+					item.link.attr('aria-current', 'location');
+				} else {
+					item.link.removeAttr('aria-current');
+				}
+			});
+
+			ticking = false;
+		};
+
+		$(window).on('scroll', function () {
+			if (!ticking) {
+				ticking = true;
+				window.requestAnimationFrame(update);
+			}
+		});
+
+		update();
+	}
+
 })(jQuery);
 
 (function ($) {
@@ -1524,6 +2092,37 @@
 				thisTextMarquee.data('viewport-offset', 0);
 				evc.evcIsInViewport.check(thisTextMarquee, start, false, function () {
 					isVisible = false;
+				});
+			});
+		}
+	}
+
+})(jQuery);
+
+(function ($) {
+	'use strict';
+
+	$(document).ready(function () {
+		evcInitTimeline();
+	});
+
+	/**
+	 * Init timeline shortcode appear animation, items are shown when they are scrolled into the viewport
+	 */
+	function evcInitTimeline() {
+		var holder = $('.evc-timeline.evc-tl-has-animation');
+
+		if (holder.length && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+			holder.each(function () {
+				// Items are hidden only when script is loaded, so content is visible without javascript
+				$(this).find('.evc-timeline-item').each(function () {
+					var item = $(this);
+
+					item.addClass('evc-tl-hidden');
+
+					evc.evcIsInViewport.check(item, function () {
+						item.removeClass('evc-tl-hidden');
+					});
 				});
 			});
 		}
